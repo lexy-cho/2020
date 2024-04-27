@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconFont.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#btndiagram').click(function(){
+					$('.diagramPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 구성도 파일업로드 -->
+		<div class="pop diagramPop" style="display:none;">
+			<h1>구성도 신규등록</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="100" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>제목</th>
+								<td><input type="text" class="wFull"></td>
+							</tr>
+							<tr>
+								<th>이미지파일</th>
+								<td>
+									<div class="fileex_back mr5">
+										<input type="file" class="fileex">
+										<span class="btnSet imgup"><label>File Search</label></span>
+									</div>
+									<div class="imgselected mr5"><span>samplefile.jpg<input type="button" value="삭제" class="imgdelete"></span></div>
+								</td>
+							</tr>
+							<tr>
+								<th>원본파일<br/>(다중선택)</th>
+								<td>
+									<div class="fileex_back mr5">
+										<input type="file" class="fileex">
+										<span class="btnSet imgup"><label>File Search</label></span>
+									</div>
+									<div class="imgselected mr5"><span>samplefile.ppt <input type="button" value="삭제" class="imgdelete"></span></div>
+									<div class="imgselected mr5"><span>samplefile.ppt <input type="button" value="삭제" class="imgdelete"></span></div>
+								</td>
+							</tr>
+							<tr>
+								<th>메모</th>
+								<td>
+									<textarea class="wFull"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" onclick="location.href='infra_infrastructure.html';" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li class="on"><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="infra_server_list.html">GMK 서버정보</a></span></li>
+							<li><span><a href="infra_network.html">네트워크 구성</a></span></li>
+							<li><span><a href="infra_infrastructure.html">인프라 구성</a></span></li>
+							<li><span><a href="infra_backup.html">백업</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">인프라 관리</a></span>
+							<span>인프라 구성</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<select>
+										<option>제목</option>
+										<option>등록자</option>
+										<option>수정자</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>10개</option>
+										<option>20개</option>
+										<option>30</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="60" />
+										<col width="60" />
+										<col />
+										<col width="200" />
+										<col width="100" />
+										<col width="180" />
+										<col width="100" />
+										<col width="180" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox"><label></label>
+											</th>
+											<th>NO.</th>
+											<th>제목</th>
+											<th>이미지파일</th>
+											<th>등록자</th>
+											<th>등록일자</th>
+											<th>수정자</th>
+											<th>수정일자</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td>1</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도 ver0.5</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td>2</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도 ver0.4</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"><label></label></td>
+											<td>3</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도 ver0.3</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td>4</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도 ver0.2</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td>5</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도 ver0.1</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td>6</td>
+											<td class="subject"><a href="infra_infrastructure.html">인프라 구성도</a></td>
+											<td><a href="" download >samplefile.jpg</a></td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left">
+										<button class="btnColor bGreen">선택삭제</button>
+									</div>
+									<span class="btnBox">
+										<a class="btnColor bRed" id="btndiagram">신규 등록</a>
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

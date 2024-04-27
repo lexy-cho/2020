@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/css/ui.jqgrid.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script>
+			$.jgrid.no_legacy_api = true;
+			$.jgrid.useJSON = true;
+			var lastsel1;
+			var lastsel2;
+			var lastsel3;
+			$(document).ready(function(){
+				$(".btnPdfMade").click(function(){
+					$(".btnPreviewPdf").show();
+				});
+				$('.btnPreviewPdf').click(function() {
+					$('#blind_wrap').show();
+					$('.previewPdfPop').show();
+				}); // pdf 미리보기 팝업
+				$('.pop .pbtn button').click(function() {
+					$('.pop').hide();
+					$('#blind_wrap').hide();
+				}); // 팝업 닫기
+				$(".tabNav li button").click(function () {
+				    $(".tabNav li").removeClass("on");
+				    $(this).parent("li").addClass("on");
+				    var activeTab = $(this).attr("data-name");
+				    $('.tabData').hide();
+				    $('.tData' + activeTab).show();
+				});
+				$('#openTab').click(function(){
+					$('.cTabWrap').show();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li class="on"><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="report_monthly_list.html">월간 보고서</a></span></li>
+							<li><span><a href="report_weekly_list.html">주간 보고서</a></span></li>
+							<li><span><a href="report_daily_list.html">일일 보고서</a></span></li>
+							<li><span><a href="report_development_request_list.html">개발 요청 이력 보고서</a></span></li>
+							<li><span><a href="report_development_list.html">개발 이력</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">보고서 관리</a></span>
+							<span>일일 보고서</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="100" />
+										<col width="300" />
+										<col width="100" />
+										<col width="300" />
+										<col width="100" />
+										<col width="300" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>보고 일자</th>
+											<td>
+												<input type="text" readonly="" class="cal" />
+											</td>
+											<th>작성자</th>
+											<td>홍길동</td>
+											<th>작성 일시</th>
+											<td>2020-06-15 00:00</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox tCenter">
+
+									<button class="btnColor bGray btnPdfMade">PDF 생성</button>
+									<button class="btnColor bGray btnPreviewPdf" style="display:none;">PDF 미리보기</button>
+								</div>
+							</div>
+							<!---->
+							<!-- tab-wrap -->
+							<div class="cTabWrap">
+								<!-- tab -->
+								<div class="tabBack mt10">
+									<div class="tabNav">
+										<nav>
+											<ul>
+												<li class="on"><button data-name="0">시스템 점검</button></li>
+												<li><button data-name="1">계약서 현황/실적 & 기타</button></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<!--// tab -->
+								<div class="tabLayout">
+									<div class="tabData tData0" style="display:block;">
+										<div class="tabBox">
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="150" />
+														<col />
+														<col width="200" />
+														<col width="200" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th colspan="2" class="tLeft">저장공간 확인</th>
+															<th>Used</th>
+															<th>Used rate</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><strong>File Server</strong></td>
+															<td>Phantom JS 스크린샷</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> GB / <input type="text" class="w50 tRight" value="260" /> GB</td>
+															<td class="tRight"><input type="text" class="w50 tRight" /> %</td>
+														</tr>
+														<tr>
+															<td><strong>File Server</strong></td>
+															<td>계약서 PDF 파일</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> GB / <input type="text" class="w50 tRight" value="260" /> TB</td>
+															<td class="tRight"><input type="text" class="w50 tRight" /> %</td>
+														</tr>
+														<tr>
+															<td><strong>Module Server</strong></td>
+															<td>타임스탬프 PDF 파일</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> GB / <input type="text" class="w50 tRight" value="260" /> GB</td>
+															<td class="tRight"><input type="text" class="w50 tRight" /> %</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="150" />
+														<col width="130" />
+														<col />
+														<col width="200" />
+														<col width="200" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th colspan="3" class="tLeft">서버 상태 확인 (바이러스 점검)</th>
+															<th>바이러스 건수</th>
+															<th>점검일시</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><strong>web server #1</strong></td>
+															<td>112.175.149.38</td>
+															<td>/cont01 아래 대상</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>web server #2</strong></td>
+															<td>112.175.149.39</td>
+															<td>/cont01 아래 대상</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>DB server</strong></td>
+															<td>112.175.149.41</td>
+															<td>/root (/dev, /run, /sys, /home 제외)</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>File Server</strong></td>
+															<td>112.175.149.34</td>
+															<td>/data/server 아래 대상</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>Module Server</strong></td>
+															<td>112.175.149.37</td>
+															<td>/home/timestamp 아래 대상<br/>/home/kukudocs 아래 대상
+															</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>Dev server</strong></td>
+															<td>112.175.149.45</td>
+															<td>/cont01 아래 대상</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col />
+														<col width="200" />
+														<col width="200" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th class="tLeft">모듈 상태 확인 (모듈 서버)</th>
+															<th>상태</th>
+															<th>점검일시</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><strong>Torpedo Bizframe TSA module</strong></td>
+															<td class="tCenter">
+																<span class="prl10"><input type="radio" value="A" name="ok1"> 정상</span>
+																<span class="prl10"><input type="radio" value="B" name="ok1"> 비정상</span>
+															</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td><strong>Kukudocs PDF viewer module</strong></td>
+															<td class="tCenter">
+																<span class="prl10"><input type="radio" value="A" name="ok2"> 정상</span>
+																<span class="prl10"><input type="radio" value="B" name="ok2"> 비정상</span>
+															</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col />
+														<col width="200" />
+														<col width="200" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th class="tLeft">웹 취약성 확인</th>
+															<th>취약성 건수</th>
+															<th>점검일시</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>
+																<strong>Critical Vulnerabilities</strong>
+															</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<strong>High Vulnerabilities</strong>
+															</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<strong>Medium Vulnerabilities</strong>
+															</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+														<tr>
+															<td>
+																<strong>Low Vulnerabilities</strong>
+															</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td class="tRight">
+																<input type="text" readonly="" class="cal" />
+																<input type="text" class="w50 tCenter" placeholder="00:00" />
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData1">
+										<div class="tabBox">
+											<strong class="wFull">계약서 현황/실적 <button class="btnColor bGray right">데이터 가져오기</button></strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="200" />
+														<col width="200" />
+														<col width="200" />
+														<col width="200" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th>항목</th>
+															<th>건수 (전일 24:00)</th>
+															<th>항목</th>
+															<th>건수 (전일 24:00)</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>앱 다운로드 건수</td>
+															<td class="tRight">
+																Android <input type="text" class="w50 tRight" value="0" /> 건 /
+																iOS <input type="text" class="w50 tRight" value="0" /> 건
+															</td>
+															<td>계약서 전송 건수</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+														</tr>
+														<tr>
+															<td>계약서 인도 건수</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td>타임스탬프 건수</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건</td>
+														</tr>
+														<tr>
+															<td>빠른문의 건수 (대응/접수)</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건 / <input type="text" class="w50 tRight" value="0" /> 건</td>
+															<td>헬프데스크 건수 (대응/접수)</td>
+															<td class="tRight"><input type="text" class="w50 tRight" value="0" /> 건 / <input type="text" class="w50 tRight" value="0" /> 건</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<strong>기타(진행 중 이슈)</strong>
+											<textarea class="wFull h200" placeholder="현재 업무 진행중인 이슈 사항에 대해 기입합니다. 해당 이슈 종료 시 삭제합니다."></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="btnBox tCenter">
+								<button class="btnColor bSky">저장</button>
+								<button class="btnColor bGray" onclick="location.href='report_daily_list.html'">취소</button>
+								<button class="btnColor bGray" onclick="location.href='report_daily_list.html'">목록</button>
+							</div>
+							<!-- //tab-wrap -->
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!-- pdf 미리보기 팝업  -->
+			<div class="pop previewPdfPop" style="display:none;">
+				<h1>Pdf 미리보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img src="format/images/bg/bg_weeklyReport01.png" alt="주간보고서 1page"/>
+					<img src="format/images/bg/bg_weeklyReport02.png" alt="주간보고서 2page"/>
+					<img src="format/images/bg/bg_weeklyReport03.png" alt="주간보고서 3page"/>
+					<img src="format/images/bg/bg_weeklyReport04.png" alt="주간보고서 4page"/>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+				</div>
+			</div>
+			<!---->
+			<div id="blind_wrap" style="display:none;"></div>
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

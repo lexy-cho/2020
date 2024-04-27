@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<style>
+			#wrap {padding:10px;}
+			em {font-size:12px;color:#666;}
+		</style>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- font style -->
+				<section>
+					<h1>Font style</h1>
+					<article>
+						<h1><img src="images/img_tit_01.png" alt="CHEVROLET" style="height:42px;vertical-align:middle;" /> <em>각 화면별 상단은 이미지</em></h1>
+						<h2>숨은 타이틀일 경우 class="hiddenTitle" 추가</h2>
+						<h3>12345678910</h3>
+						<strong>12345678910</strong>
+						<p>12345678910</p>
+					</article>
+				</section>
+				<br/><br/>
+
+				<!-- button style -->
+				<section>
+					<h1>Button style</h1>
+					<article>
+						<h2>Top Header Button</h2>
+						<div class="topGnb">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnGuide"><a href="#">Guide View</a></span>
+							<span class="hbtnConfirm"><a href="#">계약서확인</a></span>
+							<span class="hbtnStore"><a href="#">임시저장</a></span>
+						</div>
+					</article>
+					<article>
+						<h2>Tab Button</h2>
+						<div class="tab grid2">
+							<span class="on"><a href="#none">탭1</a></span>
+							<span><a href="#none">탭2</a></span>
+						</div><br/>
+						<div class="tab grid3">
+							<span class="on"><a href="#none">탭1</a></span>
+							<span><a href="#none">탭2</a></span>
+							<span><a href="#none">탭3</a></span>
+						</div><br/>
+						<div class="tab grid4">
+							<span class="on"><a href="#none">탭1</a></span>
+							<span><a href="#none">탭2</a></span>
+							<span><a href="#none">탭3</a></span>
+							<span><a href="#none">탭4</a></span>
+						</div>
+					</article>
+				</section>
+				<br/><br/>
+
+				<!-- component style -->
+				<section>
+					<h1>Component style</h1>
+					<article>
+						<span class="checkSet"><input type="checkbox" id="c_01" checked /><label for="c_01">text 영역</label></span><br/>
+						<span class="checkSet"><input type="checkbox" id="c_02" /><label for="c_02">text 영역</label></span><br/>
+						<span class="checkSet"><input type="checkbox" id="c_03" disabled="disabled" /><label for="c_03">text 영역</label></span>
+					</article>
+				</section>
+				<br/><br/>
+
+				<!-- Icon style -->
+				<section>
+					<h1>Icon style</h1>
+					<article>
+						12345678910
+					</article>
+				</section>
+				<br/><br/>
+
+				<!-- layout style -->
+				<section>
+					<h1>Layout style</h1>
+					<article>
+						<div class="shadowBox">
+							<h3><strong>매도인</strong></h3>
+							<div class="box">
+								12345678910<br/>12345678910
+							</div>
+						</div>
+						<div class="lineBox mt13">
+							<h3><strong>매도인</strong></h3>
+							<div class="box">
+								12345678910<br/>12345678910
+							</div>
+						</div>
+					</article>
+				</section>
+				<br/><br/>
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+		  
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		</script>
+	</body>
+</html>

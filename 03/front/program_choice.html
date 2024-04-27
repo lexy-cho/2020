@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>  
+		<script type="text/javascript" src="js/common.js"></script> 
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 프로그램선택 -->
+			<div class="programChoice swiper-container">
+				<div class="pChoiceBTn"><div class="swiper-button-prev"></div></div><!-- 2017-02-02 :: 이전버튼 위치 변경 -->
+				<div class="swiper-wrapper">
+					<div class="swiper-slide pgChoice">
+						<div class="popList">
+							<ul>
+								<li><span>쉐보레 콤보 할부구매 프로그램</span></li>
+								<li><span>기본할인</span></li>
+								<li><span>무이자</span></li>
+								<li><span>쉐보레 로열티 재구매/법인 재구매/오토카드 프로그램</span></li>
+								<li class="selected"><span>쉐보레 콤보 할부구매 프로그램</span></li>
+								<li><span>기본할인</span></li>
+								<li><span>무이자</span></li>
+								<li><span>쉐보레 로열티 재구매/법인 재구매/오토카드 프로그램</span></li>
+								<li><span>쉐보레 콤보 할부구매 프로그램</span></li>
+								<li><span>기본할인</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-slide dtChoice">
+						<div class="pgSelected"><p>쉐보레 로열티 재구매/법인 재구매/오토카드 프로그램</p></div>
+						<strong class="tt">할인/할부 선택</strong>
+						<div class="popList">
+							<ul>
+								<li><span>70만원</span></li>
+								<li class="selected"><span>맥북(노트북)</span></li>
+								<li><span>쉐보레 콤보할부 (4.5%, 36/24/12)</span></li>
+								<li><span>쉐보레 콤보할부 (4.9%, 60/48)</span></li>
+							</ul>
+						</div>
+						<div class="popBtn">
+							<div class="back">
+								<a class="btnpSet">취소</a>
+								<a class="btnpSet darkGray">확인</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 2017-02-02 :: 기존 타이틀 삭제 -->
+			</div>
+			<!-- //프로그램선택 -->
+
+			<script>
+			var swiper10 = new Swiper('.programChoice', {
+				prevButton: '.pChoiceBTn .swiper-button-prev',
+				autoHeight: true
+			});
+			</script>
+		</div>
+	</body>
+</html>

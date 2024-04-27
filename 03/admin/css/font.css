@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: font.css
+* @Version: 1.0
+* @Create Date: 2020-11-12
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* ====================== */
+/* TT UI library */
+/* ====================== */
+/* ===== Webfont ===== */
+@font-face {
+ font-family: 'LOUIS';
+ font-weight: 300;
+ src: url('../font/LOUISCONDENSEDDEMI.eot');
+ src: url('../font/LOUISCONDENSEDDEMI.eot?#iefix') format('embedded-opentype'),
+      url('../font/LOUISCONDENSEDDEMI.woff') format('woff'),
+      url('../font/LOUISCONDENSEDDEMI.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'LOUIS';
+ font-weight: 400;
+ src: url('../font/LOUISCONDENSEDREGULAR.eot');
+ src: url('../font/LOUISCONDENSEDREGULAR.eot?#iefix') format('embedded-opentype'),
+      url('../font/LOUISCONDENSEDREGULAR.woff') format('woff'),
+      url('../font/LOUISCONDENSEDREGULAR.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'LOUIS';
+ font-weight: 400;
+ font-style: italic;
+ src: url('../font/LOUISITALIC.eot');
+ src: url('../font/LOUISITALIC.eot?#iefix') format('embedded-opentype'),
+      url('../font/LOUISITALIC.woff') format('woff'),
+      url('../font/LOUISITALIC.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'LOUIS';
+ font-weight: 700;
+ src: url('../font/LOUISBOLD.eot');
+ src: url('../font/LOUISBOLD.eot?#iefix') format('embedded-opentype'),
+      url('../font/LOUISBOLD.woff') format('woff'),
+      url('../font/LOUISBOLD.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'LOUIS';
+ font-weight: 700;
+ font-style: italic;
+ src: url('../font/LOUISBOLDITALIC.eot');
+ src: url('../font/LOUISBOLDITALIC.eot?#iefix') format('embedded-opentype'),
+      url('../font/LOUISBOLDITALIC.woff') format('woff'),
+      url('../font/LOUISBOLDITALIC.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 100;
+ src: url('../font/NotoSans-Thin.eot');
+ src: url('../font/NotoSans-Thin.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-Thin.woff') format('woff'),
+      url('../font/NotoSans-Thin.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 300;
+ src: url('../font/NotoSans-light.eot');
+ src: url('../font/NotoSans-light.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-light.woff') format('woff'),
+      url('../font/NotoSans-light.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 400;
+ src: url('../font/NotoSans-regular.eot');
+ src: url('../font/NotoSans-regular.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-regular.woff') format('woff'),
+      url('../font/NotoSans-regular.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 500;
+ src: url('../font/NotoSans-medium.eot');
+ src: url('../font/NotoSans-medium.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-medium.woff') format('woff'),
+      url('../font/NotoSans-medium.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 700;
+ src: url('../font/NotoSans-bold.eot');
+ src: url('../font/NotoSans-bold.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-bold.woff') format('woff'),
+      url('../font/NotoSans-bold.ttf') format('truetype');
+}
+@font-face {
+ font-family: 'NotoSansKR';
+ font-weight: 900;
+ src: url('../font/NotoSans-Black.eot');
+ src: url('../font/NotoSans-Black.eot?#iefix') format('embedded-opentype'),
+      url('../font/NotoSans-Black.woff') format('woff'),
+      url('../font/NotoSans-Black.ttf') format('truetype');
+}

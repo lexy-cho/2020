@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li class="on"><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<!-- <li><span><a href="app_main.html">APP 메인 관리</a></span></li> -->
+							<li><span><a href="notice_list.html">공지사항</a></span></li>
+							<li><span><a href="faq_list.html">FAQ</a></span></li>
+							<li><span><a href="push_list.html">Push Message</a></span></li>
+							<li><span><a href="menu_setting_list.html">메뉴설정</a></span></li>
+							<!--<li><span><a href="guide_list.html">가이드</a></span></li> -->
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">컨텐츠 관리</a></span>
+							<span>메뉴설정</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+						 	<div class="tab2 mt10">
+								<span class="on"><input type="button" value="메인메뉴" data-name="tabCon1"></span>
+								<span><input type="button" value="SNB" data-name="tabCon2"></span>
+							</div>
+
+							<!-- Mainmenu tab1 --> <!-- 1Group -->
+							<div class="tabCon tabCon1 databox-line mt10">
+								<!-- list -->
+								<h4 id="totBox">1Group</h4>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="50" />
+										<col width="80" />
+										<col width="80" />
+										<col width="100" />
+										<col width="400" />
+										<col width="200" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox"/></th>
+											<th>No</th>
+											<th>카테고리 <input type="button" value="up" class="sort sup" /></th>
+											<th>Class <input type="button" value="up" class="sort sup" /></th>
+											<th>위치 <input type="button" value="up" class="sort sup" /></th>
+											<th>URL</th>
+											<th>최종 수정 일시 <input type="button" value="up" class="sort sup" /></th>
+											<th>노출여부 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>1</td>
+											<td>견적서</td>
+											<td>snb3</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/estimate_introduction.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/estimate_introduction.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>2</td>
+											<td>신규 계약서</td>
+											<td>snb4</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/contract_privacy.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/contract_privacy.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>3</td>
+											<td>진행중인 계약</td>
+											<td>snb2</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/contract_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/contract_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>4</td>
+											<td>증빙서류</td>
+											<td>snb5</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/document_contract.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/document_contract.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>5</td>
+											<td>선포인트 신청</td>
+											<td>snb6</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/point_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/point_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>6</td>
+											<td>하이패스</td>
+											<td>snb7</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/hipass_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/hipass_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuAdd1" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td><input type="text" class="wFull"/></td>
+											<td><input type="text" class="wFull"/></td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><input type="text" class="wFull" /></td>
+											<td>-</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuCon1" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td>카테고리</td>
+											<td>snb0</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/main.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/main.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<span>선택 항목</span>
+										<span class="positionSet">
+											<span class="lineUp">위로</span>
+											<span class="lineDown">아래로</span>
+											<span class="lineDelete">삭제</span>
+										</span>
+									</div>
+									<span class="btnBox btnBox1">
+										<button class="btnColor bBlue">메뉴추가</button>
+										<button class="btnColor bRed">저장</button>
+									</span>
+								</div>
+							</div>
+
+							<!-- Mainmenu tab1 --> <!-- 2Group -->
+							<div class="tabCon tabCon1 databox-line mt10">
+								<!-- list -->
+								<h4 id="totBox">2Group</h4>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="50" />
+										<col width="80" />
+										<col width="80" />
+										<col width="100" />
+										<col width="400" />
+										<col width="200" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox"/></th>
+											<th>No</th>
+											<th>카테고리 <input type="button" value="up" class="sort sup" /></th>
+											<th>Class <input type="button" value="up" class="sort sup" /></th>
+											<th>위치 <input type="button" value="up" class="sort sup" /></th>
+											<th>URL</th>
+											<th>최종 수정 일시 <input type="button" value="up" class="sort sup" /></th>
+											<th>노출여부 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>1</td>
+											<td>판매조건</td>
+											<td>snb8</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/benefit.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/benefit.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>2</td>
+											<td>전차종가격</td>
+											<td>snb9</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/car_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/car_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>3</td>
+											<td>이벤트</td>
+											<td>snb10</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/event.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/event.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>4</td>
+											<td>카달로그</td>
+											<td>snb11</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/catalog.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/catalog.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>5</td>
+											<td>가이드북</td>
+											<td>snb12</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/guideBook.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/guideBook.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>6</td>
+											<td>FAQ</td>
+											<td>snb13</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/faq.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/faq.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuAdd2" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td><input type="text" class="wFull"/></td>
+											<td><input type="text" class="wFull"/></td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><input type="text" class="wFull" /></td>
+											<td>-</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuCon2" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td>카테고리</td>
+											<td>snb0</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/main.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/main.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<span>선택 항목</span>
+										<span class="positionSet">
+											<span class="lineUp">위로</span>
+											<span class="lineDown">아래로</span>
+											<span class="lineDelete">삭제</span>
+										</span>
+									</div>
+									<span class="btnBox btnBox2">
+										<button class="btnColor bBlue">메뉴추가</button>
+										<button class="btnColor bRed">저장</button>
+									</span>
+								</div>
+							</div>
+
+							<!-- SNB tab2 --> <!-- 1Group -->
+							<div class="tabCon tabCon2 databox-line mt10">
+								<!-- list -->
+								<h4 id="totBox">1Group</h4>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="50" />
+										<col width="80" />
+										<col width="80" />
+										<col width="100" />
+										<col width="400" />
+										<col width="200" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox"/></th>
+											<th>No</th>
+											<th>카테고리 <input type="button" value="up" class="sort sup" /></th>
+											<th>Class <input type="button" value="up" class="sort sup" /></th>
+											<th>위치 <input type="button" value="up" class="sort sup" /></th>
+											<th>URL</th>
+											<th>최종 수정 일시 <input type="button" value="up" class="sort sup" /></th>
+											<th>노출여부 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>1</td>
+											<td>견적서</td>
+											<td>snb3</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/estimate_introduction.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/estimate_introduction.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>2</td>
+											<td>신규 계약서</td>
+											<td>snb4</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/contract_privacy.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/contract_privacy.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>3</td>
+											<td>진행중인 계약</td>
+											<td>snb2</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/contract_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/contract_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>4</td>
+											<td>증빙서류</td>
+											<td>snb5</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/document_contract.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/document_contract.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>5</td>
+											<td>선포인트 신청</td>
+											<td>snb6</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/point_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/point_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>6</td>
+											<td>하이패스</td>
+											<td>snb7</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/hipass_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/hipass_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuAdd3" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td><input type="text" class="wFull"/></td>
+											<td><input type="text" class="wFull"/></td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><input type="text" class="wFull" /></td>
+											<td>-</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuCon3" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td>카테고리</td>
+											<td>snb0</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/main.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/main.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<span>선택 항목</span>
+										<span class="positionSet">
+											<span class="lineUp">위로</span>
+											<span class="lineDown">아래로</span>
+											<span class="lineDelete">삭제</span>
+										</span>
+									</div>
+									<span class="btnBox btnBox3">
+										<button class="btnColor bBlue">메뉴추가</button>
+										<button class="btnColor bRed">저장</button>
+									</span>
+								</div>
+							</div>
+
+							<!-- SNB tab2 --> <!-- 2Group -->
+							<div class="tabCon tabCon2 databox-line mt10">
+								<!-- list -->
+								<h4 id="totBox">2Group</h4>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="50" />
+										<col width="80" />
+										<col width="80" />
+										<col width="100" />
+										<col width="400" />
+										<col width="200" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox"/></th>
+											<th>No</th>
+											<th>카테고리 <input type="button" value="up" class="sort sup" /></th>
+											<th>Class <input type="button" value="up" class="sort sup" /></th>
+											<th>위치 <input type="button" value="up" class="sort sup" /></th>
+											<th>URL</th>
+											<th>최종 수정 일시 <input type="button" value="up" class="sort sup" /></th>
+											<th>노출여부 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>1</td>
+											<td>판매조건</td>
+											<td>snb8</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/benefit.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/benefit.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>2</td>
+											<td>전차종가격</td>
+											<td>snb9</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/car_list.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/car_list.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>3</td>
+											<td>이벤트</td>
+											<td>snb10</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/event.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/event.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>4</td>
+											<td>카달로그</td>
+											<td>snb11</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/catalog.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/catalog.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>5</td>
+											<td>가이드북</td>
+											<td>snb12</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/guideBook.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/guideBook.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>6</td>
+											<td>FAQ</td>
+											<td>snb13</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/faq.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/faq.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuAdd4" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td><input type="text" class="wFull"/></td>
+											<td><input type="text" class="wFull"/></td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><input type="text" class="wFull" /></td>
+											<td>-</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr class="menuCon4" style="display:none;">
+											<td><input type="checkbox"/></td>
+											<td>7</td>
+											<td>카테고리</td>
+											<td>snb0</td>
+											<td>
+												<select class="wFull">
+													<option selected>내부</option><option>외부</option>
+												</select>
+											</td>
+											<td><a href="http://cyan.think-tree.com/gmk/ver2/main.html" target="_blank">http://cyan.think-tree.com/gmk/ver2/main.html</a></td>
+											<td>YYYY-MM-DD 00:00</td>
+											<td><span class="ocase"><input type="checkbox" checked><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<span>선택 항목</span>
+										<span class="positionSet">
+											<span class="lineUp">위로</span>
+											<span class="lineDown">아래로</span>
+											<span class="lineDelete">삭제</span>
+										</span>
+									</div>
+									<span class="btnBox btnBox4">
+										<button class="btnColor bBlue">메뉴추가</button>
+										<button class="btnColor bRed">저장</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<script type="text/javascript">
+			$(document).ready(function() {
+				$('.tabCon1 .btnBox1 .bBlue').click(function() {
+					$('.menuAdd1').show();
+					$('.menuCon1').hide();
+					});
+				$('.tabCon1 .btnBox2 .bBlue').click(function() {
+					$('.menuAdd2').show();
+					$('.menuCon2').hide();
+					});
+				$('.tabCon1 .btnBox1 .bRed').click(function() {
+					$('.menuCon1').show();
+					$('.menuAdd1').hide();
+					});
+				$('.tabCon1 .btnBox2 .bRed').click(function() {
+					$('.menuCon2').show();
+					$('.menuAdd2').hide();
+					});
+
+				$('.tabCon2 .btnBox3 .bBlue').click(function() {
+					$('.menuAdd3').show();
+					$('.menuCon3').hide();
+					});
+				$('.tabCon2 .btnBox4 .bBlue').click(function() {
+					$('.menuAdd4').show();
+					$('.menuCon4').hide();
+					});
+				$('.tabCon2 .btnBox3 .bRed').click(function() {
+					$('.menuCon3').show();
+					$('.menuAdd3').hide();
+					});
+				$('.tabCon2 .btnBox4 .bRed').click(function() {
+					$('.menuCon4').show();
+					$('.menuAdd4').hide();
+					});
+				});
+			</script>
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.pwOpen').click(function(){
+					$('.pwPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				}); // 하단 정보 입력 팝업 열기
+			})
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 비밀번호 변경 -->
+		<div class="pop pwPop" style="display:none;">
+			<h1>비밀번호 변경</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+						<colgroup>
+							<col width="170" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>기본 비밀번호</th>
+								<td>
+									<input type="password" />
+								</td>
+							</tr>
+							<tr>
+								<th>새로운 비밀번호</th>
+								<td>
+									<input type="password" />
+								</td>
+							</tr>
+							<tr>
+								<th>새로운 비밀번호 확인</th>
+								<td>
+									<input type="password" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li class="on"><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<!-- <li><span><a href="emergency.html">긴급배치</a></span></li> -->
+							<li><span><a href="manager_list.html">관리자</a></span></li>
+							<li><span><a href="manager_history.html">관리자 이력</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">환경설정</a></span>
+							<span>관리자</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="180" />
+										<col />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>* 이름</th>
+											<td><input type="text" value="홍길동"/></td>
+										</tr>
+										<tr>
+											<th>* 사번 (아이디)</th>
+											<td><input type="text" value="170301"></td>
+										</tr>
+										<tr>
+											<th>비밀번호</th>
+											<td>
+												<!--  <em>* 비밀번호 초기화 했을 경우, 사번(아이디)와 동일하게 변경됩니다.</em>  -->
+											</td>
+										</tr>
+										<tr>
+											<th>* 이메일</th>
+											<td>
+												<input id="email" name="email" type="text" value="abcd" class="w100"/>@<input id="emailPath" name="emailPath" value="think-tree@co.kr" type="text" class="w100"/>
+												<select id="emailUrl" name="emailUrl">
+													<option>직접 입력</option>
+													<option value="naver.com"> naver.com</option>
+													<option value="daum.net"> daum.net</option>
+													<option value="gmail.com"> gmail.com</option>
+													<option value="yahoo.co.kr"> yahoo.co.kr</option>
+													<option value="empal.com"> empal.com</option>
+													<option value="unitel.com"> unitel.com</option>
+													<option value="korea.com"> korea.com</option>
+													<option value="chol.com"> chol.com</option>
+													<option value="paran.com"> paran.com</option>
+													<option value="freechal.com"> freechal.com</option>
+													<option value="hanmail.com"> hanmail.com</option>
+													<option value="hotmail.com"> hotmail.com</option>
+													<option value="nate.com"> nate.com</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>핸드폰 번호</th>
+											<td><input type="text" value="000-0000-0000"/></td>
+										</tr>
+										<tr>
+											<th>직통 번호</th>
+											<td><input type="text" value="00-0000-0000"/></td>
+										</tr>
+										<tr>
+											<th>권한관리</th>
+											<td>
+												<input type="text" value="최고관리자" readonly="readonly">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+							</div>
+							<div class="btnLayout">
+									<div class="right">
+										<span class="btnSet list"><a href="/admin/manager/list">목록</a></span>
+										<span class="btnSet save"><input id="saveBtn" type="button" value="저장"></span>
+										<span class="btnSet delete"><input id="delBtn" type="button" value="삭제"></span>
+									</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

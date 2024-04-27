@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>GMK S-Work 월간 보고서</title>
+		<link rel="stylesheet" type="text/css" href="../css/format.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="https://code.highcharts.com/highcharts.src.js"></script>
+		<script type="text/javascript" src="https://code.highcharts.com/highcharts-3d.js"></script>
+	</head>
+	<body style="/*background: url('../images/bg/bg_monthlyReport_2.png') no-repeat;*/background-size:1024px auto;">
+		<div id="wrap" class="a4Size gmkMonthlyReport">
+			<header>
+				<div id="header">
+					<div>
+						<dl>
+							<dt>문서번호</dt>
+							<dd>GM_M201906</dd>
+							<dt>제목</dt>
+							<dd>GMK S-Work 월간 보고서(6월)</dd>
+						</dl>
+						<dl>
+							<dt>작성일</dt>
+							<dd>2019.07.01</dd>
+							<dt>작성자</dt>
+							<dd>오유진</dd>
+						</dl>
+						<dl>
+							<dt>제출일</dt>
+							<dd>2019.07.01</dd>
+							<dt>제출처</dt>
+							<dd>GM Korea</dd>
+						</dl>
+					</div>
+					<span><strong>대외비</strong></span>
+				</div>
+			</header>
+			<section>
+				<div id="container">
+					<!--//-->
+					<article>
+						<div class="contents">
+							<!------>
+							<div class="monthlyReport02">
+								<!------>
+								<div class="conTit">
+									<h2>Ⅰ. S-Work DEVICE별 다운로드 현황</h2>
+									<strong>2019년 7월 1일 기준으로 2019년 6월 1일부터 6월 30일 까지 <em>6월 설치 현황</em></strong>
+								</div>
+								<div class="squareList">
+									<ul>
+										<li>
+											<dl>
+												<dt>총 설치 건수</dt>
+												<dd>231건</dd>
+											</dl>
+											<ul>
+												<li>
+													<dl>
+														<dt>안드로이드</dt>
+														<dd>140건</dd>
+													</dl>
+												</li>
+												<li>
+													<dl>
+														<dt>IOS</dt>
+														<dd>91건</dd>
+													</dl>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<span class="ftRed">* 신규 설치는 기계 변경 또는 공용기기 설치 건수 포함입니다.</span>
+								<div class="graphBox">
+									<div class="graphImage" id="graphImage1">
+										<script>
+										Highcharts.chart('graphImage1', {
+											chart: {
+												backgroundColor: '#fff',
+												height: 440,
+										        type: 'pie',
+										        options3d: {
+										            enabled: true,
+										            alpha: 60
+										        }
+										    },
+										    title: {
+										        text: '6월 설치건수',
+											    y: 40
+										    },
+											legend:{
+												layout: 'vertical',
+											    align: 'right',
+											    verticalAlign: 'middle',
+												itemMarginBottom: 10,
+												x: -40,
+												y: 40,
+												itemStyle: {
+													fontWeight: 'normal',
+													fontSize: '16px'
+										        }
+											},
+										    plotOptions: {
+										        pie: {
+										            allowPointSelect: true,
+										            cursor: 'pointer',
+										            depth: 35,
+										            dataLabels: {
+										                format: '{point.name}<br>{y}',
+														distance: -50,
+														style: {
+															fontWeight: 'normal',
+															fontSize: '15px'
+														}
+										            }
+										        }
+										    },
+										    series: [{
+										        type: 'pie',
+										        name: '기기',
+												showInLegend: true,
+										        data: [{
+													name: '안드로이드',
+													color: '#e7cf6f',
+													y: 140
+												}, {
+													name: 'IOS',
+													color: '#fae296',
+													y: 91
+												}]
+										    }]
+										});
+										</script>
+									</div>
+								</div>
+								<!------>
+							</div>
+							<!------>
+						</div>
+					</article>
+				</div>
+			</section>
+			<footer>
+				<div id="footer">
+					<div><span class="pageNum">2</span></div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

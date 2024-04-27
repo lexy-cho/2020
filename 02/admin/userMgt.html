@@ -1,0 +1,76 @@
+<script type="text/javascript">
+//<![CDATA[
+	/*global $ */
+	/*jslint browser: true, nomen: true */
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+	$(document).ready(function () {
+		var lastsel;
+		'use strict';
+		var mydata3 = [
+				{authority:'調査員', id:'0000001', name:'帝国　太郎１', belongs:'帝国データバンク東京支社', department:'調査第〇部◇課', email:'abc123@mail.tdb.co.jp', trash:'<button class="rowdelete">削除</button>'},
+				{authority:'運営者', id:'0000002', name:'帝国　太郎２', belongs:'帝国データバンク東京支社', department:'調査第〇部◇課', email:'def456@mail.tdb.co.jp', trash:'<button class="rowdelete">削除</button>'}
+			];
+		$("#list3").jqGrid({
+			datatype: 'local',
+			data: mydata3,
+			colNames: ['権限', 'ID (従業員ｺｰﾄﾞ)','氏名', '所属', '部署', 'メール', ''],
+			colModel: [
+				{name:'authority',index:'authority', width:20, align: 'center', sortable:false},
+				{name: 'id', index: 'id', width: 26, align: 'center', sortable:false},
+				{name: 'name', index: 'name', width: 50, align: 'center', sortable:false},
+				{name: 'belongs', index: 'belongs', width: 50, align: 'left', sortable:false},
+				{name: 'department', index: 'department', width: 50, align: 'left', sortable:false},
+				{name: 'email', index: 'email', width: 60, align: 'left',  sortable:false},
+				{name: 'trash', index: 'trash', width: 20, align: 'center', sortable:false},
+			],
+			loadComplete: function() {
+				//$("#list3 tr td input").css({"text-align" : "center !important"});
+            },
+			ondblClickRow: function(id){
+				if(id && id!==lastsel){
+					jQuery('#list3').jqGrid('restoreRow',lastsel);
+					jQuery('#list3').jqGrid('editRow',id,true);
+					lastsel=id;
+				}
+				$('.dimPop, .userPop.detailCase').show();
+			},
+			rowNum: 20,
+			rowList: [20, 50, 100, 200],
+			autowidth: true,
+			//pager: '#pager3',
+			gridview: true,
+			//multiselect: true,
+			rownumbers: true,
+			//sortname: 'id',
+			viewrecords: true,
+			sortorder: 'desc',
+			//caption: 'How to monitor changes on sortable rows',
+			height: 'auto'
+		});
+		$('.bottomline .red').click(function(){
+			$('.dimPop, .userPop.newCase').show();
+		});
+		$('.rowdelete').click(function(){
+			$("#alert15, .dimPop").show();
+		});
+	});
+//]]>
+</script>
+<div class="detail">
+	<!---->
+	<div class="btnLine">
+		<span class="totalNum">Total：2</span>
+	</div>
+	<!---->
+	<div class="jqGridSet wideRs">
+		<table id="list3"><tr><td></td></tr></table>
+	</div>
+	<!---->
+	<div class="btnLine bottomline">
+		<span class="left">
+			<button class="btnLN red" id="">新規ユーザの登録</button><!-- 2020-08-17 버튼명 변경 -->
+		</span>
+	</div>
+	<!---->
+</div>

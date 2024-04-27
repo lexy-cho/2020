@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconFont.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.botInfoOpen').click(function(){
+					$('.botInfoPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				}); // 하단 정보 입력 팝업 열기
+				$('.btnMultToggle').click(function(){
+					$('.mult').toggle();
+				});
+
+				$('.subject.tCenter, #btnServerPop1').click(function(){
+					$('.serverPop.case1').show();
+					$('#blind_wrap').show();
+				});
+				$('#btnServerPop2').click(function(){
+					$('.serverPop.case2').show();
+					$('#blind_wrap').show();
+				});
+				$('#btnServerPop3').click(function(){
+					$('.serverPop.case3').show();
+					$('#blind_wrap').show();
+				});
+
+				$('.btnToggleVert').click(function(){
+					$(this).parents('tr').next('tr').toggle();
+					$(this).parents('tr').next('tr').find('div').hide();
+					$(this).parents('tr').next('tr').find('.service1').show();
+				});
+				$('.btnToggleVert2').click(function(){
+					$(this).parents('tr').next('tr').toggle();
+					$(this).parents('tr').next('tr').find('div').hide();
+					$(this).parents('tr').next('tr').find('.service2').show();
+				});
+				$('.service2 a').click(function(){
+					$('.serverPop.case4').show();
+					$('#blind_wrap').show();
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 서버등록 / 서비스 등록 -->
+		<div class="pop serverPop case1" style="display:none;">
+			<h1>서버등록</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="150" />
+							<col />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>서버명</th>
+								<td colspan="2">
+									<input type="text" class="wFull" />
+								</td>
+							</tr>
+							<tr>
+								<th>아이피 (외부/내부)</th>
+								<td class="first">
+									<input type="text" class="wFull" placeholder="외부" />
+									<em>ex) 112.175.149.38</em>
+								</td>
+								<td class="last">
+									<input type="text" class="wFull" placeholder="내부" />
+									<em>ex) 100.1.2.85/24 brd 100.1.2.255</em>
+								</td>
+							</tr>
+							<tr>
+								<th rowspan="2">OS 버전 or DB</th>
+								<td class="first">
+									<input type="text" class="wFull" placeholder="종류" />
+									<em>ex) CentOS Linux</em>
+								</td>
+								<td class="last">
+									<input type="text" class="wFull" placeholder="버전" />
+									<em>ex) release 7.7.1908 (Core)</em>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									* OS버전은 커널까지 상세하게 입력하며, 데이터베이스의 경우 버전정보까지 입력합니다
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<div class="pop serverPop case2" style="display:none;">
+			<h1>서비스 등록</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="120" />
+							<col />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>서버명</th>
+								<td colspan="2">
+									<select class="wFull">
+										<option>Web Server(1)</option>
+										<option>Web Server(2)</option>
+										<option>DB Server</option>
+										<option>Module Server</option>
+										<option>File Server</option>
+										<option>DEV Server</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>서비스 종류</th>
+								<td class="dup">
+									<select>
+										<option>Tomcat</option>
+										<option>Apache</option>
+										<option>MariaDB</option>
+										<option>TimeStamp</option>
+										<option>Kukudocs</option>
+										<option>Fax</option>
+										<option>Sms</option>
+										<option>직접입력</option>
+									</select>
+									<input type="text" placeholder="직접입력" />
+								</td>
+							</tr>
+							<tr>
+								<th>서비스 버전</th>
+								<td >
+									<input type="text" class="wFull" />
+									<em>ex) Apache/2.4.6</em>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<div class="pop serverPop case3" style="display:none;">
+			<h1>계정 등록</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="100" />
+							<col width="200" />
+							<col width="100" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>서버명</th>
+								<td colspan="3">
+									<select class="wFull">
+										<option>Web Server(1)</option>
+										<option>Web Server(2)</option>
+										<option>DB Server</option>
+										<option>Module Server</option>
+										<option>File Server</option>
+										<option>DEV Server</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th>아이디</th>
+								<td>
+									<input type="text" class="wFull" placeholder="" />
+								</td>
+								<th>사용자</th>
+								<td>
+									<input type="text" class="wFull" placeholder="" />
+								</td>
+							</tr>
+							<tr>
+								<th>등록일</th>
+								<td>
+									<input type="text" readonly="" class="wFull cal" />
+								</td>
+								<th>비밀번호</th>
+								<td>
+									<input type="password" class="wFull" placeholder="영소문자, 숫자, 특수문자 포함 16자리 이상" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<div class="pop serverPop case4" style="display:none;">
+			<h1>비밀번호 변경</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="100" />
+							<col />
+							<col width="100" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>기존비밀번호</th>
+								<td>12345678910</td>
+								<th>등록일자</th>
+								<td>2020-06-15</td>
+							</tr>
+							<tr>
+								<th>신규 비밀번호</th>
+								<td>
+									<input type="password" class="wFull" placeholder="영소문자, 숫자, 특수문자 포함 16자리 이상" />
+								</td>
+								<th>비밀번호 확인</th>
+								<td>
+									<input type="password" class="wFull"  placeholder="영소문자, 숫자, 특수문자 포함 16자리 이상" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li class="on"><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="infra_server_list.html">GMK 서버정보</a></span></li>
+							<li><span><a href="infra_network.html">네트워크 구성</a></span></li>
+							<li><span><a href="infra_infrastructure.html">인프라 구성</a></span></li>
+							<li><span><a href="infra_backup.html">백업</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">인프라 관리</a></span>
+							<span>GMK 서버정보</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>10개</option>
+										<option>20개</option>
+										<option>30</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="60" />
+										<col width="60" />
+										<col width="60" />
+										<col width="60" />
+										<col width="200" />
+										<col width="200" />
+										<col width="200" />
+										<col width="400" />
+										<col width="100" />
+										<col width="180" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox"><label></label>
+											</th>
+											<th>서비스</th>
+											<th>계정</th>
+											<th>NO.</th>
+											<th>서버명</th>
+											<th>아이피 (외부)</th>
+											<th>아이피 (내부)</th>
+											<th>OS버전</th>
+											<th>수정담당자</th>
+											<th>수정일자</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>1</td>
+											<td class="subject tCenter"><a href="#">Web Server(1)</a></td>
+											<td>112.175.149.38</td>
+											<td>100.1.2.85/24 brd 100.1.2.255</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Tomcat</td>
+																<td class="tL">8.5.34</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Apache</td>
+																<td class="tL">Apache/2.4.6</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!---->
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>2</td>
+											<td class="subject tCenter"><a href="#">Web Server(2)</a></td>
+											<td>112.175.149.39</td>
+											<td>100.1.2.86/24 brd 100.1.2.255</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Tomcat</td>
+																<td class="tL">8.5.34</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Apache</td>
+																<td class="tL">Apache/2.4.6</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"><label></label></td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>3</td>
+											<td class="subject tCenter"><a href="#">DB Server</a></td>
+											<td>112.175.149.41</td>
+											<td>100.1.3.87/24 brd 100.1.3.255</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Tomcat</td>
+																<td class="tL">8.5.34</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Apache</td>
+																<td class="tL">Apache/2.4.6</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<tr>
+																<td>MariaDB</td>
+																<td class="tL">10.3.22-MariaDB</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!---->
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>4</td>
+											<td class="subject tCenter"><a href="#">Module Server</a></td>
+											<td>112.175.149.37</td>
+											<td>100.1.3.90/24 brd 100.1.3.255</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Tomcat</td>
+																<td class="tL">8.5.34</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Apache</td>
+																<td class="tL">Apache/2.4.6</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<tr>
+																<td>TimeStamp</td>
+																<td class="tL">BizframeTSA</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<tr>
+																<td>Kukudocs</td>
+																<td class="tL">Kukudocs</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!---->
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>5</td>
+											<td class="subject tCenter"><a href="#">File Server</a></td>
+											<td>112.175.149.34</td>
+											<td>100.1.3.88/26 brd 100.1.3.127</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Fax</td>
+																<td class="tL">magicFax</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Sms</td>
+																<td class="tL">bizClient</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!---->
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label>
+											</td>
+											<td><button class="btnToggleVert">+</button></td>
+											<td><button class="btnToggleVert2">+</button></td>
+											<td>6</td>
+											<td class="subject tCenter"><a href="#">DEV Server</a></td>
+											<td>112.175.149.45</td>
+											<td>100.1.3.89/24 brd 100.1.3.255</td>
+											<td>CentOS Linux release 7.7.1908 (Core)</td>
+											<td>오유진</td>
+											<td>2020-02-01 0:00</td>
+										</tr>
+										<tr style="display:none">
+											<td colspan="2"></td>
+											<td colspan="7" class="serviceDetail">
+												<div class="service1">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col />
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>서비스 종류</th>
+																<th>버전</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td>Tomcat</td>
+																<td class="tL">8.5.34</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td>Apache</td>
+																<td class="tL">Apache/2.4.6</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<tr>
+																<td>MariaDB</td>
+																<td class="tL">10.4.12-MariaDB</td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!---->
+												<div class="service2" style="display:none;">
+													<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+														<colgroup>
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="150">
+															<col width="100">
+														</colgroup>
+														<thead>
+															<tr>
+																<th>아이디</th>
+																<th>사용자</th>
+																<th>등록일자</th>
+																<th>비밀번호</th>
+																<th><button class="btnColor bPurple">일괄삭제</button></th>
+															</tr>
+														</thead>
+														<tbody>
+															<!--Loop-->
+															<tr>
+																<td class="tL">account1</td>
+																<td class="tL">관리자1</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+															<!--//Loop-->
+															<tr>
+																<td class="tL">account2</td>
+																<td class="tL">관리자2</td>
+																<td class="tCenter">2020-06-15</td>
+																<td class="tL"><a>*******</a></td>
+																<td><button class="btnColor bSky">삭제</button></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left">
+										<button class="btnColor bGreen">선택삭제</button>
+									</div>
+									<span class="btnBox">
+										<a class="btnColor bRed" id="btnServerPop1">서버 등록</a>
+										<a class="btnColor bRed" id="btnServerPop2">서비스 등록</a>
+										<a class="btnColor bRed" id="btnServerPop3">계정 등록</a>
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

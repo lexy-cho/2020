@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li class="on"><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">유지보수</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="150" />
+										<col />
+										<col width="100" />
+										<col />
+										<col width="100" />
+										<col />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>작업번호</th>
+											<td colspan="5"><input type="text" /></td>
+										</tr>
+										<tr>
+											<th>응대일자</th>
+											<td>
+												<input type="text" class="cal" />
+												<select>
+													<option>00시</option>
+													<option>01시</option>
+													<option>02시</option>
+												</select>
+											</td>
+											<th>완료일자</th>
+											<td>
+												<input type="text" class="cal" />
+												<select>
+													<option>00시</option>
+													<option>01시</option>
+													<option>02시</option>
+												</select>
+											</td>
+											<th>상 태</th>
+											<td>
+												<select class="wFull">
+													<option>진행중</option>
+													<option>완료</option>
+													<option>추가개발</option>
+													<option>진행불가</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>요청자</th>
+											<td>
+												<select class="wFull">
+													<option value="카매니저">카매니저</option>
+													<option value="GM">GM</option>
+													<option value="위즈빌">위즈빌</option>
+												</select>
+											</td>
+											<th>작업구분</th>
+											<td>
+												<select class="wFull">
+														<option>계약서 수정</option>
+														<option>계약서 작성</option>
+														<option>증빙서류</option>
+														<option>하이패스</option>
+														<option>판매조건</option>
+														<option>카탈로그</option>
+														<option>가이드북</option>
+														<option>포인트북</option>
+														<option>견적서</option>
+														<option>가이드</option>
+														<option>이벤트</option>
+														<option>선포인트 신청</option>
+														<option>전차종 가격</option>
+														<option>기타</option>
+												</select>
+											</td>
+											<th>기 기</th>
+											<td>
+												<select class="wFull">
+													<option value="Android">Android</option>
+													<option value="ios">IOS</option>
+													<option value="공통">공통</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<th>연 락</th>
+											<td>
+												<select class="wFull">
+													<option>전화</option>
+													<option>이메일</option>
+												</select>
+											</td>
+											<th>이 름</th>
+											<td><input type="text" /></td>
+											<th>연락처</th>
+											<td><input type="text" class="wFull" /></td>
+										</tr>
+										<tr>
+											<th>제 목</th>
+											<td colspan="5"><input type="text" class="wFull" /></td>
+										</tr>
+										<tr>
+											<th>유지보수 요청내용</th>
+											<td colspan="5"><textarea class="wFull h200"></textarea></td>
+										</tr>
+										<tr>
+											<th>처리결과</th>
+											<td colspan="5"><textarea class="wFull h200"></textarea></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!---->
+							<div class="btnLayout">
+								<div class="right">
+									<span class="btnSet list"><a href="maintenance_list.html">목록</a></span>
+									<span class="btnSet save"><input type="button" value="저장"></span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

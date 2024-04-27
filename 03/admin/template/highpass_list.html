@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li class="on"><a href="contract_list.html">서식 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="event_list.html">이벤트 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="application.html">어플리케이션 관리</a></li>
+							<li><a href="emergency.html">환경설정</a></li>
+							<li><a href="statistic.html">통계</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="contract_list.html">계약서</a></span></li>
+							<li><span><a href="estimate_list.html">견적서</a></span></li>
+							<li><span><a href="point_list.html">선포인트신청</a></span></li>
+							<li><span><a href="highpass_list.html">하이패스</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">서식관리</a></span>
+							<span>하이패스</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<span class="mr5 lh27">
+										<input type="text" readonly="" class="cal" /> ~
+										<input type="text" readonly="" class="cal" />
+									</span>
+									<span class="list-search mr5">
+										<input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>20개</option>
+										<option>50개</option>
+										<option>100개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="100" />
+										<col />
+										<col width="150" />
+										<col width="300" />
+										<col width="150" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>No <input type="button" value="up" class="sort sup" /></th>
+											<th>서식 안내 <input type="button" value="up" class="sort sup" /></th>
+											<th>서식 버전 <input type="button" value="up" class="sort sup" /></th>
+											<th>등록 일시 <input type="button" value="up" class="sort sup" /></th>
+											<th>사용여부 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>100</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>99</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>98</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>97</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>96</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>95</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>94</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>93</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>92</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>91</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>90</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>89</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>88</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>87</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>86</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>85</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>84</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>83</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>82</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>81</td>
+											<td class="subject tCenter"><a href="highpass_view.html">하이패스 변경 적용</a></td>
+											<td>v.169</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left">
+										<span>선택 항목</span>
+										<input type="button" class="btnColor bSky" value="삭제" />
+									</div>
+									<!---->
+									<span class="btnBox">
+										<a href="highpass_view.html" class="btnColor bRed">신규 등록</a>
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>  
+		<script type="text/javascript" src="js/common.js"></script> 
+		<script>
+			$( document ).ready( function() {
+				$(".privacyCheck .btnColor2.bRed").bind('tap click', function(){
+					$(".privacyCheck").hide();
+					$("body").removeClass('modalOpen');
+				});
+				
+				$(".btnColor.left.gray.lemonPopup").click(function(){
+					$(".fullPop2.lemonPopup").show();
+				});
+				
+				$(".pclose").click(function(){
+					$(".fullPop2.lemonPopup").hide();					
+				});					
+			});
+		</script>  
+	</head>
+	<body>
+		<!-- 2017-02-17 :: 퀵가이드 -->
+		<div class="quickGuide">
+			<div class="qGuideBack">
+				<div class="qGBtn">
+					<input type="button" value="SKIP" class="qBtnSkip" />
+					<input type="button" value="CLOSE" class="qBtnClose" style="display:none;" />
+				</div>
+				<div class="quickGuideSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART1</h6>
+								<p>
+								계약서 작성에 앞서 개인정보보호법의 의해 개인정보수집 동의 후 <br/>계약서 작성 하시는 것을 권고드립니다. <br/>동의서 확인 및 사인이 필요합니다. 필요에 따라 매매계약서 작성 후 동의서 작성도 가능합니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_01.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART2</h6>
+								<p>
+									동의서 작성시 기존에 펜이나 스캔의 절차가 필요로 했지만 <br/>S-Work 에서는 서명패드 탑재로 바로 갤럭시탭 A 10.1 <!-- 2017-04-19 -->에서 <br/>서명을 하고 계약서 상에 반영 할 수 있습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_02.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART3</h6>
+								<p>
+									견적서를 작성하여 계약서로 이동한 경우 차종관련 정보 외 <br/>기본정보들이 자동으로 계약서에 반영됩니다. 
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_03.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART4</h6>
+								<p>
+								‘<sup>필수항목</sup>’ 로 표시된 필수 입력사항은 반드시 기입하여야 하며 <br/>위에서 아래로 해당 항목에 대해 작성을 하면 <br/>쉽게 작성하실 수 있습니다. 
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_04.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART5</h6>
+								<p>
+								빠른 계약서 작성을 위하여 주소 입력시 <br/>도로명 : OO 길 OO,  지번: 읍/면/동 번지수 까지 <br/>작성 후 검색을 하시면 검색이 수월합니다.  
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_05.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide last">
+							<div class="qGTxt">
+								<h6>1. 계약서 PART6</h6>
+								<p>
+								모든 계약서 작성을 완료 후 우측 하단 플로팅 메뉴를 통해 <br/>‘계약서 전송’을 해야만 계약서저장이 됩니다. 저장된 계약서는 메뉴‘진행중인 계약‘을 통해 수정이 가능합니다.  
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_02_061.png" alt="" /></div>
+							<div class="qGimg2">
+								<a class="qGstart"><img src="images/img_quickGuide_02_062.png" alt="" /></a>
+								<!-- 2017-04-25 삭제 -->
+							</div>
+						</div>
+					</div>
+					<div class="quickChoiceBTn">
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="quickPagination"></div>
+					<!-- 2017-04-25 -->
+					<div class="qNotBore">
+						<span class="checkSet">
+							<input type="checkbox" id="c_00" />
+							<label for="c_00">시작 시 퀵가이드를 다시보지 않습니다.</label>
+						</span>
+					</div>
+					<!-- //2017-04-25 -->
+				</div>
+				<script>
+					$( document ).ready( function() {
+						$(".qBtnSkip, .qBtnClose, .qGstart").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").removeClass('modalOpen');
+						}); 
+						$(".quickOpen").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").addClass('modalOpen');
+						}); 
+					});
+
+					var swiperQuick = new Swiper('.quickGuideSwiper', {
+						spaceBetween: 20,
+						pagination: '.quickPagination',
+						paginationClickable: true,
+						nextButton: '.quickChoiceBTn .swiper-button-next',
+						prevButton: '.quickChoiceBTn .swiper-button-prev',
+					});
+				</script>
+			</div>
+		</div>
+		<!-- //2017-02-17 :: 퀵가이드 -->
+		<!-- wrap_back -->
+		<div id="wrap_back">
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<div class="snbBack">
+					<div class="snbMain">
+						<input type="button" value="snb close" class="c-menu__close" />
+						<div class="snbTop"><span><a href="main.html">홈으로</a></span><img src="images/img_snbArea_tit.png" alt="Smart Work" /></div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><img src="images/btn_snbmain1.png" alt="견적서"/></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href="catalog.html"><img src="images/btn_snbmain10.png" alt="카달로그" /></a></li>
+								<li class="snb11"><a href="guideBook.html"><img src="images/btn_snbmain11.png" alt="가이드북" /></a></li>
+								<li class="snb12"><a href="faq.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 슈럼" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain17.png" alt="GMK 소식" /></a></li> <!-- 2017-10-31 -->
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="">로그아웃</a></li>
+							<li class="setting"><a href="">설정</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<p><strong>운영시간</strong><span>09:00~18:00 (점심시간 12:00~13:00)</span></p>
+						<p><strong>전자계약서 운영사무국</strong><span>070-5088-5099</span></p>
+						<!-- <p><strong>견적서(위즈빌)</strong><span>02-850-0029 담당자 박형주</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070 담당자 더위버</span></p> -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<div id="blind_wrap" style="display:none"></div>
+			
+			<!-- 가이드 상세 팝업 -->
+			<div class="fullPop2 guide-pop bgPattern lemonPopup" style="display:none;">
+				<h1>교환·환불중재 규정 전문</h1>
+				<div class="popData">
+					<div class="popArea">
+						<img src="images/lemon2.png" style="height:100%;width:100%;" alt="교환·환불중재 규정">
+						<img src="images/lemon3.png" style="height:100%;width:100%;" alt="교환·환불중재 규정">
+					</div>
+				</div>
+				<!---->
+				<input type="button" value="팝업닫기" class="pclose"/> <!-- 161130 링크 수정 -->
+			</div>
+			<!-- 가이드 상세 팝업  //-->
+			
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+						</span>
+						<h1>
+							<img src="images/img_tit_02.png" alt="계약서" />
+							<img src="images/btn_quick_open.png" alt="" class="quickOpen" />
+						</h1>
+						<span class="right">
+							<span class="hbtnConfirm"><a href="../form/contract_preview.html">계약서확인 및 서명</a></span>
+							<span class="hbtnStore"><a href="#">임시저장</a></span>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 계약서 & 견적서 공통 -->
+						<div class="contractLayout">
+							<!-- 20161130 삭제 article></article -->
+							<!---->
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide checkoff"><a href="contract_privacy.html">개인정보 수집동의</a></span>
+										<!--<span class="swiper-slide checkoff"> : 다른 탭활성화 + 수집동의 안함 
+										<span class="swiper-slide checkon"> : 다른 탭활성화 + 수집동의 완료
+										<span class="swiper-slide on checkoff"> : 동의 탭 활성화 + 수집동의 안함
+										<span class="swiper-slide on checkon">  : 동의 탭 활성화 + 수집동의 완료-->
+										<span class="swiper-slide on checkon"><a class="lemon" href="contract_lemon.html">자동차 교환환불 <span>중재제도</span></a></span>
+										<span class="swiper-slide"><a href="contract_form.html">매매계약서</a></span>
+										<span class="swiper-slide"><a href="contract_terms.html">계약약관</a></span>
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+								
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">개인정보 수집동의</h2>
+								<!--2016-12-06 추가 -->
+<!-- 								<div class="privacyCheck"> -->
+<!-- 									<div> -->
+<!-- 										<p>개인정보 수집동의 후, <br/>계약서 작성을 진행할 수 있습니다.</p> -->
+<!-- 										<span> -->
+<!-- 											<input type="button" value="개인정보 수집•이용 • 제공 동의서 확인" class="btnColor2 bRed" /><br/> -->
+<!-- 											<a href="contract_form.html" class="btnColor2 bRed">매매계약서의 일부 내용을 먼저 작성한 후에 <br/>개인정보 수집•이용 • 제공 동의서를 작성하겠습니다.</a> 161209 오타 수정 -->
+<!-- 										</span> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+								<!--//2016-12-06 -->
+								<div class="privacyDetail"><!-- 2016-12-03 class 삭제 -->
+<!-- 									<p class="agreeIntro"><strong>[한국지엠 주식회사 귀중]</strong>자동차 매매계약과 관련하여 본 계약서 등에 기재된 정보는 [개인정보보호법] 및 [신용정보 이용 및 보고에 관한 법률]의 규정에 따라 수집·이용·제공을 위하여 본인의 동의를 얻어야 합니다. 이에 본인은 자동차 매매계약을 위하여 다음의 내용을 확인하여, 귀사의 개인정보 수집·이용·제공에 동의 합니다</p> -->
+<!-- 									2017-05-22 전체동의 체크박스 추가 -->
+<!-- 									<div class="entireAgreement"> -->
+<!-- 										<span class="checkSet">  -->
+<!-- 											<input type="checkbox" id="c_01" /> -->
+<!-- 											<label for="c_01">매수인(1) 전체동의</label> -->
+<!-- 										</span> -->
+<!-- 										<span class="checkSet"> -->
+<!-- 											<input type="checkbox" id="c_02" /> -->
+<!-- 											<label for="c_02">매수인(2) 전체동의</label> -->
+<!-- 										</span> -->
+<!-- 									</div> -->
+									<!-- 2017-05-22 -->
+									<div class="agreeDetail">
+										<h3>자동차 교환·환불 중재제도 요지 및 중요 안내사항</h3> <!-- 190417  태호 수정 -->
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<div class="headBox">
+													<h4 class="left">[교환·환불 중재제도 요지]</h4> <!-- 170110 수정 -->
+													<div class="right">
+														<button class="btnSblueClose">전문닫기</button>
+														<button class="btnSblue">전문보기</button>
+													</div>
+												</div>
+												<!---->
+												<div class="privacyWrap mt10">
+													<table cellpadding="0" cellspacing="0" border="0" class="lemon"> <!--테이블 수정  2019 04 17 태호-->  
+														<colgroup>
+															<col width="25%" />	
+															<col width="75%" />
+														</colgroup>
+														<tbody>	
+															<tr>	
+																<th>1. 중재의 정의</th>
+																<td>“중재”는 분쟁당사자들 간의 합의로 그들의 분쟁을 중립적 사람(중재위원) 또는 중재부(중재판정부)의 결정(중재판정)에 의하여 해결하고 그 결정에 구속되는 분쟁해결절차를 말합니다.</td>
+															</tr>
+															<tr>	
+																<th>2. 중재합의</th>
+																<td>
+																	<ol>
+																		<li>① “중재합의”는 당사자 간에 이미 발생했거나 발생이 예상되는 분쟁의 전부 또는 일부를 중재에 의하여 해결하도록 하는 당사자 간의 합의를 말합니다.</li>
+																		<li>② 자동차 교환·환불중재 규정(이하 “중재규정”이라 합니다)이 적용되는 중재합의는 양 당사자 모두가 자동차관리법 제47조의4제1항에 따라 중재규정을 수락했을 때 성립합니다.</li>
+																	</ol>
+																</td>
+															</tr>
+															<tr>	
+																<th>3. 중재합의의 성립과 효과</th>
+																<td>
+																	<ol>
+																		<li>① 자동차관리법 제47조의4 제1항에 따라 제작자가 사전에 중재규정을 수락하였고 또한 동 제작자가 제작한 차량의 구매자가 매매계약을 체결할 때 또는 교환·환불중재를 신청할 때 중재규정을 수락한 경우, 자동차 교환·환불 중재 합의가 성립된 것으로 간주됩니다.</li>
+																		<li>② 제1항에 따라 자동차 교환·환불 중재합의가 성립되면 양 당사자는 동일한 내용의 교환·환불을 이유로 법원에 소송을 제기할 수 없습니다.</li>
+																		<li>③ 제1항에 따라 자동차 교환·환불 중재합의가 성립되면 1958년 ‘외국중재판정의 승인 및 집행에 관한 뉴욕협약’ 제2조에 규정된 승인 및 집행의 요건으로서 중재에 대한 서면 합의 요건을 충족하는 것으로 봅니다.</li>
+																	</ol>
+																</td>
+															</tr>															
+															<tr>	
+																<th>4. 중재판정의 효력</th>
+																<td>중재판정은 제작자와 소유자에 대하여 법원의 확정판결과 동일한 효력이 있습니다.</td>
+															</tr>
+														</tbody>
+													</table>
+													<p class="ps">※ 자동차매매계약서에 중재규정 전문이 첨부되어 있으므로 반드시 해당 내용을 확인하시기 바랍니다.</p>
+												</div>
+											</div>	
+										</div>
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<div class="headBox"> <!-- 161208 수정 -->
+													<h4 class="left">[중요 안내사항]</h4> <!-- 19 04 17 태호 수정 -->
+													<div class="right">
+														<button class="btnSblueClose">전문닫기</button>
+														<button class="btnSblue">전문보기</button>
+													</div>
+												</div>
+												<!---->
+												<div class="privacyWrap mt10"> <!-- 161208 .mt10 추가 -->
+													<table cellpadding="0" cellspacing="0" border="0" class="lemon"> <!--테이블 수정  2019 04 17 태호-->  
+														<colgroup>
+															<col width="25%" />	
+															<col width="75%" />
+														</colgroup>
+														<tbody>	
+															<tr>	
+																<th>1. 자동차 교환·환불중재 규정 수락 사실</th>
+																<td>한국지엠주식회사는 자동차관리법 제47조의4 제1항 및 동법 제47조의7 제2항에 따라 자동차안전·하자심의위원회가 제정한 중재규정을 수락하였음을 알려드립니다.</td>
+															</tr>
+															<tr>	
+																<th>2. 신차로의 교환·환불 보장</th>
+																<td>한국지엠주식회사는 자동차관리법 제47조의2 내지 6에 따른 자동차에 하자 발생 시 하기 매수인(단, 교환·환불의 보장은 하기 매수인에 한하며 구매차량의 승계인은 포함되지 않습니다)에게 신차로의 교환 또는 환불을 보장하고 서면계약의 특약 등으로 교환·환불을 배제하지 않습니다.</td>
+															</tr>
+															<tr>	
+																<th>3. 인도날짜</th>
+																<td>
+																	<ol>
+																		<li>① 인도날짜는 자동차관리법 제47조의2제1항제1호에 따른 서면계약의 날짜로 하며, 인도차량인수증 등을 통해 실제 인도를 증명할 수 있는 날짜 또는 제작자와 소유자가 합의하는 날짜로 갈음할 수 있습니다.</li>
+																		<li>② 인도날짜는 자동차관리법 제47조의2 자동차의 교환 또는 환불 요건의 소유자의 중재신청 기한, 하자 재발 시점 및 누적수리기간 산정, 대상자동차의 사용기간 등에 대한 기산 기준이 됩니다.</li>
+																	</ol>
+																</td>
+															</tr>															
+															<tr>	
+																<th>4. 통지 방법</th>
+																<td>중재판정은 제작자와 소유자에 대하여 법원의 확정판결과 동일한 효력이 있습니다.</td>
+															</tr>
+															<tr>	
+																<th>5. 하자재발통보 수령 주소 및 대표자</th>
+																<td>자동차관리법 제47조의2제2항에 따른 하자재발 통보 수령 주소 및 대표자는 다음과 같습니다.<br>
+																	•주소 - 등기우편 : 인천시 부평구 부평대로 233 한국지엠주식회사 고객센터/ 교환ㆍ환불접수담당자 앞<br>
+																	 - 전자우편 : 쉐보레 홈페이지(https://www.chevrolet.co.kr) 1:1 상담 신청 페이지에 접수<br>
+																	 * 교환/환불 중재절차를 위한 ‘하자재발통보서 (자동차관리법 시행규칙 별지 제62호의2 서식)’는 작성 후<br>
+																	 전자문서 형태로 첨부 부탁드립니다. :<br>
+																	•대표(수신인) : 한국지엠주식회사 고객센터 (교환ㆍ환불접수담당자)
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<div class="headBox"> <!-- 170110 h4 필수적... 삭제 / 161208 수정 -->
+												</div>
+												<!---->
+											</div>
+											<dl>
+												<dd>
+													<strong class="lemon"><span style="color:#e74d6a; text-decoration: underline; text-decoration-color:red;">(필수)</span> 본인은 귀사로부터 자동차 교환·환불중재 제도 요지 및 중요 안내사항에 대한 설명을 듣고 충분히 이해하였음을 확인합니다.</strong> <!-- 170110 수정 -->
+													<div class="lemon">
+														<span class="checkSet"> <!-- 2019-05-10 class 및 input 형식변경 -->
+															<input type="checkbox" name="radio9" id="c_17"/>
+															<label for="c_17">설명을 듣고 이해하였음.</label>
+														</span>
+													</div>
+												</dd>
+												<dt>자동차 교환·환불중재 규정 수락 여부 확인</dt>
+												<dd>
+													<strong class="lemon"><span style="color:#e74d6a; text-decoration: underline; text-decoration-color:red;">(필수)</span> 본인은 자동차 교환·환불중재 규정을</strong>
+													<div class="lemon">
+														<span class="radioSet">
+															<input type="radio" name="radio10" id="c_19"/>
+															<label for="c_19">추후 중재 신청 시 수락하겠습니다.</label>
+														</span>
+														<span class="radioSet">
+															<input type="radio" name="radio10" id="c_20" />
+															<label for="c_20">지금 수락하겠습니다. <br/>(수락시점 이후 법원에 소송제기 불가)</label>
+														</span>
+													</div>
+												</dd>
+												<dt>전자우편 문자메시지, 팩스 등에 의한 통지/연락 수락 여부 확인</dt>												
+												<dd>
+													<strong class="lemon">본인은 자동차 교환·환불중재 규정에 따른 통지/연락을</strong>
+													<div class="lemon">
+														<span class="checkSet"> <!-- 2019-05-10 class 및 input 형식변경 -->
+															<input type="checkbox" name="radio10" id="c_21"/>
+															<label for="c_21">전자우편, 문자메시지, 팩스 등을 통해 받겠습니다.</label>
+														</span>
+													</div>
+												</dd>												
+											</dl>
+										</div>
+									</div>
+									<p class="lemonInfo">* 자동차 교환환불 중재제도는 DMS 전송 후 수정이 불가합니다. 이 점 유의하시어 진행해주십시오.</p> <!-- 2019-05-10 추가 -->
+									<!---->
+									<div class="agreeSign"> <!-- 2017-08-01 추후보완 -->
+										<div class="gridSet grid2">
+											<div class="gridItem">
+												<div class="agreeDate">
+													<button class="btnColor left gray lemonPopup">교환·환불중재 규정 확인</button>
+													<div class="iSet">
+														<span  class="iLine"><input type="date" /></span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="gridSet grid2">
+											<!-- <div class="notSign">개인정보 동의서 재서명이 불필요합니다</div> -->
+											<div class="gridItem">
+												<div class="iSet">
+													<label>매수인 (1)</label>
+													<div class="signCase" onClick=""><!-- <div>성명을 입력해 주세요</div> --><div><img src="images/sign_later.png" class="mt0" /></div></div>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label></label>
+													<div class="signCase" onClick=""><!-- <div>서명을 입력해 주세요</div> --><div><img src="images/sign_later.png" class="mt0" /></div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+							<!-- 20161125 추가 -->
+							<div class="sendBtnSet"> <!-- 161229 email, sms, fax 삭제 -->
+								<ul>
+									<li class="sBCacao"><a><strong>카카오톡 전송</strong></a></li>
+									<li class="sBContract"><a><strong>계약서 전송</strong></a></li> <!-- 161207 추가 -->
+								</ul>
+								<span class="btnSendToggle openCase"><a><strong>전송 하기</strong></a></span>
+								<span class="btnSendToggle closeCase"><a><strong>닫기</strong></a></span> <!-- 161207 txt 수정 -->
+							</div>
+							<!-- //20161125 추가 -->
+						</div>
+						<!-- //contract -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+		  
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+
+		</script>
+	</body>
+</html>

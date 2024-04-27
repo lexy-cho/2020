@@ -1,0 +1,558 @@
+@charset "utf-8";
+
+/* base */
+body { min-width:305px;font-size:14px; }
+input { -webkit-appearance:none;-webkit-border-radius:0;outline:none;}
+a, input { -webkit-tap-highlight-color:transparent;}
+select {background-color:#fff}
+
+.bgnon {background:none !important;margin-top:20px;}
+.minTit {color:#999;font-weight:500;}
+.think {color:#5291cd}
+.uber {color:#f62a12}
+.wizvil {color:#1763d4}
+
+/* colorpicker.css */
+.colorpicker {
+	width: 356px;
+	height: 176px;
+	overflow: hidden;
+	position: absolute;
+	background: url(../images/colorpicker/colorpicker_background.png);
+	font-family: Arial, Helvetica, sans-serif;
+	display: none;
+}
+.colorpicker_color {
+	width: 150px;
+	height: 150px;
+	left: 14px;
+	top: 13px;
+	position: absolute;
+	background: #f00;
+	overflow: hidden;
+	cursor: crosshair;
+}
+.colorpicker_color div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 150px;
+	background: url(../images/colorpicker/colorpicker_overlay.png);
+}
+.colorpicker_color div div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 11px;
+	height: 11px;
+	overflow: hidden;
+	background: url(../images/colorpicker/colorpicker_select.gif);
+	margin: -5px 0 0 -5px;
+}
+.colorpicker_hue {
+	position: absolute;
+	top: 13px;
+	left: 171px;
+	width: 35px;
+	height: 150px;
+	cursor: n-resize;
+}
+.colorpicker_hue div {
+	position: absolute;
+	width: 35px;
+	height: 9px;
+	overflow: hidden;
+	background: url(../images/colorpicker/colorpicker_indic.gif) left top;
+	margin: -4px 0 0 0;
+	left: 0px;
+}
+.colorpicker_new_color {
+	position: absolute;
+	width: 60px;
+	height: 30px;
+	left: 213px;
+	top: 13px;
+	background: #f00;
+}
+.colorpicker_current_color {
+	position: absolute;
+	width: 60px;
+	height: 30px;
+	left: 283px;
+	top: 13px;
+	background: #f00;
+}
+.colorpicker input {
+	background-color: transparent;
+	border: 1px solid transparent;
+	position: absolute;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #898989;
+	top: 4px;
+	right: 11px;
+	text-align: right;
+	margin: 0;
+	padding: 0;
+	height: 11px;
+}
+.colorpicker_hex {
+	position: absolute;
+	width: 72px;
+	height: 22px;
+	background: url(../images/colorpicker/colorpicker_hex.png) top;
+	left: 212px;
+	top: 142px;
+}
+.colorpicker_hex input {right: 6px;}
+
+.colorpicker_field {
+	height: 22px;
+	width: 62px;
+	background-position: top;
+	position: absolute;
+}
+.colorpicker_field span {
+	position: absolute;
+	width: 12px;
+	height: 22px;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	cursor: n-resize;
+}
+.colorpicker_rgb_r {
+	background-image: url(../images/colorpicker/colorpicker_rgb_r.png);
+	top: 52px;
+	left: 212px;
+}
+.colorpicker_rgb_g {
+	background-image: url(../images/colorpicker/colorpicker_rgb_g.png);
+	top: 82px;
+	left: 212px;
+}
+.colorpicker_rgb_b {
+	background-image: url(../images/colorpicker/colorpicker_rgb_b.png);
+	top: 112px;
+	left: 212px;
+}
+.colorpicker_hsb_h {
+	background-image: url(../images/colorpicker/colorpicker_hsb_h.png);
+	top: 52px;
+	left: 282px;
+}
+.colorpicker_hsb_s {
+	background-image: url(../images/colorpicker/colorpicker_hsb_s.png);
+	top: 82px;
+	left: 282px;
+}
+.colorpicker_hsb_b {
+	background-image: url(../images/colorpicker/colorpicker_hsb_b.png);
+	top: 112px;
+	left: 282px;
+}
+.colorpicker_submit {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	background: url(../images/colorpicker/colorpicker_submit.png) top;
+	left: 322px;
+	top: 142px;
+	overflow: hidden;
+}
+
+.colorpicker_focus { background-position: center; }
+
+.colorpicker_hex.colorpicker_focus { background-position: bottom; }
+
+.colorpicker_submit.colorpicker_focus {background-position: bottom;}
+
+.colorpicker_slider {background-position: bottom;}
+
+/* layout.css */
+.colorSelector {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(../images/colorpicker/select.png);
+	vertical-align:middle;
+}
+
+.colorSelector div {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/colorpicker/select.png) center;
+}
+
+#colorSelector01 div {background-color:#5291cd;}
+#colorSelector02 div {background-color:#f62a12;}
+#colorSelector03 div {background-color:#1763d4;}
+
+/* 작업현황 color&border */
+.request_layout .blueColor {color:#2481ff !important; border:2px solid #4878b4;}
+.request_layout .redColor {color:#f15537 !important; border:2px solid #f12b2b;}
+.request_layout .greenColor {color:#219b41 !important; border:2px solid #20b048;}
+.request_layout .orangeColor {color:#ff8400 !important; border:2px solid #ff8400;} /* 2017-07-17 by hr-park */
+
+/* imgPopup swiper */
+.pop  {margin:-157px 0 0 -178px;width:600px;}
+.popSwipe .imgPop {position:fixed;z-index:500;top:0;left:0;right:0;bottom:0;overflow-x:hidden;overflow-y:scroll;background:rgba(0,0,0,.3);} /* 2017-07-24 */ 
+.popSwipe .iPopBack {position:fixed;top:15%;left:20%;right:20%;bottom:15%;padding:10px 10px;border-radius:20px;box-sizing:border-box;background:#fff;} /* 2017-07-24 */ 
+.imgPop .iGBtn {position:absolute;right:20px;top:20px;z-index:10;}
+.iGBtn .iBtnSkip {display:inline-block;width:20px;height:20px;line-height:1000%;border:none;cursor:pointer;background: url("../images/btn_pclose3.png") no-repeat;background-size:100% auto;}
+.iGBtn .iBtnClose {display:none;width:34px;height:34px;line-height:1000%;border:none;cursor:pointer;overflow:hidden;background:url('../images/btn_pclose3.png') no-repeat left center;background-size:34px auto;}
+.popSwipe .imgPopSwiper {width:100%;height:100%;padding:0 0 0;overflow:hidden;} /* 2017-07-24 */
+.popSwipe .imgPopSwiper .swiper-slide {width:100%;height:100%;padding:0 0 0;overflow:hidden;} /* 2017-07-24 */
+.imgPopSwiper .iGimg {display:table;width:100%;height:100%;padding-top:34px;box-sizing:border-box;}
+.imgPopSwiper .iGimg div {display:table-cell;vertical-align:middle;width:100%;height:100%;text-align:center;overflow:hidden;}
+.imgPopSwiper .iGimg img {margin:0 auto;max-height:100%;max-width:100%;}
+.imgPopSwiper sup {margin:0 3px;display:inline-block;width:7px;height:7px;font-size:0;line-height:1000%;vertical-align:middle;overflow:hidden;background: url('../images/img_bullet2.png') no-repeat;background-size:auto 100%;}
+.imgPopSwiper .imgChoiceBTn div {position:fixed;z-index:450;}
+.imgPopSwiper .imgDownBTn div {top:16%;left:21%;cursor:pointer;}
+.imgPopSwiper .imgDownBTn div img {width:60px;height:60px;}
+.imgPopSwiper .swiper-button-prev,
+.imgPopSwiper .swiper-button-next {width:50px;height:50px;z-index:10;cursor: pointer;background-image:none;}
+.imgPopSwiper .swiper-button-prev,
+.imgPopSwiper .swiper-container-rtl .swiper-button-next {left:12%;right:auto;background: url("../images/btn_quick-prev.png") no-repeat;background-size:100% auto;}
+.imgPopSwiper .swiper-button-next,
+.imgPopSwiper .swiper-container-rtl .swiper-button-prev {right:12%;left:auto;background: url("../images/btn_quick-next.png") no-repeat;background-size:100% auto;}
+.imgPagination {position:absolute;width:100%;bottom:auto;top:20px;text-align:center;}
+.imgPagination.swiper-pagination-clickable.swiper-pagination-bullets {bottom:auto !important;}
+.imgPagination .swiper-pagination-bullet {width:28px;height:4px;border:1px solid #c7c7c7;border-radius:0;opacity:1;background:#d8d8d8;}
+.imgPagination .swiper-pagination-bullet-active {border-color:#ff9c32;background:#ffc64b;}
+
+/* 연동팝업 & 이메일팝업 */
+.popZone {line-height:150% !important;}
+.popZone .iGBtn {position:absolute;right:0;top:0;z-index:10;}
+.wpop .wpopArea,
+.epop .epopArea  {position:fixed;z-index:10000;overflow-y:auto;top:15%;left:50%;right:0;bottom:10%;width:700px;height:auto;margin-left:-350px;padding:10px;background-color:#fff;}
+.wpop .wpopArea .checkArea {padding:0;}
+.popZone .topArea {margin:10px 0;padding:5px 10px;text-align:center;}
+.popZone .topArea span {margin-right:10px;font-weight:bold;}
+.wpop .detail {border:1px solid #c2c2c2;margin-top:5px;}
+.wpop .detail ul {border-bottom:1px solid #c2c2c2;}
+.wpop .detail div:last-child ul {border-bottom:0}
+.epop .btnBoxList input {width:220px;}
+.epop .detail {width:100%;min-height:500px;border:1px solid #c2c2c2;text-align:center;}
+.epop .detail ul li {position:relative;display:table;width:100%;padding:10px 0;border-bottom:1px solid #c2c2c2;}
+.epop .detail ul li:last-child {border-bottom:0;}
+.epop .detail ul li:first-child {background-color:#eee;padding:10px 0;}
+.epop .detail ul li:first-child p {text-align:center;}
+.epop .detail ul li:first-child a {text-decoration:none;color:#6a6a6a;}
+.epop .detail ul li span {display:table-cell;width:22%;}
+.epop .detail ul li p {display:table-cell;width:55%;text-align:left;}
+.epop .detail ul li a {display:table-cell;width:10%;text-decoration:underline;color:red;vertical-align:middle;}
+.epop .topArea .degroup div {display:inline-block;} /* 2017-07-31 by hr-park */
+.epop .receiver {margin:10px;}
+.epop .receiver div {padding:10px;background-color:#eee;border-bottom:1px dotted #999;}
+.epop .receiver div:last-child {border-bottom:0 none}
+.epop .receiver strong {display:inline-block;width:80px;border-right:1px solid #999;margin-right:10px;}
+.epop .receiver button {border:0 none;background-color:transparent;padding:5px;cursor:pointer;}
+
+/* menupop */
+.menupop {height:0;}
+.menupop .iGBtn .iBtnSkip {position:fixed;bottom:30px;right:30px;z-index:100000;width:15px;height:15px;}
+
+/* #wrap */
+#container h2 span a {font-size:17px;font-weight:600;line-height:24px;}
+.com-layout .contents {background-color:#f1f6f9;padding:10px 20px!important}
+.list-line {position:relative;border:0 none;background:#f1f6f9;}
+.list-line h4 {border:0 none;background:none;padding:13px 0;}
+.list-line h4 span {font-size:14px;margin-right:0;}
+.list-line .headBox {display:inline-block;float:right;border:0 none;background:none;padding:10px 0;}
+/*.contents {padding:0 20px!important;}*/
+.btnBoxList .btnskyBg {color:#fff;background-color:#62a6d1;border-color:#62a6d1;}
+.btnBoxList .btngrayBg {color:#fff;background-color:#666;}
+.btnBoxList .btngreenBg {color:#fff;background-color:#60ab43;}
+.btnBoxList .btnredBg {background-color:#e9573f; color:#fff;border:1px solid #9b210d}
+.request_layout {line-height:150% !important;}
+.request_layout #totBox {display:inline-block;}
+.request_layout #totBox span {color:#ff3600;}
+.request_layout .view-line {background-color:#fff;border:1px solid #c2c2c2;}
+.request_layout .titleArea {overflow:hidden;}
+.request_layout .titleArea .list-search {vertical-align:middle;}
+.request_layout .viewTit { position:relative; }
+.request_layout .viewTit .viewTitleSub {padding:8px 10px;overflow:hidden;}
+.request_layout .viewTit .viewBox { padding:0 20px; }
+.request_layout .title { word-wrap:break-word;color:#000; }
+.request_layout .viewTitle { border-bottom:1px solid #b4b4b4;padding:10px 0;overflow:hidden;}
+.request_layout .viewTitle span {display:block;float:right;}
+.request_layout .view_division { display:inline-block;width:170px;padding:0 10px;color:#f07171;font-weight:bold; }
+.request_layout .reqList .checkArea {padding:0;}
+.request_layout .reqList .checkArea input[type="checkbox"] + label {margin-right:0;background:url(../images/check_off.png) no-repeat 10px 3px;background-size:18px 18px !important;}
+.request_layout .reqList .checkArea input[type="checkbox"]:checked + label {background:url(../images/check_on.png) no-repeat 10px 3px;}
+.request_layout .reqList li { position:relative;border:1px solid #c2c2c2;border-radius:10px;margin-bottom:10px;background-color:#fff; }
+.request_layout .reqList li:hover {border:1px solid #666;border-radius:10px;box-shadow: 1px 2px 6px rgba(0, 0, 0, .5)} /* 2017-06-26 by hr-park */
+.request_layout .reqList li a {position:relative;display:block;padding:10px;}
+.request_layout .reqList li.newOn a {padding:10px 10px 10px 32px;margin-left:auto;}
+/*.request_layout .reqList li input {-webkit-appearance:checkbox;margin-right:5px;}*/
+.request_layout .comment ul li {margin-bottom:10px;line-height:27px;}
+.request_layout .comment ul li .btnRe { float:right;background:#fff;border:1px solid #909090;padding:5px;border-radius:3px;font-weight:bold;}
+.request_layout .comment ul li .btnDle { width:15px;height:15px;background:url("../images/btn_close.png") no-repeat;text-indent:9999px;border:0 none;margin-left:5px; }
+.request_layout .reply { background:url('../images/reply_bullet.png') no-repeat 10px;padding-left:35px;background-size:10px 10px; }
+.request_layout .btnCancel { float:right;border:1px solid #909090;padding:5px;border-radius:3px;color:red;background:#fff;font-weight:bold;}
+.request_layout .btnOk { position:absolute;top:80%;right:0;width:64px;height:27px;font-weight:bold;background-color:#494949;border:0 none;border-radius:3px;color:#fff;margin-top:-18px; }
+.request_layout .reply .btnOk {top:50%;}
+.request_layout .commentInput .btngreenBg {position:absolute;top:10%;right:1px;padding:5px;font-weight:bold;}
+.request_layout .replyArea { position:relative;padding-right:84px; }
+.request_layout .new { position:absolute;left:8px;top:0;width:18px;height:100%;background:url("../images/new.png");background-repeat:no-repeat;background-position:0 center;vertical-align:middle;}
+.request_layout .state { position:absolute;right:10px;top:10px;border-radius:12px;padding:0 12px;font-weight:bold; }
+.request_layout .list dt { float:left;width:50px;text-align:center; }
+.request_layout .list .prev { border-top:1px solid #a3a3a3;border-bottom:1px solid #a3a3a3; } 
+.request_layout .list .next { border-bottom:1px solid #a3a3a3; }
+.request_layout .viewCon { border-top:1px solid #c2c2c2; }
+.request_layout .selectArea { overflow:hidden; }
+.request_layout .selectArea div:last-child { margin-bottom:0 }
+.request_layout .selectBox input { width:100% }
+.request_layout .participation > div {display:inline-block;margin-right:10px;}
+.request_layout .colorArea {width:141px;}
+.request_layout .colorArea div {display:inline-block;}
+.request_layout .division { display:block;width:170px;border-bottom:1px solid #b4b4b4;padding:2px 0;margin-bottom:5px;color:#f07171;font-weight:bold; }
+.request_layout .replyIcon {border:0;width:22px;height:22px;vertical-align:middle;margin-left:5px;}
+.request_layout .replayList { color:#e20000; }
+.request_layout .infoBg {display:block;overflow:hidden;height:23px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;background-color:#e4eef2;padding:5px;}
+.request_layout .infoR { float:right;margin-right:15px;}
+.request_layout .commentTop { display:block;line-height:25px;font-weight:bold;/*border-bottom:1px solid #c2c2c2;*/ }
+.request_layout .commentTop .total span {color:#ff3600;}
+.request_layout .commentTop .selectStyle { width:100px; }
+.request_layout .commentBox { border:1px solid #ddd; }
+.request_layout .commentBox .replyOpen {background:url("../images/reply_open.png");}
+.request_layout .commentBox .replyClose {background:url("../images/reply_close.png");}
+.request_layout .requestBox {padding:5px 10px;}
+.request_layout .btnBox { background:#fff!important; margin-top:23px; }
+.request_layout .group { padding-left:0; } 
+.request_layout .imageBox {border-top:1px solid #c2c2c2}
+.request_layout .imageBox span,
+.request_layout .fileBox span {display:inline-block;width:65px;}
+.request_layout .fileBox {background-color:#dbe6eb;}
+.request_layout .imageArea .imageTitle, 
+.request_layout .fileArea .fileTitle {display:inline-block;width:80px;}
+.request_layout .fileArea .imgselected span {margin-bottom:5px;height:18px;} /* 2017-07-20 by hr-park */
+.request_layout .imageArea .thumbnail {display:inline-block;overflow:hidden;vertical-align:middle;}
+.request_layout .imageArea .thumbnail div {position:relative;float:left;display:inline-block;width:100px;height:100px;overflow:hidden;margin-right:10px;border:1px solid #999;}
+.request_layout .imageArea .thumbnail span.cover {position:relative;display:inline-block;width:100px;height:100px;}
+.request_layout .imageArea .thumbnail span.tbspan {display:table;width:100%;height:100%;position:absolute;top:0;left:0;}
+.request_layout .imageArea .thumbnail em {display:table-cell;width:100%;height:100%;overflow:hidden;vertical-align:middle;text-align:center;padding:5px;}
+.request_layout .imageArea .thumbnail img {max-width:100%;max-height:100%;height:auto;}
+.request_layout .imageArea .thumbnail input {border:0 none;background:none;position:absolute;top:3px;right:4px;}
+.request_layout .fileArea a {padding:5px 10px;}
+.request_layout .fileArea img {margin-left:10px;vertical-align:middle;}
+.request_layout .viewState { border-radius:12px;padding:0 12px;margin-right:8px;font-weight:bold;vertical-align:middle; }
+.request_layout .thumbnail a {background-color:#fff;border-radius:5px;border:1px solid #a3a3a3;text-decoration:none;}
+.request_layout .thumbnail:first-child a {margin-left:10px;}
+.request_layout .list {margin-bottom:10px;}
+.btnBoxList input {background-color:#fff;border:1px solid #676767;color:#000;padding:5px 15px;}
+
+
+/* 2017-06-16 by hr-park */
+.request_layout .status .reasonBox {display:block;width:100%;margin-top:10px}
+.request_layout .status .proOpen {background:url("../images/reply_open.png");}
+.request_layout .status .proClose {background:url("../images/reply_close.png");}
+.request_layout .status select {width:100px}
+.request_layout .progress {display:table;width:100%;border-bottom:1px solid #c2c2c2;}
+.request_layout .progress:first-child {border-top:2px solid #7b7b7b;}
+.request_layout .progress:nth-child(3) {border-bottom:0 none}
+.request_layout .progress > div {border-bottom:1px solid #c2c2c2}
+.request_layout .progress > div:last-child {border-bottom:0}
+.request_layout .progress strong {display:table-cell;width:100px;vertical-align:middle;;text-align:center;background-color:#dbe6eb;border-right:1px solid #c2c2c2}
+.request_layout .progress em {float:left;display:inline-block;width:100px;color:#999;font-weight:500;}
+.request_layout .progress .expected span.cancel {text-decoration: line-through}
+.request_layout .progress .expected .reason {margin-left:100px;}
+.request_layout .progress .expected .reason input {width:100%;margin-top:10px;}
+.request_layout .progress .delay p {margin-left: 100px;margin-top:5px;}
+.request_layout .progress .delay .reason {display:block;margin-left:100px;}
+.request_layout .progress .delay .reason input {width:100%;margin-top:10px;}
+.request_layout .progress .remarks div {margin-left:100px;}
+.request_layout .progress .remarks input {width:100%;}
+.request_layout .progress .checkArea input[type="checkbox"] + label {margin-top:2px}
+.request_layout .progressOpen .btnBoxList {padding:10px;overflow:hidden;border-top:2px solid #7b7b7b;}
+.request_layout .moveBtn {float:right;width:106px;height:27px;color:#fff;padding-left:20px;font-weight:bold;background:url('../images/btnMove.png') no-repeat;background-size:106px 27px;vertical-align:bottom;border:0;cursor:pointer;}
+
+/*2017-05-19 체크박스 추가*/
+.checkArea {position:relative;vertical-align:top;overflow:hidden;padding:10px 10px;}
+.checkArea select{width:150px;height:28px;/*padding:0 5px;*/}
+.checkArea label {display:inline-block;padding-left:30px;line-height:26px;margin-right:20px;}
+.checkArea input[type="checkbox"] {position:absolute;opacity:0;width:24px;height:24px;}
+.checkArea input[type="checkbox"]:checked + label {background:url('../images/check_on.png') no-repeat;}
+.checkArea input[type="checkbox"] + label {background:url('../images/check_off.png') no-repeat;vertical-align:middle;}
+
+/**/
+.commentInput { position:relative; background-color:#9eadb5;padding:10px 20px 10px 10px }
+/* .commentInput span {position:absolute;left:0;top:50%;color:#fff;margin-top:-14px} */
+.commentInput p {padding:8px 14px;border-bottom:1px solid #ccc;}
+/*.commentInput .replyArea {padding-left:60px}*/
+.request_layout .headBox {position:relative;vertical-align:top;}
+.request_layout .searchBox {position:absolute;top:0;left:0;z-index:3;width:100%;height:48px;overflow:hidden;background-color:#6a6a6a}
+/* .request_layout .searchBox select {position:absolute;top:2px;} */
+.request_layout .searchBox a {position:absolute;top:8px;right:0;}
+.request_layout .searchBox .search {width:100%;height:32px;margin:8px;}
+.request_layout .searchBox .field {padding-right:102px;} /* 2017-07-24 by hr-park */
+.request_layout .searchButton a {display:inline-block;top:8px;right:50px;width:30px;height:30px;text-indent:9999px;white-space:nowrap;overflow:hidden;background:url('../images/search.png') no-repeat;background-size:32px auto;}
+.request_layout .closeButton a {display:inline-block;top:8px;right:8px;width:35px;height:35px;text-indent:9999px;white-space:nowrap;overflow:hidden;background:url('../images/close-circled.png') no-repeat;background-size:30px auto;}
+.request_layout .searchBox select {height:32px;/* margin-top:5px; */white-space:nowrap;}
+.request_layout .searchBox .schStat {left:33%;} /* 2017-07-24 by hr-park */
+.request_layout .searchBox .category {left:95px;}
+
+/**/
+.topLogout {display:none;}
+.listControlBox {border-top:1px solid #c2c2c2 !important;}
+.listControlBox .btnCircle {width:70px;height:70px;z-index:1;border-radius:35px;cursor:pointer;background-color:#f07171;border:3px solid #c05858;font-weight:bold;}
+.listControlBox .btnR {position:fixed;bottom:55px;right:20px;}
+.listControlBox .btnR input {color:#fff;}
+.listControlBox .btnL {position:fixed;bottom:60px;left:240px;}
+.listControlBox .btnL input {background-color:#fff;color:#000;width:50px;height:50px;font-size:11px;padding:0;}
+.listControlBox .menuBtn {position:fixed;bottom:55px;right:20px;float:right;font-size:200%;color:#fff;background-color:#f07171;}
+.menuList .menubox {position:fixed;width:150px;bottom:20px;right:20px;z-index:10000;padding:10px;background-color:#fff;border-radius:15px;box-shadow:5px 5px}/* 2017-07-07 가로값 지정 by hr-park */
+.menuList .menubox li {padding:10px;}
+.menuList .menubox li a {display:block;}
+.menuList .menubox li a:hover {font-weight:bold;text-decoration:underline;}
+.list dt {display:inline-block}
+
+
+/* 2017-07-17 max-width 1125 추가 by hr-park */
+@media screen and (max-width:1125px){
+	 .request_layout .list-search .title { display:none }
+	 .request_layout .headBox select {display:none;}
+	 .request_layout .headBox span {display:none;}
+	 .request_layout .searchBox {height:100px}
+	 .request_layout .searchBox .field {padding-left:2px;}
+	 .request_layout .searchBox .selectBox {overflow:hidden;width:100%;}
+	 
+	  /* 2017-07-24 모바일 검색박스 수정 by hr-park */
+	 .request_layout .searchBox .cal {width:49%;height:26px;background:#fff url('../images/bg_btn_cal.png') no-repeat right 50% !important;}
+	 .request_layout .searchBox .schCom {width:25%;}
+	 .request_layout .searchBox .schStat {width:25%;}
+	 .request_layout .searchBox .selBox {padding:0 14px;margin-bottom:3px;}  /* 2017-07-25 by hr-park */
+	 .request_layout .searchBox .selBox > span {display:inline-block;width:33%;} /* 2017-07-25 by hr-park */
+	 .request_layout .searchBox .selBox > span:nth-child(2) {padding:0 5px;box-sizing:border-box;}
+	 .request_layout .searchBox .selBox > span:nth-child(3) {float:right;} /* 2017-07-25 by hr-park */
+	 .request_layout .searchBox .selBox select {width:100%;height:26px;} 
+	 .request_layout .searchBox .calBox {position:relative;margin:5px 15px;}
+	 .request_layout .searchBox .calBox .calArea {padding-right:78px;}
+	 .request_layout .searchBox .calBox .calArea input:first-child {float:left;}
+	 .request_layout .searchBox .calBox .calArea input:last-child {float:right;}
+	 .request_layout .searchBox .calBox .calBtn {display:table-cell;}
+	 .request_layout .searchBox .calBox .calBtn input {padding:0 15px;}
+	 .request_layout .searchBox .search {height:26px;margin:2px;margin-left:11px;}
+	 .request_layout .resetButton {position:absolute;right:0;top:0;}
+	  /* end 2017-07-24 */
+	  
+	 .request_layout .searchButton a, .request_layout .closeButton a {top:66px;}
+}
+/* //2017-07-17 */
+
+@media screen and (max-width:1080px){
+	 .snb {display:none;}
+	 #header h1 {text-align:left;}
+	 #header h1 img {width:78px;}
+	 #container .back {background:none;}
+	 #container .back .com-layout {padding-left:0;}
+	 .com-layout .contents {padding:10px;}
+	 .side-button {display:none;}
+	 .gnb li {display:none;}
+	 .topLogout {display:inline-block;position:absolute;right:15px;top:10px;}
+	 .topLogout a {border-bottom:1px solid #999;}
+	 .request_layout .tbvs1 .checkArea label {width:70px;margin-right:10px;}
+	 .request_layout .fileBox span {display:none;}
+	 .request_layout .imageArea .thumbnail span {margin-top:5px;}
+	 .request_layout .selectArea div { width:100%!important; margin-bottom:10px; }
+	 .listControlBox { position:relative; }
+	 .listControlBox .btnBox input { position:absolute;right:10px;top:9px; }
+	 
+	.request_layout .viewTitle span {margin-top:5px;}
+	.request_layout .viewStateout .detail ul:first-child {margin-bottom:0}
+	.request_layout .detail ul li {float:none}
+	.request_layout .detail ul:first-child li {margin-bottom:10px;}
+	.request_layout .menuR {margin-left:0;}
+	
+	/* 2017-06-16 by hr-park */
+	.request_layout .requestBox span {display:block;margin-bottom:10px;}
+	.request_layout .checkArea {padding:10px 10px;}
+	.request_layout .progress strong {display:block;width:auto;text-align:left;padding:10px 0 10px 10px;}
+	.request_layout .progress em {display:block;width:auto;margin-right:10px;margin-bottom:3px;}
+	.request_layout .participation span:first-child {display:block;margin-bottom:10px !important;}
+	.request_layout .participation label {margin-right:5px;margin-bottom:10px;}
+	.request_layout .progress .expected .reason {margin-left:0;}
+	.request_layout .progress .expected .reason input  {width:100%;}
+	.request_layout .progress .delay p {margin-left:0;}
+	.request_layout .progress .delay .reason {display:block;margin-left:0;}
+	.request_layout .progress .delay .reason input {width:100%;}
+	.request_layout .progress .remarks div {margin-left:0;}
+	.request_layout .progress .remarks input {width:100%;margin-bottom:5px;}
+	.request_layout .progress .remarks span {margin-left:0;}
+	.request_layout .moveBtn {float:none;margin:5px 0 0 5px}
+	.request_layout .imageArea .thumbnail {margin-top:5px}
+	.listControlBox input {padding:5px 6px;margin-top:5px;}
+	.checkArea select {width:120px;}
+	.listControlBox .btnL {left:20px;}
+	
+	/* 팝업 */
+	.popZone .topArea {width:100%;border:0 none;margin:0 auto;padding:0;text-align:center;}
+	.popZone .topArea .checkArea label {margin:0 10px 5px 0}
+	.popZone .topArea span {margin-bottom:10px;margin-right:0;}
+	.popZone .topArea span:first-child {display:block;}
+	.popZone .viewState {padding:0 6px;margin-right:0;}
+	.epop .epopArea {margin-left:-42%;}
+	.wpop .wpopArea, .epop .epopArea {display:inline-block;width:80%;top:6%;/*height:520px;*/height:auto;margin-left:-43%;}
+	.epop .topArea .degroup div {width:116px;text-align:left;margin-bottom:5px;} /* 2017-07-31 hr-park */
+	.epop .detail {width:auto;margin:0;margin-top:10px;}
+	.epop .detail ul {padding:0 10px;}
+	.epop .detail ul li {position:relative;display:inline-block;padding:10px 0;}
+	.epop .detail ul li:first-child  {display:none;}
+	.epop .detail ul li p {display:inline-block;width:100%;}
+	.epop .detail ul li span {display:inline-block;float:left;width:auto;}
+	.epop .detail ul li a {position:absolute;right:5px;top:5px;width:auto;}
+	.epop .receiver strong {display:block;width:100%;border-right:0;}
+	
+	/* 2017-05-30 imgPopup */
+	.iPopBack { top:12%;left:15%;right:15%;bottom:12%; }
+	.imgPopSwiper .swiper-button-prev, .imgPopSwiper .swiper-container-rtl .swiper-button-next {left:6%;}
+	.imgPopSwiper .swiper-button-next, .imgPopSwiper .swiper-container-rtl .swiper-button-prev {right:6%;}
+	.imgPopSwiper .imgDownBTn div {top:13%;left:16%;}
+
+
+@media screen and (max-width:667px){
+	.popZone .epopArea .btnBoxList .btngrayBg {margin-bottom:5px;}
+	.request_layout .progress em {margin-top:10px}
+	.request_layout .complete em {margin-top:0}
+	.request_layout .tbvs1 .checkArea label {margin-bottom:10px;}
+	.request_layout .moveBtn {width:98px;background-size:94px 27px;}
+	.request_layout .imageArea .thumbnail {display:block;} /* 2017-07-17 by hr-park */
+	.request_layout .imageArea .thumbnail div {margin:5px;}
+	.request_layout .colorArea div {float:right;}
+	 .request_layout .searchBox .selBox > span:nth-child(2) {width:32%;} /* 2017-07-25 by hr-park */
+	}
+
+@media screen and (max-width:550px) {
+	.colorpicker {left:auto !important;}
+	}
+
+@media screen and (max-width:480px) {
+	#wrap { width:auto; }
+	#contents { float:none;width:auto; }
+	.request_layout .imageBox span {width:45px}
+	.request_layout .moveBtn {margin:5px 0 0 0;}
+	.request_layout .complete input.cal {margin-bottom:0;}
+	.request_layout .progress em {margin-top:0;}
+	.request_layout .viewState { display:inline-block }
+	.request_layout .imageArea .thumbnail div {width:90px;height:90px;}
+	.imgPopSwiper .imgDownBTn div {top:14%}
+	.imgPopSwiper .imgDownBTn div img {width:40px;height:40px;}
+	.popZone .topArea .checkArea label {float:left;}
+	.request_layout .searchBox .cal {width:48%} /* 2017-07-24 by hr-park */
+	}
+	
+@media screen and (max-width:360px) {
+	input.cal {width:88px;}
+	.imgselected {display:block;margin:5px 0 0 84px;} /* 2017-07-17 by hr-park */
+	}
+}
+
+
+
+
+

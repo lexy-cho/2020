@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li class="on"><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="manager_list.html">관리자</a></span></li>
+							<!-- <li><span><a href="manager_m_list.html">관리자 (모바일)</a></span></li> -->
+							<li><span><a href="manager_history.html">관리자 이력</a></span></li>
+							<li><span><a href="code.html">코드관리</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">환경설정</a></span>
+							<span>관리자 이력</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<span>
+										<input id="initBtn" type="button" value="초기화" class="btnColor bBlue"/>
+									</span>
+
+									<select class="mr5">
+										<option value="">구분</option>
+										<option>PC</option>
+										<option>모바일</option>
+									</select>
+									<select id="menuTitle" class="mr5" onchange="changeSnbOp()">
+										<option value="">메뉴 선택</option>
+										<option>컨텐츠 관리</option>
+										<option>카매니저 관리</option>
+										<option>계약 관리</option>
+										<option>이벤트 관리</option>
+										<option>유지보수</option>
+										<option>프로모션 관리</option>
+										<option>관리자 관리</option>
+									</select>
+									<select id="menuSnb" class="mr5" onchange="selectMenu()">
+										<option value="">하위 메뉴 선택</option>
+										<option class="contSnb cont1st">공지사항</option>
+										<option class="contSnb">FAQ</option>
+										<option class="emplSnb empl1st">디바이스 관리</option>
+										<option class="emplSnb">카매니저</option>
+										<option class="emplSnb">1:1 문의</option>
+										<option class="eventSnb event1st">이벤트 관리</option>
+										<option class="eventSnb">참여 현황</option>
+										<option class="proSnb pro1st">전차종 가격</option>
+										<option class="proSnb">가이드 북</option>
+										<option class="proSnb">포인트 북</option>
+										<option class="proSnb">카탈로그</option>
+										<option class="manaSnb mana1st">관리자</option>
+									</select>
+									<select id="searchCategory" class="mr5">
+										<option value="all">전체</option>
+						<!-- 				<option value="hPos">메뉴</option> -->
+										<option value="hTitle">이력 정보</option>
+										<option value="hModCd">사번(아이디)</option>
+									</select>
+									<span class="list-search mr5">
+										<input id="search" type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" onclick="searchList(1)"/>
+									</span>
+									<select class="w80 mr5" id="ListSuOp" onchange="listAjax(1);">
+										<option value="10">10개</option>
+										<option value="20">20개</option>
+										<option value="30">30개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="70" />
+										<col width="70" />
+										<col width="250" />
+										<col />
+										<col width="100" />
+										<col width="100" />
+										<col width="100" />
+										<col width="200" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>구분</th>
+											<th>메뉴위치 <input type="button" value="up" class="sort sup" /></th>
+											<th>이력정보 <input type="button" value="up" class="sort sup" /></th>
+											<th>변동사항 <input type="button" value="up" class="sort sup" /></th>
+											<th>아이디 <input type="button" value="up" class="sort sup" /></th>
+											<th>권한 <input type="button" value="up" class="sort sup" /></th>
+											<th>적용날짜 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>10</td>
+											<td>PC</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 삭제</td>
+											<td>삭제</td>
+											<td>170301</td>
+											<td>최고관리자</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>9</td>
+											<td>모바일</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 수정</td>
+											<td>수정</td>
+											<td>170301</td>
+											<td>최고관리자</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>PC</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 수정</td>
+											<td>수정</td>
+											<td>170301</td>
+											<td>최고관리자</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>PC</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 신규등록</td>
+											<td>신규등록</td>
+											<td>170301</td>
+											<td>상담원</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>모바일</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 신규등록</td>
+											<td>신규등록</td>
+											<td>170301</td>
+											<td>상담원</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>PC</td>
+											<td class="subject">대메뉴 > 중메뉴 > 소메뉴</td>
+											<td class="subject">컨텐츠 신규등록</td>
+											<td>신규등록</td>
+											<td>170301</td>
+											<td>상담원</td>
+											<td>2016-12-31 00:00:00</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

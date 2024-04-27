@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".penArea, .eraserArea").hide();
+				$(".hbtnModify .btnZoom input").bind('tap click', function(){
+					$(this).addClass("on");
+					$(".hbtnModify .btnPen, .hbtnModify .btnEraser").removeClass("on");
+					$(".penArea").hide();
+					$(".eraserArea").hide();
+				}); // 줌버튼
+				$(".hbtnModify .btnPen").bind('tap click', function(){
+					$(this).addClass("on");
+					$(".hbtnModify .btnEraser, .hbtnModify .btnZoom input").removeClass("on");
+					$(".penArea").show();
+					$(".eraserArea").hide();
+				}); // 펜버튼
+				$(".hbtnModify .btnEraser").bind('tap click', function(){
+					$(this).addClass("on");
+					$(".hbtnModify .btnPen, .hbtnModify .btnZoom input").removeClass("on");
+					$(".penArea").hide();
+					$(".eraserArea").show();
+				}); // 지우개버튼
+
+				$("#header h1, .documentModify, .pencilClose").bind('tap click', function(){
+					$(".penArea").hide();
+					$(".eraserArea").hide();
+				}); // 바깥 클릭시 상단 박스 삭제 / 161209 .pencilClose 추가
+
+				$(document).ready(function(){
+					var imgResizing = function(){
+						var imgMaxHeight = $("body").height() - 112;
+						if($(".documentModify img").height() >= imgMaxHeight){
+							$(".documentModify img").css("width", "auto");
+							$(".documentModify img").css("height", imgMaxHeight);
+						} else {
+							$(".documentModify img").css("width", "100%");
+							$(".documentModify img").css("height", "auto");
+						};
+					}
+					imgResizing();
+
+					$(window).bind("resize", function(){
+						imgResizing();
+						imgResizing();
+					});
+				}) // 161209 추가
+			})
+		</script>
+	</head>
+
+	<body> <!-- 161209 bgPattern 삭제 -->
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="document_contract.html">Back</a></span>
+						</span>
+						<h1><!-- 증명서 수정--></h1>
+						<span class="right">
+							<span class="hbtnModify">
+								<!-- zoom -->
+								<span class="btnZoom">
+									<input type="button" value="zoom" />
+								</span>
+								<!-- pencil -->
+								<span class="pencilArea">
+									<input type="button" value="펜" class="btnPen on" />
+									<input type="button" value="지우개" class="btnEraser" />
+								</span>
+								<!-- 펜 박스 -->
+								<span class="penArea">
+									<input type="button" value="penarea close" class="pencilClose" /> <!-- 161209 닫기 추가 -->
+									<strong>SIZE</strong>
+									<span class="pSize pb10">
+										<input type="radio" id="ps1" class="pSize1" name="psName" /><label for="ps1">size1</label>
+										<input type="radio" id="ps2" class="pSize2" name="psName" /><label for="ps2">size2</label>
+										<input type="radio" id="ps3" class="pSize3" name="psName" checked /><label for="ps3">size3</label> <!-- 161206 기본 checked 추가 -->
+										<input type="radio" id="ps4" class="pSize4" name="psName" /><label for="ps4">size4</label>
+									</span>
+									<strong>COLOR</strong>
+									<span class="pColor">
+										<input type="radio" id="pc1" class="pColor1" name="pcName" /><label for="pc1">color1</label>
+										<input type="radio" id="pc2" class="pColor2" name="pcName" /><label for="pc2">color2</label>
+										<input type="radio" id="pc3" class="pColor3" name="pcName" /><label for="pc3">color3</label>
+										<input type="radio" id="pc4" class="pColor4" name="pcName" /><label for="pc4">color4</label>
+										<input type="radio" id="pc5" class="pColor5" name="pcName" /><label for="pc5">color5</label>
+										<input type="radio" id="pc6" class="pColor6" name="pcName" /><label for="pc6">color6</label>
+										<input type="radio" id="pc7" class="pColor7" name="pcName" /><label for="pc7">color7</label>
+										<input type="radio" id="pc8" class="pColor8" name="pcName" /><label for="pc8">color8</label>
+										<input type="radio" id="pc9" class="pColor9" name="pcName" /><label for="pc9">color9</label>
+										<input type="radio" id="pc10" class="pColor10" name="pcName" checked /><label for="pc10">color10</label> <!-- 161206 기본 checked 추가 -->
+									</span>
+								</span>
+								<!-- 지우개 박스 -->
+								<span class="eraserArea">
+									<input type="button" value="penarea close" class="pencilClose" /> <!-- 161209 닫기 추가 -->
+									<strong>SIZE</strong>
+									<span class="eSize">
+										<input type="radio" id="es1" class="eSize1" name="esName"  /><label for="es1">size1</label>
+										<input type="radio" id="es2" class="eSize2" name="esName"  /><label for="es2">size2</label>
+										<input type="radio" id="es3" class="eSize3" name="esName" checked  /><label for="es3">size3</label> <!-- 161206 기본 checked 추가 -->
+										<input type="radio" id="es4" class="eSize4" name="esName"  /><label for="es4">size4</label>
+									</span>
+									<strong>RESET</strong>
+									<span class="eReset">
+										<button>페이지 지우기</button>
+									</span>
+								</span>
+							</span>
+							<!---->
+							<span class="hbtnSave"><input type="button" value="저장" /></span>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 증빙서류 -->
+						<div class="documentModify">
+							<div class="imgArea"><span><img src="images/sample_document.png" alt="증명서 이미지" /></span></div> <!-- 161209 span 추가 -->
+						</div>
+						<!-- //증빙서류 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		</script>
+	</body>
+</html>

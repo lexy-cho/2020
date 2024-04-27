@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>企業情報登録サイト</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/ui.jqgrid.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<link rel="shortcut icon" href="image/favicons.png">
+		<link rel="icon" href="image/favicons.png">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$(".formBack .idInfo").click(function(){
+					$('.loginInfoPop').show(function(){
+						$('.loginInfoPop').animate({top: "65%"}, 600);
+					});
+				});
+				$(".formBack .stepInfo").click(function(){
+					$('.stepInfoPop').show(function(){
+						$('.stepInfoPop').animate({top: "70%"}, 600);
+					});
+				});
+				$(".loginInfoPop .pClose").click(function(){
+					$('.loginInfoPop').animate({top: "250%"}, 600,function(){
+						$('.loginInfoPop').hide();
+					});
+				});
+				$(".stepInfoPop .pClose").click(function(){
+					$('.stepInfoPop').animate({top: "250%"}, 600,function(){
+						$('.stepInfoPop').hide();
+					});
+				});
+				/**/
+				$(".loginIntro .step1 button.next").click(function(){
+					$('.loginIntro').hide();
+					$('.loginIntro .step1').hide();
+				});
+			});
+		</script>
+	</head>
+	<!-- //20190923 -->
+	<body class="loginBody">
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#section" tabindex="0">本文ショートカット</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="loginWrap">
+			<div class="tableBack">
+				<div class="tcell">
+					<div class="formBack">
+						<h1><span class="logo">帝国データバンク</span>企業情報登録サイト</h1>
+						<form>
+							<fieldset>
+								<dl>
+									<dt>ID</dt>
+									<dd><input type="text" placeholder="メールでお知らせしたID" /></dd>
+								</dl>
+								<dl class="last">
+									<dt>PASSWORD</dt>
+									<dd><input type="password" placeholder="メールでお知らせしたPASSWORD" /></dd>
+								</dl>
+								<input type="button" value="ログイン" class="loginBtn" onClick="location.href='clientRegist.html'" />
+							</fieldset>
+						</form>
+						<div>
+							<!-- <button class="idInfo">IDパスワードのご確認方法</button> -->
+							<button class="stepInfo">ご回答にあたって</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //wrap -->
+		<!---->
+		<div class="popBase loginInfoPop" style="display:none;">
+			<aside>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<img src="image/img_loginHelp2.png" alt=""/>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popBase stepInfoPop" style="display:none;">
+			<aside>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<img src="image/img_loginHelp3.png" alt=""/>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<div class="loginIntro">
+			<div class="back">
+				<div class="step1">
+					<dl>
+						<dt>ご回答にあたっては、</dt>
+						<dd>● インターネット上のデータの送受信は、安定な通信を行うために、SSL・TLSによる暗号化通信を行っています。</dd>
+					</dl>
+					<img src="image/img_loginHelp4.png" alt="" />
+					<span>
+						<button class="next"><strong>ログインへ</strong></button>
+					</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

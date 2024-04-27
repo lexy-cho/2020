@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>企業情報登録サイト</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/ui.jqgrid.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="shortcut icon" href="image/favicons.png">
+		<link rel="icon" href="image/favicons.png">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$(".pmEndLayout .pmEndOpener").click(function(){
+					$(this).toggleClass('on');
+					$(this).parents().children('.full').toggle();
+					$(this).parents().children('.short').toggle();
+				});
+
+				/* 로그아웃 버튼 */
+				$("#logoutBtn").click(function () {
+					$("#alert5").show();
+					$(".dimPop").show();
+				});
+				$("#alert5 .btnBG.blue").click(function () {
+					$("#alert5").hide();
+					$(".dimPop").hide();
+					location.href = 'login.html';
+				});
+			});
+		</script>
+	</head>
+	<!-- //20190923 -->
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#section" tabindex="0">本文ショートカット</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<div id="wrapBack">
+				<!-- header -->
+				<head>
+					<div id="header">
+						<div class="back">
+							<h1>企業情報登録サイト</h1>
+							<!-- 카운터 삭제 -->
+							<a class="logout" id="logoutBtn">ログアウト</a>
+						</div>
+					</div>
+				</head>
+				<!-- //header -->
+
+				<hr/>
+				<!-- container -->
+				<section>
+					<div id="section">
+						<div class="endInfo lastCase">
+							<div class="back">
+								<p>ご回答いただきありがとうございました。<br/>以上で企業情報の登録は完了です。</p>
+								<button class="btnBG wide" onClick="location.href='clientReview2.html'">ログイン画面へ戻る</button>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- //container -->
+			</div>
+		</div>
+		<!-- //wrap -->
+		<!---->
+		<div class="popAlert long" id="alert5" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p class="tleft">入力頂いた内容は、仮保存ボタンを押下する<br/>ことによって保存することができます。<br/>こちらの「はい」ボタンを押下すると、<br/>入力頂いた内容は破棄してログアウトします。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<div class="dimPop" style="display:none;"></div>
+		<!-- //PopUp -->
+	</body>
+</html>

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body class="maincase">
+		<div id="blind_wrap" style="display:none;"></div><!-- //팝업용 -->
+
+		<!-- 2017-02-17 :: 퀵가이드 -->
+		<div class="quickGuide" style="display:none">
+			<div class="qGuideBack">
+				<div class="qGBtn">
+					<input type="button" value="SKIP" class="qBtnSkip" />
+					<input type="button" value="CLOSE" class="qBtnClose" />
+				</div>
+				<div class="quickGuideSwiper">
+					<div class="quickPagination"></div>
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. S-Work란?</h6>
+								<p>
+								S-Work는 수많은 종이서류의 작성과 보관을 완벽히 대처하고
+								견적서, 계약서를 포함한 카매니저의 모든 활동을 갤럭시탭 A 10.1 <!-- 2017-04-19 -->로 처리할 수 있는 서비스 입니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_01.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>2. 메인메뉴구성 PART1</h6>
+								<p>
+									계약진행 관련 업무와 차량정보 및 홍보자료 등 고객응대에 필요한 업무를 분리하여 업무의 효율성을 높였습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_02.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>2. 메인메뉴구성 PART2</h6>
+								<p>
+									계약진행 파트는 카매니저의 업무 흐름을 분석하여 계약진행 순서에 따라 배치하였습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_03.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>2. 메인메뉴구성 PART3</h6>
+								<p>
+								차종별 무거운 카달로그, 이제 들고 다니실 필요가 없습니다.<br/>
+								클릭만 하면 최신 카달로그 등 홍보자료들을 볼 수 있으며
+								판매가격, 이벤트 등의 정보들도 찾아볼 수 있습니다.<br/>
+								S-Work안에 고객상담에 필요한 모든것이 있습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_04.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>3. 퀵메뉴</h6>
+								<p>
+								어떠한 업무중에서도 메뉴를 누르면 메인화면 페이지와 동일한
+								화면구성으로 원하는 메뉴로 이동할 수 있습니다.<br/>
+								<!-- 2017-04-19 일부삭제 -->
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_05.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>4. 상세가이드</h6>
+								<p>
+								좀 더 자세한 이용방법이 알고 싶으신 분들은
+								메인화면 우측 상단의 가이드를 통해서 읽어보실 수 있습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_01_061.png" alt="" /></div>
+							<div class="qGimg2">
+								<a class="qGstart"><img src="images/img_quickGuide_01_062.png" alt="" /></a>
+								<!-- 2017-04-25 삭제 -->
+							</div>
+						</div>
+					</div>
+					<div class="quickChoiceBTn">
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<!-- 2017-04-25 -->
+					<div class="qNotBore">
+						<span class="checkSet">
+							<input type="checkbox" id="c_00" />
+							<label for="c_00">시작 시 퀵가이드를 다시보지 않습니다.</label>
+						</span>
+					</div>
+					<!-- //2017-04-25 -->
+				</div>
+				<script>
+					$( document ).ready( function() {
+						$(".qBtnSkip, .qBtnClose, .qGstart").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").removeClass('modalOpen');
+						});
+						$(".quickOpen").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").addClass('modalOpen');
+						});
+					});
+
+					var swiperQuick = new Swiper('.quickGuideSwiper', {
+						spaceBetween: 20,
+						pagination: '.quickPagination',
+						paginationClickable: true,
+						nextButton: '.quickChoiceBTn .swiper-button-next',
+						prevButton: '.quickChoiceBTn .swiper-button-prev',
+					});
+				</script>
+			</div>
+		</div>
+		<!-- //2017-02-17 :: 퀵가이드 -->
+
+		<!-- 2017-08-11  -->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.loginSubmit input').click(function(){
+					/*$('.device_settingPop').show();*/ //공용기기 등록
+					 $('.device_releasePop').show(); //등록된 기기 해제
+				}); // 공용패드 지정
+				$('.device_settingPop .btnpSet.darkGray').click(function(){
+					$('.device_settingPop').hide();
+					$('.device_namePop').show();
+				}); // 공용패드 이름 지정
+				$('.device_namePop .btnpSet.darkGray').click(function(){
+					$('.device_namePop').hide();
+					$('.device_completePop').show();
+				}); // 공용패드 설정 완료
+				$('.device_releasePop .btnpSet.darkGray').click(function(){
+					$('.device_releasePop').hide();
+					$('.device_codePop').show();
+				}); // 공용패드 지정
+				 $('.device_releasePop .popData label').click(function(){
+					$(this).siblings('label').css({'font-weight':'normal','color':'#646464','text-decoration':'none'});
+					$(this).css({'font-weight':'bold','color':'#fd4b42','text-decoration':'underline'});
+				}); // 기기해제
+				$('.device_codePop .codeBox1 .btnpSet.darkGray').click(function(){
+					$('.codeBox2').show();
+				}); // 인증코드 발송 확인
+				$('.device_codePop .codeBox2 .btnpSet.darkGray').click(function(){
+					$('.device_codePop').hide();
+					$('.device_namePop').show();
+				}); // 인증코드 입력
+				$('.device_completePop .btnpSet.darkGray').click(function(){
+					$('.device_completePop').hide();
+					$('#blind_wrap').hide();
+				}); // 등록 완료
+				$('.commonPop .btnpSet:first-child').click(function(){
+					$(this).parents().find('.commonPop').hide();
+					$('.codeBox2').hide();
+					$('#blind_wrap').hide();
+				}); // 팝업 닫기
+			})
+		</script>
+		<!--// 2017-08-11  -->
+
+		<div id="wrap_back">
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb3").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+					$(".mainLine1 ul li:nth-child(2)").bind('tap click', function(){
+						$(".writePop").toggle();
+						$("#blind_wrap").toggle();
+					}); // 작성팝업 2017-07-25
+					$(".hbtnOpenQQ a").bind('tap click', function(){
+						$(".quickQnaPop").toggle();
+						$("#blind_wrap").toggle();
+					}); // 2020-02-17 빠른 문의 신청 팝업
+					$(".choiceCKind select").on("change", function(){
+							$(".secSelect .selectSet").hide();
+							$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+						if($(this).find("option:selected").val() == 1){
+							$(".secSelect").show();
+							$(".secSelect .selectSet.case1").show();
+						}else if($(this).find("option:selected").val() == 2){
+							$(".secSelect").show();
+							$(".secSelect .selectSet.case2").show();
+						}else if($(this).find("option:selected").val() == 3){
+							$(".secSelect").show();
+							$(".secSelect .selectSet.case3").show();
+						} else {
+							$(".secSelect").hide();
+							$(".secSelect .selectSet").hide();
+						}
+					});
+					$(".selectSet.case1 select").on("change", function(){
+						if($(this).find("option:selected").val() == 1){
+							$('.inpuDetail').attr('placeholder','SMS 수신 휴대폰 번호를 입력해주세요.');
+						}else {
+							$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+						}
+					});
+					$(".selectSet.case2 select").on("change", function(){
+						if($(this).find("option:selected").val() == 2){
+							$('.inpuDetail').attr('placeholder','기기해제 할 사번을 입력해주세요');
+						}else if($(this).find("option:selected").val() == 3){
+							$('.inpuDetail').attr('placeholder','기기번호 5자리를 입력해주세요');
+						}else {
+							$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+						}
+					});
+					$(".selectSet.case3 select").on("change", function(){
+						if($(this).find("option:selected").val() == 4){
+							$('.inpuDetail').attr('placeholder','전자계약서 서식번호를 입력해주세요');
+						}else if($(this).find("option:selected").val() == 5){
+							$('.inpuDetail').attr('placeholder','전자계약서 서식번호를 입력해주세요');
+						}else {
+							$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+						}
+					});
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!-- 2017-08-07 공용패드 지정 팝업 -->
+			<div class="commonPop alert-pop device_settingPop" style="display:none;">
+				<div class="popBack pd20">
+					<div class="popData tCenter">
+						대리점 공용패드로<br />지정하시겠습니까?
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet">취소</a>
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+			</div>
+			<!--// 공용패드 지정 -->
+
+			<!-- 2017-08-07 기존 기기 해제 팝업 -->
+			<div class="commonPop alert-pop device_releasePop" style="display:none;">
+				<div class="popBack pd20">
+					<div class="popData tCenter">
+						이미 등록된 기기가 있습니다.<br />기존의 기기를 해제 하시겠습니까?<br /><br />
+						<input type="radio" name="chk_device" id="dv1" class="" value="&bull; 타블릿1 (기기명)" style="-webkit-appearance:radio;"/>
+						<label for="dv1" class="ml10" >타블릿1 (기기명)</label><br />
+						<input type="radio" name="chk_device" id="dv2" class="" value="&bull; 타블릿2 (기기명)" style="-webkit-appearance:radio;" />
+						<label for="dv2" class="ml10" >타블릿2 (기기명)</label><br /><br />
+						해제를 원하시는 타블릿 PC를<br />선택해 주세요.
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet">취소</a>
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+			</div>
+			<!--// 기기해제 팝업 -->
+
+			<!-- 2017-08-07 공용패드 기기명 설정 팝업 -->
+			<div class="commonPop alert-pop device_namePop" style="display:none;">
+				<div class="popBack pd20">
+					<div class="popData tCenter">
+						해당기기를 공용패드로 등록합니다<br />
+						기기명을 입력해 주세요<br />
+						<input type="text" value="타블릿 1" class="mt10" />
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet" style="display:none;">취소</a> <!-- 2017-08-29 -->
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+			</div>
+			<!--// 기기명 팝업 -->
+
+			<!-- 2017-08-07 공용패드 등록완료 팝업 -->
+			<div class="commonPop alert-pop device_completePop" style="display:none;">
+				<div class="popBack pd20">
+					<div class="popData tCenter">등록완료</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a href="#" class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+			</div>
+			<!--// 공용패드 등록완료 -->
+
+			<!-- 2017-08-07 공용패드 기기명 설정 팝업 -->
+			<div class="commonPop alert-pop device_codePop" style="display:none;">
+				<div class="codeBox1">
+					<div class="popBack pd20">
+						<div class="popData tCenter">
+							등록된 대표자 사번으로<br />인증코드를 발송하시겠습니까?<br />
+						</div>
+					</div>
+					<!---->
+					<div class="popBtn">
+						<div class="back">
+							<a class="btnpSet">취소</a>
+							<a class="btnpSet darkGray">확인</a>
+						</div>
+					</div>
+				</div>
+				<div class="codeBox2" style="display:none;">
+					<div class="popBack pd20">
+						<div class="popData tCenter">
+							인증 코드를 입력해 주세요<br />
+							<div class="wFull"><input type="text" class="mt10 wAuto"/><span class="ml5">05:00</span></div>
+						</div>
+					</div>
+					<!---->
+					<div class="popBtn">
+						<div class="back">
+							<a class="btnpSet">취소</a>
+							<a class="btnpSet darkGray">확인</a>
+						</div>
+					</div>
+				</div>
+				<!---->
+			</div>
+			<!--// 기기명 팝업 -->
+
+			<!-- 작성팝업 2017-07-25 추가 by hr-park -->
+			<div class="commonPop alert-pop writePop" style="display:none;">
+				<div class="popBack">
+					<div class="popData">
+						<div class="alertBox aConfirm">
+							<span class="gm_alert_msg">진행중인 계약서가 있습니다.<br>이어서 작성하시겠습니까?</span>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet" href="contract_form.html">이어서 작성</a>
+						<a class="btnpSet darkGray" href="contract_privacy.html">신규계약서 작성</a>
+					</div>
+				</div>
+			</div>
+			<!-- // 2017-07-25 -->
+
+			<!-- 2020-02-17 빠른 문의 신청 팝업 -->
+			<div class="commonPop quickQnaPop" style="display:none">
+				<div class="popTit">
+					<h1>빠른문의</h1>
+				</div>
+				<div class="popBack">
+					<!---->
+					<div class="lineBox">
+						<!---->
+						<div class="iSet categoryCase">
+							<label>카테고리 <sup>필수항목</sup></label>
+							<div class="selectArea">
+								<span class="firstSelect">
+									<span class="iLine">
+										<span class="selectSet choiceCKind">
+											<select>
+												<option>선택하세요</option>
+												<option value="1">앱 다운로드</option>
+												<option value="2">앱 접속</option>
+												<option value="3">계약서 전송</option>
+											</select>
+										</span>
+									</span>
+								</span>
+								<span class="secSelect" style="display:none;">
+									<span class="iLine">
+										<span class="selectSet case1">
+											<select>
+												<option>선택하세요</option>
+												<option value="1">앱 다운로드 링크</option>
+											</select>
+										</span>
+										<span class="selectSet case2" style="display:none">
+											<select>
+												<option>선택하세요</option>
+												<option value="2">기존기기 해제</option>
+												<option value="3">타인기기 사용</option>
+											</select>
+										</span>
+										<span class="selectSet case3" style="display:none">
+											<select>
+												<option>선택하세요</option>
+												<option value="4">전송 지연</option>
+												<option value="5">전송 오류</option>
+											</select>
+										</span>
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="iSet">
+							<label>내용 입력 <sup>필수항목</sup></label>
+							<span class="iLine"><input type="text" placeholder="내용을 입력해주세요" class="inpuDetail" /></span>
+						</div>
+						<div class="iSet">
+							<label>사번 <sup>필수항목</sup></label>
+							<span class="iLine"><input type="text" placeholder="사번을 입력해주세요" /></span>
+						</div>
+						<!---->
+					</div>
+					<!---->
+					<div class="popBtn">
+						<div class="back">
+							<a class="btnpSet" href="main.html">취소</a>
+							<a class="btnpSet darkGray" href="main.html">문의 접수</a>
+						</div>
+					</div>
+					<!---->
+					<ul>
+						<li>빠른 문의는 별도의 전화 문의 없이 빠르게 처리할 수 있는 사항들을 접수합니다. <span>이 외 문의가 있으신 분은 FAQ 또는 운영사무국(070-5088-5099)을 이용해주세요.</span></li>
+						<li>빠른 문의 대응 시간은 09:00 ~ 18:00 입니다. 이 외 시간에 접수된 문의는 대응이 지연될 수 있습니다.</li>
+						<li>빠른 문의하신 내역은 FAQ > [빠른문의 내역]에서 확인하실 수 있습니다.</li>
+					</ul>
+				</div>
+				<!---->
+			</div>
+			<!-- // 2020-02-17 -->
+
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper mainArea"> <!-- 2017-09-04 디자인 변경으로 인한 클래스 추가 -->
+
+				<!-- header -->
+				<div id="header" class="mainHeader">
+					<div class="topGnb">
+						<header>
+							<span class="left">
+								<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							</span>
+							<h1><img src="images/img_maintit.png" alt="Mobile Smart Work | 전자 견적서 / 전자 매매 계약서" /></h1>
+							<!-- 2020-02-17 -->
+							<span class="right">
+								<span class="hbtnOpenQQ"><a>빠른 문의</a></span>
+							</span>
+							<!-- //2020-02-17 -->
+						</header>
+					</div>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<div id="contents" class="mainCon">
+					<!-- 메인 -->
+					<div class="mainLayout">
+						<section>
+							<div class="mainBack">
+								<div class="mainLine1">
+									<ul>
+										<li><a class="goEstimate"><img src="images/btn_main1.png" alt="견적서"/></a></li>
+										<li><img src="images/btn_main2.png" alt="신규 계약서"/></li>
+										<li><a href="contract_list.html"><img src="images/btn_main3.png" alt="진행중인 계약"/></a></li>
+										<li><a href="document_contract.html"><img src="images/btn_main4.png" alt="증빙서류"/></a></li>
+										<li><a href="point_list.html"><img src="images/btn_main5.png" alt="선포인트"/></a></li>
+										<li><a href="hipass_list.html"><img src="images/btn_main6.png" alt="하이패스"/></a></li>
+										<!-- 2018-04-13 약정서  & 빈메뉴 추가 by hr-park -->
+										<li><a href="agreement_list.html"><img src="images/btn_main20.png" alt="쉐보레플러스 케어 약정서"/></a></li> <!-- 2018-05-29 명칭 변경 -->
+										<li><img src="images/btn_main_none.png" alt="CHEVROLET"/></li>
+										<li><img src="images/btn_main_none.png" alt="CHEVROLET"/></li>
+										<!--// 2018-04-13 약정서 & 빈메뉴 추가 -->
+									</ul>
+								</div>
+								<div class="mainLine2">
+									<ul>
+										<li><a href="interact_catalog.html"><img src="images/btn_main18.png" alt="인터렉티브 카달로그"/></a></li> <!-- 2018-02-23 링크연결 -->
+										<li><a href="#"><img src="images/btn_main19.png" alt="인사이트 리포트"/></a></li>
+										<li><a href="car_list.html"><img src="images/btn_main8.png" alt="전차종가격"/></a></li>
+										<li><a href="#"><img src="images/btn_main7.png" alt="판매조건"/></a></li>
+										<li><a href="event.html"><img src="images/btn_main9.png" alt="이벤트"/></a></li>
+										<li><a href="#"><img src="images/btn_main17.png" alt="공지사항"/></a></li> <!-- 2018-02-22 수정 / 2017-10-27 -->
+	 									<!-- <li><a href="catalog.html"><img src="images/btn_main10.png" alt="카달로그"/></a></li>
+										<li><a href="guideBook.html"><img src="images/btn_main11.png" alt="가이드북"/></a></li> -->
+										<li><a href="faq_index.html"><img src="images/btn_main12.png" alt="FAQ"/></a></li>
+										<li><a href="#"><img src="images/btn_main13.png" alt="디지털 쇼룸"/></a></li>
+										<li><a href="#"><img src="images/btn_main14.png" alt="Build My Car"/></a></li>
+										<li><a href="#"><img src="images/btn_main15.png" alt="차량 비교"/></a></li>
+										<li><a href="#"><img src="images/btn_main16.png" alt="디지털 캠페인"/></a></li>
+										<li><a href="#"><img src="images/btn_main21.png" alt="영업 교육"/></a></li> <!-- 2018-04-24 메뉴 추가 by hr-park -->
+									</ul>
+								</div>
+								<!-- 2017-09-18 -->
+								<div class="mainLine3">
+									<div class="mb10">
+										<p><strong>[문의처 안내]</strong><p>
+					<!-- 					<p><strong>S-work 전자계약서 운영사무국(씽크트리)</strong>070-5088-5099</p> -->
+					<!-- 					<p>운영시간 : 09:00 ~ 18:00 <span>( 점심시간: 12:00 ~ 13:00 )</span><p> -->
+									</div>
+									<ol>
+										<li><strong>S-Work 전자계약서 운영사무국(씽크트리) 070-5088-5099 </strong></li>
+										<li><strong>견적서/ CMS / DMS 운영사무국(위즈빌) 02-850-0029 </strong></li>
+										<li>
+											<strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교 (더 위버) 070-4757-2070 </strong>
+										</li>
+										<li><strong>영업교육(쉐보레아카데미) 032-363-7267, 7484</strong></li>
+									</ol>
+								</div>
+							</div>
+						</section>
+					</div>
+					<!-- //메인 -->
+					<!-- 161202 main img 삭제 -->
+					<!-- 2017-09-04 logoArea 삭제 -->
+				</div>
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>  
+		$(document).ready(function(){
+            // 헤더 컨텐츠 고정 값만큼 컨텐츠에 padding-top 설정, 목록은 모두 공통
+            $(window).resize(function(){
+                $(".mAdminSubLayout").css({
+                    "padding-top" : $(".mAdminTop").height()
+                });
+            }).resize();
+
+			$(".popOpen, .btnColor2").click(function(){
+				$(".mANoticePop").show();
+				$("#blind_wrap").show();
+			}); 
+		});
+		</script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+			<!-- 공지사항 등록 팝업 -->
+			<div class="mAdminPop mANoticePop" style="display:none;">
+				<div class="popTit">
+					<h1>공지사항 내용</h1>
+				</div>
+				<div class="popBack">
+					<!---->
+					<div class="lineBox">
+						<!---->
+						<div class="gridSet grid2">
+							<div class="gridItem">
+								<dl class="iSet">
+									<dt>카테고리</dt>
+									<dd>
+										<div class="iLine notPd">
+											<span class="selectSet">
+												<select>
+													<option>공지</option>
+													<option>알림</option>
+													<option>정기</option>
+													<option>긴급</option>
+													<option>신규</option>
+												</select>
+											</span>
+										</div>
+									</dd>
+								</dl>
+							</div>
+							<div class="gridItem"></div>
+						</div>
+						<!---->
+						<div class="gridSet grid2">
+							<div class="gridItem">
+								<dl class="iSet">
+									<dt>시작일시</dt>
+									<dd>
+										<div class="ymdtSet">
+											<span class="mACalSet"><input type="tel" id="" name="" value="2020-03-06" /><button>달력열기</button></span>
+											<span class="selectSet">
+												<select>
+													<option>01시</option>
+													<option>02시</option>
+													<option>03시</option>
+												</select>
+											</span>
+										</div>
+									</dd>
+								</dl>
+							</div>
+							<div class="gridItem">
+								<dl class="iSet">
+									<dt class="last">종료일시</dt>
+									<dd>
+										<div class="ymdtSet">
+											<span class="mACalSet"><input type="tel" id="" name="" value="2020-03-06" /><button>달력열기</button></span>
+											<span class="selectSet">
+												<select>
+													<option>01시</option>
+													<option>02시</option>
+													<option>03시</option>
+												</select>
+											</span>
+										</div>
+									</dd>
+								</dl>
+							</div>
+						</div>
+						<!---->
+						<div class="gridSet grid1">
+							<div class="gridItem">
+								<dl class="iSet">
+									<dt>제목</dt>
+									<dd><div class="iLine notPd"><input type="text" placeholder="제목을 입력해주세요."/></div></dd>
+								</dl>
+							</div>
+						</div>
+						<!---->
+						<div class="gridSet grid1 last">
+							<div class="gridItem">
+								<dl class="iSet">
+									<dt>공지 내용</dt>
+									<dd>
+										<div class="directInput">
+											<textarea placeholder="공지내용을 입력해주세요."></textarea>
+											678/1000
+										</div>
+									</dd>
+								</dl>
+
+							</div>
+						</div>
+						<!---->
+					</div>
+					<!---->
+					<div class="popBtn">
+						<div class="back">
+							<a class="btnpSet" href="">취소</a>
+							<a class="btnpSet darkGray" href="">공지사항 등록</a>
+						</div>
+					</div>
+					<!-- <div class="popBtn">
+						<div class="back">
+							<a class="btnpSet darkGray" href="">수정내용 저장</a>
+						</div>
+					</div> -->
+					<!---->
+				</div>
+				<!---->
+			</div>
+			<!-- //공지사항 등록 팝업 -->
+			<div id="blind_wrap" style="display:none;"></div><!-- //팝업용 -->
+
+			<!-- snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" />
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div>
+							<a href="setting.html" class="btnSetting">설정</a>
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a onClick="history.back()">Back</a></span>
+						</span>
+						<h1><img src="images/img_tit_19_04.png" alt="공지사항 관리" /></h1>
+						<span class="right">
+							<button type="button" class="btnColor2 bRed">신규 등록</button>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 모바일관리 서브 -->
+						<div class="mAdminSubLayout">
+							<div class="mAdminTop">
+								<div class="mAdminSearch">
+									<span class="selectSet">
+										<select>
+											<option>공지</option>
+											<option>알림</option>
+											<option>정기</option>
+											<option>긴급</option>
+											<option>신규</option>
+										</select>
+									</span>
+									<div class="right">
+										<span class="prevMonth"><input type="checkbox" id="prevMonth" /><label for="prevMonth"><i></i>전월</label></span>
+										<ul class="calGrp">
+											<li>
+												<span class="mACalSet"><input type="tel" id="" name="" /><button>달력열기</button></span>
+											</li>
+											<li>
+												<span class="mACalSet"><input type="tel" id="" name="" /><button>달력열기</button></span>
+											</li>
+										</ul>
+										<input type="submit" value="검색" class="btnColor3" />
+									</div>
+								</div>
+								<div class="mAdminList">
+									<div class="listHead">
+										<div class="scroll" id="listHeader">
+											<table>
+												<colgroup>
+													<col style="width:50px;" />
+													<col style="width:55px;" />
+													<col style="width:170px;" />
+													<col style="width:70px;" />
+													<col style="width:80px;" />
+													<col style="width:80px;" />
+													<col style="width:80px;" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th>No.</th>
+														<th>카테고리</th>
+														<th>제목</th>
+														<th>공개여부</th>
+														<th>메인공개여부</th>
+														<th>시작일자</th>
+														<th>종료일자</th>
+													</tr>
+												</thead>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="mAdminList listbodyCase">
+								<div class="listBody">
+									<div class="scroll" id="listWrap" onScroll="javascript:document.getElementById('listHeader').scrollLeft = document.getElementById('listWrap').scrollLeft">
+										<table>
+											<colgroup>
+												<col style="width:50px;" />
+												<col style="width:55px;" />
+												<col style="width:170px;" />
+												<col style="width:70px;" />
+												<col style="width:80px;" />
+												<col style="width:80px;" />
+												<col style="width:80px;" />
+											</colgroup>
+											<tbody>
+												<tr>
+													<td>93</td>
+													<td>공지</td>
+													<td class="popOpen"><div>[공지] S-Work 시스템 중지 예정 S-Work 시스템 중지 예정 S-Work 시스템 중지 예정</div></td>
+													<td>
+														<span class="maCheck"><input type="checkbox" id="mac01" /><label for="mac01"></label></span>
+													</td>
+													<td>
+														<span class="maCheck"><input type="checkbox" id="mac02" /><label for="mac02"></label></span>
+													</td>
+													<td>2020-03-01</td>
+													<td>2020-03-01</td>
+												</tr>
+												<!--<tr>
+													<td colspan="7">표시할 데이터가 없습니다.</td>
+												</tr> //목록 없을 시-->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //모바일관리 서브 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+		</script>
+	</body>
+</html>

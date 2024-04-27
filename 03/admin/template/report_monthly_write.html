@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/css/ui.jqgrid.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#previewPdf').click(function() {
+					$('.previewPdfPop').show();
+					$('#blind_wrap').show();
+				}); // pdf 미리보기 팝업
+				$('.pop .pbtn button').click(function() {
+					$('.pop').hide();
+					$('#blind_wrap').hide();
+				}); // 팝업 닫기
+				$(".tabNav li button").click(function () {
+				    $(".tabNav li").removeClass("on");
+				    $(this).parent("li").addClass("on");
+				    var activeTab = $(this).attr("data-name");
+				    $('.tabData').hide();
+				    $('.tData' + activeTab).show();
+				});
+				$(document).on("click",".actionList li button",function(){
+					$(this).parent('li').remove();
+				});
+				$(document).on("click",".btnAddAction",function(){
+					var clone = $('.actionList li:last').clone();
+					clone.find('textarea').val('');
+					clone.appendTo('.actionList');
+				});
+				$(document).on("click",".bugBox li .btnColor.bGray",function(){
+					$(this).parent('li').remove();
+				});
+				$(document).on("click",".btnAddAction2",function(){
+					var clone = $('.bugBox li:last').clone();
+					clone.appendTo('.bugBox');
+				});
+				$(document).on("click",".btnIssueAdd",function(){
+					var clone = $('.issueBox:last').clone();
+					clone.find('textarea').val('');
+					clone.insertAfter(".issueBox:last");
+				});
+				$(document).on("click",".btnDetailAdd",function(){
+					var clone = $('.issueBox dd:not(.issueBtn):last').clone();
+					var where = $(this).parents(".issueBox").find('dd:not(.issueBtn):last');
+					clone.find('textarea').val('');
+					clone.insertAfter(where);
+				});
+				$(document).on("click",".btnDetailDel",function(){
+					$(this).parents('dd').remove();
+				});
+				$(document).on("click",".issueDel",function(){
+					$(this).parents('dl').remove();
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li class="on"><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="report_monthly_list.html">월간 보고서</a></span></li>
+							<li><span><a href="report_weekly_list.html">주간 보고서</a></span></li>
+							<li><span><a href="report_daily_list.html">일일 보고서</a></span></li>
+							<li><span><a href="report_development_request_list.html">개발 요청 이력 보고서</a></span></li>
+							<li><span><a href="report_development_list.html">개발 이력</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">보고서 관리</a></span>
+							<span>월간 보고서</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="400" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>월차정보</th>
+											<td>
+												<select>
+													<option>년 선택</option>
+													<option>2019년</option>
+													<option>2020년</option>
+													<option>2021년</option>
+												</select>
+												<select>
+													<option>월 선택</option>
+													<option>1월</option>
+													<option>2월</option>
+													<option>3월</option>
+													<option>4월</option>
+													<option>5월</option>
+												</select>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox tCenter">
+									<button class="btnColor bGray">데이터 가져오기</button>
+									<button class="btnColor bGray">PDF 생성</button>
+									<button class="btnColor bGray" id="previewPdf">PDF 미리보기</button>
+									<button class="btnColor bGray">제출완료</button>
+								</div>
+							</div>
+							<!---->
+							<!-- tab-wrap -->
+							<div class="cTabWrap">
+								<!-- tab -->
+								<div class="tabBack mt10">
+									<div class="tabNav">
+										<nav>
+											<ul>
+												<li class="on"><button data-name="0">현황정보</button></li>
+												<li><button data-name="1">Help</button></li>
+												<li><button data-name="2">Bug</button></li>
+												<li><button data-name="3">개발 요청</button></li>
+												<li><button data-name="4">Issue</button></li>
+												<li><button data-name="5">Timestamp</button></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<!--// tab -->
+								<div class="tabLayout">
+									<div class="tabData tData0" style="display:block;">
+										<div class="tabBox">
+											<strong>S-Work Device별 다운로드 현황</strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="120" />
+														<col width="120" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th rowspan="3">총 설치 건수</th>
+															<td colspan="3">231건</td>
+														</tr>
+														<tr>
+															<th>안드로이드</th>
+															<td>140건</td>
+														</tr>
+														<tr>
+															<th>IOS</th>
+															<td>91건</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<strong>전자계약서 작성 현황</strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="100" />
+														<col width="100" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>총 전자 계약서 전송 건수</th>
+															<td colspan="3">6,666건</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th>1월</th>
+															<th>2월</th>
+															<th>3월</th>
+															<th>4월</th>
+															<th>5월</th>
+															<th>6월</th>
+															<th>7월</th>
+															<th>8월</th>
+															<th>9월</th>
+															<th>10월</th>
+															<th>11월</th>
+															<th>12월</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="tRight">6,821건</td>
+															<td class="tRight">11,449건</td>
+															<td class="tRight">9,834건</td>
+															<td class="tRight">6,126건</td>
+															<td class="tRight">6,781건</td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData1">
+										<div class="tabBox">
+											<strong>Help Desk 접수</strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="100" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>접수 건수</th>
+															<td>123건</td>
+														</tr>
+														<tr>
+															<th>처리 중</th>
+															<td>0건</td>
+														</tr>
+														<tr>
+															<th>처리완료</th>
+															<td>123건</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+														<col width="50" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th>1월</th>
+															<th>2월</th>
+															<th>3월</th>
+															<th>4월</th>
+															<th>5월</th>
+															<th>6월</th>
+															<th>7월</th>
+															<th>8월</th>
+															<th>9월</th>
+															<th>10월</th>
+															<th>11월</th>
+															<th>12월</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="tRight">6,821건</td>
+															<td class="tRight">6,821건</td>
+															<td class="tRight">6,821건</td>
+															<td class="tRight">6,821건</td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+															<td class="tRight"></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData2">
+										<div class="tabBox">
+											<strong>Bug Fix 건수</strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="100" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>버그 건수</th>
+															<td><input class="tRight" type="text" value="1"/> 건</td>
+														</tr>
+														<tr>
+															<th>작업 건수</th>
+															<td><input class="tRight" type="text" value="1"/> 건</td>
+														</tr>
+														<tr>
+															<th>내용</th>
+															<td>
+																<!------------------------------ 2020-06-12 ------------------------------>
+																<ol class="bugBox">
+																	<!-- loop -->
+																	<li class="bugBoxSet">
+																		<dl class="first">
+																			<dt>일시 :</dt>
+																			<dd>
+																				<input type="text" readonly="" class="cal" value="05/14/2020"/>
+																				<input class="w50 tCenter" type="text" value="09:06"/> -
+																				<input class="w50 tCenter" type="text" value="09:50"/> ~
+																				<input type="text" readonly="" class="cal" />
+																				<input class="w50 tCenter" type="text"/> -
+																				<input class="w50 tCenter" type="text"/>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>현상 :</dt>
+																			<dd>
+																				<textarea class="wFull">IDC 센터 전원 공급 장치 변경 작업 중에, 견적서 창에서 s-work 연동 되지 않음</textarea>
+																				<div class="right">00/200 byte</div>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>원인 :</dt>
+																			<dd>
+																				<textarea class="wFull"></textarea>
+																				<div class="right">00/200 byte</div>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>대응 :</dt>
+																			<dd>
+																				<textarea class="wFull"></textarea>
+																			</dd>
+																		</dl>
+																		<button class="btnColor bGray">삭제</button>
+																	</li>
+																	<!-- //loop -->
+																	<li class="bugBoxSet">
+																		<dl class="first">
+																			<dt>일시 :</dt>
+																			<dd>
+																				<input type="text" readonly="" class="cal" value="05/14/2020"/>
+																				<input class="w50 tCenter" type="text" value="09:06"/> -
+																				<input class="w50 tCenter" type="text" value="09:50"/> ~
+																				<input type="text" readonly="" class="cal" />
+																				<input class="w50 tCenter" type="text"/> -
+																				<input class="w50 tCenter" type="text"/>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>현상 :</dt>
+																			<dd>
+																				<textarea class="wFull">IDC 센터 전원 공급 장치 변경 작업 중에, 견적서 창에서 s-work 연동 되지 않음</textarea>
+																				<div class="right">00/200 byte</div>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>원인 :</dt>
+																			<dd>
+																				<textarea class="wFull"></textarea>
+																				<div class="right">00/200 byte</div>
+																			</dd>
+																		</dl>
+																		<dl>
+																			<dt>대응 :</dt>
+																			<dd>
+																				<textarea class="wFull"></textarea>
+																			</dd>
+																		</dl>
+																		<button class="btnColor bGray">삭제</button>
+																	</li>
+																</ol>
+																<button class="btnColor bBlack btnAddAction2">추가</button>
+																<!------------------------------ //2020-06-12 ------------------------------>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData3">
+										<div class="tabBox">
+											<strong>개발 요청사항</strong>
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="160"/>
+														<col width="260"/>
+														<col width="130"/>
+														<col width="260"/>
+														<col width="130"/>
+														<col width="260"/>
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>접수 기간</th>
+															<td colspan="5"><input type="text" readonly="" class="cal" /> ~ <input type="text" readonly="" class="cal" /></td>
+														</tr>
+														<tr>
+															<th>당월 접수 건수</th>
+															<td>10건</td>
+															<th>이전 미적용 건수</th>
+															<td><input class="tRight" type="text" value="2"/> 건</td>
+															<th>총 접수 건수</th>
+															<td>12건</td>
+														</tr>
+														<tr>
+															<th>개선 대응 건수</th>
+															<td colspan="5"><input class="tRight" type="text" value="10"/> 건</td>
+														</tr>
+														<tr>
+															<th>개선 미 대응 건수</th>
+															<td colspan="5"><input class="tRight" type="text" value="2"/> 건
+																<dl>
+																	<dt>미대응 사유 :</dt>
+																	<dd>
+																		<ol class="actionList">
+																			<li><textarea></textarea><button class="btnColor bGray">삭제</button></li>
+																			<li><textarea></textarea><button class="btnColor bGray">삭제</button></li>
+																		</ol>
+																		<button class="btnColor bBlack btnAddAction">추가</button>
+																	</dd>
+																</dl>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData4">
+										<div class="tabBox">
+											<strong>Monthly Issue</strong>
+											<!---------------- 2020-06-12 ---------------->
+											<dl class="issueBox">
+												<dt><textarea>S-Work 계약서 내 레몬법 반영_2차(자동차 교환환불 중재제도)</textarea></dt>
+												<dd><textarea>매수인 변경 시 레몬법 수정 필수화</textarea><span><button class="btnColor bGray btnDetailDel">삭제</button></span></dd>
+												<dd><textarea>수정계약서 진입 시 레몬법 수정 가능화 (모든 변수 포함: 고객 변심 등)</textarea><span><button class="btnColor bGray btnDetailDel">삭제</button></span></dd>
+												<dd class="issueBtn">
+													<button class="btnColor bGray issueDel">삭제</button>
+													<button class="btnColor bBlack btnDetailAdd">추가</button>
+												</dd>
+											</dl>
+											<dl class="issueBox">
+												<dt><textarea>S-Work 계약서 내 레몬법 반영_2차(자동차 교환환불 중재제도)</textarea></dt>
+												<dd><textarea>매수인 변경 시 레몬법 수정 필수화</textarea><span><button class="btnColor bGray detailDel">삭제</button></span></dd>
+												<dd><textarea></textarea><span><button class="btnColor bGray btnDetailDel">삭제</button></span></dd>
+												<dd class="issueBtn">
+													<button class="btnColor bGray issueDel">삭제</button>
+													<button class="btnColor bBlack btnDetailAdd">추가</button>
+												</dd>
+											</dl>
+											<dl class="issueBox">
+												<dt><textarea>S-Work 계약서 내 레몬법 반영_2차(자동차 교환환불 중재제도)</textarea></dt>
+												<dd><textarea></textarea><span><button class="btnColor bGray btnDetailDel">삭제</button></span></dd>
+												<dd><textarea></textarea><span><button class="btnColor bGray btnDetailDel">삭제</button></span></dd>
+												<dd class="issueBtn">
+													<button class="btnColor bGray issueDel">삭제</button>
+													<button class="btnColor bBlack btnDetailAdd">추가</button>
+												</dd>
+											</dl>
+											<!---------------- //2020-06-12 ---------------->
+											<button class="btnIssueAdd btnColor bBlack">추가</button>
+										</div>
+									</div>
+									<div class="tabData tData5">
+										<div class="tabBox">
+											<button class="btnColor bGray">데이터 가져오기</button>
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="110" />
+														<col width="110" />
+														<col width="110" />
+														<col width="110" />
+														<col width="110" />
+														<col width="110" />
+													</colgroup>
+													<tbody>
+														<thead>
+															<tr>
+																<th>날짜</th>
+																<th>인도 건수</th>
+																<th>타임스탬프 건수</th>
+																<th>날짜</th>
+																<th>인도 건수</th>
+																<th>타임스탬프 건수</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td class="tCenter">2020-04-01</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-18</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-02</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-19</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-03</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-20</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-04</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-21</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-05</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-22</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-06</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-23</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-10</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-24</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-11</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-25</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-12</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-26</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-13</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-27</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-14</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-28</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-15</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-29</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-16</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter">2020-04-30</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+															<tr>
+																<td class="tCenter">2020-04-17</td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+																<td class="tCenter"></td>
+															</tr>
+														</tbody>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="btnBox tCenter">
+								<button class="btnColor bSky">저장</button>
+								<button class="btnColor bGray" onclick="location.href='report_monthly_list.html'">취소</button>
+								<button class="btnColor bGray" onclick="location.href='report_monthly_list.html'">목록</button>
+							</div>
+							<!-- //tab-wrap -->
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!-- pdf 미리보기 팝업  -->
+			<div class="pop previewPdfPop" style="display:none;">
+				<h1>Pdf 미리보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img src="format/images/bg/bg_monthlyReport_1.png" alt="월간보고서 1page"/>
+					<img src="format/images/bg/bg_monthlyReport_2.png" alt="월간보고서 2page"/>
+					<img src="format/images/bg/bg_monthlyReport_3.png" alt="월간보고서 3page"/>
+					<img src="format/images/bg/bg_monthlyReport_4.png" alt="월간보고서 4page"/>
+					<img src="format/images/bg/bg_monthlyReport_5.png" alt="월간보고서 5page"/>
+					<img src="format/images/bg/bg_monthlyReport_6.png" alt="월간보고서 6page"/>
+					<img src="format/images/bg/bg_monthlyReport_7.png" alt="월간보고서 7page"/>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+				</div>
+			</div>
+			<!---->
+			<div id="blind_wrap" style="display:none;"></div>
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

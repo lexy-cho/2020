@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/se2/js/HuskyEZCreator.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+	<div>
+	<div style="width:100%;height: auto;overflow: hidden;border:1px solid #bbb;background:white;">
+		<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:1024px; min-height:412px; display:none;"></textarea>
+		<script type="text/javascript">
+			var oEditors = [];
+			nhn.husky.EZCreator.createInIFrame({
+				oAppRef: oEditors,
+				elPlaceHolder: "ir1",
+				sSkinURI: "js/se2/SmartEditor2Skin.html",
+				fCreator: "createSEditor2"
+			});
+		</script>
+	</div>
+	</div>
+	</body>
+</html>

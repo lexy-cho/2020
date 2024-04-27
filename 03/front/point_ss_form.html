@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="point_introduction.html">Back</a></span>
+						</span>
+						<h1><img src="images/img_tit_06_02.png" alt="삼성카드" /></h1>
+						<span class="right">
+							<button type="button" class="btnColor2 bRed">팩스 전송</button>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 선포인트 -->
+						<div class="pointLayout">
+							<!---->
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide on"><a href="point_ss_form.html">약정서</a></span>
+										<span class="swiper-slide checkoff"><a href="point_ss_privacy.html">개인정보 활용동의</a></span>
+										<span class="swiper-slide"><a href="point_ss_terms.html">이용약관</a></span>
+										<span class="swiper-slide"><a>미리보기</a></span>
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">신청서</h2>
+								<div class="pointDetail pb120">
+									<!-- 회원정보 -->
+									<div class="lineBox mt13">
+										<h3 class="formatTit"><strong>회원정보</strong></h3>
+										<div class="box">
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>성명</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>카드번호</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>직장전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>자택전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>휴대전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+												<div class="gridItem"></div>
+											</div>
+										</div>
+									</div>
+									<!-- 서비스 이용 정보 -->
+									<div class="lineBox mt13">
+										<h3 class="formatTit"><strong>서비스 이용 정보</strong></h3>
+										<div class="box">
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>딜러점명</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>영업소명</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>영업사원명</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>영업사원사번</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>전화번호</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>휴대전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>구매차종</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>구매금액</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>영업소 주소</label>
+														<div class="findCase block"><input type="button" value="주소찾기" class="btnColor gray" onClick="location.href='contract_form_popup01.html'"/><span class="iLine"><input type="text" placeholder="주소 찾기로 입력" /></span></div> <!-- 161130 .block 추가 -->
+														<span class="iLine block"><input type="text" placeholder="나머지 주소 입력" /></span> <!-- 161130 .block 추가 -->
+													</div>
+												</div>
+											</div>
+											<!---->
+										</div>
+									</div>
+									<!-- 본인 인증 -->
+									<div class="lineBox mt13">
+										<h3 class="formatTit"><strong>본인 인증</strong></h3>
+										<div class="box">
+											<div class="gridSet">
+												<div class="gridItem">
+													<div class="iSet identiSet"> <!-- 2017-07-18 class 추가 by hr-park -->
+														<label>본인확인방법</label>
+														<span class="identityOk"> <!-- 2017-04-03 class 추가 -->
+															<!--  2017-07-18 주민등록증 주석처리 by hr-park -->
+															<!-- <span class="radioSet">
+																<input type="radio" id="c_07" ng-model="data.form.myselfIdentiWay" value="A" checked="checked"/>
+																<label for="c_07">주민등록증</label>
+															</span> -->
+															<span class="radioSet"><!--checkSet -> radioSet으로 변경 ms-kown -->
+																<input type="radio" id="c_03" ng-model="data.form.myselfIdentiWay" value="B" />
+																<label for="c_03">운전면허증</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" id="c_04" ng-model="data.form.myselfIdentiWay" value="C"/>
+																<label for="c_04">여권</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" id="c_05" ng-model="data.form.myselfIdentiWay" value="D"/>
+																<label for="c_05">공무원증</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" id="c_06" ng-model="data.form.myselfIdentiWay" value="E"/>
+																<label for="c_06">군인신분증</label>
+															</span>
+														</span>
+													</div>
+
+													<!-- <div class="iSet">
+														<label>본인확인방법</label>
+														<div class="pd15">
+															<span >
+																<span class="checkSet">
+																	<input type="checkbox" id="c_03" checked />
+																	<label for="c_03">운전면허증</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" id="c_04" />
+																	<label for="c_04">여권</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" id="c_05" />
+																	<label for="c_05">공무원증</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" id="c_06" />
+																	<label for="c_06">군인신분증</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" id="c_07" />
+																	<label for="c_07">주민등록증</label>
+																</span>
+															</span>
+														</div>
+													</div>-->
+
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>발급일</label>
+														<span class="iLine"><input type="date" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>증번호</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+										</div>
+									</div>
+									<!-- 고객확인 -->
+									<div class="lineBox mt13">
+										<h3 class="formatTit">
+											<strong>고객확인</strong>
+										</h3>
+										<div class="box">
+											<div class="pointAgree">
+												<p><strong>본인은 선포인트서비스 이용조건(약관) 및 동서비스안내문의 내용에 대하여 충분히 설명을 듣고 이해하여 본 약정을 체결함에 동의합니다.</strong></p>
+												<div class="gridSet grid3">
+													<div class="gridItem">
+														<div class="iSet">
+															<label>신청 날짜</label>
+															<span class="iLine"><input type="date" /></span>
+														</div>
+													</div>
+													<div class="gridItem">
+														<div class="iSet">
+															<label>신청인 (본인)</label>
+															<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>성명을 입력해 주세요</div></div>
+														</div>
+													</div>
+													<div class="gridItem">
+														<div class="iSet">
+															<label></label>
+															<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>서명을 입력해 주세요</div></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--//-->
+								</div>
+							</article>
+						</div>
+						<!-- //선포인트 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		/**
+		* Push left instantiation and action.
+		*/
+		var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		});
+
+		var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		});
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+
+		</script>
+	</body>
+</html>

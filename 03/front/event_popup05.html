@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var textAreaResize = function() {
+					$('.taSet textarea').on( 'keyup', function (e){
+						if(e.keyCode == 13){
+							var newheight = $(this)[0].scrollHeight;
+							$(this).height(newheight);
+						}
+					});
+				};
+				textAreaResize(); 
+			})
+		</script>
+	</head>
+
+	<body class="bgPattern">
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 이벤트 상세 팝업 -->
+			<div class="fullPop event-pop bgPattern3">
+				<h1>슈퍼 세이브티 시즌3</h1>
+				<div class="popData">
+					<div class="conBox">
+						<div class="grayBox mt10">
+							<div class="box">
+								<div class="gridSet grid2">
+									<div class="gridItem">
+										<div class="iSet">
+											<label>성명</label>
+											<span class="iLine"><input type="text" value="박경민" readonly /></span>
+										</div>
+									</div>
+									<div class="gridItem">
+										<div class="iSet">
+											<label>휴대전화</label>
+											<div class="iLine"><input type="text" value="01033587277" readonly /></div>
+										</div>
+									</div>
+								</div>
+								<!---->
+								<div class="gridSet grid2">
+									<div class="gridItem">
+										<div class="iSet">
+											<label>성별</label>
+											<span class="iLine"><input type="text" value="남자" readonly /></span>
+										</div>
+									</div>
+									<div class="gridItem">
+										<div class="iSet">
+											<label>사전계약여부</label>
+											<div class="iLine"><input type="text" value="예" readonly /></div>
+										</div>
+									</div>
+								</div>
+								<!---->
+								<div class="gridSet grid2">
+									<div class="gridItem">
+										<div class="iSet">
+											<label>동반인원</label>
+											<span class="iLine"><input type="text" value="1명" readonly /></span>
+										</div>
+									</div>
+									<div class="gridItem">
+										<div class="iSet">
+											<label>응모구분</label>
+											<div class="iLine"><input type="text" readonly /></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!---->
+						<div class="whiteBox mt10">
+							<div class="box">
+								<div class="iSet">
+									<label class="iCell">성별</label>
+									<span class="iCell">
+										<span class="radioSet">
+											<input type="radio" name="radio1" id="r_01" />
+											<label for="r_01">남자</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio1" id="r_02" />
+											<label for="r_02">여자</label>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet">
+									<label class="iCell">나이</label>
+									<span class="iCell">
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_03" />
+											<label for="r_03">10대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_04" />
+											<label for="r_04">20대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_05" />
+											<label for="r_05">30대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_06" />
+											<label for="r_06">40대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_07" />
+											<label for="r_07">50대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_08" />
+											<label for="r_08">60대</label>
+										</span>
+										<span class="radioSet">
+											<input type="radio" name="radio2" id="r_09" />
+											<label for="r_09">70대</label>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet">
+									<label class="iCell">방문시간</label>
+									<div class="iCell selectForm">
+										<div class="gridSet grid2-3">
+											<div class="gridItem">
+												<span class="iLine"><input type="date" /></span>
+											</div>
+											<div class="gridItem">
+												<span class="selectSet w70">
+													<select>
+														<option>00</option>
+													</select>
+												</span>
+												<span class="lh40">시</span>
+												<span class="selectSet w70">
+													<select>
+														<option>00</option>
+													</select>
+												</span>
+												<span class="lh40">분</span>
+												<button class="btnColor gray ml10">현재 시각</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!---->
+								<div class="iSet selectForm">
+									<label class="iCell">관심차종</label>
+									<span class="iCell">
+										<span class="selectSet">
+											<select>
+												<option>차종 선택 1</option>
+											</select>
+										</span>
+										<!---->
+										<span class="selectSet">
+											<select disabled>
+												<option>차종 선택 2</option>
+											</select>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet">
+									<label class="iCell">방문사유</label>
+									<span class="iCell">
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_01" />
+											<label for="c_01">계약상담</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_02" />
+											<label for="c_02">제품문의</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_03" />
+											<label for="c_03">신차전시</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_04" />
+											<label for="c_04">카달로그/가격표 수령</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_05" />
+											<label for="c_05">이벤트 문의/응모/상품수령</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check1" id="c_06" />
+											<label for="c_06">기타</label>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet">
+									<label class="iCell">방문경로</label>
+									<span class="iCell">
+										<span class="checkSet">
+											<input type="checkbox" name="check2" id="c_08" />
+											<label for="c_08">매체광고</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check2" id="c_09" />
+											<label for="c_09">인터넷</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check2" id="c_10" />
+											<label for="c_10">판촉전단</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check2" id="c_11" />
+											<label for="c_11">지인소개</label>
+										</span>
+										<span class="checkSet">
+											<input type="checkbox" name="check2" id="c_12" />
+											<label for="c_12">기타</label>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet">
+									<label class="iCell">방문경로</label>
+									<span class="iCell">
+										<span class="taSet">
+											<textarea>123</textarea>
+										</span>
+									</span>
+								</div>
+								<!---->
+								<div class="iSet selectForm">
+									<label class="iCell">구입예정시기</label>
+									<span class="iCell">
+										<span class="selectSet">
+											<select>
+												<option>선택해주세요</option>
+											</select>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!---->
+						<div class="btnBox">
+							<button class="btnColor2 bYellow" onClick="location.href='event_popup04.html'">취소</button>
+							<button class="btnColor2 bWhite" onClick="location.href='event_popup04.html'">저장</button>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<input type="button" value="팝업닫기" class="pclose" onClick="location.href='event.html'" />
+			</div>
+
+			<!-- snb -->
+			<div style="display:none"></div>
+			<!-- //snb -->
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+						</span>
+						<h1><img src="images/img_tit_11.png" alt="이벤트" /></h1>
+						<span class="right"><button type="button" class="btnColor2 bGray" onClick="location.href='event_popup02.html'">CMS 동의서</button></span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 이벤트 -->
+						<div class="event">
+							<ul class="imgList2">
+								<!-- Loop -->
+								<li>
+									<input type="button" value="이벤트 상세" class="btnHidden" onClick="location.href='event_popup01.html'" />
+									<div class="imgBox"><img src="images/sample_event.png" alt="event img" /></div>
+									<div class="txtBox">
+										<strong>[슈퍼 세이프티 시즌3] 지금이 기회다!</strong>
+										<span>2016/11/03 ~ 2016/12/31</span>
+									</div>
+								</li>
+								<!-- //Loop -->
+								<li>
+									<input type="button" value="이벤트 상세" class="btnHidden" onClick="location.href='event_popup01.html'" />
+									<div class="imgBox"><img src="images/sample_event.png" alt="event img" /></div>
+									<div class="txtBox">
+										<strong>[슈퍼 세이프티 시즌3] 지금이 기회다!</strong>
+										<span>2016/11/03 ~ 2016/12/31</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- //이벤트 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+	</body>
+</html>

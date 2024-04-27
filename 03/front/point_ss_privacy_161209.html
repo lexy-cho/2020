@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>  
+		<script type="text/javascript" src="js/common.js"></script>     
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+			
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<div class="snbBack">
+					<div class="snbMain">
+						<input type="button" value="snb close" class="c-menu__close" />
+						<div class="snbTop"><span><a href="main.html">홈으로</a></span><img src="images/img_snbArea_tit.png" alt="Smart Work" /></div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><img src="images/btn_snbmain1.png" alt="견적서"/></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href="catalog.html"><img src="images/btn_snbmain10.png" alt="카달로그" /></a></li>
+								<li class="snb11"><a href="guideBook.html"><img src="images/btn_snbmain11.png" alt="가이드북" /></a></li>
+								<li class="snb12"><a href="faq.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 슈럼" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain17.png" alt="GMK 소식" /></a></li> <!-- 2017-10-31 -->
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="">로그아웃</a></li>
+							<li class="setting"><a href="">설정</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<p><strong>운영시간</strong><span>09:00~18:00 (점심시간 12:00~13:00)</span></p>
+						<p><strong>전자계약서 운영사무국</strong><span>070-5088-5099</span></p>
+						<!-- <p><strong>견적서(위즈빌)</strong><span>02-850-0029 담당자 박형주</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070 담당자 더위버</span></p> -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="point_introduction.html">Back</a></span>
+						</span>
+						<h1><img src="images/img_tit_06_02.png" alt="삼성카드" /></h1>
+						<span class="right">
+							<button type="button" class="btnColor2 bRed">팩스 전송</button>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 선포인트 -->
+						<div class="pointLayout">
+							<!---->
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide"><a href="point_ss_form.html">약정서</a></span>
+										<span class="swiper-slide on checkon"><a href="point_ss_privacy.html">개인정보 활용동의</a></span>
+										<span class="swiper-slide"><a href="point_ss_terms.html">이용약관</a></span>
+										<span class="swiper-slide"><a>미리보기</a></span>
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">개인(신용)정보 필수 동의서</h2>
+								<div class="privacyDetail pointCase">
+									<p class="agreeIntro"><strong>[삼성카드 주식회사 귀중]</strong> 선지급포인트서비스(선포인트서비스) 이용계약(이하, “계약” 또는 “이 계약”이라 합니다)과 관련하여 귀사가 본인의 개인(신용)정보를 수집·이용하고자 하는 경우에는 「개인정보보호법」 제15조 및 제22조, 제24조, 「신용정보의 이용 및 보호에 관한 법률」 제32조, 제33조 및 제
+									34조에 따라 동의를 얻어야 합니다. 이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 수집·이용하는 데 동의합니다.</p>
+									<div class="agreeDetail">
+										<h3>1. 수집•이용에 관한 사항</h3>
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<ul>
+													<li>ㆍ 개인(신용)정보의 수집·이용 목적 : 계약의 체결·유지·이행·관리, 선지급포인트서비스(선포인트서비스)(서비스에 필요한 대상 카드 포함. 이하 같음) 안내·상담, 본인 확인</li>
+													<li>ㆍ 수집·이용할 개인(신용)정보의 내용 : 개인식별정보 : [성명, (자택, 휴대)전화번호, 카드번호], 대상 제품 구매 정보(구매 차종, 구매금액등), 기타 계약의 체결·유지·이행·관리 등과 관련하여 본인이 제공한 정보</li>
+													<li>ㆍ 개인(신용)정보의 보유 및 이용기간 : 거래 종료일로부터 5년</li>
+												</ul>
+											</div>
+											<dl>
+												<dt class="hiddenTitle">신청인</dt>
+												<dd>
+													<strong>본인은 귀사가 위의 수집 이용을 위하여 다음과 같은 본인의 고유식별정보를 처리하는것에 동의합니다.</strong> <!-- 170103 txt 수정 -->
+													<div>
+														<span class="radioSet"> <!-- 161129 check -> radio 수정 -->
+															<input type="radio" name="radio1" id="c_01" checked />
+															<label for="c_01">동의함</label>
+														</span>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_02" />
+															<label for="c_02">동의 안함</label>
+														</span>
+													</div>
+												</dd>
+											</dl>
+										</div>
+										<!---->
+									</div>
+									<!---->
+									<div class="agreeSign"> <!-- 170103 서명란 추가 -->
+										<p>본인은 본 동의서 내용을 이해하고 동의합니다.</p>
+										<div class="gridSet grid3">
+											<div class="gridItem">
+												<div class="iSet">
+													<label>동의 날짜</label>
+													<span class="iLine"><input type="date" /></span>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>신청자</label>
+													<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>성명을 입력해 주세요</div></div>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>서명</label>
+													<div class="signCase" onClick="location.href='contract_form_popup03.html'"><div>서명을 입력해 주세요</div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!---->
+									<div class="agreeDetail"> <!-- 170103 동의 라디오 삭제 -->
+										<h3>2. 개인(신용)정보 필수 제공 동의서(상품 서비스 제공)</h3>
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<table>
+													<colgroup>
+														<col width="30%"/>
+														<col width="20%"/>
+														<col width="30%"/>
+														<col width="20%"/>
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>제공 목적</th>
+															<th>제공 제휴사</th>
+															<th>제공 항목</th>
+															<th>보유 및 이용기간</th>
+														</tr>
+														<tr>
+															<td>선지급포인트서비스(선포인트서비스)신청・제공, 비용 정산</td>
+															<td>한국지엠주식회사</td>	
+															<td>회원번호, 선지급포인트서비스 승인일자, 승인번호,이용금액</td>
+															<td>거래 종료 후 5년까지</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!---->
+									</div>
+									<!---->
+									<div class="agreeSign">
+										<p>본인은 본 동의서 내용을 이해하고 동의합니다.</p>
+										<div class="gridSet grid3">
+											<div class="gridItem">
+												<div class="iSet">
+													<label>동의 날짜</label>
+													<span class="iLine"><input type="date" /></span>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>신청자</label>
+													<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>성명을 입력해 주세요</div></div>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>서명</label>
+													<div class="signCase" onClick="location.href='contract_form_popup03.html'"><div>서명을 입력해 주세요</div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--//-->
+								</div>
+							</article>
+						</div>
+						<!-- //선포인트 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		/**
+		* Push left instantiation and action.
+		*/
+		var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		});
+
+		var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		});
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+		swiper.slideTo(1); //시작은 0이며 현재 2번째
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,322 @@
+@charset "utf-8";
+
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: responsive.css
+* @Version: 1.0
+* @Create Date: 2016-12-12
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* =============================================================================== */
+/* Custom Responsive                                                               */
+/* =============================================================================== */
+
+/* =============================================================================== */
+/* =============================================================================== */
+/* pc 사이즈 경우 */
+@media screen and (min-width:769px){
+	.tab .btnPrev,
+	.tab .btnNext {display:none !important;}
+}
+@media screen and (max-width:1059px){
+	/* main */
+	.mainSwiper {padding:0 100px;}
+	.mainSwiper .btnPrevArea {padding-left:0;}
+	.mainSwiper .btnNextArea {padding-right:0;}
+	.mainGraph .graphSet2 {float:none;padding:0 !important;width:auto;margin-right:0;}
+}
+/* =============================================================================== */
+/* 경우 */
+@media screen and (min-width:801px){
+	.snbCase:hover ol, .snbCase:hover dl {display:inline-block;}
+}
+/* =============================================================================== */
+/* 반응형 레이아웃 넓이 800 이하 일 경우 */
+@media screen and (max-width:800px){
+	.snbCase ol, .snbCase dl {position:relative;bottom:auto;left:0;border:none;padding:5px 0 5px 0;box-shadow:none;background:#eceef2 url("../images/bg_mobile_snb.png") repeat-x;}
+	.snbCase ol li, .snbCase dl dd {box-sizing:border-box;width:100%;}
+	.snbCase ol li a, .snbCase dl dd a {padding:8px 12px 8px 36px;}
+	.gnb6.snbCase ol, .gnb6.snbCase dl {bottom:auto;}
+
+	/**/
+	.head .rBtn {top:56px;right:14px;background:white;}
+	.head .btnMy {position:absolute;top:-56px;right:2px;margin-right:0;background:url("../images/icon_header_my2.png") no-repeat right 15px;}
+	.head .btnMy button {width:55px;padding-right:20px;cursor:pointer;}
+	.head .btnMy button:after {right:17px;}
+	.head .myName {display:none;line-height:34px;font-size:12px;color:#e86a6a;}
+	.head .myName span {font-size:12px;color:#e86a6a;}
+	.head input[type="button"].btnSettings {display:none;margin:0;padding-left:35px;width:100%;height:33px;line-height:33px;text-align:left;text-indent:0;font-size:12px;border-top:1px solid #d9e2e6;background-position:10px -126px;}
+	.head input[type="button"].btnLogout {display:none;margin:0;padding-left:35px;width:100%;height:33px;line-height:33px;text-align:left;text-indent:0;font-size:12px;border-top:1px solid #d9e2e6;background-position:10px -191px;}
+	.head .goGnb {display:none;} /* 2017-06-09 */
+	.head .rBtn.on {padding:0 15px;width:90px;border:2px solid #e86a6a;border-top:0;}
+	.head .rBtn.on .btnMy {right:0;background-position:right -35px;}
+	.head .rBtn.on .myName,
+	.head .rBtn.on input[type="button"].btnSettings,
+	.head .rBtn.on input[type="button"].btnLogout {display:block;}
+	.head .rBtn.on .goGnb {display:inline-block;margin-left:10px;} /* 2017-06-09 */
+	/* main */
+	.mainCase .topBox {padding:15px;}
+	.mainCase .topBox .volunteer {width:auto;}
+	.mainContents {padding:10px;}
+	.mainContents h4 {padding:15px 10px 0;}
+
+	.graphSet {padding:0;min-width:auto;}
+	.chartList {padding-left:0;}
+	.chartList table thead th:first-child {border-right:0;}
+	.chartList table thead th:last-child,
+	.chartList table tbody td:last-child {border-left:0;}
+	.mobileVer {display:block;}
+	.pcVer {display:none;}
+	/**/
+	.rsls1 {padding:0 0;}
+	.rsws1 .rswSet dt {font-weight:bold;}
+	.hideCol3 {display:none !important}
+	.boardTop {padding:10px 10px;}
+	.boardBottom {padding:0 0;}
+	.bBBtn {margin:5px;}
+	.comLayout h3 strong {font-weight:bold;}
+	.dataBox .tit h4 {font-weight:bold;}
+	/* 입력폼 */
+	.h3Back {padding:0 0;}
+	.tab-con .rsws1 {padding:10px;}
+	.tableTopBack {padding:10px 10px 0;}
+	/* slider */
+	/*.sliderPager {margin-left: -25px;padding: 0 10px;width: calc(100% + 50px);}*/
+	.contents .sliderPager:before {content:"";display:block;position:absolute;top:0;left:-10px;z-index:2;width:50px;height:100%;background:url("../images/bg_whiteShadow2.png") repeat-y;background-size:100% 100%;}
+	.contents .sliderPager:after {content:"";display:block;position:absolute;top:0;right:-10px;z-index:2;width:50px;height:100%;background:url("../images/bg_whiteShadow.png") repeat-y;background-size:100% 100%;}
+	.contents .sliderPager.pagerLeft:before,
+	.contents .sliderPager.pagerRight:after {display:none;}
+	/**/
+	.viewMember.prev {left:10px;}
+	.viewMember.next {right:10px;}
+	/**/
+	.screenList li {display:table;width:100%;padding:0 10px 20px;}
+}
+/* =============================================================================== */
+/* 반응형 디바이스 (Tab, Tablet) 넓이 768 이하 일 경우 */
+@media screen and (max-width:768px){
+	html, body, * {font-size:16px;}
+	/* main */
+	.mainCase .topBox .volunteer {margin:0;width:auto;}
+	.mainSwiper {padding:0 70px;}
+	.mainSwiper .btnPrevArea,
+	.mainSwiper .btnNextArea {width:70px;}
+	.mainSwiper .pagingDate,
+	.mainSwiper .pagingDate span {font-size:12px;}
+	.mainSwiper .swiper-slide {width:85px;}
+	.mainSwiper .swiper-slide .swiperDate {font-size:12px;}
+	.mainSwiper .swiper-slide .swiperTeam {font-size:20px;}
+	/* list : 반응형 목록 */
+	.rsls1 .hideCol2 {display:none !important;}
+	/* write : 반응형 글쓰기 */
+	.rsws1 {padding:10px 0;}
+	.rsws1 .gridItem {display:table;width:100%;}
+	.rsws1 .gridItem.gI-5 {padding:0 10px;}
+	.rsws1 .gridItem.gI-5:first-child {border-right:none;}
+	.rsws1 .rswSet .wLong {width:100%;}
+	/* view : 반응형 상세 */
+	.rsvs1 table tbody td {padding:0 8px;}
+	.rsvs1 table tbody td .bbBox {font-size:15px;}
+	/* 평가 후보 리스트 */
+	.ratingList .ratingListArea {padding:0;}
+	.ratingList .ratingResult .bbBox span {float:none;width:auto;line-height:21px;font-size:12px;}
+	.ratingList .ft22 {font-size:18px !important;}
+	.ratingList .ft18 {font-size:16px !important;}
+	/**/
+	.listSort span {padding:0 6px;}
+	/**/
+	.dataBox {padding: 0 10px 10px;}
+	.lineBox {padding:10px 10px;}
+	/**/
+	.exhibitTop {margin-top:0;padding:5px 10px 10px;}
+	.boardTop.tabCase .supportInfo {padding:10px;}
+	.supportInfo {font-size:12px;}
+	.supportInfo strong {font-size:12px;}
+	.supportInfo strong span {font-size:12px;}
+	/**/
+	.pwViewCase {position:relative;padding:0 0 0 0;}
+	.pwViewCase .txtLine {clear:left;display:inline-block;width:100%;box-sizing:border-box;}
+	.pwViewCase .btnPassword {clear:left;margin-top:5px;position:relative;right:auto;top:auto;}
+	/* Tab */
+	.tab span.on a, 
+	.tab span.on input[type="button"] {font-weight:bold;}
+	.tab .btnNext {display:block;}
+	/* Icon &  bullet */
+	.attfile {padding:0 0 0 0;}
+	.attfile span {padding-right:30px;width:auto;font-size:88%;line-height:22px;}
+	.rsls1 table tbody .attfile {padding:0 10px 0 0;}
+	/* 입력폼 */
+	.embedContents { position:relative;padding-bottom: 56.25%;height:0;overflow:hidden;max-width:100%;height:auto;}
+	.embedContents iframe, .embedContents object, .embedContents embed {position:absolute;top:0;left:0;width:100%;height:100%;}
+	
+	/* 2017-06-05 */
+	.loginForm {padding:10% 0;}
+	.loginKind {padding:0 0 30px;}
+	.loginKind span {display:inline-block;margin:5px 0;}
+	.loginForm p {margin-top:25px;}
+	/* end 2017-06-05 */
+
+}
+/* =============================================================================== */
+/* 디바이스(iPhone 6 plue 가로모드 기준) 넓이 736 이하 일 경우 */
+@media screen and (max-width:736px){
+	html, body, * {font-size:14px;}
+	/* Login */
+	.loginForm h1 {padding:0 20px;}
+	.loginForm .visitantType {padding:0 20px;}
+	/* main */
+	.mainResult {padding-left:0;}
+	.mainResult .degree {position:relative;left:0;width:auto;}
+	.mainGraph .graphSet2 .graphArea {padding-top:40px;}
+	.mainGraph .graphSet2 .graphArea .graphCount {top:40px;}
+	/* 2017-06-09 */
+	.mainResult.largeCase .left {width:100%;}
+	.mainResult.largeCase .degree li {;padding:0 10px 10px 10px;}
+	.mainResult.largeCase .degreeTitle {padding:10px 20px;font-size:15px;}
+	.mainResult.largeCase .degreeTeam {padding:5px 36px 5px 0;font-size:14px;}
+	.mainResult.largeCase .degreeTeam strong {font-size:30px;}
+	.mainResult.largeCase .right {width:100%;}
+	.mainResult.largeCase .mainGraph .graphSet2 {padding:0 10px 30px !important;}
+	/* end 2017-06-09 */
+	/* list : 반응형 목록 */
+	.hideCol {display:none !important;}
+	.rsls1 .rsGird {position:relative;display:inline-block;text-align:left;}
+	.rsls1 .rsGird .rsItem {display:inline-block;width:auto;text-align:left;color:#373737;}
+	.rsls1 .rsGird .rsItem.rs100 {width:100% !important;}
+	.rsls1 .rsGird .rsItem.rsRoute {width:100%;color:#878787;}
+	.rsls1 table thead .rsItem.hideCol2 {display:inline-block !important;}
+	.rsls1 table thead .rsGird {text-align:center;}
+	.rsls1 table thead .rsItem span {display:inline-block;}
+	.rsls1 table thead .rsItem span.showCol {display:none;}
+	.rsls1 table tbody span.showCol {display:inline-block;font-size:88% !important;padding-right:3px;}
+	.rsls1 table tbody .rsdate {font-size:93%;}
+	.rsls1 table tbody .lLine {margin-left:5px;padding:0 5px;border-left:1px solid #ddd;}
+	.rsls1 .rsGird .rsItem.rsSubject {clear:left;padding:5px 0;width:100%;border-left:none;display:-webkit-box;}
+	.rsls1 table tbody .rsTerm {text-align:left;}
+	.rsls1 table tbody .rsTerm div {font-size:93%;display:inline-block;}
+	.rsMleft {padding-left:5px;}
+	/**/
+	.horizontalList {padding:0 0 0 180px;}
+	.horizontalList .fixArea {left:0;width:179px;}
+	/**/
+	.imgReview .imgArea {width:100%;height:auto;}
+	.imgReview .imgArea div {width:100%;height:auto;}
+	.imgReview .imgListArea {clear:left;display:inline-block;padding:0 0 0 0;}
+	textarea.h165 {height:230px;}
+	textarea.h320 {height:375px;}
+	.topBox .btnSet.excel {display:block;margin-top:5px;width:127px;vertical-align: middle;}
+	.dataNone p {margin:10px;} /* 2017-02-09 */
+	/**/
+	.boardBottom .back {position:relative;}
+	.boardBottom .back .right {margin-right:40px;}
+	.boardBottom .back .list-search {position:absolute;right:0 !important;top:0;margin-right:0;float:auto}
+	.boardBottom .back .list-search span {position:absolute;right:0 !important;top:10px;margin-right:10px;display:inline-block !important;}
+	.boardBottom .back .list-search div input[type="text"] {padding: 0 28px 0 28px;}
+	.boardBottom .back .list-search div {display:none;position:relative;z-index:10;top:10px;left:0;margin-right:10px;}
+	.boardBottom .back .list-search div .search-icon {left:0;right:auto;}
+	.boardBottom .back .list-search div .search-close {display:inline-block;right:2px;top:5px;}
+	.boardBottom .left .btnSet, .boardBottom .left.btnSet {width:35px;}
+	.boardBottom .left .btnSet *, .boardBottom .left.btnSet * {padding-left:50px;}
+	/**/
+	.viewMember {margin:-11px 0 0;height:30px;width:30px;background-size:auto 30px;}
+	.viewMember.next {background-size:auto 30px;}
+	/**/
+	.itemCase li {padding:0 0 10px 0;}
+	.itemCase li div {position:relative;right:0;top:0;display:inline-block;padding-top:5px;}
+	.itemCase.vMode li {padding:0 0 6px 0;}
+	.historyCase1 li div.inputs div {display:table;width:100%;padding:0;}
+	.historyCase1 li div.inputs div:first-child {padding:0 0 5px 0;}
+	.historyCase2 li div.inputs div {display:table;width:100%;padding:0;}
+	.historyCase2 li div.inputs div:first-child {padding:0 0 5px 0;}
+	/**/
+	.txtEllipsis {padding:3px 0 3px;color:#878787 !important;text-overflow:clip; white-space:initial; overflow:visible;}
+	.w120 .txtEllipsis {padding:5px 0 3px;width:auto;}
+	.w200 .txtEllipsis {width:auto;}
+	.nameCol:before {margin:0 8px 0 5px;content:"/";display:inline-block;}
+	.nameCol:after {margin:0 8px 0 5px;content:"/";display:inline-block;}
+}
+/* =============================================================================== */
+/* 디바이스(iPhone 5 기준) 넓이 568 이하 일 경우  */
+@media screen and (max-width:568px){
+	/* common */
+	.smBlock {display:block;}
+	/* main */
+	.mainResult .degree li {float:none;margin-top:10px;padding-left:0;width:auto;}
+	.mainResult .degree li:first-child {margin-top:0;width:auto;}
+	/**/
+	.boardTop {padding:10px 10px;}
+	.boardTop .left {display:block;float:none !important;}
+	.boardTop .right {display:block;float:none !important;margin-top:5px;}
+	.boardTop .right .listSort {padding-top:11px;}
+	.boardTop .right .selectSet {float:right;}
+	.boardTop .table {display:table;width:100%;text-align:left;}
+	.boardTop .table .cell {display:table-cell;vertical-align: middle;}
+	/**/
+	.dataBox .tit p {padding:10px 0 10px;}
+	.supportInfo p {float:left;text-align:left;padding-top:5px;display:inline-block;width:100%;}
+	.memberInfo {display:none;}
+	/**/
+	.embedContents2 { position:relative;padding-bottom: 56.25%;height:0;overflow:hidden;max-width:100%;height:auto;}
+	.embedContents2 iframe, .embedContents2 object, .embedContents2 embed, .embedContents2 video {position:absolute;top:0;left:0;width:100%;height:100%;}
+	/**/
+	.lineBox .bBBtn,
+	.lineBox .bRBtn {margin:5px 5px;}
+	/* 2017-01-17 :: 기간별 */
+	.boardTop .right.hasTerm {position:relative;min-height:34px;}
+	.boardTop .right.hasTerm .listSort {display:table-cell;vertical-align:middle;}
+	.boardTop .right.hasTerm .selectSet {position:absolute;z-index:5;right:0;top:0;}
+	.termSort {clear:left;border:none;}
+	/* end 2017-01-17 :: 기간별 */
+}
+/* =============================================================================== */
+/* termSort 컨텐츠 넓이 420 이하 일 경우  2017-01-17 :: 기간별 */
+@media screen and (max-width:420px){
+	.boardTop .right.hasTerm .listSort span.termSort.on {padding:5px 0 0 0;border-left:none;}
+	.boardTop .right.hasTerm {padding-right:40px;min-height:34px;}
+}
+/* =============================================================================== */
+/* 디바이스(iPhone 6+ 이하 기준) 넓이 413 이하 일 경우 */
+@media screen and (max-width:413px){
+	.mainGraph .graphSet2 .graphArea {padding:10px 10px 0 110px;}
+	.mainGraph .graphSet2 .graphArea .graphCount {top:10px;}
+}
+/* =============================================================================== */
+/* 디바이스(iPhone 4 기준) 넓이 359 이하 일 경우  */
+@media screen and (max-width:359px){
+	/**/
+	.boardBottom .btnSet {width:35px;overflow:hidden;}
+	.boardBottom .btnSet * {text-indent:15px;}
+}
+/* =============================================================================== */
+/* 디바이스 높이 700 이하 일 경우  */
+@media screen and (max-height:700px){
+
+}
+/* =============================================================================== */
+/* 넥서스 디바이스 기준 대응 */
+@media (max-width:763px) and (min-height:415px) {
+	
+}
+/* =============================================================================== */
+/* 모바일 세로모드 */
+@media (max-width:736px) and (orientation:portrait) { 
+
+}
+/* =============================================================================== */
+/* 모바일 가로모드 */
+@media (max-width:736px) and (orientation:landscape) { 
+
+}
+/* =============================================================================== */
+/* 모바일 아이폰4s 세로모드 */
+@media (max-height:736px) and (max-width:330px) and (orientation:portrait) { 
+	
+}
+/* =============================================================================== */
+/* 모바일 아이폰4s 가로모드 */
+@media (max-height:330px) and (max-width:736px) and (orientation:landscape) { 
+
+}

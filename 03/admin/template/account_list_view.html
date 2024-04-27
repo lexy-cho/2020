@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/css/ui.jqgrid.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(document).on("click", ".pbtn input, .pclose", function() {
+					$('#blind_wrap, .pop').hide();
+				});
+				$(document).on("click", ".tbls1 td button.bRed", function() {
+					$('#blind_wrap,.accountChangePop').show();
+				});
+				$(document).on("click", ".tbls1 td button.btnAddAct", function() {
+					$('#blind_wrap,.accountAddPop').show();
+
+					var cloneHere = $(this).parents('.tbls1').find('tbody tr:last');
+					var clone = $(this).parents('.tbls1').find('tbody tr:nth-last-child(2)').clone();
+					var rowspan = $(this).parents('.tbls1').find('tbody tr').length;
+
+					$(document).on("click", ".accountAddPop .pbtn .bRed", function() {
+						clone.find('td').text('');
+						clone.find("td:eq(0)").text('ㅇㅇㅇ');
+						clone.find("td:eq(1)").text('Tt************!2');
+						clone.find("td:eq(2)").text('ㅇㅇㅇ');
+						clone.find("td:eq(7)").append($('<button/>', {
+							class: 'btnColor bBlack',
+							text: '확인'
+						}));
+						clone.find("td:eq(8)").append($('<button/>', {
+							class: 'btnColor bRed',
+							text: '변경'
+						}));
+						$(cloneHere).before(clone);
+						$(cloneHere).parents('.tbls1').find('tbody tr:first td:first').attr('rowspan', rowspan);
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 계정 변경 팝업 -->
+		<div class="pop accountChangePop" style="display:none;">
+			<h1>계정 변경</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="gridLr">
+					<div class="left">
+						<div class="databox-line">
+							<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+								<colgroup>
+									<col width="100" />
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>변경 계정</th>
+										<td>swork</td>
+									</tr>
+									<tr>
+										<th>변경 비밀번호</th>
+										<td class="first">
+											<input type="text" class="wFull" />
+											<em>* 영문대, 영문소, 숫자, 특수문자 포함 16자리로 입력해주세요</em>
+										</td>
+									</tr>
+									<tr>
+										<th>접근권한</th>
+										<td class="first">
+											<select>
+												<option>부여</option>
+												<option>수정</option>
+												<option>말소</option>
+											</select>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="right">
+						<div class="signBack">
+							<div class="signArea">
+								<div class="signBox">
+									<div class="signPad">
+										<div><canvas class="name"></canvas></div>
+										<input type="button" value="초기화" class="btnColor whiteLine" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="취소" class="btnColor bBlack" />
+				<input type="button" value="저장" class="btnColor bRed" />
+			</div>
+		</div>
+		<!---->
+		<!-- 계정추가 팝업  -->
+		<div class="pop accountAddPop" style="display:none;">
+			<h1>계정 추가</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="100" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>계정</th>
+								<td><input type="text"/></td>
+							</tr>
+							<tr>
+								<th>비밀번호</th>
+								<td>
+									<input type="text" class="wFull" />
+									<em>* 영문대, 영문소, 숫자, 특수문자 포함 16자리로 입력해주세요</em>
+								</td>
+							</tr>
+							<tr>
+								<th>계정 담당자</th>
+								<td><input type="text"/></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="취소" class="btnColor bBlack" />
+				<input type="button" value="추가" class="btnColor bRed" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li class="on"><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="account_list.html">계정관리대장</a></span></li>
+							<li><span><a href="#">접속기록관리점검표</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="account_list.html">개인정보보호</a></span>
+							<span>계정관리대장</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents accountDetail">
+							<div class="inBlock wFull">
+								<span class="left">
+									<select>
+										<option>2020년</option>
+										<option>2019년</option>
+										<option>2018년</option>
+									</select>
+									<select>
+										<option>WEB 1 서버</option>
+										<option>WEB 2 서버</option>
+										<option>DB 서버</option>
+										<option>FILE 서버</option>
+										<option>MODULE 서버</option>
+										<option>DEV 서버</option>
+									</select>
+								</span>
+								<span class="right">
+									<a href="format/template/account_management.html" target="_blank" class="btnColor bGray">HTML 미리보기</a>
+									<button class="btnColor bGray">PDF 생성</button>
+								</span>
+							</div>
+							<div class="databox-line mt5">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="80"/>
+										<col width="180"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="100"/>
+										<col width="100"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>월</th>
+											<th>계정</th>
+											<th>변경 비밀번호</th>
+											<th>계정 담당자</th>
+											<th>수정자</th>
+											<th>변경일</th>
+											<th>접근권한</th>
+											<th>서명</th>
+											<th>대표 확인</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td rowspan="4">1월</td>
+											<td>root</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td>오유진</td>
+											<td>2020-00-00 00:00</td>
+											<td>부여 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>swork</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td>조혜란</td>
+											<td>2020-00-00 00:00</td>
+											<td>수정 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>spencer</td>
+											<td>Tt************!2</td>
+											<td>김재성</td>
+											<td>김재성</td>
+											<td>2020-00-00 00:00</td>
+											<td>수정 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>dion</td>
+											<td>Tt************!2</td>
+											<td>고현우</td>
+											<td>고현우</td>
+											<td>2020-00-00 00:00</td>
+											<td>수정 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td colspan="9"></td>
+											<td><button class="btnColor bGray btnAddAct">+ 계정추가</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="databox-line mt10">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="80"/>
+										<col width="180"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="100"/>
+										<col width="100"/>
+									</colgroup>
+									<tbody>
+										<tr>
+											<td rowspan="4">2월</td>
+											<td>root</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td>오유진</td>
+											<td>2020-00-00 00:00</td>
+											<td>부여 </td>
+											<td></td>
+											<td><button class="btnColor bBlack">확인</button></td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>swork</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td>조혜란</td>
+											<td>2020-00-00 00:00</td>
+											<td>수정 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>spencer</td>
+											<td>Tt************!2</td>
+											<td>김재성</td>
+											<td>김재성</td>
+											<td>2020-00-00 00:00</td>
+											<td>수정 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>dion</td>
+											<td>Tt************!2</td>
+											<td>고현우</td>
+											<td>고현우</td>
+											<td>2020-00-00 00:00</td>
+											<td>말소 </td>
+											<td>서명완료</td>
+											<td>확인완료</td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td colspan="9"></td>
+											<td><button class="btnColor bGray btnAddAct">+ 계정추가</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="databox-line mt10">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="80"/>
+										<col width="180"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="200"/>
+										<col width="150"/>
+										<col width="150"/>
+										<col width="100"/>
+										<col width="100"/>
+									</colgroup>
+									<tbody>
+										<tr>
+											<td rowspan="4">3월</td>
+											<td>root</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td><button class="btnColor bBlack">확인</button></td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>swork</td>
+											<td>Tt************!2</td>
+											<td>안병찬</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td><button class="btnColor bBlack">확인</button></td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>spencer</td>
+											<td>Tt************!2</td>
+											<td>김재성</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td><button class="btnColor bBlack">확인</button></td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td>dion</td>
+											<td>Tt************!2</td>
+											<td>고현우</td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td><button class="btnColor bBlack">확인</button></td>
+											<td><button class="btnColor bRed">변경</button></td>
+										</tr>
+										<tr>
+											<td colspan="9"></td>
+											<td><button class="btnColor bGray btnAddAct">+ 계정추가</button></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!---->
+							<div class="btnLayout">
+								<div class="right">
+									<span class="btnSet list"><a href="account_list.html">목록</a></span>
+									<span class="btnSet save"><input id="saveBtn" type="button" value="저장"></span>
+									<span class="btnSet delete" onclick="location.href='account_list.html'"><input id="delBtn" type="button" value="취소"></span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!-- pdf 미리보기 팝업  -->
+			<div class="pop previewPdfPop" style="display:none;">
+				<h1>Pdf 미리보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img src="format/images/bg/bg_weeklyReport01.png" alt="주간보고서 1page"/>
+					<img src="format/images/bg/bg_weeklyReport02.png" alt="주간보고서 2page"/>
+					<img src="format/images/bg/bg_weeklyReport03.png" alt="주간보고서 3page"/>
+					<img src="format/images/bg/bg_weeklyReport04.png" alt="주간보고서 4page"/>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+				</div>
+			</div>
+			<!---->
+			<div id="blind_wrap" style="display:none;"></div>
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

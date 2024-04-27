@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li class="on"><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="car_list.html">전차종 가격</a></span></li>
+							<li><span><a href="guidebook_list.html">가이드 북</a></span></li>
+							<li><span><a href="pointbook_list.html">포인트 북</a></span></li>
+							<li><span><a href="catalog_list.html">카탈로그</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">프로모션 관리</a></span>
+							<span>카탈로그</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="pd10-t">
+									<!-- Loop -->
+									<div class="databox-line mt10">
+										<h3>
+											<strong</strong>
+											<span class="right">
+												<select>
+													<option>차량 보임</option>
+													<option>차량 선택 불가</option>
+													<option>차량 안보임</option>
+												</select>
+											</span>
+										</h3>
+										<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+											<colgroup>
+												<col width="200" />
+												<col width="150" />
+												<col width="250" />
+												<col width="150" />
+												<col />
+											</colgroup>
+											<tbody>
+												<tr>
+													<td rowspan="4"><img src="../images/sample_car.png" alt="car img"></td>
+													<th>차종명</th>
+													<td>
+														<select name="category" id="category" tabindex="2">
+															<option value="A" selected>세단</option>
+															<option value="B" >RV</option>
+															<option value="C" >스포츠카</option>
+															<option value="D" >EV / EREV</option>
+															<option value="E" >ETC</option>
+														</select>
+													</td>
+													<th>차종명</th>
+													<td><select name="name">
+														<option value="CD">더 넥스트 스파크</option>
+														<option value="J">THE NEW 아베오</option>
+														<option value="B">ALL NEW 크루즈</option>
+														<option value="Z">ALL NEW 말리부</option>
+														<option value="2G">임팔라</option>
+														<option value="1J">THE NEW 트랙스</option>
+														<option value="1P">올란도</option>
+														<option value="7L">캡티바</option>
+														<option value="A">ALL NEW 카마로 SS</option>
+														<option value="R">볼트</option>
+														<option value="R7">다마스/라보</option>
+														<option value="F">볼트 EV</option>
+														</select></td>
+												</tr>
+												<tr>
+													<th>정렬</th>
+													<td><input type="text" name="sort" value="1" readonly="readonly"/></td>
+													<th>알림 </th>
+													<td>
+														<input type="checkbox" name="alertYn"  tabindex="4" id="alertYn"/>
+														<input type="text" name="alertMsg" id="alertMsg" disabled="disabled" tabindex="5" value=""/>
+													</td>
+												</tr>
+												<tr>
+													<th>뱃지</th>
+													<td><span class="ocase txtcase"><input type="checkbox" id="c1"  tabindex="6"
+													/><label for="c1">NEW</label><input type="hidden"name="badgeYn"/></span></td>
+													<th>최종 수정일</th>
+													<td>2017-04-14 17:14:44</td>
+												</tr>
+												<tr>
+													<th>아이콘</th>
+													<td>
+														<span class="fileex_back mr5">
+															<input type="file" class="fileex" name="icon" id="bookletIcon" accept="image/png" readonly onchange="imgShow(this)">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</span>
+														<span class="imgselected mr5 imgArea">
+														<span id='bookletIconBox' class='spark_0106'>spark_0106.png<input type='button' value='삭제' class='imgdelete' onclick='delIcon("spark_0106","1455");'></span>
+														</span>
+													</td>
+													<th>PDF</th>
+													<td>
+														<span class="fileex_back mr5">
+															<input type="file" class="fileex" name="pdf" id="bookletPdf" accept=".pdf" readonly onchange="pdfShow(this)">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</span>
+														<span class="imgselected mr5 pdfArea">
+														<span id='bookletPdfBox' class='spark_0106'>spark_0106.pdf<input type='button' value='삭제' class='imgdelete' onclick='delPdf("spark_0106","1456");'></span>
+															<span class="btnSet preview"><a href="/viewer/pdf/1456" target="blank">PDF 미리보기</a></span>
+														</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- //Loop -->
+								</div>
+							</div>
+							<!---->
+							<div class="btnLayout"> <!-- 161118 위치 수정 -->
+								<div class="right">
+									<span class="btnSet list" tabindex="7"><a href="/admin/promotionMgmt/guidebook">목록</a></span>
+									<span class="btnSet save" tabindex="8"><input type="button" value="저장" onclick="guideBookViewCont.clickSave()"></span>
+									<span class="btnSet delete" tabindex="9"><input type="button" value="삭제" onclick="guideBookViewCont.del()"></span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

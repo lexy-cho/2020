@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.ocase input[type="checkbox"]').click(
+				function() {
+					if($(this).prop("checked")){
+						confirm('선택된 대리점의 기기사용 제한이 해제됩니다.\n제한 해제를 하시겠습니까?'); // 중지 해제
+					}else{
+						confirm('선택된 대리점의 기기사용이 제한됩니다.\n사용중지 하시겠습니까?'); // 사용 중지
+					}
+				})
+				$('#public_using_Stop').click(
+				function() {
+					confirm('선택된 대리점의 기기사용이 제한됩니다.\n사용중지 하시겠습니까?'); // 사용 중지
+				})
+				$('#public_using_NoStop').click(
+				function() {
+					confirm('선택된 대리점의 기기사용 제한이 해제됩니다.\n제한 해제를 하시겠습니까?'); // 중지 해제
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+			<!-- 2017-07-31 -->
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li class="on"><a href="publicDevice_list.html">공용기기 관리</a></li> <!-- 2017-07-31 -->
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="publicDevice_list.html">공용기기 관리</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="publicDevice_list.html">공용기기 관리</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<div class="controlBox left">
+										<input type="button" id="public_using_Stop" class="saleControl btnColor bBlack" value="사용 중지"/>
+										<input type="button" id="public_using_NoStop" class="saleControl btnColor bBlue" value="중지 해제"/>
+									</div>
+									<input id="initBtn" type="button" value="초기화" class="btnColor bBlue"/>
+									<select id="searchCategory">
+										<option value="ALL">전체</option>
+										<option value="AGENCY">대리점명</option>
+										<option value="NAMECODE">대표성명 &#43; 사원코드</option>
+										<option value="PHONE">전화번호</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>20개</option>
+										<option>50개</option>
+										<option>100개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="50" />
+										<col width="80" />
+										<col width="200"/>
+										<col width="250" />
+										<col width="200" />
+										<col width="200" />
+										<col width="200" />
+										<col width="100" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox"/></th>
+											<th>No</th>
+											<th>대리점명 <input type="button" value="up" class="sort sup" /></th>
+											<th>대표 성명 <input type="button" value="up" class="sort sup" /></th>
+											<th>대표자 휴대폰</th>
+											<th>대표 사번 <input type="button" value="up" class="sort sup" /></th>
+											<th>대리점 번호 </th>
+											<th>사용권한 </th>
+											<th>기기 수 </th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>100</td>
+											<td>가락대리점</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>3</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>99</td>
+											<td>안산태양</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>98</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>97</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>96</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>95</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>94</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" ><label><!-- check --></label></span></td>
+											<td>5</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>93</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>92</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>91</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>90</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" ><label><!-- check --></label></span></td>
+											<td>5</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>89</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>88</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" ><label><!-- check --></label></span></td>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>87</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>86</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>85</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>84</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>83</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>82</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox"/></td>
+											<td>81</td>
+											<td>연관업체</td>
+											<td class="subject tCenter"><a href="publicDevice_view.html">홍길동</a></td>
+											<td>010-0000-0000</td>
+											<td>K9165302</td>
+											<td>02-000-0000</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+											<td>4</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

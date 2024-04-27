@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>개발 요청 이력</title>
+		<link rel="stylesheet" type="text/css" href="../css/format.css">
+	</head>
+	<body>
+		<div id="wrap" class="a4Size hCase"><!-- 서식 가로버전 일 경우 hCase 추가 -->
+			<section>
+				<div id="container" class="developmentHistory">
+					<article>
+						<div class="contents">
+							<!------>
+							<div class="developmentHistory02">
+								<table class="tbls1">
+									<colgroup>
+										<col width="20"/>
+										<col width="60"/>
+										<col width="60"/>
+										<col width="60"/>
+										<col width="90"/>
+										<col width="110"/>
+										<col width="140"/>
+										<col width="500"/>
+										<col width="50"/>
+										<col width="110"/>
+										<col width="200"/>
+										<col width="100"/>
+									</colgroup>
+									<tbody>
+										<tr>
+											<td class="tC">17</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202002-C0003</td>
+											<td>2020-02-13 10:27</td>
+											<td>2월 긴급 정기물 업데이트</td>
+											<td>
+												트랙스 가격표 업데이트
+											</td>
+											<td class="tC">김재성</td>
+											<td>2020-02-13 14:40</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">18</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202002-C0004</td>
+											<td>2020-02-18 8:59</td>
+											<td>쉐보레플러스케어 서식 업데이트</td>
+											<td>
+												쉐보레 플러스케어 서식 업데이트
+												- EW 적용 차량 추가 (콜로라도, 트래버스, 트레일블레이저)
+												- S-Work 이용약관 화면 및 미리보기 서식 업데이트
+											</td>
+											<td class="tC">김재성</td>
+											<td>2020-02-19 11:30</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">19</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202002-C0005</td>
+											<td>2020-02-18 14:39</td>
+											<td>로그인 이미지 변경</td>
+											<td>
+												로그인 이미지 변경 (말리부 -> 트레일블레이저)
+											</td>
+											<td class="tC">김재성 오유진</td>
+											<td>2020-02-20 17:50</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">20</td>
+											<td class="tC">오유진</td>
+											<td class="tC">IT</td>
+											<td class="tC">이주영</td>
+											<td>202002-C0006</td>
+											<td>2020-02-18 15:57</td>
+											<td>SPI data encryption requirement</td>
+											<td>
+												Global GM requirement / SPI(민감 개인정보)를 포함하고있는 필드, 데이터, 파일, DB 등 모든 범위의 암호화 오더
+												- 미팅 1. 1차 vendor 미팅 진행 (02/19). 오더 접수
+												- 미팅 2. 2차 Global&vendor Skype 미팅 진행 (02/28). TAD review 및 상세 오더 확인
+												- 상세 작업 오더:
+												 > S-Work는 미암호화 필드가 모두 CPI data. 급선무 진행이 아님 (GM 사내 협의 후 오더 산출 예정)
+												 > 이 외 SPI 데이터의 DB encryption 작업 진행 필요
+												 > Secure JDBC 작업 필요 (SPI data가 오가는 Connection은 모두 secure하게 조치 필요
+											</td>
+											<td class="tC">김재성 윤성원</td>
+											<td>2020-03-06 2:30</td>
+											<td>
+												S-Work Security Remediation
+												- SPI Data Encryption
+												(AES 128에서 AES 256으로 변경. 32bytes 이상의 salt key로 암복호화 진행)
+												- Secure JDBC (SSL)
+												ios, 안드로이드 테스트 결과 이상 없음
+											</td>
+											<td>작업 시나리오 도출 필요 (~3/2) 완료 미정</td>
+										</tr>
+										<tr>
+											<td class="tC">21</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202002-C0007</td>
+											<td>2020-02-20 10:45</td>
+											<td>계약서 선택사양 필드 수정</td>
+											<td>
+												특정 차종 액세서리 옵션이 모두 계약서에 표출되어야 하는 판매운영 오더.
+												- 현재 계약서 서식을 변경하지 않은 채로, 가용 텍스트 늘림 (기존 96자 > 최대 200자까지 입력 가능하게 변경)
+												- 1~100자 / 17px, 101자 ~200자 / 15px 표출되게끔 변경
+											</td>
+											<td class="tC">김재성 조명진</td>
+											<td>2020-02-27 16:30</td>
+											<td>
+												정상 적용 및 화면, 미리보기 이상없음 확인
+												액세서리 계약서 표출 오더는 진행 부결되었으나, 향후를 위해 우선 적용 조치함
+											</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">22</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202002-C0008</td>
+											<td>2020-02-21 15:18</td>
+											<td>메인화면 메뉴 재배치</td>
+											<td>
+												- S-Work 메뉴 변경 (인사이트리포트 삭제, 이벤트 숨김)
+												- 위버 메뉴 재배치 (디지털쇼룸, Build my car, 차량비교, 디지털캠페인)
+												- 기타 메뉴 재배치 (영업교육, GMK 소식, FAQ)
+											</td>
+											<td class="tC">김재성 오유진</td>
+											<td>2020-02-26 10:40</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">23</td>
+											<td class="tC">오유진</td>
+											<td class="tC">위버</td>
+											<td class="tC">서혜영</td>
+											<td>202002-C0009</td>
+											<td>2020-02-24 17:06</td>
+											<td>카탈로그&가격표 차량 이미지 변경</td>
+											<td>
+												카탈로그&가격표 차량 이미지 전반적으로 변경
+												- 쉐보레 웹페이지와 동일하게 변경. 위버 통해 썸네일 8개 수급. 모두 변경
+											</td>
+											<td class="tC">김재성 조혜란</td>
+											<td>2020-02-26 11:30</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td rowspan="2" class="tC">24</td>
+											<td rowspan="2" class="tC">오유진</td>
+											<td rowspan="2" class="tC">마케팅</td>
+											<td rowspan="2" class="tC">염민철</td>
+											<td rowspan="2">202002-C0010</td>
+											<td rowspan="2">2020-02-28 16:01</td>
+											<td>BOLT EV 증빙서류 숨김 작업</td>
+											<td>
+												MY19 BOLT EV의 차량 계약 시 '유의사항 안내문' 미첨부 하게끔 프로세스 개선 요청
+												- 우선 차종(BOLT EV)에 대한 안내문 hide 처리는 완료
+												- MY20 차량부터는 다시 안내문이 첨부필요하므로, 모델(MY19, 20)에 대한 안내문 hide가 가능하게끔 Back 작업이 필요
+											</td>
+											<td class="tC">김재성</td>
+											<td>2020-02-28 17:40</td>
+											<td rowspan="2">ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td rowspan="2"></td>
+										</tr>
+										<tr>
+											<td>BOLT EV 증빙서류 모델별 관리 작업</td>
+											<td>
+												증빙서류 상에서 차량의 모델별로 (MY19, MY20) 증빙서류를 show/hide할 수 있게끔 Back 작업 진행
+											</td>
+											<td class="tC">김재성</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">25</td>
+											<td class="tC">오유진</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202003-C0001</td>
+											<td>2020-03-01 0:00</td>
+											<td>3월 정기물 업데이트</td>
+											<td>
+												3월 정기물 업데이트
+												- 카탈로그 3종 (이쿼녹스, 트레일블레이저, 다마스/라보)
+												- 가격표 7종 (이쿼녹스, 카마로, 말리부, 트랙스, 트레일블레이저, 트래버스, 다마스/라보)
+											</td>
+											<td class="tC">김재성 오유진 조혜란</td>
+											<td>2020-03-01 0:30</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">26</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202003-C0002</td>
+											<td>2020-03-02 18:18</td>
+											<td>전차종 가격 메뉴 진입차단</td>
+											<td>
+												전차종 가격 메뉴 임시 진입차단
+												- 전차종 가격 메뉴 선택시 진입 차단 및 이용 불가 팝업 표출
+												- s-work 메인 팝업 공지 표출
+											</td>
+											<td class="tC">김재성 오유진</td>
+											<td>2020-03-02 18:35</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">27</td>
+											<td class="tC">오유진</td>
+											<td class="tC">IT</td>
+											<td class="tC">이주영</td>
+											<td>202003-C0003</td>
+											<td>2020-03-03 11:46</td>
+											<td>PI-CSA assessment</td>
+											<td>
+												Global team 요청사항으로, PI-CSA 관련 assessment 진행
+												- Security survey 작성 (self-control)
+											</td>
+											<td class="tC">오유진</td>
+											<td></td>
+											<td>
+												03-09 0.2버전 공유 (초안)
+												03-15 0.4 버전 공유 (1차 완료)
+												03-26 SOC2 report가 audit evidence 부결, 내용 제외하여 0.5 버전 다시 공유
+												03-30 access 관련 6개 항목 상세 기술하여 0.6버전으로 공유
+												04-01 전체 항목 내용 보충하여 0.8버전으로 공유
+												최종 리뷰 대기중
+											</td>
+											<td>최종 피드백 대기중</td>
+										</tr>
+										<tr>
+											<td class="tC">28</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202003-C0004</td>
+											<td>2020-03-03 16:35</td>
+											<td>전차종 가격 긴급 업데이트</td>
+											<td>
+												전차종 가격 개소세 반영 업데이트 및 전차종 가격 메뉴 진입차단 해제
+												- 가격표 6종 (이쿼녹스, 카마로, 말리부, 트랙스, 트레일블레이저, 트래버스) 개소세 반영 업데이트
+												- 전차종 가격 메뉴 진입차단 해제 및 정상화
+											</td>
+											<td class="tC">김재성</td>
+											<td>2020-03-03 18:10</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">29</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">IT</td>
+											<td class="tC">이주영</td>
+											<td>202003-C0005</td>
+											<td>2020-03-10 10:00</td>
+											<td>S-Work Business record 보존주기 미설정 건 체크</td>
+											<td>
+												S-Work에서 보관중인 모든 Business record의 보존주기 세팅 요청
+												- 가격표, 카탈로그가 미설정되어 있었으며, 권장 보존주기는 3년(최종 버전 파일 기준)
+												- DB 업데이트 날짜 기준 3년으로 스케쥴러 세팅 필요
+											</td>
+											<td class="tC">김재성</td>
+											<td></td>
+											<td>4월 중에 작업 진행 예정</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">31</td>
+											<td class="tC">오유진</td>
+											<td class="tC">IT</td>
+											<td class="tC">이주영</td>
+											<td>202003-C0007</td>
+											<td>2020-03-16 9:07</td>
+											<td>FAQ 고도화, 빠른문의&Push 기능 개발</td>
+											<td>
+												카매니저 문의 효율성 제고를 위한 S-Work FAQ 메뉴 고도화 작업
+												- Push 개발 및 애플리케이션 적용
+												- FAQ 현행화 (카테고라이징, 현행 내용 반영)
+												- 빠른문의 기능 개발
+												- 기능 변경 매뉴얼 작성 및 운영방안 기술
+											</td>
+											<td class="tC">조혜란 조명진</td>
+											<td>2020-04-20 23:00</td>
+											<td>
+												4월 14일 개발앱 테스트
+												4월 20일 필드 공지 및 업데이트
+												4월 21일 오픈
+												ios, 안드로이드 테스트 결과 이상 없음
+											</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">32</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">IT</td>
+											<td class="tC">이주영</td>
+											<td>202003-C0008</td>
+											<td>2020-03-20 16:19</td>
+											<td>S-Work Maria db 버전 업그레이드</td>
+											<td>
+												S-Work Maria db 버전 업그레이드
+												- 현재 버전 10.3.18 의 릴리즈 노트상 보안 취약성 존재
+												- Global GM 에서 10.3.22 버전으로의 업그레이드 권유
+											</td>
+											<td class="tC">김재성 안병찬 윤성원 오유진</td>
+											<td>2020-04-02 23:00</td>
+											<td>
+												10.3.22 버전 업그레이드 완료
+												ios, 안드로이드 테스트 결과 이상 없음
+											</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">33</td>
+											<td class="tC">오유진</td>
+											<td class="tC">IT</td>
+											<td class="tC">장기선</td>
+											<td>202003-C0009</td>
+											<td>2020-03-25 9:20</td>
+											<td>GLENDA Onboarding Required</td>
+											<td>
+												GLENDA Onboarding Requirement에 따라 서식에 내용 기술
+												- CRM 시스템 사용자의 권한명, description list up
+												- CRM 시스템 사용자 ID, 사용자명, 권한명 list up
+											</td>
+											<td class="tC">김재성</td>
+											<td>2020-03-25 13:50</td>
+											<td>작업 후 공유 완료</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">34</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202004-C0001</td>
+											<td>2020-04-01 0:00</td>
+											<td>4월 정기물 업데이트</td>
+											<td>
+												4월 정기물 업데이트
+												- 카탈로그 4종 (스파크, 볼트EV, 카마로, 트랙스)
+												- 가격표 2종 (트랙스, 트레일블레이저)
+											</td>
+											<td class="tC">김재성 오유진 조혜란</td>
+											<td>2020-04-01 0:30</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">35</td>
+											<td class="tC">조혜란</td>
+											<td class="tC">마케팅</td>
+											<td class="tC">염민철</td>
+											<td>202004-C0002</td>
+											<td>2020-04-22 9:41</td>
+											<td>4월 긴급 정기물 업데이트</td>
+											<td>
+												4월 긴급 정기물 업데이트
+												- 카탈로그 1종, 가격표 1종(모두 트레일블레이저)
+											</td>
+											<td class="tC">김재성 오유진 조혜란</td>
+											<td>2020-04-22 14:10</td>
+											<td>ios, 안드로이드 테스트 결과 이상 없음</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!------>
+						</div>
+					</article>
+				</div>
+			</section>
+		</div>
+	</body>
+</html>

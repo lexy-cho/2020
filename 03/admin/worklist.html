@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<!-- <meta http-equiv='refresh' content='0; url=ver3/worklist.html'> -->
+		<title>GMK</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+		<link rel="shortcut icon" href="front/images/favicon.ico" />
+		<style type="text/css">
+			hr {display: none;}
+			body, div, dl, dt, dd, ul, ol, li, , h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th,
+			td, legend {margin:0;padding:0;font-size:100%;}
+			body, * {font-size:12px;color:#666;font-family:Dotum, sans-serif;}
+
+			#wrap {padding:10px;/*width:900px;*/}
+
+			h1 {padding:10px;height:18px;border:2px solid #999;}
+			h1 span {float:left;font-size:150%;color:#999;}
+			h1 em {float:right;font:normal 100%/normal Dotum;}
+
+			table {border-collapse:collapse;border-spacing:0;width:100%;border-top:2px solid #5a7c9e;margin-bottom:10px;}
+			th {padding:6px 8px 5px;color:#5a7c9e;border:1px solid #5a7c9e;background:#c1dcf8;}
+			tbody th {color:#666;background:#f5f6f6;}
+			td {padding:2px 8px 0;border:1px solid #5a7c9e;background:#ffffff;}
+			td {line-height:18px;}
+			td.first {text-align:center;}
+			td em {font:normal 100%/normal Dotum;}
+			.line {text-decoration:line-through;}
+
+			div {padding:5px 0;}
+			div div span {display:inline-block;margin-left:5px;width:10px;height:10px;}
+			span.bg_blue {background:#5985c7;}
+			span.bg_red {background:red;}
+			span.bg_green {background:#9ac19a;}
+			span.bg_gray {background:#aaa6a8;}
+			span.bg_pink {background:#ffc0c0;}
+			span.bg_new {background:#ff0083;}
+
+			span.blue {color:#5985c7;}
+			span.red {color:red;}
+			span.green {color:#9ac19a;}
+			span.gray {color:#aaa6a8;}
+			span.pink {color:#ffc0c0;}
+			span.new {color:#ff0083;}
+
+			td strong {display:inline-block;margin-left:5px;vertical-align:middle;font-size:11px;font-family:arial;}
+			td strong.red {color:red;}
+			td strong.pink {color:#ffc0c0;font-weight:normal;}
+			td strong.green {color:#5aa15a;font-weight:normal;}
+			td strong.new {color:#ff0083;font-size:12px;}
+			td strong.gray {color:#999396;font-weight:normal;}
+
+			a:link {color:blue;}
+			a:visited {color:#9b2489;}
+
+			em {margin-left:5px;}
+			em.cp {margin-left:0;color:#c3abb7;}
+
+			.back th {padding:4px 8px 2px;line-height:12px;background:#f7f7f7;color:#ccc;font-size:11px;}
+			.back td {padding:2px 8px 0;line-height:12px;background:#f7f7f7;color:#ccc;font-size:11px;}
+			.back td a {color:#ccc;font-size:11px;}
+			 td.back {padding:2px 8px 0;line-height:12px;background:#f7f7f7;color:#ccc;font-size:11px;}
+			 td.back a {color:#ccc;font-size:11px;}
+
+			h2 {margin:0;padding:5px 0;text-align:center;border:1px solid #aaa;background:#eee;}
+			ol {margin:0;padding:10px 0 10px 30px;border:1px solid #aaa;border-top:none;}
+			ol li {padding-bottom:5px;}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<h1><span>GMK</span><em>디자인보기 : <a href="template/design.html" target="_blank">design.html</a></em></h1>
+			<div>
+				<span class="bg_blue"></span>&nbsp;: 1차 퍼블리싱 완료
+				<span class="bg_green"></span>&nbsp;: 제작완료
+				<span class="bg_new"></span>&nbsp;: 전달 시 신규
+				<span class="bg_gray"></span>&nbsp;: 최초 전달
+				<span class="bg_red"></span>&nbsp;: 수정사항
+				<span class="bg_pink"></span>&nbsp;: History
+			</div>
+			<table border="0" cellspacing="0" class="table">
+				<thead>
+					<tr>
+						<th width="5%">분류</th>
+						<th width="8%">1depth</th>
+						<th width="14%">2depth</th>
+						<th width="9%">3depth</th>
+						<th>URL</th>
+						<th width="9%">완료 유무</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th rowspan="115">Admin</th>
+						<th rowspan="8">common</th>
+						<td class="first">Component</td>
+						<td></td>
+						<td><a href="template/component.html" target="_blank">component.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">layout</td>
+						<td class="first">목록 템플릿</td>
+						<td><a href="template/list_layout.html" target="_blank">list_layout.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세 템플릿</td>
+						<td><a href="template/view_layout.html" target="_blank">view_layout.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">목록 + 상세 템플릿</td>
+						<td><a href="template/both_layout.html" target="_blank">both_layout.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">에러</td>
+						<td class="first"></td>
+						<td><a href="template/error.html" target="_blank">error.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">로딩</td>
+						<td  class="first"></td>
+						<td><a href="template/loading.html" target="_blank">loading.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">Login</td>
+						<td></td>
+						<td><a href="template/login.html" target="_blank">login.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">Main</td>
+						<td  class="first"></td>
+						<td><a href="template/main.html" target="_blank">main.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="14"><strong>컨텐츠 관리</strong></th>
+						<td rowspan="3" class="first">공지사항</td>
+						<td class="first">목록</td>
+						<td><a href="template/notice_list.html" target="_blank">notice_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/notice_view.html" target="_blank">notice_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/notice_regist.html" target="_blank">notice_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">FAQ</td>
+						<td class="first">목록</td>
+						<td><a href="template/faq_list.html" target="_blank">faq_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/faq_view.html" target="_blank">faq_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/faq_regist.html" target="_blank">faq_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">전차종 가격</td>
+						<td class="first">목록</td>
+						<td><a href="template/car_list.html" target="_blank">car_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/car_view.html" target="_blank">car_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/car_view.html" target="_blank">car_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">카탈로그</td>
+						<td class="first">목록</td>
+						<td><a href="template/catalog.html" target="_blank">catalog.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/catalog_view.html" target="_blank">catalog_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/catalog_regist.html" target="_blank">catalog_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">계약 차량</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_car.html" target="_blank">contract_car.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">증빙서류 관리</td>
+						<td class="first">목록</td>
+						<td><a href="template/evidence.html" target="_blank">evidence.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="6"><strong>사용자 관리</strong></th>
+						<td rowspan="2" class="first">카매니저</td>
+						<td class="first">목록</td>
+						<td><a href="template/carmanager_list.html" target="_blank">carmanager_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/carmanager_view.html" target="_blank">carmanager_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">통합 기기해제</td>
+						<td class="first">목록</td>
+						<td><a href="template/integratedDevice.html" target="_blank">integratedDevice.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="2" class="first">공용기기</td>
+						<td class="first">목록</td>
+						<td><a href="template/publicDevice.html" target="_blank">publicDevice.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/publicDevice_view.html" target="_blank">publicDevice_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">로그인 이력</td>
+						<td class="first">목록</td>
+						<td><a href="template/login_info.html" target="_blank">login_info.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="10" class="first">계약관리</th>
+						<td class="first">계약 로그</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_log.html" target="_blank">contract_log.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="2" class="first">전송 완료 계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_complete.html" target="_blank">contract_complete.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/contract_complete_view.html" target="_blank">contract_complete_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">전송 중 계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_transit.html" target="_blank">contract_transit.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">미전송 계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_fail.html" target="_blank">contract_fail.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">인도완료 계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_timestamp.html" target="_blank">contract_timestamp.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">온라인세일즈 계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_onlinesales.html" target="_blank">contract_onlinesales.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">계약서 복구</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_restore.html" target="_blank">contract_restore.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">미스테리 쇼퍼 계약서 관리</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_mystery.html" target="_blank">contract_mystery.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">매수인 계약 발송</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_send.html" target="_blank">contract_send.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="8">유지보수</th>
+						<td rowspan="3" class="first">Help Desk</td>
+						<td class="first">목록</td>
+						<td><a href="template/helpdesk.html" target="_blank">helpdesk.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/helpdesk_view.html" target="_blank">helpdesk_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/helpdesk_regist.html" target="_blank">helpdesk_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="2" class="first">빠른문의</td>
+						<td class="first">목록</td>
+						<td><a href="template/faster.html" target="_blank">faster.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/faster_view.html" target="_blank">faster_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">Push Notification</td>
+						<td class="first">목록</td>
+						<td><a href="template/push.html" target="_blank">push.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/push_view.html" target="_blank">push_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/push_regist.html" target="_blank">push_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="6">정책 관리</th>
+						<td class="first">디바이스 관리</td>
+						<td class="first">목록 + 상세</td>
+						<td><a href="template/device.html" target="_blank">device.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">계약 권한 설정</td>
+						<td class="first">목록</td>
+						<td><a href="template/authMgt.html" target="_blank">authMgt.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">코드 관리</td>
+						<td class="first">목록</td>
+						<td><a href="template/code.html" target="_blank">code.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/code_view.html" target="_blank">code_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/code_regist.html" target="_blank">code_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">App 배포 관리</td>
+						<td class="first">목록 + 상세</td>
+						<td><a href="template/app_release.html" target="_blank">app_release.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="13">보고서 관리</th>
+						<td rowspan="3" class="first">개발 이력</td>
+						<td class="first">목록</td>
+						<td><a href="template/devhistory.html" target="_blank">devhistory.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/devhistory_view.html" target="_blank">devhistory_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/devhistory_regist.html" target="_blank">devhistory_regist.html</a></td>
+						<td class="first"></td>
+					<tr>
+						<td rowspan="3" class="first">일일 보고서</td>
+						<td class="first">목록</td>
+						<td><a href="template/daily_report.html" target="_blank">daily_report.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/daily_report_view.html" target="_blank">daily_report_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/daily_report_regist.html" target="_blank">daily_report_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">월간 보고서</td>
+						<td class="first">목록</td>
+						<td><a href="template/monthly_report.html" target="_blank">monthly_report.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/monthly_report_view.html" target="_blank">monthly_report_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/monthly_report_regist.html" target="_blank">monthly_report_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">월간 개발이력</td>
+						<td class="first">목록</td>
+						<td><a href="template/devhistory_monthly.html" target="_blank">devhistory_monthly.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/devhistory_monthly_view.html" target="_blank">devhistory_monthly_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/daily_report.html" target="_blank">devhistory_monthly_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">접속기록관리점검표</td>
+						<td class="first">목록</td>
+						<td><a href="template/connection.html" target="_blank">connection.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="8">인프라 관리</th>
+						<td class="first">서버 구성</td>
+						<td class="first">목록</td>
+						<td><a href="template/server.html" target="_blank">server.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">네트워크 구성도</td>
+						<td class="first">목록</td>
+						<td><a href="template/network.html" target="_blank">network.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/network_view.html" target="_blank">network_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/network_regist.html" target="_blank">network_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">인프라 구성도</td>
+						<td class="first">목록</td>
+						<td><a href="template/infra.html" target="_blank">infra.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/infra_view.html" target="_blank">infra_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">신규등록</td>
+						<td><a href="template/infra_regist.html" target="_blank">infra_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">서버 바이러스 점검</td>
+						<td class="first">목록</td>
+						<td><a href="template/server_check.html" target="_blank">server_check.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="6">관리자 관리</th>
+						<td rowspan="3" class="first">Admin 관리자</td>
+						<td class="first">목록</td>
+						<td><a href="template/admin_list.html" target="_blank">admin_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/admin_view.html" target="_blank">admin_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/admin_regist.html" target="_blank">admin_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">관리자 액션로그</td>
+						<td class="first">목록</td>
+						<td><a href="template/admin_history.html" target="_blank">admin_history.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="2" class="first">서버 계정관리대장</td>
+						<td class="first">목록</td>
+						<td><a href="template/server_log.html" target="_blank">server_log.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/server_log_view.html" target="_blank">server_log_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<th rowspan="36">서식관리</th>
+						<td rowspan="3" class="first">매매계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/contract_list.html" target="_blank">contract_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/contract_list.html" target="_blank">contract_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/contract_list.html" target="_blank">contract_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">선포인트(롯데)</td>
+						<td class="first">목록</td>
+						<td><a href="template/point_lotte.html" target="_blank">point_lotte.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/point_lotte_view.html" target="_blank">point_lotte_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/point_lotte_regist.html" target="_blank">point_lotte_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td rowspan="3" class="first">선포인트(삼성)</td>
+						<td class="first">목록</td>
+						<td><a href="template/point_ss.html" target="_blank">point_ss.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/point_ss_view.html" target="_blank">point_ss_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/point_ss_regist.html" target="_blank">point_ss_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">하이패스</td>
+						<td class="first">목록</td>
+						<td><a href="template/hipass.html" target="_blank">hipass.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/hipass_view.html" target="_blank">hipass_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/hipass_regist.html" target="_blank">hipass_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">쉐보레 플러스케어</td>
+						<td class="first">목록</td>
+						<td><a href="template/care.html" target="_blank">care.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/care_view.html" target="_blank">care_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/care_regist.html" target="_blank">care_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 매매계약서</td>
+						<td class="first">목록</td>
+						<td><a href="template/os_list.html" target="_blank">os_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/os_view.html" target="_blank">os_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/os_regist.html" target="_blank">os_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 하이패스</td>
+						<td class="first">목록</td>
+						<td><a href="template/oshipass_list.html" target="_blank">oshipass_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/oshipass_view.html" target="_blank">oshipass_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/oshipass_regist.html" target="_blank">oshipass_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 전기차</td>
+						<td class="first">목록</td>
+						<td><a href="template/oselec_list.html" target="_blank">oselec_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/oselec_view.html" target="_blank">oselec_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/oselec_regist.html" target="_blank">oselec_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 쉐보레</td>
+						<td class="first">목록</td>
+						<td><a href="template/oscare_list.html" target="_blank">oscare_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/oscare_view.html" target="_blank">oscare_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/oscare_regist.html" target="_blank">oscare_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 오토포인트</td>
+						<td class="first">목록</td>
+						<td><a href="template/ospoint_list.html" target="_blank">ospoint_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/ospoint_view.html" target="_blank">ospoint_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/ospoint_regist.html" target="_blank">ospoint_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 임직원</td>
+						<td class="first">목록</td>
+						<td><a href="template/osemp_list.html" target="_blank">osemp_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/osemp_view.html" target="_blank">osemp_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/osemp_regist.html" target="_blank">osemp_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td  rowspan="3" class="first">온라인세일즈 협력사</td>
+						<td class="first">목록</td>
+						<td><a href="template/ospartner_list.html" target="_blank">ospartner_list.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">상세</td>
+						<td><a href="template/ospartner_view.html" target="_blank">ospartner_view.html</a></td>
+						<td class="first"></td>
+					</tr>
+					<tr>
+						<td class="first">등록</td>
+						<td><a href="template/ospartner_regist.html" target="_blank">ospartner_regist.html</a></td>
+						<td class="first"></td>
+					</tr>
+				</tbody>
+			</table>
+			<h2> 수정 History detail</h2>
+			<ol>
+				<li>20210310 날짜 기준 워크리스트 정리</li>
+			</ol>
+		</div>
+	</body>
+</html>

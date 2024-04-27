@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>  
+		<script type="text/javascript" src="js/common.js"></script>   
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+			
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<div class="snbBack">
+					<div class="snbMain">
+						<input type="button" value="snb close" class="c-menu__close" />
+						<div class="snbTop"><span><a href="main.html">홈으로</a></span><img src="images/img_snbArea_tit.png" alt="Smart Work" /></div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><img src="images/btn_snbmain1.png" alt="견적서"/></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href="catalog.html"><img src="images/btn_snbmain10.png" alt="카달로그" /></a></li>
+								<li class="snb11"><a href="guideBook.html"><img src="images/btn_snbmain11.png" alt="가이드북" /></a></li>
+								<li class="snb12"><a href="faq.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 슈럼" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain17.png" alt="GMK 소식" /></a></li> <!-- 2017-10-31 -->
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="">로그아웃</a></li>
+							<li class="setting"><a href="">설정</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<p><strong>운영시간</strong><span>09:00~18:00 (점심시간 12:00~13:00)</span></p>
+						<p><strong>전자계약서 운영사무국</strong><span>070-5088-5099</span></p>
+						<!-- <p><strong>견적서(위즈빌)</strong><span>02-850-0029 담당자 박형주</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070 담당자 더위버</span></p> -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<div id="blind_wrap" style="display:none"></div>
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+						</span>
+						<h1><img src="images/img_tit_02.png" alt="계약서" /></h1>
+						<span class="right">
+							<span class="hbtnConfirm"><a href="#">계약서확인</a></span>
+							<span class="hbtnStore"><a href="#">임시저장</a></span>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 계약서 & 견적서 공통 -->
+						<div class="contractLayout">
+							<!-- 20161130 삭제 article></article -->
+							<!---->
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide checkoff"><a href="contract_privacy.html">개인정보 수집동의</a></span>
+										<!--<span class="swiper-slide checkoff"> : 다른 탭활성화 + 수집동의 안함 
+										<span class="swiper-slide checkon"> : 다른 탭활성화 + 수집동의 완료
+										<span class="swiper-slide on checkoff"> : 동의 탭 활성화 + 수집동의 안함
+										<span class="swiper-slide on checkon">  : 동의 탭 활성화 + 수집동의 완료-->
+										<span class="swiper-slide"><a href="contract_form.html">매매계약서</a></span>
+										<span class="swiper-slide on"><a href="contract_terms.html">계약약관</a></span>
+										<span class="swiper-slide"><a href="../form/contract_preview_20170210.html">계약서 확인 및 서명</a></span> <!-- 161226 링크 수정 -->
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">계약약관</h2>
+								<div class="topButton mt38"><!--20161130 class 추가 -->
+									<input type="button" value="회사용" class="btnMember" />
+									<input type="button" value="고객용" class="btnCustomer" />
+								</div>
+								<div class="termsCompany">
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<img src="images/img_company01.png" alt="이용약관 회사용">
+										</div>
+										<div class="gridItem">
+											<img src="images/img_company02.png" alt="이용약관 회사용">
+										</div>
+									</div>
+								</div>
+								<div class="termsCustomer">
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<img src="images/img_customer01.png" alt="이용약관 고객용">
+										</div>
+										<div class="gridItem">
+											<img src="images/img_customer02.png" alt="이용약관 고객용">
+										</div>
+									</div>
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<img src="images/img_customer03.png" alt="이용약관 고객용">
+										</div>
+										<div class="gridItem">
+											<img src="images/img_customer04.png" alt="이용약관 고객용" class="mHide">
+											<img src="images/img_customer05.png" alt="이용약관 고객용">
+										</div>
+									</div>
+								</div>
+							</article>
+							<!-- 20161125 추가 -->
+							<div class="sendBtnSet"> <!-- 161229 email, sms, fax 삭제 -->
+								<ul>
+									<li class="sBCacao"><a><strong>카카오톡 전송</strong></a></li>
+									<li class="sBContract"><a><strong>계약서 전송</strong></a></li> <!-- 161207 추가 -->
+								</ul>
+								<span class="btnSendToggle openCase"><a><strong>전송 하기</strong></a></span>
+								<span class="btnSendToggle closeCase"><a><strong>닫기</strong></a></span> <!-- 161207 txt 수정 -->
+							</div>
+							<!-- //20161125 추가 -->
+						</div>
+						<!-- //contract -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+		  
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+		swiper.slideTo(2); //시작은 0이며 현재 3번째
+
+		</script>
+	</body>
+</html>

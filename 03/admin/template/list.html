@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+		<title>sfdf</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+
+		<!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+		<!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<div id="wrap">
+			<!-- menu -->
+			<div class="mobileMenu c-menu c-menu--push-left">
+				<header>
+				<div id="header">
+					<h1>
+						<a href="main.html"><img src="../images/img_logo.png" alt="SFDF ADMIN MANAGER SYSTEM" /></a>
+						<input type="button" value="snb close" class="c-menu__close" />
+					</h1>
+					<nav>
+						<div class="gnb">
+							<div class="gnbSwiper">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+
+										<!-- gnbMenu -->
+										<div class="selectArea">
+											<span class="selectSet wFull">
+												<label for="s1">제 1회</label>
+												<select id="s1">
+													<option selected="">제 1회</option>
+													<option>제 2회</option>
+													<option>제 3회</option>
+												</select>
+											</span>
+										</div>
+										<!---->
+										<div class="sfdfLogo"><a href="main.html">sfdf 로고</a></div>
+										<ul class="firstGnb">
+											<li class="gnb1 snbCase">
+												<span><strong>공모전 관리</strong></span>
+												<ol>
+													<li><a href="exhibit_list.html">회차 관리</a></li>
+													<li><a href="manager_list.html">관리자관리</a></li>
+												</ol>
+											</li>
+											<li class="gnb3"><span><a href="screen_list.html">화면 관리</a></span></li>
+											<li class="gnb4"><span><a href="member_list.html">회원 관리</a></span></li>
+											<li class="gnb5"><span><a href="application_list.html">지원자 관리</a></span></li>
+											<li class="gnb6 snbCase">
+												<span><strong>평가 관리</strong></span>
+												<dl>
+													<dt><strong>1차 평가</strong></dt>
+													<dd><a href="first_nominee.html">1차 평가</a></dd>
+													<dd><a href="first_partaker.html">1차 평가참여자</a></dd>
+													<dt><strong>2차 평가</strong></dt>
+													<dd><a href="second_nominee.html">2차 평가</a></dd>
+													<dd><a href="second_partaker.html">2차 평가참여자</a></dd>
+													<dt><strong>3차 평가</strong></dt>
+													<dd><a href="third_nominee.html">3차 평가</a></dd>
+													<dd><a href="third_partaker.html">3차 평가참여자</a></dd>
+													<dt><strong>최종</strong></dt>
+													<dd><a href="final_winner.html">최종우승결과</a></dd>
+												</dl>
+											</li>
+											<li class="gnb2"><span><a href="popup_list.html">팝업 관리</a></span></li>
+											<!-- 2017-01-13 메뉴변경 -->
+											<li class="gnb7 snbCase">
+												<span><strong>뉴스 관리(KO)</strong></span>
+												<ol>
+													<li><a href="news_list.html">NEWS</a></li>
+													<!-- li><a href="gallery_list.html">Gallery</a></li 2017-02-03 :: 삭제 -->
+													<li><a href="vod_list.html">VOD</a></li>
+													<li><a href="top20_list.html">TOP20</a></li>
+													<li><a href="faq_list.html">문의하기</a></li>
+												</ol>
+											</li>
+											<li class="gnb7 snbCase">
+												<span><strong>뉴스 관리(EN)</strong></span>
+												<ol>
+													<li><a href="news_list2.html">NEWS (Eng)</a></li>
+													<!-- li><a href="gallery_list2.html">Gallery (Eng)</a></li 2017-02-03 :: 삭제 -->
+													<li><a href="vod_list2.html">VOD (Eng)</a></li>
+												</ol>
+											</li>
+											<!-- //2017-01-13 메뉴변경 -->
+											<li class="gnb8 snbCase">
+												<span><strong>통계관리</strong></span>
+												<ol>
+													<li><a href="statistics_enter.html">접속자 통계</a></li>
+													<li><a href="statistics_join.html">회원가입 통계</a></li>
+													<li><a href="statistics_apply.html">지원자 통계</a></li>
+													<li><a href="statistics_evaluate.html">평가참여 통계</a></li>
+												</ol>
+											</li>
+										</ul>
+										<!---->
+										<div class="sfdfLogo2"><a href="https://www.sfdf.co.kr/index.jsp" target="_blank">sfdf 로고</a></div>
+										<ul>
+											<li class="gnb9 snbCase">
+												<span><strong>게시판관리(KO)</strong></span>
+												<ol>
+													<li><a href="sfdf_news_list.html">SFDF NEWS</a></li>
+													<li><a href="sfdf_gallery_list.html">SFDF GALLERY</a></li>
+													<li><a href="sfdf_vod_list.html">SFDF VOD</a></li>
+												</ol>
+											</li>
+											<li class="gnb9 snbCase">
+												<span><strong>게시판관리(EN)</strong></span>
+												<ol>
+													<li><a href="sfdf_news_list2.html">SFDF NEWS</a></li>
+													<li><a href="sfdf_gallery_list2.html">SFDF GALLERY</a></li>
+													<li><a href="sfdf_vod_list2.html">SFDF VOD</a></li>
+												</ol>
+											</li>
+										</ul>
+										<!-- //gnbMenu -->
+
+									</div>
+								</div>
+								<!-- Add Scroll Bar -->
+								<div class="swiper-scrollbar"></div>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</header>
+			</div>
+			<!---->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+			<!-- container -->
+			<div id="container">
+				<section>
+					<div class="head">
+						<div class="back">
+							<div class="lBtn">
+								<input type="button" value="btn gnb" class="btnGnb" />
+								<input type="button" value="btn gnb" id="c-button--push-left" class="c-button btnGnbMobile" />
+							</div>
+							<h2><strong>List</strong></h2>
+							<div class="rBtn">
+								<div class="myName"><span>김명경</span> 님</div>
+								<span class="btnMy"><button><!-- user thumbnail img 삽입 --></button></span>
+								<input type="button" value="설 정" class="btnSettings" />
+								<input type="button" value="로그아웃" class="btnLogout" />
+							</div>
+						</div>
+					</div>
+					<!---->
+					<article>
+						<div class="comLayout">
+							<!-- contents -->
+							<div class="contents">
+
+									<!--Board Top-->
+									<div class="boardTop">
+										<span class="left mt10">게시글 수 : <strong>999</strong></span>
+										<div class="right">
+											<span class="listSort">
+												<span><input type="radio" name="listsort" id="listsort1" checked /><label for="listsort1">전체</label></span>
+												<span><input type="radio" name="listsort" id="listsort2" /><label for="listsort2">표시항목</label></span>
+												<span><input type="radio" name="listsort" id="listsort3" /><label for="listsort3">비표시항목</label></span>
+											</span>
+											<select class="w80">
+												<option onclick="window.location='push_write.html';">10</option>
+												<option>20</option>
+												<option>30</option>
+											</select>
+										</div>
+									</div>
+									<!--Board List-->
+									<div class="rsls1">
+										<table cellpadding="0" cellspacing="0" border="0">
+											<colgroup>
+												<col width="40" />
+												<col width="50" class="hideCol" />
+												<col />
+												<col width="65" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>
+														<span class="checkSet">
+															<input type="checkbox" id="c_00" checked />
+															<label for="c_00"></label>
+														</span>
+													</th>
+													<th class="hideCol">No.</th>
+													<th>
+														<div class="rsGird">
+															<div class="rsItem">제목<span> 및 내용</span></div>
+															<div class="rsItem hideCol w200">게시기간</div>
+															<div class="rsItem hideCol w80">등록자</div>
+															<div class="rsItem hideCol w105">등록일자</div>
+														</div>
+													</th>
+													<th>표시여부</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- Loop -->
+												<tr>
+													<td>
+														<span class="checkSet">
+															<input type="checkbox" id="c_01" checked />
+															<label for="c_01"></label>
+														</span>
+													</td>
+													<td class="hideCol">10</td>
+													<td>
+														<div class="rsGird">
+															<div class="rsItem rsSubject"><a href="#none">게시물의 제목이 두 줄로 종료될 경우 다음과 같이 표기합니다. 게시물의 제목이 두 줄로 종료될 경우 다음과 같이 표기합니다.</a></div>
+															<div class="rsItem w200">YYYY-MM-DD ~ YYYY-MM-DD</div>
+															<div class="rsItem hideCol w80">홍길동</div>
+															<div class="rsItem w105 rsDate">YYYY-MM-DD</div>
+														</div>
+													</td>
+													<td><span class="ocase"><input type="checkbox" /><label>표시여부</label></span></td>
+												</tr>
+												<!-- //Loop -->
+												<tr>
+													<td>
+														<span class="checkSet">
+															<input type="checkbox" id="c_02" checked />
+															<label for="c_02"></label>
+														</span>
+													</td>
+													<td class="hideCol">10</td>
+													<td>
+														<div class="rsGird">
+															<div class="rsItem rsSubject"><a href="#none">게시물의 제목이 두 줄로 종료될 경우 다음과 같이 표기합니다. 게시물의 제목이 두 줄로 종료될 경우 다음과 같이 표기합니다.</a></div>
+															<div class="rsItem w200">YYYY-MM-DD ~ YYYY-MM-DD</div>
+															<div class="rsItem hideCol w80">홍길동</div>
+															<div class="rsItem w105 rsDate">YYYY-MM-DD</div>
+														</div>
+													</td>
+													<td><span class="ocase"><input type="checkbox" /><label>표시여부</label></span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!--Board bottom-->
+									<div class="boardBottom">
+										<div class="back">
+											<span class="btnSet delete left"><input type="button" value="선택삭제" /></span>  
+											<span class="right">
+												<span class="btnSet write"><a href="write.html">신규등록</a></span>
+											</span>
+											<div class="list-search">
+												<span><input type="button" class="search-v" value="search" /></span>
+												<div><input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" /><input type="button" class="search-close" value="close" /></div>
+											</div>
+										</div>
+									</div>
+									<!--Paginate-->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+									<!--//-->
+
+							</div>
+							<!-- //contents -->
+						</div>
+					</article>
+					<!---->
+				</section>
+			</div>
+			<!-- //container -->
+		</div>
+	</body>
+</html>

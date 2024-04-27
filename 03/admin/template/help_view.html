@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li class="on"><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="help_list.html">Help Desk</a></span></li>
+							<li><span><a href="workhisory_list.html">작업현황</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">유지보수</a></span>
+							<span>Help Desk</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="helpView">
+								<!---->
+								<div class="left">
+									<!---->
+									<div class="tab3">
+										<span class="on"><input type="button" value="신규등록" data-name="tabCon1"></span>
+										<span><input type="button" value="20170407-002" data-name="tabCon2"></span>
+									</div>
+									<!---->
+									<div class="mt10">
+										<div class="tabCon tabCon1">
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>작업번호</th>
+															<td colspan="5">20170407-001</td>
+														</tr>
+														<tr>
+															<th>접수일자</th>
+															<td>
+																<input type="text" class="cal" />
+																<select>
+																	<option>00시</option>
+																	<option>01시</option>
+																	<option>02시</option>
+																</select>
+															</td>
+															<th>완료일자</th>
+															<td>
+																<input type="text" class="cal" />
+																<select>
+																	<option>00시</option>
+																	<option>01시</option>
+																	<option>02시</option>
+																</select>
+															</td>
+															<th>상 태</th>
+															<td>
+																<select class="wFull">
+																	<option value="I">접수완료</option>
+																	<option value="C">문의 확인 중</option>
+																	<option value="F">처리완료</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<th>요청부서</th>
+															<td>
+																<select class="wFull">
+																	<option value="카매니저">카매니저</option>
+																	<option value="GM">GM</option>
+																	<option value="위즈빌">위즈빌</option>
+																</select>
+															</td>
+															<th>접수방법</th>
+															<td>
+																<select class="wFull">
+																	<option>전화</option>
+																	<option>이메일</option>
+																</select>
+															</td>
+															<th>기 기</th>
+															<td>
+																<select class="wFull">
+																	<option value="Android">Android</option>
+																	<option value="ios">IOS</option>
+																	<option value="공통">공통</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<th>작업구분</th>
+															<td>
+																<select class="wFull">
+																		<option>계약서 수정</option>
+																		<option>계약서 작성</option>
+																		<option>증빙서류</option>
+																		<option>하이패스</option>
+																		<option>판매조건</option>
+																		<option>카탈로그</option>
+																		<option>가이드북</option>
+																		<option>포인트북</option>
+																		<option>견적서</option>
+																		<option>가이드</option>
+																		<option>이벤트</option>
+																		<option>선포인트 신청</option>
+																		<option>전차종 가격</option>
+																		<option>기타</option>
+																</select>
+															</td>
+															<th>요청자</th>
+															<td><input type="text" /></td>
+															<th>연락처</th>
+															<td><input type="text" class="wFull" /></td>
+														</tr>
+														<tr>
+															<th>제 목</th>
+															<td colspan="5"><input type="text" class="wFull" /></td>
+														</tr>
+														<tr>
+															<th rowspan="2">접수내용</th>
+															<td colspan="5"><textarea class="wFull h150"></textarea></td>
+														</tr>
+														<tr>
+															<td colspan="5"><label><input type="checkbox" /> 업무팀 전달</label></td>
+														</tr>
+														<tr>
+															<th>처리완료결과</th>
+															<td colspan="5"><textarea class="wFull h150"></textarea></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!---->
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1 bgYellowCase">
+													<colgroup>
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>업무피드백</th>
+															<td></td>
+															<th>등록자</th>
+															<td></td>
+															<th>피드백 날짜</th>
+															<td></td>
+														</tr>
+														<tr>
+															<th>업무피드백 내용</th>
+															<td colspan="5"></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!---->
+											<div class="btnLayout">
+												<div class="right">
+													<span class="btnSet list"><a href="help_list.html">전체목록</a></span>
+													<span class="btnSet save"><input type="button" value="저장"></span>
+												</div>
+											</div>
+										</div>
+										<div class="tabCon tabCon2">
+											<div class="databox-line">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+													<colgroup>
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>작업번호</th>
+															<td colspan="5">20170407-002</td>
+														</tr>
+														<tr>
+															<th>접수일자</th>
+															<td>
+																<input type="text" class="cal" />
+																<select>
+																	<option>00시</option>
+																	<option>01시</option>
+																	<option>02시</option>
+																</select>
+															</td>
+															<th>완료일자</th>
+															<td>
+																<input type="text" class="cal" />
+																<select>
+																	<option>00시</option>
+																	<option>01시</option>
+																	<option>02시</option>
+																</select>
+															</td>
+															<th>상 태</th>
+															<td>
+																<select class="wFull">
+																	<option value="I">접수완료</option>
+																	<option value="C">문의 확인 중</option>
+																	<option value="F">처리완료</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<th>요청부서</th>
+															<td>
+																<select class="wFull">
+																	<option value="카매니저">카매니저</option>
+																	<option value="GM">GM</option>
+																	<option value="위즈빌">위즈빌</option>
+																</select>
+															</td>
+															<th>접수방법</th>
+															<td>
+																<select class="wFull">
+																	<option>전화</option>
+																	<option>이메일</option>
+																</select>
+															</td>
+															<th>기 기</th>
+															<td>
+																<select class="wFull">
+																	<option value="Android">Android</option>
+																	<option value="ios">IOS</option>
+																	<option value="공통">공통</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<th>작업구분</th>
+															<td>
+																<select class="wFull">
+																		<option>계약서 수정</option>
+																		<option>계약서 작성</option>
+																		<option>증빙서류</option>
+																		<option>하이패스</option>
+																		<option>판매조건</option>
+																		<option>카탈로그</option>
+																		<option>가이드북</option>
+																		<option>포인트북</option>
+																		<option>견적서</option>
+																		<option>가이드</option>
+																		<option>이벤트</option>
+																		<option>선포인트 신청</option>
+																		<option>전차종 가격</option>
+																		<option>기타</option>
+																</select>
+															</td>
+															<th>요청자</th>
+															<td><input type="text" /></td>
+															<th>연락처</th>
+															<td><input type="text" class="wFull" /></td>
+														</tr>
+														<tr>
+															<th>제 목</th>
+															<td colspan="5"><input type="text" class="wFull" /></td>
+														</tr>
+														<tr>
+															<th rowspan="2">접수내용</th>
+															<td colspan="5"><textarea class="wFull h150"></textarea></td>
+														</tr>
+														<tr>
+															<td colspan="5"><label><input type="checkbox" /> 업무팀 전달</label></td>
+														</tr>
+														<tr>
+															<th>처리완료결과</th>
+															<td colspan="5"><textarea class="wFull h150"></textarea></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!---->
+											<div class="databox-line mt10">
+												<table cellpadding="0" cellspacing="0" border="0" class="tbvs1 bgYellowCase">
+													<colgroup>
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+														<col width="80" />
+														<col />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>업무피드백</th>
+															<td>작업 완료</td>
+															<th>등록자</th>
+															<td>홍길동</td>
+															<th>피드백 날짜</th>
+															<td>2017-04-06 00:00:00</td>
+														</tr>
+														<tr>
+															<th>업무피드백 내용</th>
+															<td colspan="5">
+																업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용
+																업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용 업무피드백 내용
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!---->
+											<div class="btnLayout">
+												<div class="right">
+													<span class="btnSet list"><a href="help_list.html">전체목록</a></span>
+													<span class="btnSet save"><input type="button" value="저장"></span>
+													<span class="btnSet add"><input type="button" value="신규등록"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!---->
+								<div class="right">
+									<div class="headBox">
+										<span class="list-search ">
+											<input type="text" placeholder="이름, 전화번호, 제목 검색"/><input type="submit" class="search-icon" value="search" />
+										</span>
+									</div>
+									<!---->
+									<div class="databox-line mt10">
+										<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+											<colgroup>
+												<col width="40" />
+												<col />
+												<col width="90" />
+												<col width="80" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>번호</th>
+													<th>제목</th>
+													<th>접수일자 <input type="button" value="up" class="sort sup" /></th>
+													<th>상태 <input type="button" value="up" class="sort sup" /></th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- Loop -->
+												<tr class="on">
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>문의 확인 중</td>
+												</tr>
+												<!-- //Loop -->
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+												<tr>
+													<td>10</td>
+													<td class="subject"><a href="help_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+													<td>2015-03-16</td>
+													<td>처리완료</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!---->
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

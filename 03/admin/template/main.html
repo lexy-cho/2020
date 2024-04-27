@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.botInfoOpen').click(function(){
+					$('.botInfoPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				}); // 하단 정보 입력 팝업 열기
+			})
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 하단 정보 입력 팝업 / 161118 추가 -->
+		<div class="pop botInfoPop" style="display:none;">
+			<h1>하단 정보 입력</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbws1">
+						<colgroup>
+							<col width="150" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>하단 정보</th>
+								<td>
+									<div class="taSet">
+										<textarea rows="10"></textarea>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><a href="main.html">메인페이지이동</a></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+			<hr/>
+			<!-- container -->
+			<!--container 수정 2019-07-31 by 태호-->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="user-info"><a>홍길동(팀장)</a></li>
+							<li class="notlink user-date">2019-07-31 17:18:14.0</li>
+							<li class="user-setting"><span><a href="#none">비밀번호 변경</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<!-- 수정 2019-07-31 gugu -->
+							<span><a href="main.html">MAIN</a></span>
+							<input type="button" value="<" class="side-button" />
+							<!-- // 수정 2019-07-31 gugu -->
+						</h2>
+						<!-- contents -->
+						<div class="contents main">
+							<div class="databox-line left">
+								<h4 id="totBox">유지보수 작업 게시판</h4>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="70" />
+										<col width="90" />
+										<col />
+										<col width="80" />
+										<col width="80" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>구분</th>
+											<th>작업구분</th>
+											<th>제목</th>
+											<th>접수건수</th>
+											<th>상태</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>To Do 1</td>
+											<td>기타</td>
+											<td><a>계약서 전송 안 됨</a></td>
+											<td>15</td>
+											<td style="color:#ffc000;">대기</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>To Do 2</td>
+											<td>기타</td>
+											<td><a>앱 중지 현상</a></td>
+											<td>7</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 3</td>
+											<td>계약서 수정</td>
+											<td><a>블루투스 키보드 입력</a></td>
+											<td>15</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 4</td>
+											<td>기타</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>10</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 5</td>
+											<td>기타</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>15</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 6</td>
+											<td>기타</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>12</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 7</td>
+											<td>증빙서류</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>15</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 8</td>
+											<td>기타</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>9</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 9</td>
+											<td>사용법 문의</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>15</td>
+											<td>대기</td>
+										</tr>
+										<tr>
+											<td>To Do 10</td>
+											<td>계약서 수정</td>
+											<td><a>제목이 노출될 영역입니다.</a></td>
+											<td>6</td>
+											<td>대기</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox"> <!-- 161118 하단 삭제 버튼 삭제 -->
+									<span class="btnBox">
+										<a href="#none" class="btnColor bGray">수정</a>
+										<a href="#none" class="btnColor bRed">추가</a>
+									</span>
+									<!---->
+								</div>
+							</div>
+							<div class="databox-line right">
+								<h4 id="totBox">공지사항</h4>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="70" />
+										<col width="90" />
+										<col />
+										<col width="80" />
+										<col width="100" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>카테고리</th>
+											<th>제목</th>
+											<th>공개여부</th>
+											<th>메인공개여부</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>10</td>
+											<td>공지</td>
+											<td><a href="notice_view.html">IOS 10 업데이트 관련 안내</a></td> <!-- 161118 링크 수정 -->
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>9</td>
+											<td>알림</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td>정기</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td>긴급</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td>신규</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>공지</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>알림</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>정기</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>긴급</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>1</td>
+											<td>신규</td>
+											<td><a href="notice_view.html">제목이 노출될 영역입니다.</a></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+											<td><span class="ocase"><input type="checkbox"><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox"> <!-- 161118 하단 삭제 버튼 삭제 -->
+									<span class="btnBox">
+										<a href="#none" class="btnColor bGray">더보기</a>
+										<a href="#none" class="btnColor bRed">등록</a>
+									</span>
+									<!---->
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+						<!-- //container 수정 2019-07-31 by 태호-->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!--container 수정-->
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<!-- 2019-07-31 버튼제거 by 태호 -->
+				</div>
+			</div>
+			<!-- //footer -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

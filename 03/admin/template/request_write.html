@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/request.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li class="on"><a href="request_list.html">요청사항</a></li>
+						</ul>
+					</div>
+					<span class="topLogout"><a href="login.html">Logout</a></span>
+				</div>
+			</div>
+			<!-- //header -->
+			
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="request_list.html">&bull;요청사항</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<div class="contents">
+							<div class="request_layout">
+								<div class="databox-line mt10">
+									<table class="tbvs1">
+										<colgroup>
+											<col width="50%" />
+											<col width="50%" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<td>
+													<div class="selectBox wFull">
+														<select class="wFull">
+															<option>선택</option>
+															<option>긴급</option>
+															<option>확인요청</option>
+															<option>수정요청</option>
+														</select>
+													</div>
+												</td>
+												<td class="group">
+													<div class="selectBox wFull">
+														<select class="wFull">
+															<option>선택</option>
+															<option>사용법문의</option>
+															<option>계약서 수정</option>
+															<option>계약서 작성</option>
+															<option>증빙서류</option>
+															<option>하이패스</option>
+															<option>판매조건</option>
+															<option>카탈로그</option>
+															<option>가이드북</option>
+															<option>포인트북</option>
+															<option>견적서</option>
+															<option>가이드</option>
+															<option>이벤트</option>
+															<option>선포인트 신청</option>
+															<option>전차종 가격</option>
+															<option>CMS 게시판</option>
+															<option>기타</option>
+														</select>
+													</div>
+												</td>
+												<!--2017-05-19 작업현황 select 삭제-->
+											</tr>
+											<tr>
+												<td colspan="2" class="requestBox">
+													<div class="checkArea">
+														<span class="mr10">요청부서</span>
+														<!-- 2017-07-14 div추가 by hr-park -->
+														<div class="inBlock"><input type="checkbox" name="request" id="chk1" /><label for="chk1">씽크트리</label></div>
+														<div class="inBlock"><input type="checkbox" name="request" id="chk2" /><label for="chk2">위버</label></div>
+														<div class="inBlock"><input type="checkbox" name="request" id="chk3" /><label for="chk3">위즈빌</label></div>
+														<div class="inBlock"><input type="checkbox" name="request" id="chk4" /><label for="chk4">IT부서</label></div>
+														<div class="inBlock"><input type="checkbox" name="request" id="chk5" /><label for="chk5">마케팅팀</label></div>
+														<div class="inBlock"><input type="checkbox" name="request" id="chk6" /><label for="chk6">국내영업팀</label></div>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2"><input type="text" name="titleField" id="titleField" placeholder=" 제목을 입력하세요." class="wFull"/></td>
+											</tr>
+											<tr>
+												<td colspan="2"><textarea rows="15" placeholder="내용을 입력하세요." class="wFull"></textarea></td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<!-- 이미지 등록 -->
+													<div class="imageArea">
+														<span class="imageTitle">이미지 등록</span>
+														<div class="fileex_back mr5 vMiddle">
+															<input type="file" class="fileex">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</div>
+														<div class="thumbnail">
+															<div><span class="cover"></span><span class="tbspan"><em><img src="../images/sample_car.png" alt="" /></em></span><input type="button" value="X" ></div>
+															<!-- <div><span class="cover"></span><span class="tbspan"><em><img src="../images/logo.png" alt="" /></em></span><input type="button" value="X" ></div>
+															<div><span class="cover"></span><span class="tbspan"><em><img src="../images/sample_car.png" alt="" /></em></span><input type="button" value="X" ></div>
+															<div><span class="cover"></span><span class="tbspan"><em><img src="../images/sample_car3.png" alt="" /></em></span><input type="button" value="X" ></div>
+															<div><span class="cover"></span><span class="tbspan"><em><img src="../images/sample_car.png" alt="" /></em></span><input type="button" value="X" ></div> -->
+														</div>
+													</div>
+													<!-- // 이미지 등록  -->
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<!-- 파일 첨부 -->
+													<div class="fileArea">
+														<span class="fileTitle">첨부파일</span>
+														<div class="fileex_back mr5">
+															<input type="file" class="fileex">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="imgselected mr5"><span>Filename.pdf<input type="button" value="삭제" class="imgdelete"></span></div>
+													</div>
+													<!-- // 파일 첨부  -->
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div><!-- //databox-line -->
+								<div class="listControlBox btnBoxList pd10 bgnon">
+									<span class="left">
+										<input type="button" value="목록" onclick="location.href='request_list.html'" />
+									</span>
+									<span class="right">
+										<input type="button" class="btngreenBg" value="등록" onclick="location.href='request_view.html'" />
+										<input type="button" class="btnredBg" value="취소" onclick="location.href='request_list.html'" />
+									</span>
+								</div>
+							</div><!-- //request_layout -->
+						</div><!-- //contents -->
+					</div><!-- //com-layout -->
+				</div><!-- //back -->
+			</div><!-- //container -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(".pagetop").on("click",function(){
+					$('html, body').animate({'scrollTop' : 0});
+				// 	$('html, body').scrollTop(0);
+				})
+				
+			</script>
+		</div><!-- //wrap -->
+	</body>
+</html>

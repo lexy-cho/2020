@@ -1,0 +1,87 @@
+<script type="text/javascript">
+//<![CDATA[
+	/*global $ */
+	/*jslint browser: true, nomen: true */
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+
+	$(document).ready(function () {
+		'use strict';
+		var mydata = [
+				{code:'980000004', cname:'９８００００００４帝国テクノツール株式会社', rname:'曽根　優留美', area:'北海道札幌市白石区東札幌２条２－４－２３', form:'発行済み'},
+				{code:'989999956', cname:'帝国テクノツール株式会社', rname:'帝国太郎', area:'東京都港区南青山2-2-2', form:'<button class="btnLN green ssm">フォーム発行</button>'},
+				{code:'989999999', cname:'帝国工業株式会社', rname:'佐藤次郎', area:'東京都・・・・・', form:'<button class="btnLN green ssm">フォーム発行</button>'},
+				{code:'111111111', cname:'帝国A有限会社', rname:'田中三郎', area:'北海道・・・・・', form:'<button class="btnLN green ssm">フォーム発行</button>'}
+			];
+		$("#list").jqGrid({
+			datatype: 'local',
+			data: mydata,
+			colNames: ['企業コード', '企業名', '代表者名','所在地', 'フォーム発行'],
+			colModel: [
+				{name: 'code', index: 'code', width: 40, align: 'center'},
+				{name: 'cname', index: 'cname', width: 110, align: 'left'},
+				{name: 'rname', index: 'rname', width: 50, align: 'left'},
+				{name: 'area', index: 'area', width: 150, align: 'left', sortable:false},
+				{name: 'form', index: 'form', width: 40, align: 'center', sortable:false}
+			],
+			rowNum: 20,
+			rowList: [20, 40, 80],
+			autowidth: true,
+			pager: '#pager',
+			gridview: true,
+			sortable: function (permutation) {
+				alert ('permutation=' + permutation.join(','));
+			},
+			//multiselect: true,
+			rownumbers: true,
+			sortname: 'id',
+			viewrecords: true,
+			sortorder: 'desc',
+			//caption: 'How to monitor changes on sortable rows',
+			height: 'auto'
+			// 데이터 로딩 성공 후 호출되는 이벤트,
+			,loadComplete: function(rowid) {
+				$("#list tr#1 td:nth-child(n+2):nth-child(-n+6)").css("background-color", "#EAEAEA");
+				$("#list tr#1 td:last-child").css("color", "#FF0000");
+            }
+		});
+		$("#list .btnLN.green.ssm").click(function () {
+			$(".formIssuePop").show();
+			$(".dimPop").show();
+		});
+		$(".localBtn").click(function () {
+			$("#localSearch").show();
+			$(".dimPop").show();
+		});
+	});
+</script>
+<div class="detail">
+	<!---->
+	<div>
+		<div class="search">
+			<div>
+				<span>
+					<!-- 2020-08-21 -->
+					<span class="inputLine">
+						<input type="text" placeholder="企業コード、企業名" />
+						<p>※企業コードや企業名だけでも照会できます。</p>
+					</span>
+					<!-- //2020-08-21 -->
+					<input type="text" placeholder="所在地" />
+				</span>
+				<input type="submit" value="照会" class="searchBtn" />
+				<!-- 2020-08-21 p 삭제 -->
+			</div>
+		</div>
+	</div>
+	<!---->
+	<div class="btnLine">
+		<span class="totalNum">Total: 3 件</span>
+	</div>
+	<!---->
+	<div class="jqGridSet wideRs">
+		<table id="list"><tr><td></td></tr></table>
+		<div id="pager"></div>
+	</div>
+	<!---->
+</div>

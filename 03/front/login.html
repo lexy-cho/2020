@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+	<body>
+		<!-- 로그인 contents -->
+		<div id="loginContents">
+
+			<!-- 로그인 -->
+			<div class="loginLayout">
+				<section>
+					<div class="loginForm">
+						<section>
+							<h1><img src="images/img_login_tit.png" alt="Mobile Smart Work | 전자 견적서 / 전자 매매 계약서" /></h1> <!-- 161205 파일명 수정 -->
+							<form>
+								<div class="idInput">
+									<label><input type="text" placeholder="ID" /></label>
+								</div>
+								<div class="pwInput">
+									<label><input type="password" placeholder="PASSWORD" /></label>
+								</div>
+								<div class="loginSubmit">
+									<!-- <input type="submit" value="로그인" /> -->
+									<input type="button" value="로그인" onClick="location.href='main.html'" /> <!-- 로그인 버튼은 submit으로 개발해주세요 button 태그는 퍼블리싱용입니다 -->
+								</div>
+								<div class="saveId">
+									<span class="checkSet">
+										<input type="checkbox" id="c_01" checked />
+										<label for="c_01">판매코드 저장</label>
+									</span>
+									<!-- 2017-05-23 비밀번호 저장 체크박스 추가
+									<span class="checkSet ml20">
+										<input type="checkbox" id="c_02" />
+										<label for="c_02">비밀번호 저장</label>
+									</span>
+									 -->
+								</div>
+								<p>디바이스 등록 및 회원가입 후 로그인이 가능합니다.<br/>비밀번호 분실 시 시스템 관리자에게 문의하시기 바랍니다.</p><!-- 2020-01-10 text 변경 -->
+							</form>
+						</section>
+					</div>
+					<!-- 2018-01-15 로그인새로침 추가 -->
+					<div class="loginForm refreshCase" style="display:none">
+						<section>
+							<h1><img src="images/img_login_tit.png" alt="Mobile Smart Work | 전자 견적서 / 전자 매매 계약서" /></h1> <!-- 161205 파일명 수정 -->
+							<form>
+								<div class="loginRefresh_txt">
+									<strong>[S-work 접속알림]</strong><br/>
+									현재 대기순서에 따라 로그인페이지로 이동중에 있습니다. <br/>순차적으로 진행예정이며 아래의 새로고침 버튼을 눌러주시기 바랍니다.
+									<span>대기시간 <em>00 : 00</em></span><!-- 2018-01-16 대기시간 추가 by hr-park -->
+								</div>
+								<div class="loginRefresh loginWaiting"> <!-- 2018-01-16 대기일 경우 loginWaiting class 추가 by hr-park -->
+									<input type="button" value="새로고침" disabled /> <!-- 2018-01-16 대기일 경우 disabled 추가 by hr-park -->
+								</div>
+							</form>
+						</section>
+					</div>
+					<span class="hbtnOpenQQ"><a>빠른 문의</a></span>
+				</section>
+			</div>
+			<!-- //로그인 -->
+			<div class="comLoginLogo"><img src="images/img_lognfoot.png" alt="Chevrolet" /></div> <!-- 2017-05-26  이미지 변경 // 2017-01-23 이미지 변경 // 161205 클래스명 수정 -->
+			<img src="images/img_login_bg2.png" alt="login background img" class="comLoginBG" /> <!-- 161205 클래스명 수정 | 2020-01-10 bg이미지 수정 -->
+		</div>
+		<!-- //로그인 contents -->
+		<script>
+			$(document).ready(function(){
+				$(".loginRefresh input").click(function(){
+					$(".loginForm").show();
+					$(".refreshCase").hide();
+				}); // 세부정보 토글
+				$(".hbtnOpenQQ a").bind('tap click', function(){
+					$(".quickQnaPop").toggle();
+					$("#blind_wrap").toggle();
+				}); // 2020-02-17 빠른 문의 신청 팝업
+				$(".choiceCKind select").on("change", function(){
+						$(".secSelect .selectSet").hide();
+						$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+					if($(this).find("option:selected").val() == 1){
+						$(".secSelect").show();
+						$(".secSelect .selectSet.case1").show();
+					}else if($(this).find("option:selected").val() == 2){
+						$(".secSelect").show();
+						$(".secSelect .selectSet.case2").show();
+					}else if($(this).find("option:selected").val() == 3){
+						$(".secSelect").show();
+						$(".secSelect .selectSet.case3").show();
+					} else {
+						$(".secSelect").hide();
+						$(".secSelect .selectSet").hide();
+					}
+				});
+				$(".selectSet.case1 select").on("change", function(){
+					if($(this).find("option:selected").val() == 1){
+						$('.inpuDetail').attr('placeholder','SMS 수신 휴대폰 번호를 입력해주세요.');
+					}else {
+						$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+					}
+				});
+				$(".selectSet.case2 select").on("change", function(){
+					if($(this).find("option:selected").val() == 2){
+						$('.inpuDetail').attr('placeholder','기기해제 할 사번을 입력해주세요');
+					}else if($(this).find("option:selected").val() == 3){
+						$('.inpuDetail').attr('placeholder','기기번호 5자리를 입력해주세요');
+					}else {
+						$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+					}
+				});
+				$(".selectSet.case3 select").on("change", function(){
+					if($(this).find("option:selected").val() == 4){
+						$('.inpuDetail').attr('placeholder','전자계약서 서식번호를 입력해주세요');
+					}else if($(this).find("option:selected").val() == 5){
+						$('.inpuDetail').attr('placeholder','전자계약서 서식번호를 입력해주세요');
+					}else {
+						$('.inpuDetail').attr('placeholder','내용을 입력해주세요');
+					}
+				});
+			})
+		</script>
+		<!-- //2018-01-15 로그인새로침 추가 -->
+		<!-- 에러 팝업 by mj-cho -->
+		<div id="pop_template" class="normalPop notice-pop" style="display:none;z-index:3200;">
+			<div class="popTit"><h1 class="gm_alert_title">타이틀</h1></div>
+			<div class="popBack"><div class="popData"><div class="alertBox aConfirm"><p class="gm_alert_msg">내용 내용 내용 <br /><br /><br /><br /><br />내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용<br /><br /><br /> 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용<br /> 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내<br />용 내용 내<br />용 내용 내용 내용 내용<br /> 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용</p></div></div></div>
+			<div class="popBtn twoBtn" ><div class="back"><a class="btnpSet cancelBtn">다시 안보기</a><a class="btnpSet darkGray confirmBtn">확인</a></div></div>
+		</div>
+		<!-- // Error 팝업 -->
+		<!-- 2020-02-17 빠른 문의 신청 팝업 -->
+		<div class="commonPop quickQnaPop" style="display:none">
+			<div class="popTit">
+				<h1>빠른문의</h1>
+			</div>
+			<div class="popBack">
+				<!---->
+				<div class="lineBox">
+					<!---->
+					<div class="iSet categoryCase">
+						<label>카테고리 <sup>필수항목</sup></label>
+						<div class="selectArea">
+							<span class="firstSelect">
+								<span class="iLine">
+									<span class="selectSet choiceCKind">
+										<select>
+											<option>선택하세요</option>
+											<option value="1">앱 다운로드</option>
+											<option value="2">앱 접속</option>
+											<option value="3">계약서 전송</option>
+										</select>
+									</span>
+								</span>
+							</span>
+							<span class="secSelect" style="display:none;">
+								<span class="iLine">
+									<span class="selectSet case1">
+										<select>
+											<option>선택하세요</option>
+											<option value="1">앱 다운로드 링크</option>
+										</select>
+									</span>
+									<span class="selectSet case2" style="display:none">
+										<select>
+											<option>선택하세요</option>
+											<option value="2">기존기기 해제</option>
+											<option value="3">타인기기 사용</option>
+										</select>
+									</span>
+									<span class="selectSet case3" style="display:none">
+										<select>
+											<option>선택하세요</option>
+											<option value="4">전송 지연</option>
+											<option value="5">전송 오류</option>
+										</select>
+									</span>
+								</span>
+							</span>
+						</div>
+					</div>
+					<div class="iSet">
+						<label>내용 입력 <sup>필수항목</sup></label>
+						<span class="iLine"><input type="text" placeholder="내용을 입력해주세요" class="inpuDetail" /></span>
+					</div>
+					<div class="iSet">
+						<label>사번 <sup>필수항목</sup></label>
+						<span class="iLine"><input type="text" placeholder="사번을 입력해주세요" /></span>
+					</div>
+					<!---->
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet" href="login.html">취소</a>
+						<a class="btnpSet darkGray" href="login.html">문의 접수</a>
+					</div>
+				</div>
+				<!---->
+				<ul>
+					<li>빠른 문의는 별도의 전화 문의 없이 빠르게 처리할 수 있는 사항들을 접수합니다. <span>이 외 문의가 있으신 분은 FAQ 또는 운영사무국(070-5088-5099)을 이용해주세요.</span></li>
+					<li>빠른 문의 대응 시간은 09:00 ~ 18:00 입니다. 이 외 시간에 접수된 문의는 대응이 지연될 수 있습니다.</li>
+					<li>빠른 문의하신 내역은 FAQ > [빠른문의 내역]에서 확인하실 수 있습니다.</li>
+				</ul>
+			</div>
+			<!---->
+		</div>
+		<!-- // 2020-02-17 -->
+		<!-- 모달 레이어 -->
+		<div id='blind_wrap' style="display:none"></div>
+	</body>
+</html>

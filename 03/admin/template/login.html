@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.pwOpen').click(function(){
+					$('pwPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				}); // 비밀번호 찾기 팝업 열기
+
+				$('.joinOpen').click(function(){
+					$('.joinPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hidden');
+				}); // 회원가입 팝업 열기
+			})
+		</script>
+	</head>
+	<body id="login_before">
+
+		<!-- 회원가입 -->
+		<div class="pop joinPop" style="display:none;">
+			<h1>회원가입</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+						<colgroup>
+							<col width="120" />
+							<col />
+							<col width="125" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>이름</th>
+								<td class="tLeft"><input type="text" class="wFull" /></td>
+								<th>사번 (아이디)</th>
+								<td class="tLeft"><input type="text" class="wFull" /></td>
+							</tr>
+							<tr>
+								<th>이메일</th>
+								<td colspan="3" class="tLeft"><input type="text" class="wFull" /></td>
+							</tr>
+							<tr>
+								<th>핸드폰 번호</th>
+								<td><input type="text" class="wFull" /></td>
+								<th>직통 번호</th>
+								<td><input type="text" class="wFull" /></td>
+							</tr>
+							<tr>
+								<th>비밀번호</th>
+								<td>
+									<input type="password" class="wFull" />
+								</td>
+								<th>비밀번호 확인</th>
+								<td>
+									<input type="password" class="wFull" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="저장" class="btnColor bGray" />
+				<input type="button" value="취소" class="btnColor bPurple" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none;"></div>
+
+		<!-- Login -->
+		<div id="login">
+			<h1><a href="app_main.html"><img src="../images/logo.png" alt="로고"></a></h1>
+			<div>
+				<fieldset>
+				<form>
+					<dl>
+						<dt>아이디</dt>
+						<dd class="required">
+							<input type="text" placeholder="아이디" />
+							<span class="retxt">아이디를 입력해주세요.</span>
+						</dd>
+					</dl>
+					<dl>
+						<dt>비밀번호</dt>
+						<dd class="required">
+							<input type="password" placeholder="비밀번호" />
+							<span class="retxt">비밀번호를 입력해주세요.</span>
+						</dd>
+					</dl>
+					<input type="button" value="Login" class="btnlogin" onClick="location.href='main.html'" />
+				</form>
+				</fieldset>
+				<span class="join"><input type="button" value="회원가입" class="joinOpen" /></span>
+			</div>
+			<p>If you have forgotten your password, please contact administrator</p>
+		</div>
+		<!-- //Login -->
+
+	</body>
+</html>

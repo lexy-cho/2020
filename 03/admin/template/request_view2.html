@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+<title>GMK</title>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" href="css/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="css/request.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/basic.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+
+<script type="text/javascript">
+function state1( val )
+{
+    if( val == 'cancel' )
+    { document.getElementById('reasonBox1').style.display  = 'block';}
+    else
+    {document.getElementById('reasonBox1').style.display  = 'none';}
+}
+function state2( val )
+{
+    if( val == 'cancel' )
+    { document.getElementById('reasonBox2').style.display  = 'block';}
+    else
+    {document.getElementById('reasonBox2').style.display  = 'none';}
+}
+function state3( val )
+{
+    if( val == 'cancel' )
+    { document.getElementById('reasonBox3').style.display  = 'block';}
+    else
+    {document.getElementById('reasonBox3').style.display  = 'none';}
+}
+function state4( val )
+{
+    if( val == 'cancel' )
+    { document.getElementById('reasonBox4').style.display  = 'block';}
+    else
+    {document.getElementById('reasonBox4').style.display  = 'none';}
+}
+function state5( val )
+{
+    if( val == 'cancel' )
+    { document.getElementById('reasonBox5').style.display  = 'block';}
+    else
+    {document.getElementById('reasonBox5').style.display  = 'none';}
+}
+
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#chk7").change(function() {
+			$(".delay7").toggle(); 
+			return false;
+		});
+		$("#chk8").change(function() {
+			$(".delay8").toggle(); 
+			return false;
+		});
+		$("#chk9").change(function() {
+			$(".delay9").toggle(); 
+			return false;
+		});
+		$("#chk10").change(function() {
+			$(".delay10").toggle(); 
+			return false;
+		});
+		$("#chk11").change(function() {
+			$(".delay11").toggle(); 
+			return false;
+		});
+		$("#chk12").change(function() {
+			$(".delay12").toggle(); 
+			return false;
+		});
+	});
+</script>
+
+</head>
+<body>
+	<!-- skip-navigation -->
+	<div class="skip-navigation">
+		<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+	</div>
+	<!-- //skip-navigation -->
+	<!-- wrap -->
+	<div id="wrap">
+		<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+		<!-- header -->
+		<div id="header">
+			<div class="back">
+				<h1><img src="../images/logo.png" alt="logo"></h1>
+				<div class="hdata">
+					<ul class="gnb">
+						<li class="on"><a href="request_list.html">요청사항</a></li>
+					</ul>
+				</div>
+				<span class="topLogout"><a href="login.html">Logout</a></span>
+			</div>
+		</div>
+		<!-- //header -->
+
+		<hr />
+		<!-- container -->
+		<div id="container">
+			<div class="back">
+				<!-- snb -->
+				<div class="snb">
+					<strong>USER INFORMATION</strong>
+					<ul>
+						<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+						<li class="user-logout"><span><a href="#">Logout</a></span></li>
+					</ul>
+				</div>
+				<!---->
+
+				<!-- 2017-05-30 이미지 스와이프 -->
+				<div class="pop" style="display: none;">
+					<div class="imgPop">
+						<div class="iPopBack">
+							<div class="iPopBack">
+								<div class="iPopBack">
+									<div class="iGBtn">
+										<input type="button" value="SKIP" class="iBtnSkip" />
+										<input type="button" value="CLOSE" class="iBtnClose" style="display: none;" />
+									</div>
+									<div class="imgPopSwiper">
+										<div class="imgPagination"></div>
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="iGimg">
+													<div><img src="../images/logo.png" alt="" /></div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="iGimg">
+													<div><img src="../images/new.png" alt="" /></div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="iGimg">
+													<div><img src="../images/sample_car.png" alt="" /></div>
+												</div>
+											</div>
+											<div class="swiper-slide last">
+												<div class="iGimg">
+													<div><img src="../images/new.png" alt="" /></div>
+												</div>
+											</div>
+										</div>
+										<div class="imgChoiceBTn">
+											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-next"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$('.request_layout .imageBox .imgselected a').click(
+								function() {
+									$('.pop').show();
+									$('#blind_wrap').show();
+									var swiperImg = new Swiper('.imgPopSwiper', {
+										spaceBetween : 20,
+										pagination : '.imgPagination',
+										paginationClickable : true,
+										nextButton : '.imgChoiceBTn .swiper-button-next',
+										prevButton : '.imgChoiceBTn .swiper-button-prev',
+									});return false;
+								}); //이미지 팝업 열기 
+									$(".iGBtn .iBtnSkip").bind('tap click',
+									function() {
+									$(".pop").hide();
+									$("#blind_wrap").hide();
+									return false;
+									}); //팝업닫기
+								})
+						</script>
+					</div>
+				</div>
+				
+				<!-- 작업현황 팝업 -->
+				<div class="request_layout popZone wpop" style="display:none">
+					<div class="wpopArea">
+						<div class="checkArea">
+							<div class="iGBtn"><input type="button" value="CLOSE" class="iBtnSkip" /></div>
+							<div class="topArea">
+								<div class="checkArea">
+									<span>작업현황으로 전달</span>
+									<input type="checkbox" name="list" id="chk01" /><label for="chk01">커뮤니케이터</label>
+									<input type="checkbox" name="list" id="chk02" /><label for="chk02">개발</label>
+									<input type="checkbox" name="list" id="chk03" /><label for="chk03">디자인&퍼블리싱</label>
+									<span class="btnBoxList"><input type="button" class="btngrayBg" value="연동" /></span>
+								</div>
+							</div>
+							<div class="detail pd10">
+								<div class="pd10">
+									<strong>커뮤니케이터 작업현황</strong><span class="viewState blueColor right">작업 중</span>
+									<ul class="pd10">
+										<li>&bull;대응 소요기간 : 00월 00일 00:00 ~ 00월 00일 00:00 (3일 00시간)</li>
+										<li>&bull;최종작업보고 : 내용이 나옵니다. 내용이 나옵니다.내용이나옵니다. 내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.</li>
+									</ul>
+								</div>
+								<div class="pd10">
+									<strong>디자인&퍼블리싱 작업현황</strong><span class="viewState blueColor right">작업 중</span>
+									<ul class="pd10">
+										<li>&bull;작업 소요기간 : 00월 00일 00:00 ~ 00월 00일 00:00 (3일 00시간)</li>
+										<li>&bull;작업완료 : 00월 00일</li>
+										<li>&bull;최종작업보고 : 내용이 나옵니다. 내용이 나옵니다.내용이나옵니다. 내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.</li>
+									</ul>
+								</div>
+								<div class="pd10">
+									<strong>개발 작업현황</strong><span class="viewState blueColor right">작업 중</span>
+									<ul class="pd10">
+										<li>&bull;작업 소요기간 : 00월 00일 00:00 ~ 00월 00일 00:00 (3일 00시간)</li>
+										<li>&bull;작업완료 : 00월 00일</li>
+										<li>&bull;최종작업보고 : 내용이 나옵니다. 내용이 나옵니다.내용이나옵니다. 내용이 나옵니다.내용이 나옵니다.내용이 나옵니다.</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$('.request_layout .moveBtn').click(
+								function() {
+									$('.wpop').show();
+									$('#blind_wrap').show();
+									return false;
+								}); // 팝업 열기 
+								$(".iGBtn .iBtnSkip").bind('tap click',
+									function() {
+									$(".wpop").hide();
+									$("#blind_wrap").hide();
+									return false;
+									}); //팝업닫기
+								})
+						</script>
+					</div>
+				</div>
+				<!-- //작업현황 팝업 -->
+
+
+				<!-- email 팝업 -->
+				<div class="popZone epop" style="display:none">
+					<div class="epopArea">
+						<div class="checkArea">
+							<div class="iGBtn"><input type="button" value="CLOSE" class="iBtnSkip" /></div>
+							<div class="topArea">
+								<span>이메일 수신</span>
+								<select id="state00" name="state" mutiple="mutiple">
+									<option>씽크트리</option>
+									<option>선택하세요.</option>
+									<option>안병찬</option>
+									<option>조현권</option>
+									<option>이제인</option>
+								</select>
+								<select id="state01" name="state">
+									<option>위버</option>
+								</select>
+								<select id="state02" name="state">
+									<option>위즈빌</option>
+								</select>
+								<select id="state03" name="state">
+									<option>IT부서</option>
+								</select>
+								<select id="state04" name="state">
+									<option>마케팅팀</option>
+								</select>
+								<select id="state05" name="state">
+									<option>국내영업팀</option>
+									<option>김철수</option>
+								</select>
+							</div>
+							<div class="tCenter btnBoxList"><input type="button" class="btnskyBg" value="현재 진행현황 E-mail로 보내기" /></div>
+							<div class="detail mt10">
+								<ul>
+									<li>
+										<span>보낸날짜</span>
+										<p>수신자</p>
+										<a>원본보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+									<li>
+										<span>2017-00-00 00:00:00</span>
+										<p>씽크트리 (조현권, 이제인), 위버 (홍길동), 위즈빌 (000), 마케팅팀  (염민철)</p>
+										<a href="request_emailLayout.html" target="_blank">바로보기</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$('.btnBoxList .mailBtn').click(
+								function() {
+									$('.epop').show();
+									$('#blind_wrap').show();
+									return false;
+								}); // 팝업 열기 
+								$(".iGBtn .iBtnSkip").bind('tap click',
+									function() {
+									$(".epop").hide();
+									$("#blind_wrap").hide();
+									return false;
+									}); //팝업닫기
+								})
+						</script>
+					</div>
+				</div>
+				<!-- //email 팝업 -->
+				
+				
+				<div id="blind_wrap" style="display: none;"></div>
+				<!-- 2017-05-30 -->
+
+				<hr />
+				<div class="com-layout">
+					<h2>
+						<span><a href="request_list.html">&bull;요청사항</a></span>
+						<input type="button" value="<" class="side-button" />
+					</h2>
+					<div class="contents">
+						<div class="request_layout">
+							<div class="view-line mt10">
+								<div class="viewTit">
+									<div class="viewBox">
+										<div class="viewTitle">
+											<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. </strong>
+											<span>염민철 &#124; 2017.05.12</span>
+										</div>
+									</div>
+									<div class="viewTitleSub">
+										<span class="view_division"> 긴급 / CSM게시판 </span>
+										<span class="viewState blueColor right">작업 중</span>
+									</div>
+								</div>
+								<div class="viewCon pd20">내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용 내용
+									내용 내용 내용</div>
+								<div class="imageBox pd10">
+									<span>이미지</span>
+									<div class="imgselected mrb5"><a href="">Filename.jpg</a></div>
+									<div class="imgselected mrb5"><a href="">Filename.jpg</a></div>
+								</div>
+								<div class="fileBox pd10">
+									<span>첨부파일</span>
+									<div class="imgselected mrb5"><a href="">Filename.pdf</a></div>
+									<div class="imgselected mrb5"><a href="">Filename.pdf</a></div>
+								</div>
+							</div>
+							<!-- view-line -->
+
+							<div class="view-line feedback mt10">
+								<div class="participation checkArea">
+									<span class="mr10">참여업체</span>
+									<input type="checkbox" name="request" id="chk1" /><label for="chk1">씽크트리</label>
+									<input type="checkbox" name="request" id="chk2" /><label for="chk2">위버</label>
+									<input type="checkbox" name="request" id="chk3" /><label for="chk3">위즈빌</label> 
+									<input type="checkbox" name="request" id="chk4" /><label for="chk4">IT부서</label> 
+									<input type="checkbox" name="request" id="chk5" /><label for="chk5">마케팅팀</label>
+									<input type="checkbox" name="request" id="chk6" /><label for="chk6">국내영업팀</label>
+								</div>
+							</div>
+
+							<div class="view-line commentBox mt10">
+								<div class="commentTop pd10">
+									<span class="total">댓글 수 <span>12</span></span>
+									<input type="button" class="replyIcon replyOpen" />
+									<input type="button" class="replyIcon replyClose" style="display: none" />
+								</div>
+								<script type="text/javascript">
+									$(document).ready(function() {
+										$('.request_layout .commentBox .replyOpen').click(
+										function() {
+											$(this).hide();
+											$('.comment').show();
+											$('.request_layout .commentBox .replyClose').show();
+											return false;
+										}); // 팝업 열기
+										$(".request_layout .commentBox .replyClose").bind('tap click',
+											function() {
+												$(this).hide();
+												$('.comment').hide();
+												$('.request_layout .commentBox .replyOpen').show();
+											return false;
+											}); //팝업닫기
+										})
+								</script>
+								<div class="comment" style="display:none;">
+									<ul class="pd10">
+										<li class="replyList">
+											<p>
+												<strong>댓글의 내용이 나올 부분입니다 댓글의 내용이 나올 부분입니다. 댓글은 말줄임이 없습니다.</strong>
+												<input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>
+												염민철 &#124; 2017.05.24 14:56 <input type="button" value="답글달기" class="btnRe" />
+											</p>
+										</li>
+										<li class="replyList reply">
+											<p>
+												<strong>댓글의 답글은 5Depth 까지만 나오게 할까 합니다.</strong>
+												<input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>염민철 &#124; 2017.05.24 14:56</p>
+										</li>
+										<li>
+											<p>
+												<strong>댓글의 내용이 나올 부분입니다 댓글은 페이지 표시가 없습니다 일단은 계속 계속 밑으로 보여지게 합니다.</strong>
+												<input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>
+												염민철 &#124; 2017.05.24 14:56 <input type="button" value="답글달기" class="btnRe" />
+											</p>
+										</li>
+										<li class="replyList">
+											<p>
+												<strong>댓글의 내용이 나올 부분입니다 댓글도 최신 등록한 글이 제일 위로 오게 합니다.</strong>
+												<input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>
+												염민철 &#124; 2017.05.24 14:56 <input type="button" value="답글취소" class="btnCancel" />
+											</p>
+										</li>
+										<li class="replyList reply">
+											<div class="replyArea">
+												<textarea rows="3" class="wFull" placeholder="댓글을 입력해주세요"></textarea>
+												<input type="button" value="확인" class="btnOk" />
+											</div>
+										</li>
+										<li>
+											<p>
+												<strong>댓글의 내용이 나올 부분입니다 댓글은 페이지 표시가 없습니다 일단은 계속 계속 밑으로 보여지게 합니다.</strong>
+												<input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>
+												염민철 &#124; 2017.05.24 14:56 <input type="button" value="답글달기" class="btnRe" />
+											</p>
+										</li>
+										<li class="replyList">
+											<p>
+												<strong>댓글의 내용이 나올 부분입니다 댓글의 내용이 나올 부분입니다.</strong><input type="button" value="삭제" class="btnDle" />
+											</p>
+											<p>
+												염민철 &#124; 2017.05.24 14:56 <input type="button" value="답글달기" class="btnRe" />
+											</p>
+										</li>
+									</ul>
+								</div>
+								<div class="commentInput">
+									<div class="replyArea">
+										<span>댓글작성</span>
+										<textarea rows="4" placeholder="댓글을 입력해주세요" class="wFull"></textarea>
+										<input type="button" value="확인" class="btnOk" />
+									</div>
+								</div>
+								<!--  //commentBox -->
+							</div>
+
+							<div class="view-line feedback mt10">
+								<div class="status checkArea pd10">
+									<span class="mr10">진행현황</span>
+									<span class="viewState blueColor">작업 중</span>
+									<select  onchange="state1(this.value);" id="state1" name="state1">
+										<option>확인 중</option>
+										<option>확인완료</option>
+										<option>작업확정</option>
+										<option value="cancel">작업취소</option>
+										<option>보류</option>
+									</select>
+									<button class="moveBtn">연동하기</button>
+									<input type="text" id="reasonBox1" placeholder="작업취소나 보류가 된 이유에 대해서 노출되는 영역입니다." style="display:none" />
+								</div> 
+								<div class="progressOpen">
+									<div class="progress">
+										<strong>위즈빌</strong>
+										<div class="expected checkArea">
+											<em>예정일정</em>
+											<span class="mr5 lh27">
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</span>
+											<input type="checkbox" name="schedule" id="chk7" /><label for="chk7">작업지연</label></span>
+										</div>
+										<div class="delay delay7 checkArea" style="display:none">
+											<em>지연일정</em>
+											<span class="mr5 lh27">
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</span>
+											<select onchange="state2(this.value);" id="state2" name="state2">
+												<option>작업중</option>
+												<option>작업완료</option>
+												<option>작업보류</option>
+												<option value="cancel">작업취소</option>
+												<option>작업없음</option>
+											</select>
+											<input type="checkbox" name="schedule" id="chk8" /><label for="chk8">작업지연</label>
+											<div class="reason"><input type="text" id="reasonBox2" placeholder="지연사유를 입력하세요."/></div>
+										</div>
+										<div class="remarks checkArea">
+											<em>비고</em> <input type="text" class="" />
+										</div>
+									</div>
+									<div class="progress list2">
+										<strong>위버</strong>
+										<div class="expected checkArea">
+											<em>예정일정</em>
+											<span class="mr5 lh27">
+											<input type="text" readonly="" class="cal" /> ~
+											<input type="text" readonly="" class="cal" />
+											</span> 
+											<select onchange="state3(this.value);" id="state3" name="state3">
+												<option>작업중</option>
+												<option>작업완료</option>
+												<option>작업보류</option>
+												<option value="cancel">작업취소</option>
+												<option>작업없음</option>
+											</select>
+											<input type="checkbox" name="schedule" id="chk9" />
+											<label for="chk9">작업지연</label>
+											<div class="reason"><input type="text" id="reasonBox3" placeholder="지연사유를 입력하세요."/></div>
+										</div>
+										<div class="delay delay9 checkArea" style="display:none;">
+											<em>지연일정</em> <span class="mr5 lh27"> 
+											<input type="text" readonly="" class="cal" /> ~
+											<input type="text" readonly="" class="cal" />
+											</span>
+											<select onchange="state4(this.value);" id="state4" name="state4">
+												<option>작업중</option>
+												<option>작업완료</option>
+												<option>작업보류</option>
+												<option value="cancel">작업취소</option>
+												<option>작업없음</option>
+											</select>
+											<input type="checkbox" name="schedule" id="chk10" /><label for="chk10">작업지연</label>
+											<span class="reason"><input type="text" id="reasonBox4" placeholder="지연사유를 입력하세요."/>
+										</div>
+										<div class="remarks checkArea">
+											<em>비고</em> <input type="text" class="" />
+										</div>
+									</div>
+									<div class="progress">
+										<strong>씽크트리</strong>
+										<div class="expected checkArea">
+											<em>예정일정</em>
+											<span class="mr5 lh27">
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</span>
+											<select onchange="state5(this.value);" id="state5" name="state5">
+												<option>작업중</option>
+												<option>작업완료</option>
+												<option>작업보류</option>
+												<option value="cancel">작업취소</option>
+												<option>작업없음</option>
+											</select>
+											<input type="checkbox" name="schedule" id="chk11" /><label for="chk11">작업지연</label>
+											<span class="block reason"><input type="text" id="reasonBox5" placeholder="지연사유를 입력하세요."/></span>
+										</div>
+										<div class="delay delay11 checkArea" style="display:none;">
+											<em>지연일정</em>
+											<span class="mr5 lh27">
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</span>
+											<select onchange="state6(this.value);" id="state6" name="state6">
+												<option>작업중</option>
+												<option>작업완료</option>
+												<option>작업보류</option>
+												<option value="cancel">작업취소</option>
+												<option>작업없음</option>
+											</select>
+											<input type="checkbox" name="schedule" id="chk12" /><label for="chk12">작업지연</label>
+											<span class="block reason"><input type="text" id="reasonBox6" placeholder="지연사유를 입력하세요."/></span>
+										</div>
+										<div class="complete checkArea">
+											<em>완료일자</em>
+											<span class="mr5 lh27">
+												<input type="text" readonly="" class="cal" />
+											</span>
+										</div>
+										<div class="remarks checkArea">
+											<em>비고</em><input type="text" class="" />
+										</div>
+									</div>
+									<div class="btnBoxList">
+										<input type="button" class="saveBtn right" value="진행현황 저장하기" onclick="" />
+									</div>
+								</div>
+							</div>
+
+							<div class="list mt20">
+								<dl class="prev pd10">
+									<dt>이전글</dt>
+									<dd><a href="#">요청사항 타이틀이 보입니다.</a></dd>
+								</dl>
+								<dl class="next pd10">
+									<dt>다음글</dt>
+									<dd><a href="#">요청사항 타이틀이 보입니다.</a></dd>
+								</dl>
+							</div>
+							<!-- //view-line -->
+						</div>
+						<!-- //request_layout -->
+					</div>
+					<!-- //contents -->
+					<div class="listControlBox btnBoxList pd10">
+						<span class="left">
+							<input type="button" value="목록" onclick="location.href='request_list.html'" />
+						</span>
+						<span class="right"> 
+							<input type="button" class="managerArea mailBtn" value="E-mail 공유" onclick="" />
+							<input type="button" class="" onclick="" value="공지사항으로 전달" />
+							<input type="button" class="btngreenBg" onclick="location.href='request_write.html'" value="수정" />
+							<input type="button" class="btnredBg" value="삭제" onclick="" />
+						</span>
+					</div>
+				</div>
+				<!-- //com-layout -->
+			</div>
+			<!-- //back -->
+		</div>
+		
+		<!-- //container -->
+		<div id="footer">
+			<div class="back">
+				<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+				<div>
+					<span class="btnSet pagetop"><a>TOP</a></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(".pagetop").on("click", function() {
+				$('html, body').animate({
+					'scrollTop' : 0
+				});
+				// 	$('html, body').scrollTop(0);
+			})
+		</script>
+	</div>
+	<!-- //wrap -->
+</body>
+</html>

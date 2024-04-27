@@ -1,0 +1,2703 @@
+<script type="text/javascript">
+//<![CDATA[
+	/*global $ */
+	/*jslint browser: true, nomen: true */
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+
+	$(document).ready(function () {
+		$(".alertBtn6").click(function () {
+			$("#alert6").show();
+			$(".dimPop").show();
+		});
+		$(".alertBtn7").click(function () {
+			$("#alert7").show();
+			$(".dimPop").show();
+		});
+		$(".btnSet.case1 .save").click(function () {
+			$(".tostAlert").show();
+			$(".dimPop").show();
+			setTimeout(function() {
+				$(".tostAlert").hide();
+				$(".dimPop").hide();
+			}, 4000);
+		});
+		$("#preview").click(function () {
+			$(".previewPop").show();
+			$(".dimPop").show();
+		}); // 2020-09-31 preview팝업 표출 수정
+		$(".performanceLayout .dateTt .checkSet input").change(function () {
+			var dateTtIndex = $(this).parents('.wGrid').index() + 1;
+			var tableNthIndex = $(this).parents('.wGrid').index() + 2;
+			if($(this).is(':checked') == false){
+				$(this).parent('.checkSet').addClass('off');
+				$(".performanceLayout .dateTt .wGrid:nth-child("+ dateTtIndex +")").find('input').attr('checked', false).removeClass('read-only');
+				$(".performanceLayout .tbws1 tr td:nth-child("+ tableNthIndex +")").find('input').attr('disabled', true).addClass('read-only');
+			}else if($(this).is(':checked') == true){
+				$(this).parent('.checkSet').removeClass('off');
+				$(".performanceLayout .dateTt .wGrid:nth-child("+ dateTtIndex +")").find('input').attr('checked', true).addClass('read-only');
+				$(".performanceLayout .tbws1 tr td:nth-child("+ tableNthIndex +")").find('input').attr('disabled', false).removeClass('read-only');
+			}
+		});
+		$(".localSearchBtn").click(function () {
+			$("#localSearch").show();
+			$(".dimPop").show();
+		});
+		/*******/
+		$(".pmStatus .opener").click(function(){
+			$(this).toggleClass('on');
+			$(".pmStatus .full").toggle();
+			$(".pmStatus .short").toggle();
+		});
+		var textAreaResize = function() {
+			$('.txtArea').on('keyup', 'textarea', function (e){
+				$(this).css('height', 'auto');
+				//$(this).height( this.scrollHeight == 0 ? '0':this.scrollHeight);
+			});
+			$('.txtArea').find('textarea').keyup();
+		};
+		textAreaResize(); // textarea 높이 자동 조절
+		/*******/
+		$(".cTab li a").click(function () {
+			$(".cTab li").removeClass("on");
+			$(this).parent("li").addClass("on");
+			var activeTab = $(this).attr("data-role");
+			 $(".stepBack").hide();
+			 $(activeTab).show();
+			 if( activeTab == "#step0"){
+				textAreaResize(); // textarea 높이 자동 조절
+			 }else if( activeTab == "#step1"){
+				textAreaResize(); // textarea 높이 자동 조절
+			 }else if( activeTab == "#step2"){
+				textAreaResize(); // textarea 높이 자동 조절
+			 }else if( activeTab == "#step3"){
+				textAreaResize(); // textarea 높이 자동 조절
+			 }else if( activeTab == "#step4"){
+				textAreaResize(); // textarea 높이 자동 조절
+			 }
+		});
+
+		//팝업
+		$(".openAddressPop").click(function () {
+			$(".addressPop").show();
+			$(".etcPopBack").show();
+		});
+		/**/
+		$(".accountIssuePop .btnBG:first").click(function(){
+			$(".accountIssuePop, .dimPop").hide();
+		});
+		$("#loginInfoIsueBtn").click(function () {
+			$("#alert11, .dimPop").show();
+			$("#alert11 .btnBG.blue").click(function(){
+				$(".accountIssuePop, .dimPop").show();
+				$(".accountIssuePop .btnBG.green").click(function(){
+					$(".accountIssuePop, .dimPop, #loginInfoIsueBtn, .btnSet.case1").hide();
+					$(".loginInfoTxt, .btnSet.case2").show();
+				});
+				$(".idOKDeleteBTn").hide();
+				$(".unitKind").attr('disabled', true);
+			});
+		});
+		/**/
+		$("#mailChkBtn").click(function(){
+			if($("#loginInfoIsueBtn").css("display") == "none"){
+				$(".accountIssuePop, .accountIssuePop .iDate, .dimPop").show();
+			}else{
+				$("#alert12, .dimPop").show();
+			}
+		});
+		/**/
+		$(".btnSet.case2 .refresh").click(function(){
+			$("#alert13, .dimPop").show();
+		})
+		/**/
+		$(".pmName h2 input").keydown(function(key) {
+			if (key.keyCode == 13) {
+				createTab('取材明細', '#progressMgtDetailCoverage');
+			}
+		});
+		/**/
+		$('.unitKind').change(function(){
+			if($(this).val() == '0'){
+				$(this).parents('.gridSet').find('.priceUnit').html('千円');
+				$(this).parents('.gridSet').find('.tbws1.green .priceUnit').html('%');
+			}else if($(this).val() == '1'){
+				$(this).parents('.gridSet').find('.priceUnit').html('百万円');
+				$(this).parents('.gridSet').find('.tbws1.green .priceUnit').html('%');
+			}
+		});
+		/**/
+		$(".requiredSampleBtn").on("click", function(){
+			$(".required").append( "<p class='retxt'>必須入力項目です。</p>" );
+		}); // 2020-08-27 에러메세지 표출
+
+	var bankData = [
+			{code:'120606', name:'アイオー信用金庫', reading:'ｱｲｵ-ｼﾝｷﾝ'},
+			{code:'731606', name:'相生市農業協同組合', reading:'ｱｲｵｲｼﾉｳｷﾖｳ'},
+			{code:'054206', name:'愛知銀行', reading:'ｱｲﾁ'},
+			{code:'', name:'あいち海部農業協同組合', reading:'ｱｲﾁｱﾏﾉｳｷﾖｳ'},
+			{code:'', name:'', reading:''},
+			{code:'', name:'', reading:''},
+			{code:'', name:'', reading:''},
+			{code:'', name:'', reading:''},
+			{code:'', name:'', reading:''},
+			{code:'', name:'', reading:''}
+		];
+		$(".bankInput").click(function () {
+			$("#bankSearch").show();
+			$(".dimPop").show();
+			$("#bankList").jqGrid({
+				datatype: 'local',
+				data: bankData,
+				colNames: ['コード', '金融機関名', 'フリガナ'],
+				colModel: [
+					{name: 'code', index: 'code', width: 55, align: 'center'},
+					{name: 'name', index: 'name', width: 170, align: 'left'},
+					{name: 'reading', index: 'reading', width: 170, align: 'left'}
+				],
+				gridview: true,
+				viewrecords: true,
+				width: '516',
+				height: '190'
+			});
+		});
+		$('.btnUseToggle').toggle(function() {
+			$(this).removeClass('red').text('表示');
+			$(this).parent('.subTit').next('div').children('.pmtDim').show();
+		}, function() {
+			$(this).addClass('red').text('非表示');
+			$(this).parent('.subTit').next('div').children('.pmtDim').hide();
+		});// 2020-10-22
+	});
+</script>
+<div class="detail" id="baseCase">
+	<!---->
+	<div class="pmSummery">
+		<div class="pmName">
+			<h2>
+				<em>[999999999] 株式会社田中商事</em>
+			</h2>
+			<!-- 2020-08-21 수정 -->
+			<div class="btnSet case1">
+				<button class="btnLN blue delete alertBtn6">データクリア</button>
+				<button class="btnBG blue save requiredSampleBtn">保存</button><!-- 2020-08-27 class 추가 -->
+				<button class="btnBG red cancel alertBtn7">発行取消</button>
+			</div>
+			<div class="btnSet case2" style="display:none;">
+				<button class="btnBG blue refresh">初期化</button><!-- 2020-09-07 새로고침 버튼 -->
+				<button class="btnLN green excel">Excelダウンロード</button>
+				<button class="btnBG green" id="preview">プレビュー</button><!-- 2020-08-31 class 수정 -->
+			</div>
+			<!-- //2020-08-21 수정 -->
+		</div>
+		<!-- Search -->
+		<div class="pmStatus">
+			<div class="pmStatusHead">
+				<strong>進捗情報</strong>
+			</div>
+			<!-- 2020-08-21 테이블 내용 수정 -->
+			<div class="full">
+				<table>
+					<colgroup>
+						<col width="200">
+						<col width="400">
+						<col width="240">
+						<col width="200">
+						<col width="300">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>ID／Password</th>
+							<td class="tleft">
+								<button class="btnOrder green" id="loginInfoIsueBtn">ログイン情報発行</button>
+								<span class="loginInfoTxt" style="display:none;">ABC123／bbc123</span>
+							</td>
+							<th>発行期限</th>
+							<td colspan="2" class="tleft">
+								2020-12-01 ~
+								<input type="text" class="tC w110" value="2020-12-07"/>
+								<button class="btnBG gray">期限延長</button>
+							</td>
+						</tr>
+						<tr>
+							<th>メール確認</th>
+							<td><button class="btnBG gray" id="mailChkBtn">メール文の確認</button></td><!-- 2020-08-24 텍스트 변경 -->
+							<th>進捗状況</th>
+							<td class="dotline">
+								<em>仮保存中</em> <span class="sts temp">仮保存中</span>
+							</td>
+							<td>2019‐08‐20　13:30:56</td>
+						</tr>
+						<tr>
+							<th>担当調査員</th>
+							<td>鈴木　太郎（7777777）</td>
+							<th>提出完了後、ダウンロード</th>
+							<td class="dotline">鈴木　太郎（7777777）</td>
+							<td>2019‐08‐20　13:30:56</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- //2020-08-21 테이블 내용 수정 -->
+			<div class="short" style="display:none;">進捗情報</div>
+			<button class="opener">Search Option Toggle</button><!-- 닫히면 class on 추가 -->
+		</div>
+		<!-- //Search -->
+	</div>
+	<!-- tab-wrap -->
+	<div class="cTabWrap">
+		<!-- tab -->
+		<div class="cTabBack">
+			<div class="cTab">
+				<nav>
+					<ul>
+						<li class="on"><a data-role="#step0">基本情報</a></li>
+						<li><a data-role="#step1">株主・関係会社</a></li>
+						<li><a data-role="#step2">設備概要</a></li>
+						<li><a data-role="#step3">業績</a></li>
+						<li><a data-role="#step4">ビジネスモデル</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- //tab -->
+		<!-- cTabCon -->
+		<div class="cTabCon">
+			<!-- 기본 정보 -->
+			<div id="step0" class="stepBack">
+				<div class="yellowBg">
+					<div class="gridSet grid3">
+						<div class="gridItem">
+							<dl class="dlStyle inMust">
+								<dt>ご担当者の部署<sup>必須</sup></dt>
+								<dd><input type="text" /></dd>
+							</dl>
+						</div>
+						<div class="gridItem">
+							<dl class="dlStyle inMust">
+								<dt>役職<sup>必須</sup></dt>
+								<dd><input type="text" /></dd>
+							</dl>
+						</div>
+						<div class="gridItem">
+							<dl class="dlStyle inMust">
+								<dt>氏名<sup>必須</sup></dt>
+								<dd><input type="text" /></dd>
+							</dl>
+						</div>
+					</div>
+					<p>※ <sup>必須</sup>がある項目は、必ず入力してください。</p>
+				</div>
+				<!--기본 정보-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>基本情報</h3>
+					<p>※登記上の情報を入力して下さい</p>
+				</div>
+				<div class="basicInfoLayout">
+					<div class="left">
+						<dl class="dlStyle inMust">
+							<dt>商号（カナ）<sup>必須</sup></dt>
+							<dd>
+								<input type="text" value="ヨタジドウシャ" title="全角カタカナで入力"/>
+							</dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>商号（漢字) <sup>必須</sup></dt>
+							<dd>
+								<input type="text" value="ヨタ自動車　株式会社" title="全角漢字で入力" />
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>商号（英文) </dt>
+							<dd>
+								<input type="text" value="TOYOTA MOTOR CORPORATION" title="半角アルファベットで入力" />
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>URL</dt>
+							<dd class="required"><!-- 2020-08-27 에러메세지 샘플 -->
+								<input type="text" value="https://global.toyota/jp/" title="半角アルファベットで入力" />
+							</dd>
+						</dl>
+					</div>
+					<div class="right">
+						<dl class="dlStyle first">
+							<dt>資本金</dt>
+							<dd>
+								<span class="unit">
+									<input type="text" class="priceIn" value="397,049,000" title="商業登記上の資本⾦(出資⾦)をご記⼊ください" /><em>円</em>
+								</span>
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>事業所数</dt>
+							<dd>
+								<span class="unit txtWide">
+									<input type="text" class="priceIn" value="31" title="数字を数字で入力" /><em>ヶ所</em>
+								</span>
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>設立</dt>
+							<dd class="required"><!-- 2020-08-27 에러메세지 샘플 -->
+								<div class="date">
+									<input type="text" value="1937" title="数字入力" />
+									<em>年</em>
+									<span class="selectSet">
+										<select>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option selected>08</option>
+											<option>09</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>-</option>
+										</select>
+									</span>
+									<em>月</em>
+								</div>
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>創業</dt>
+							<dd>
+								<div class="date">
+									<input type="text" value="1933" title="数字入力" />
+									<em>年</em>
+									<span class="selectSet">
+										<select>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option>08</option>
+											<option selected>09</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>-</option>
+										</select>
+									</span>
+									<em>月</em>
+								</div>
+							</dd>
+						</dl>
+					</div>
+					<div class="clear">
+						<dl class="dlStyle">
+							<dt>電話番号（代表)</dt>
+							<dd>
+								<div class="phone">
+									<input type="text" title="数字入力" value="99-2349-2944" style="width: 230px;">
+								</div>
+							</dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt class="topCase">企業住所 <sup>必須</sup></dt>
+							<dd>
+								<div class="address">
+									<div class="inBtn">
+										<span class="labelInput">
+											<label>〒</label>
+											<input type="text" class="tC" value="4710826" title="郵便番号の入力した後、＜住所検索＞ボタンを押下してください"/>
+										</span>
+										<button class="btnPmSearch openAddressPop">住所検索</button>
+									</div>
+								</div>
+								<div class="address fullLine">
+									<input type="text" value="トヨタビル5階　5014号" />
+								</div>
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt class="short">(事業）目的</dt>
+							<dd class="txtArea">
+								<textarea title="全角で入力" ></textarea>
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>従業員</dt>
+							<dd>
+								<span class="unit">
+									<input type="text" class="priceIn" value="71,116" title="役員･ｱﾙﾊﾞｲﾄ･ﾊﾟｰﾄを除いた人数をご記⼊ください" /><em>人</em>
+								</span> (
+								<span class="date">
+									<input type="text" value="1933" title="数字入力" />
+									<em>年</em>
+									<span class="selectSet">
+										<select>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option>08</option>
+											<option selected>09</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>-</option>
+										</select>
+									</span>
+									<em>月時点</em>
+								</span>)
+							</dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>従業員 (内訳）</dt>
+							<dd class="employeeCase">
+								<label>正社員</label>
+								<span class="unit required"><!-- 2020-08-27 에러메세지 샘플 -->
+									<input type="text" class="priceIn" value="71,116" title="" /><em>人</em>
+								</span>
+								<label>契約社員</label>
+								<span class="unit">
+									<input type="text" class="priceIn" value="71,116" title="" /><em>人</em>
+								</span>
+								<label>派遣</label>
+								<span class="unit">
+									<input type="text" class="priceIn" value="71,116" title="" /><em>人</em>
+								</span>
+								<label>アルバイト・パート</label>
+								<span class="unit">
+									<input type="text" class="priceIn" value="71,116" title="" /><em>人</em>
+								</span>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				<!--//기본 정보-->
+				<!--임원-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>役員</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48"/>
+							<col width="15%"/>
+							<col width="15%"/>
+							<col width="15%"/>
+							<col />
+							<col width="45"/>
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>役名</th>
+								<th>氏名</th>
+								<th>担当業務</th>
+								<th>備考</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>取締役社長（代表）</td>
+								<td>帝国　太郎</td>
+								<td>全般、海外業務</td>
+								<td>帝国テクノツール株式会社　会長兼任</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td class="required"><input type="text"/></td><!-- 2020-08-27 에러메세지 샘플 -->
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+				</div>
+				<!--//임원-->
+				<!--거래 은행-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>取引銀行</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<!----------------------------------------------------------------------------->
+				<!----------------------- 2020-10-22 거래은행 전채내용 변경 --------------------->
+				<div class="pmtableBack bankLayout">  <!-- 2020-10-22 Dim추가를 위한 div 추가  -->
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<div class="pmtable">
+						<!-- 借入先 -->
+						<div class="bankTt">
+							<strong class="tt">借入先</strong>
+							<span class="right">
+								<span class="date">
+									<input type="text" value="2020" title="数字入力" />
+									<em>年</em>
+									<span class="selectSet">
+										<select>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option selected>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option>08</option>
+											<option>09</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>-</option>
+										</select>
+									</span>
+									<em>月現在、</em>
+								</span>
+								<span class="selectSet short">
+									<select class="unitKind">
+									<option value="0">千円 (単位)</option>
+									<option value="1">百万円 (単位)</option>
+								</select>
+								</span>
+							</span>
+						</div>
+						<table class="tbvs1">
+							<colgroup>
+								<col width="48">
+								<col width="130">
+								<col>
+								<col span="4" width="15%">
+								<col width="45">
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th colspan="2">借入先(支店名)</th>
+									<th>割引手形</th>
+									<th>短期借入金</th>
+									<th>長期借入金</th>
+									<th>定期預金</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="guideTr">
+									<td class="tC">例</td>
+									<td colspan="2">みずほ銀行(東京支店)</td>
+									<td class="tright">999,999,999,999</td>
+									<td class="tright">999,999,999,999</td>
+									<td class="tright">999,999,999,999</td>
+									<td class="tright">999,999,999,999</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">1</td>
+									<td><input type="text" placeholder="銀行コード" value="0010001" /></td>
+									<td><input type="text" class="bankInput" placeholder="銀行名(支店名)" value="みずほ（東京営業部）"/></td>
+									<td><input type="text" class="priceIn" value="999,999,999,999"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">2</td>
+									<td><input type="text" placeholder="銀行コード"/></td>
+									<td><input type="text" class="bankInput" placeholder="銀行名(支店名)"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">3</td>
+									<td><input type="text" placeholder="銀行コード"/></td>
+									<td><input type="text" class="bankInput" placeholder="銀行名(支店名)"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">4</td>
+									<td><input type="text" placeholder="銀行コード"/></td>
+									<td><input type="text" class="bankInput" placeholder="銀行名(支店名)"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">5</td>
+									<td><input type="text" placeholder="銀行コード"/></td>
+									<td><input type="text" class="bankInput" placeholder="銀行名(支店名)"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+						<!-- //借入先 -->
+						<!-- 社債 -->
+						<div class="bankTt mt5">
+							<strong class="tt">社債</strong>
+							<span class="right">
+								<span class="selectSet short">
+									<select class="unitKind">
+									<option value="0">千円 (単位)</option>
+									<option value="1">百万円 (単位)</option>
+								</select>
+								</span>
+							</span>
+						</div>
+						<table class="tbvs1">
+							<colgroup>
+								<col width="48">
+								<col width="120">
+								<col width="100">
+								<col width="15%">
+								<col>
+								<col width="15%">
+								<col width="100">
+								<col width="12%">
+								<col width="45">
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>種類</th>
+									<th>発行年月</th>
+									<th>発行額</th>
+									<th>引受先</th>
+									<th>前期末残高</th>
+									<th>償還期限</th>
+									<th>担保・保証</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="guideTr">
+									<td class="tC">例</td>
+									<td class="tC">普通社債</td>
+									<td class="tC">2018年3月</td>
+									<td class="tright">999,999,999,999</td>
+									<td>三菱UFJ銀行</td>
+									<td class="tright">999,999,999,999</td>
+									<td class="tC">2024年3月</td>
+									<td>無保証</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">1</td>
+									<td>
+										<span class="selectSet w100P">
+											<select>
+											<option value="">選択</option>
+											<option value="">転換社債</option>
+											<option value="">ワラント債</option>
+											<option value="">劣後債</option>
+											<option value="">電力債</option>
+										</select>
+										</span>
+									</td>
+									<td><input type="text" class="tC" value="2018年3月"/></td>
+									<td><input type="text" class="priceIn" value="999,999,999,999"/></td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="priceIn" value="999,999,999,999"/></td>
+									<td><input type="text" class="tC" value="2024年3月"/></td>
+									<td><input type="text"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">2</td>
+									<td>
+										<span class="selectSet w100P">
+											<select>
+											<option value="">選択</option>
+											<option value="">転換社債</option>
+											<option value="">ワラント債</option>
+											<option value="">劣後債</option>
+											<option value="">電力債</option>
+										</select>
+										</span>
+									</td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text" class="priceIn" /></td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">3</td>
+									<td>
+										<span class="selectSet w100P">
+											<select>
+											<option value="">選択</option>
+											<option value="">転換社債</option>
+											<option value="">ワラント債</option>
+											<option value="">劣後債</option>
+											<option value="">電力債</option>
+										</select>
+										</span>
+									</td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text" class="priceIn" /></td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">4</td>
+									<td>
+										<span class="selectSet w100P">
+											<select>
+											<option value="">選択</option>
+											<option value="">転換社債</option>
+											<option value="">ワラント債</option>
+											<option value="">劣後債</option>
+											<option value="">電力債</option>
+										</select>
+										</span>
+									</td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text" class="priceIn" /></td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">5</td>
+									<td>
+										<span class="selectSet w100P">
+											<select>
+											<option value="">選択</option>
+											<option value="">転換社債</option>
+											<option value="">ワラント債</option>
+											<option value="">劣後債</option>
+											<option value="">電力債</option>
+										</select>
+										</span>
+									</td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text" class="priceIn" /></td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="priceIn"/></td>
+									<td><input type="text" class="tC"/></td>
+									<td><input type="text"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+						<!-- //社債 -->
+						<table class="tbws1">
+							<colgroup>
+								<col width="151"/>
+								<col />
+							</colgroup>
+							<tbody>
+							<tfoot>
+								<tr>
+									<th>借入合計金額</th>
+									<td>
+										<input type="text" class="priceIn" />
+										<span class="selectSet short">
+											<select class="unitKind">
+											<option value="0">千円</option>
+											<option value="1">百万円</option>
+										</select>
+										</span>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<!-- 貸付先 -->
+					<div class="pmtable">
+						<div class="bankTt">
+							<strong class="tt">貸付先</strong>
+							<span class="right">
+								<span class="date">
+									<input type="text" value="2020" title="数字入力" />
+									<em>年</em>
+									<span class="selectSet">
+										<select>
+											<option>01</option>
+											<option>02</option>
+											<option>03</option>
+											<option>04</option>
+											<option selected>05</option>
+											<option>06</option>
+											<option>07</option>
+											<option>08</option>
+											<option>09</option>
+											<option>10</option>
+											<option>11</option>
+											<option>12</option>
+											<option>-</option>
+										</select>
+									</span>
+									<em>月現在、</em>
+								</span>
+								<span class="selectSet short">
+									<select class="unitKind">
+									<option value="0">千円 (単位)</option>
+									<option value="1">百万円 (単位)</option>
+								</select>
+								</span>
+							</span>
+						</div>
+						<table class="tbvs1">
+							<colgroup>
+								<col width="48">
+								<col>
+								<col width="140">
+								<col width="45">
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>貸付先</th>
+									<th>貸付金額</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="guideTr">
+									<td class="tC">例</td>
+									<td>貸付先の企業名</td>
+									<td class="tright">999,999,999,999</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">1</td>
+									<td class="required"> <!-- 2020-08-27 에러메세지 샘플 -->
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="企業名" value="住信SBIネット銀行"/>
+										</span>
+									</td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">2</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="企業名"/>
+										</span>
+									</td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">3</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="企業名"/>
+										</span>
+									</td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">4</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="企業名"/>
+										</span>
+									</td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">5</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="企業名"/>
+										</span>
+									</td>
+									<td><input type="text" class="priceIn"/></td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+						<table class="tbws1">
+							<colgroup>
+								<col width="151"/>
+								<col />
+							</colgroup>
+							<tbody>
+							<tfoot>
+								<tr>
+									<th>貸付合計金額</th>
+									<td>
+										<input type="text" class="priceIn" />
+										<span class="selectSet short">
+											<select class="unitKind">
+											<option value="0">千円</option>
+											<option value="1">百万円</option>
+										</select>
+										</span>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+					<!-- 貸付先 -->
+				</div>
+				<!----------------------------------------------------------------------------->
+				<!--//거래 은행-->
+				<!--인허가·면허 번호-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>許認可・免許番号</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48">
+							<col width="30%">
+							<col width="25%">
+							<col>
+							<col width="45">
+						</colgroup>
+						<thead>
+							<tr>
+								<th></th>
+								<th>種類</th>
+								<th>免許番号</th>
+								<th>備考</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>ISO9001：2015<br/>建設業許可<br/>宅地建物取引業免許</td>
+								<td>JSRQ1234<br/>国土交通大臣（般・特－×）第××××号<br/>国土交通大臣（×）第×××号</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+				</div>
+				<!--//인허가·면허 번호-->
+				<!--문의 사항-->
+				<div class="enquiryLayout">
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>ご連絡事項</h3>
+						<p>※上記の情報に関して、帝国データバンクへのご連絡事項を入力してください。</p>
+					</div>
+					<div class="txtArea"><textarea></textarea></div>
+				</div>
+				<!--//문의 사항-->
+			</div>
+			<!-- //기본 정보 -->
+			<!-- 주주 · 관계 회사 -->
+			<div id="step1" class="stepBack" style="display:none;">
+				<!--주주-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>株主</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48"/>
+							<col width="42%"/><!-- 2020-08-18 넓이조절 /다음 col 삭제 -->
+							<col />
+							<col width="150"/>
+							<col width="100"/>
+							<col width="48"/>
+						</colgroup>
+						<thead>
+							<th></th>
+							<th>株主名</th>
+							<!-- 2020-08-18 삭제 <th>TDB企業コード</th> -->
+							<th>所在地</th>
+							<th>持株数</th>
+							<th>持分比率</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>帝国テクノツール株式会社</td><!-- 2020-08-18 다음 td삭제 --><!-- 2020-08-24 텍스트 변경 -->
+								<td>東京都中央区新富１－１２－２ 帝国ビル	</td>
+								<td class="tright">999,999,999,999</td>
+								<td class="tC">99.9</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="株主名（企業名、個人名）"/><!-- 2020-08-24 placeholder 변경 -->
+									</span>
+								</td><!-- 2020-08-18 변경 / 다음 td 삭제 -->
+								<td><input type="text"/></td>
+								<td><input type="text" class="priceIn"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="株主名（企業名、個人名）"/><!-- 2020-08-24 placeholder 변경 -->
+									</span>
+								</td><!-- 2020-08-18 변경 / 다음 td 삭제 -->
+								<td><input type="text"/></td>
+								<td><input type="text" class="priceIn"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="株主名（企業名、個人名）"/><!-- 2020-08-24 placeholder 변경 -->
+									</span>
+								</td><!-- 2020-08-18 변경 / 다음 td 삭제 -->
+								<td><input type="text"/></td>
+								<td><input type="text" class="priceIn"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="株主名（企業名、個人名）"/><!-- 2020-08-24 placeholder 변경 -->
+									</span>
+								</td><!-- 2020-08-18 변경 / 다음 td 삭제 -->
+								<td><input type="text"/></td>
+								<td><input type="text" class="priceIn"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="株主名（企業名、個人名）"/><!-- 2020-08-24 placeholder 변경 -->
+									</span>
+								</td><!-- 2020-08-18 변경 / 다음 td 삭제 -->
+								<td><input type="text"/></td>
+								<td><input type="text" class="priceIn"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+				</div>
+				<!--//주주-->
+				<!--관계 회사-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>関連会社</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtableBack">  <!-- 2020-10-22 Dim추가를 위한 div 추가  -->
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<div class="dlStyle groupLayout">
+						<div class="dlStyle groupLayout">
+							<div class="pmtable">
+								<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+								<strong class="tt">グループ系列<span <span class="txts14">（企業グループに属している場合、その頂点企業）</span></strong>
+								<div class="localSearch">
+									<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+									<input type="text" class="cNumber" placeholder="企業コード"/><!-- 2020-08-19 추가 -->
+									<span class="labelInput">
+										<label for="cp1">企業名</label>
+										<input type="text" id="cp1"/>
+									</span>
+									<span class="labelInput">
+										<label for="cp2">所在地</label>
+										<input type="text" id="cp2"/>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pmtable">
+						<strong class="tt">御社が出資をうけている企業</strong>
+						<table class="tbvs1">
+							<colgroup>
+								<col width="48"/>
+								<col width="42%"/>
+								<col />
+								<col width="150"/>
+								<col width="48"/>
+							</colgroup>
+							<thead>
+								<th></th>
+								<th>企業名</th>
+								<th>所在地</th>
+								<th>御社への出資比率</th>
+								<th></th>
+							</thead>
+							<tbody>
+								<tr class="guideTr">
+									<td class="tC">例</td>
+									<td>帝国テクノツール株式会社</td>
+									<td>東京都中央区新富１－１２－２ 帝国ビル</td>
+									<td class="tC">99.9</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">1</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">2</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">3</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">4</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">5</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+					</div>
+					<div class="pmtable">
+						<strong class="tt">御社が出資している企業 </strong>
+						<table class="tbvs1">
+							<colgroup>
+								<col width="48"/>
+								<col width="42%"/>
+								<col />
+								<col width="150"/>
+								<col width="48"/>
+							</colgroup>
+							<thead>
+								<th></th>
+								<th>企業名</th>
+								<th>所在地</th>
+								<th>御社の出資比率</th>
+								<th></th>
+							</thead>
+							<tbody>
+								<tr class="guideTr">
+									<td class="tC">例</td>
+									<td>帝国テクノツール株式会社</td>
+									<td>東京都中央区新富１－１２－２ 帝国ビル</td>
+									<td class="tC">99.9</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">1</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">2</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">3</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">4</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+								<tr>
+									<td class="tC">5</td>
+									<td>
+										<span class="localSearch">
+											<span>
+												<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+												<input type="text" class="cNumber" placeholder="企業コード"/>
+											</span>
+											<input type="text" placeholder="会社名"/>
+										</span>
+									</td>
+									<td><input type="text"/></td>
+									<td><input type="text" class="unitIn3"/>%</td>
+									<td class="tC"><button class="rowdelete">削除</button></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+					</div>
+				</div>
+				<!--//관계 회사-->
+				<!--문의 사항-->
+				<div class="enquiryLayout">
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>ご連絡事項</h3>
+						<p>※上記の情報に関して、帝国データバンクへのご連絡事項を入力してください。</p>
+					</div>
+					<div class="txtArea"><textarea></textarea></div>
+				</div>
+				<!--//문의 사항-->
+			</div>
+			<!-- //주주 · 관계 회사 -->
+			<!-- 시설 개요 -->
+			<div id="step2" class="stepBack" style="display:none;">
+				<!--주요 사업소 (주요 거점)-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>主要事業所(主な拠点)</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48"/>
+							<col width="35%"/>
+							<col />
+							<col width="48"/>
+						</colgroup>
+						<thead>
+							<th></th>
+							<th>名称</th>
+							<th>所在地</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>仙台営業部</td>
+								<td>宮城県仙台市青葉区100-1-1	</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn"><button class="btnLN red">入力欄を追加する</button></div>
+				</div>
+				<!--//주요 사업소 (주요 거점)-->
+				<!--주요 설비 · 자동차-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>主要設備・車</h3>
+					<p>※数字で入力してください。<button class="btnLN red ssm">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtableBack">  <!-- 2020-10-22 Dim추가를 위한 div 추가  -->
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<div class="gridSet grid2 equipmentLayout">
+						<div class="gridItem">
+							<div class="pmtable">
+								<strong class="tt">主要設備</strong>
+								<table class="tbws1">
+									<colgroup>
+										<col width="190"/>
+										<col width="154"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>主要設備 (本店以外)</th>
+											<th class="tright">（単位：数）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>営業所</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>工場</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>店舗</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>その他</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th>合計</th>
+											<td>
+												<strong>0</strong>
+											</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+						<div class="gridItem">
+							<div class="pmtable">
+								<strong class="tt">車</strong>
+								<table class="tbws1">
+									<colgroup>
+										<col width="110"/>
+										<col width="154"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>所有区分</th>
+											<th class="tright">（単位：数）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>自己所有</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>リース</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>その他</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="tbws1">
+									<colgroup>
+										<col width="140"/>
+										<col width="154"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>車両の種類</th>
+											<th class="tright">（単位：数）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>乗用車</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>小型トラック</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>中型トラック</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+										<tr>
+											<th>大型トラック</th>
+											<td>
+												<input type="text" class="priceIn"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--//주요 설비 · 자동차-->
+				<!--기타 기계 등 설비-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>その他機械等設備</h3>
+					<p>※車両以外の設備について、名称、規模や台数、生産能力、積載能力などをご入力ください。<button class="btnLN red ssm">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="etcLayout txtArea">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<textarea></textarea>
+				</div>
+				<!--//기타 기계 등 설비-->
+				<!--문의 사항-->
+				<div class="enquiryLayout">
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>ご連絡事項</h3>
+						<p>※上記の情報に関して、帝国データバンクへのご連絡事項を入力してください。</p>
+					</div>
+					<div class="txtArea"><textarea></textarea></div>
+				</div>
+				<!--//문의 사항-->
+			</div>
+			<!-- //시설 개요 -->
+			<!-- 실적 -->
+			<div id="step3" class="stepBack" style="display:none;">
+				<div class="yellowBg">
+					<strong>※決算書をPDFファイルでご提供いただく場合は、数値の入力は必要ありません。</strong>
+				</div>
+				<div class="pmtable">
+					<div class="gridSet grid2">
+						<div class="gridItem">
+							<strong class="tt">決算書をPDFファイルにてご提供いただく場合</strong>
+							<div id="div_sett_file_upload_area_203" class="dropzone dz-clickable" style="border: dashed rgb(0, 135, 247);">
+								<div class="dz-default dz-message">
+									<span>ここをクリックしてファイルを選択するか、アップロードするファイルをドラッグ＆ドロップしてください</span>
+									<br><span style="color:#f15d52;">※1ファイルあたり10MB上限</span>
+								</div>
+							</div>
+							<table class="tbws1 pdfCase" id="tb_file_205" style="margin-top:10px;">
+								<colgroup>
+									<col width="50">
+									<col>
+									<col width="150">
+								</colgroup>
+								<tbody id="tb_tbody_file"></tbody>
+							</table>
+							<!-- <div class="pmGridBtn">
+								<button type="button" class="btnLN red" onclick="addRow('tb_tbody_file')">入力欄を追加する</button>
+								<span>拡張子PDFのみ、1ファイルあたり2MB上限</span>
+							</div> -->
+						</div>
+						<div class="gridItem" style="width:20%"></div>
+					</div>
+				</div>
+				<div class="pmtable performanceLayout">
+					<div class="gridSet grid2 case2"><!-- 각 테이블의 열이 1~2열일 경우 case1, 테이블 열이 3열일 경우 case2 클래스 사용 -->
+						<div class="gridItem">
+							<strong class="tt">
+								損益計算書
+								<span class="selectSet short">
+									<select class="unitKind">
+										<option value="0">千円 (単位)</option>
+										<option value="1">百万円 (単位)</option>
+									</select>
+								</span>
+							</strong>
+							<div class="dateBackLine">
+								<div class="date dateTt">
+									<span class="wGrid">
+										<span class="checkSet"><label><strong>最新業績</strong></label></span>
+									</span>
+									<span class="wGrid">
+										<span class="checkSet off"><input type="checkbox" id="col2"><label for="col2"><i></i><strong>&lt;前回業績&gt;</strong> 列を生成する</label></span>
+									</span>
+									<span class="wGrid">
+										<span class="checkSet off"><input type="checkbox" id="col3"><label for="col3"><i></i><strong>&lt;前々回業績&gt;</strong> 列を生成する</label></span>
+									</span>
+								</div>
+								<div class="date">
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+								</div>
+							</div>
+							<table class="tbws1">
+								<colgroup>
+									<col width="160" />
+									<col span="3" />
+								</colgroup>
+								<tbody>
+									<tr class="redRow">
+										<th>売上高</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 売上原価</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>売上総利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 販売管理費</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>営業利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 営業外収益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 営業外費用</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>経常利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 特別利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 特別損失</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>税引前当期純利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="redRowBF">
+										<th>法人税等</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="redRow">
+										<th>税引後当期利益</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="gridItem">
+							<strong class="tt">貸借対照表</strong>
+							<div class="dateBackLine">
+								<div class="date dateTt">
+									<span class="wGrid">
+										<span class="checkSet"><label><strong>最新業績</strong></label></span>
+									</span>
+									<span class="wGrid">
+										<span class="checkSet off"><input type="checkbox" id="col5"><label for="col5"><i></i><strong>&lt;前回業績&gt;</strong> 列を生成する</label></span>
+									</span>
+									<span class="wGrid">
+										<span class="checkSet off"><input type="checkbox" id="col6"><label for="col6"><i></i><strong>&lt;前々回業績&gt;</strong> 列を生成する</label></span>
+									</span>
+								</div>
+								<div class="date">
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+									<span class="wGrid">
+										<span class="unit">
+											<input type="text"/>
+											<em>年</em>
+										</span>
+										<span class="selectSet short">
+											<select>
+												<option selected >月</option>
+												<option>01 月</option>
+												<option>02 月</option>
+												<option>03 月</option>
+												<option>04 月</option>
+												<option>05 月</option>
+												<option>06 月</option>
+												<option>07 月</option>
+												<option>08 月</option>
+												<option>09 月</option>
+												<option>10 月</option>
+												<option>11 月</option>
+												<option>12 月</option>
+											</select>
+										</span>
+										<em>期</em>
+									</span>
+								</div>
+							</div>
+							<table class="tbws1 noTopLine">
+								<colgroup>
+									<col width="170" />
+									<col span="3" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="noTh"></th>
+										<th colspan="3">資産の部</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>流動資産合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>固定資産合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 有形固定資産合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 無形固定資産合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr class="subRow">
+										<th>└ 投資その他の資産合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>繰延資産</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>資産合計</th>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+							<table class="tbws1 noTopLine">
+								<colgroup>
+									<col width="160" />
+									<col span="3" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="noTh"></th>
+										<th colspan="3">負債の部</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>流動負債合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>固定負債合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>負債合計</th>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+							<table class="tbws1 noTopLine">
+								<colgroup>
+									<col width="160" />
+									<col span="3" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th class="noTh"></th>
+										<th colspan="3">純資産の部</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>株主資本合計</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>その他</th>
+										<td>
+											<input type="text" class="priceIn" value="9,999,999,999,000" /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="9,999,999,999,000" disabled /><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>純資産合計</th>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+									<tr>
+										<th>負債純資産合計</th>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+										<td>
+											<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+							<table class="tbws1 green">
+								<colgroup>
+									<col width="160" />
+									<col span="3" />
+								</colgroup>
+								<tfoot>
+									<tr>
+										<th>自己資本比率</th>
+										<td>
+											<input type="text" class="priceIn" value="1,250" /><em class="priceUnit">%</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="1,250" disabled /><em class="priceUnit">%</em>
+										</td>
+										<td>
+											<input type="text" class="priceIn read-only" value="1,250" disabled /><em class="priceUnit">%</em>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+					<!-- 2020-10-07 위치 이동 -->
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>今期売上高見込み</h3>
+					</div>
+					<div class="pmtable">
+						<strong class="tt">今期売上高見込み
+							<span class="ml10">
+								<input type="text"/>
+								<span class="selectSet">
+									<select class="unitKind">
+										<option option="0">千円 (単位)</option>
+										<option option="1">百万円 (単位)</option>
+									</select>
+								</span>
+							</span>
+						</strong>
+					</div>
+					<!-- //2020-10-07 위치 이동 -->
+				</div>
+				<!--문의 사항-->
+				<div class="enquiryLayout">
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>ご連絡事項</h3>
+						<p>※上記の情報に関して、帝国データバンクへのご連絡事項を入力してください。</p>
+					</div>
+					<div class="txtArea"><textarea></textarea></div>
+				</div>
+				<!--//문의 사항-->
+			</div>
+			<!-- //실적 -->
+			<!-- 비즈니스 모델 -->
+			<div id="step4" class="stepBack" style="display:none;">
+				<!--공급 업체-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>仕入先</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48"/>
+							<col width="32%"/>
+							<col />
+							<col width="13%"/><!-- 2020-08-18 넓이조절 -->
+							<col width="110"/><!-- 2020-08-18 넓이조절 -->
+							<col width="90"/><!-- 2020-08-18 넓이조절 -->
+							<col width="48"/>
+						</colgroup>
+						<thead>
+							<th></th>
+							<th>企業名</th>
+							<th>所在地</th>
+							<th>品目</th>
+							<th>各品目内での<br/>シェア</th><!-- 2020-08-18 글자변경 -->
+							<th>大口取引先</th><!-- 2020-08-18 글자변경 -->
+							<th></th>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>帝国テクノツール株式会社</td>
+								<td>東京都中央区新富１－１２－２ 帝国ビル	</td>
+								<td>鋼材・特殊鋼</td>
+								<td class="tC">99.9</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="企業名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC11" name="lrC1"><label for="lrC11"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="企業名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC12" name="lrC1"><label for="lrC12"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="企業名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC13" name="lrC1"><label for="lrC13"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="企業名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC14" name="lrC1"><label for="lrC14"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="企業名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC15" name="lrC1"><label for="lrC15"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn">
+						<button class="btnLN red">入力欄を追加する</button>
+					</div>
+				</div>
+				<!--//공급 업체-->
+				<!--고객-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>得意先</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<table class="tbvs1">
+						<colgroup>
+							<col width="48"/>
+							<col width="32%"/>
+							<col />
+							<col width="13%"/><!-- 2020-08-18 넓이조절 -->
+							<col width="110"/><!-- 2020-08-18 넓이조절 -->
+							<col width="90"/><!-- 2020-08-18 넓이조절 -->
+							<col width="48"/>
+						</colgroup>
+						<thead>
+							<th></th>
+							<th>企業名</th>
+							<th>所在地</th>
+							<th>品目</th>
+							<th>各品目内での<br/>シェア</th><!-- 2020-08-18 글자변경 -->
+							<th>大口取引先</th><!-- 2020-08-18 글자변경 -->
+							<th></th>
+						</thead>
+						<tbody>
+							<tr class="guideTr">
+								<td class="tC">例</td>
+								<td>帝国テクノツール株式会社</td>
+								<td>東京都中央区新富１－１２－２ 帝国ビル	</td>
+								<td>切削工具</td>
+								<td class="tC">99.9</td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="tC">1</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" value="北海道" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="会社名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC21" name="lrC2"><label for="lrC21"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">2</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="会社名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC22" name="lrC2"><label for="lrC22"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">3</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="会社名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC23" name="lrC2"><label for="lrC23"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">4</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="会社名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC24" name="lrC2"><label for="lrC24"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+							<tr>
+								<td class="tC">5</td>
+								<td>
+									<span class="localSearch">
+										<span>
+											<input type="text" placeholder="都道府県" class="localSearchBtn"/>
+											<input type="text" class="cNumber" placeholder="企業コード"/>
+										</span>
+										<input type="text" placeholder="会社名"/>
+									</span>
+								</td>
+								<td><input type="text"/></td>
+								<td><input type="text"/></td>
+								<td><input type="text" class="unitIn3"/>%</td>
+								<td class="tC"><span class="checkSet noTxt"><input type="checkbox" id="lrC25" name="lrC2"><label for="lrC25"><i></i></label></span></td>
+								<td class="tC"><button class="rowdelete">削除</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pmGridBtn">
+						<button class="btnLN red">入力欄を追加する</button>
+					</div>
+				</div>
+				<!--//고객-->
+				<!--사업 구성-->
+				<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+					<h3>事業構成</h3>
+					<p>※追加ボタンを押下すると、追加入力することができます。<button class="btnLN red ssm idOKDeleteBTn">データクリア</button></p>
+					<button type="button" class="btnUseToggle btnLN red ssm">非表示</button>  <!-- 2020-10-22 버튼추가 -->
+				</div>
+				<div class="pmtable">
+					<div class="pmtDim" style="display:none;"><div>調査先用画面に、この項目は表示されません</div></div>  <!-- 2020-10-22 dim 추가  -->
+					<div class="gridSet grid2">
+						<div class="gridItem">
+							<table class="tbvs1">
+								<colgroup>
+									<col width="48"/>
+									<col />
+									<col width="150"/>
+									<col width="48"/>
+								</colgroup>
+								<thead>
+									<th></th>
+									<th>カテゴリ名</th>
+									<th>割合</th>
+									<th></th>
+								</thead>
+								<tbody>
+									<tr class="guideTr">
+										<td class="tC">例</td>
+										<td>超硬工具製造、特殊鋼工具製造、不動産賃貸</td>
+										<td class="tC">99.9</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC">1</td>
+										<td><input type="text"/></td>
+										<td><input type="text" class="unitIn3"/>%</td>
+										<td class="tC"><button class="rowdelete">削除</button></td>
+									</tr>
+									<tr>
+										<td class="tC">2</td>
+										<td><input type="text"/></td>
+										<td><input type="text" class="unitIn3"/>%</td>
+										<td class="tC"><button class="rowdelete">削除</button></td>
+									</tr>
+									<tr>
+										<td class="tC">3</td>
+										<td><input type="text"/></td>
+										<td><input type="text" class="unitIn3"/>%</td>
+										<td class="tC"><button class="rowdelete">削除</button></td>
+									</tr>
+									<tr>
+										<td class="tC">4</td>
+										<td><input type="text"/></td>
+										<td><input type="text" class="unitIn3"/>%</td>
+										<td class="tC"><button class="rowdelete">削除</button></td>
+									</tr>
+									<tr>
+										<td class="tC">5</td>
+										<td><input type="text"/></td>
+										<td><input type="text" class="unitIn3"/>%</td>
+										<td class="tC"><button class="rowdelete">削除</button></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="gridItem"></div>
+					</div>
+					<div class="pmGridBtn">
+						<button class="btnLN red">入力欄を追加する</button>
+					</div>
+				</div>
+				<!--//사업 구성-->
+				<!--문의 사항-->
+				<div class="enquiryLayout">
+					<div class="subTit"> <!-- 2020-10-22 class 변경 -->
+						<h3>ご連絡事項</h3>
+						<p>※上記の情報に関して、帝国データバンクへのご連絡事項を入力してください。</p>
+					</div>
+					<div class="txtArea"><textarea></textarea></div>
+				</div>
+				<!--//문의 사항-->
+			</div>
+			<!-- //비즈니스 모델 -->
+		</div>
+		<!-- //cTabCon -->
+	</div>
+	<!-- //tab-wrap -->
+</div>

@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>[調査員用]企業情報登録サイト</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/ui.jqgrid.css" />
+		<link rel="stylesheet" type="text/css" href="css/dropzone.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<link rel="shortcut icon" href="image/favicons.png">
+		<link rel="icon" href="image/favicons.png">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="js/selectfilter.js"></script>
+		<script type="text/javascript" src="js/dropzone.js"></script>
+		<script type="text/javascript" src="js/basic.js"></script>
+		<script type="text/javascript">
+			function pageLoad(){
+				$('#formMgtBTN').trigger('click');
+			}
+			$(document).ready(function(){
+				$(".popBase .pClose, .popAlert .pBtn *").click(function () {
+					$(".popBase").hide();
+					$(".popAlert").hide();
+					$(".dimPop").hide();
+				});
+				$(".etcPopBack .pClose").click(function () {
+					$(".etcPopBack").hide();
+					$(".etcPopBack .popBase2").hide();
+				});
+				$(".popBase .keypad *").click(function () {
+					$(".keypad *").removeClass('on');
+					$(this).addClass('on');
+				});
+				/* DM 파일업로드 */
+				$('.fileSet input[type=file]').change(function() {
+					var fileValue = $(this).val().split("\\");
+					var fileName = fileValue[fileValue.length-1];
+					$('.fileSet .loadEnd em').text(fileName);
+					$('.fileSet .fileFind').hide();
+					$('.fileSet .loadIng').show();
+					setTimeout(function() {
+						$('.fileSet .loadIng').hide();
+						$('.fileSet .loadFail').show();
+					}, 3000);
+					setTimeout(function() {
+						$('.fileSet .loadFail').hide();
+						$('.fileSet .loadEnd').show();
+						$('.uploadPop .btnBG.blue').prop("disabled", false);
+					}, 6000);
+				});
+				$('.fileSet .loadEnd button').click(function() {
+					$('.fileSet .fileFind').show();
+					$('.fileSet .loadIng, .fileSet .loadEnd, .fileSet .loadFail').hide();
+					$('.uploadPop .btnBG.blue').prop("disabled", true);
+				});
+				/* end DM 파일업로드 */
+				$(".openAddressPop").click(function () {
+					$(".addressPop").show();
+					$(".etcPopBack").show();
+				});
+				$(".addressPop .pClose").click(function () {
+					$(".addressPop").hide();
+					$(".etcPopBack").hide();
+				});
+				/* 로그아웃 버튼 */
+				$("#logoutBtn").click(function () {
+					$("#alert5").show();
+					$(".dimPop").show();
+				});
+				$("#alert5 .btnBG.blue").click(function () {
+					$("#alert5").hide();
+					$(".dimPop").hide();
+					location.href = 'login.html';
+				});
+				$('.userPop .pBtn button').click(function(){
+					$(".userPop").hide();
+					$(".dimPop").hide();
+				});
+			});
+		</script>
+	</head>
+	<body onload="pageLoad()">
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#section" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<div id="wrapBack">
+				<!-- header -->
+				<head>
+					<div id="header">
+						<div class="back">
+							<h1><em>企業情報登録サイト</em></h1>
+							<div class="userLogout">
+								<div>
+									<span>abcde1234 <em>鈴木 太郎</em></span>
+									<a id="logoutBtn">Logout</a>
+								</div>
+								<!-- <div class="session">
+									<strong id="session-time">：59分45秒</strong>
+									<button id="session-time-expand">時間延長</button>
+								</div> 2020-10-07 세션 카운터 삭제 -->
+							</div>
+							<nav>
+								<div class="gnb">
+									<div class="scrl">
+										<ul>
+											<li class="mn1"><a href="#formMgt" class="add-tab" id="formMgtBTN">フォーム発行</a></li>
+											<li class="mn2"><a href="#progressMgt" class="add-tab" id="progressMgtBTN">調査進捗管理</a></li>
+											<li class="mn3"><a href="#userMgt" class="add-tab">ユーザ管理</a></li>
+											<li class="mn4"><a href="#bbsMgt" class="add-tab" id="bbsMgtBTN">システム問合せ</a></li>
+										</ul>
+									</div>
+								</div>
+							</nav>
+							<div class="footer"><p>Copyright TEIKOKU DATABANK, LTD. <br/>All Rights Reserved.</p></div>
+						</div>
+					</div>
+				</head>
+				<!-- //header -->
+				<hr/>
+				<!-- container -->
+				<section>
+					<div id="section">
+						<div id="nav-tabs" class="container">
+							<!---->
+							<div class="contentsFix">
+								<div class="contentsFixBack">
+									<button class="hHandle" id="hCloaseHandle"><span>ボタン転換</span></button>
+									<h1>調査員システム</h1>
+									<div class="tabMenu">
+										<nav>
+											<ul class="nav-tab-menu">
+											</ul>
+										</nav>
+										<span class="tabRP">
+											<button class="left" disabled >左側に</button>
+											<button class="right">右側に</button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<!---->
+							<article>
+							<div class="contents">
+							</div>
+							</article>
+							<!---->
+						</div>
+					</div>
+				</section>
+				<!-- //container -->
+				<button class="pageTop">TOP</button>
+			</div>
+		</div>
+		<!-- //wrap -->
+		<!-------------- PopUp -------------->
+		<div class="etcPopBack" style="display:none">
+			<!-- 주소찾기 -->
+			<div class="popBase2 addressPop" style="display:none">
+				<aside>
+					<h1>住所選択</h1>
+					<button class="pClose">閉じる</button>
+					<div class="pDetail">
+						<p>郵便番号で該当する住所が複数あります。<br/>当たる住所を選択してください。</p>
+						<span class="selectSet">
+							<select>
+								<option>東京都千代田区猿楽町 1</option>
+								<option>東京都千代田区猿楽町 2</option>
+								<option>東京都千代田区猿楽町 3</option>
+								<option>東京都千代田区猿楽町 4</option>
+							</select>
+						</span>
+					</div>
+				</aside>
+			</div>
+			<!-- //주소찾기 -->
+		</div>
+		<!--//-->
+		<!-- 로그인 정보 발행 -->
+		<div class="popBase accountIssuePop" style="display:none; width: 540px; height: 600px;">
+			<aside>
+				<h1>ログイン情報発行・メール作成</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="bgGray">
+						<p style="height:450px;">
+							件名：【帝国データバンク】企業情報登録サイト　ログイン情報のご案内<br/><br/>
+							帝国テクノツールＩＪＫ株式会社<br/>
+							ご担当者様<br/><br/>
+							お世話になっております。<br/>
+							帝国データバンクの〇〇でございます。<br/><br/>
+							この度はWEB調査にご協力いただき誠にありがとうございます。<br/>
+							お客様のログイン情報は下記のとおりです。<br/><br/>
+							ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/>
+							ID：<span>abc123</span><br/>
+							PASSWORD：<span>abc1234</span><br/>
+							ご回答期限：<span class="iDate" style="display:none;">2020/10/19</span><br/>
+							ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/><br/>
+							下記リンクより貴社専用入力フォームにログインいただき、<br/>
+							情報を入力してください。<br/>
+							<a href="https://xxx.yy.jp">https://registration.tdb.co.jp</a> <br/><br/>
+							ご不明な点等ございましたらお問い合わせください。<br/>
+							何卒よろしくお願いいたします。
+						</p>
+					</div>
+					<div class="pBtn">
+						<button class="btnBG">閉じる</button>
+						<!-- <button class="btnBG blue issueBtn">確定・ログイン情報発行する</button> -->
+						<button class="btnBG green issueBtn">コピー</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 메일 신규등록 -->
+		<div class="popBase mailPop newCase" style="display:none; width: 540px; height: 600px;">
+			<aside>
+				<h1>発送メール</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="dlArea">
+						<dl class="dlStyle">
+							<dt>タイトル</dt>
+							<dd><input type="text" placeholder="タイトルを入力してください。"></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>適用開始</dt>
+							<dd><input type="text" class="w150" placeholder="YYYYMMDD"> から適用する</dd>
+						</dl>
+					</div>
+					<div class="borderBox">
+						帝国テクノツール株式会社<br/>
+						ご担当者様<br/><br/>
+						お世話になっております。<br/>
+						帝国データバンクの〇〇でございます。<br/><br/>
+						この度はWEB調査にご協力いただき誠にありがとうございます。<br/>
+						お客様のログイン情報は下記のとおりです。<br/><br/>
+						ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/>
+						ID：<span>abc123</span><br/>
+						PASSWORD：<span>abc1234</span><br/>
+						ご回答期限：<span>2020/10/19</span><br/>
+						ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/><br/>
+						下記リンクより貴社専用入力フォームにログインいただき、<br/>
+						情報を入力してください。<br/>
+						<a href="https://xxx.yy.jp">https://xxx.yy.jp</a> <br/><br/>
+						ご不明な点等ございましたらお問い合わせください。<br/>
+						何卒よろしくお願いいたします。
+					</div>
+					<div class="pBtn">
+						<button class="btnBG">取消</button>
+						<button class="btnBG blue">保存</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 메일 상세 -->
+		<div class="popBase mailPop detailCase" style="display:none">
+			<aside>
+				<h1>発送メール</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="dlArea">
+						<dl class="dlStyle">
+							<dt>タイトル</dt>
+							<dd><input type="text" placeholder="タイトルを入力してください。" value="発送メールのフォーム（2020年3月）"></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>適用開始</dt>
+							<dd><input type="text" class="w150" placeholder="YYYYMMDD" value="2020-03-01"> から適用する</dd>
+						</dl>
+					</div>
+					<div class="borderBox">
+						帝国テクノツール株式会社<br/>
+						ご担当者様<br/><br/>
+						お世話になっております。<br/>
+						帝国データバンクの〇〇でございます。<br/><br/>
+						この度はWEB調査にご協力いただき誠にありがとうございます。<br/>
+						お客様のログイン情報は下記のとおりです。<br/><br/>
+						ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/>
+						ID：<span>abc123</span><br/>
+						PASSWORD：<span>abc1234</span><br/>
+						ご回答期限：<span>2020/10/19</span><br/>
+						ーーーーーーーーーーーーーーーーーーーーーーーーーーーーー<br/><br/>
+						下記リンクより貴社専用入力フォームにログインいただき、<br/>
+						情報を入力してください。<br/>
+						<a href="https://xxx.yy.jp">https://xxx.yy.jp</a> <br/><br/>
+						ご不明な点等ございましたらお問い合わせください。<br/>
+						何卒よろしくお願いいたします。
+					</div>
+					<div class="pBtn">
+						<button class="btnBG">取消</button>
+						<button class="btnBG blue">保存</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 유저 산규등록 -->
+		<div class="popBase userPop newCase" style="display:none">
+			<aside>
+				<h1>ユーザ管理（新規）</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="dlArea">
+						<dl class="dlStyle inMust">
+							<dt>ID <sup>必須</sup><br/><span>(従業員ｺｰﾄﾞ)</span></dt>
+							<dd class="dup">
+								<input type="text" placeholder="従業員コード"/>
+								<button class="btnBG">重複確認</button>
+							</dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>Password <sup>必須</sup></dt>
+							<dd><input type="text" placeholder="英、数字を含めて6字以上"/></dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>権限 <sup>必須</sup></dt>
+							<dd>
+								<span class="selectSet">
+									<select>
+										<option>調査員</option>
+										<option>運用者</option>
+									</select>
+								</span>
+							</dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>氏名 <sup>必須</sup></dt>
+							<dd><input type="text"/></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>所属</dt>
+							<dd><input type="text"/></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>部署</dt>
+							<dd><input type="text"/></dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>メール <sup>必須</sup></dt>
+							<dd><input type="text"/></dd>
+						</dl>
+					</div>
+					<div class="pBtn">
+						<button class="btnBG">取消</button>
+						<button class="btnBG blue">保存</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 유저정보 수정 -->
+		<div class="popBase userPop detailCase" style="display:none">
+			<aside>
+				<h1>ユーザ管理</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="dlArea">
+						<dl class="dlStyle">
+							<dt>ID <sup>必須</sup><br/><span>(従業員ｺｰﾄﾞ)</span></dt>
+							<dd><strong>0000001</strong></dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>Password </dt>
+							<dd><input type="text" placeholder="●●●●●●●●●" value=""/></dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>権限 <sup>必須</sup></dt>
+							<dd>
+								<span class="selectSet">
+									<select>
+										<option>調査員</option>
+										<option selected>運用者</option>
+									</select>
+								</span>
+							</dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>氏名 <sup>必須</sup></dt>
+							<dd><input type="text" value="帝国　太郎1"/></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>所属</dt>
+							<dd><input type="text" value="帝国データバンク東京支社"/></dd>
+						</dl>
+						<dl class="dlStyle">
+							<dt>部署</dt>
+							<dd><input type="text" value="調査第〇部◇課"/></dd>
+						</dl>
+						<dl class="dlStyle inMust">
+							<dt>メール <sup>必須</sup></dt>
+							<dd><input type="text" value="def456@mail.tdb.co.jp"/></dd>
+						</dl>
+					</div>
+					<div class="pBtn">
+						<button class="btnBG">取消</button>
+						<button class="btnBG blue">保存</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 도,현 검색 -->
+		<div class="popBase searchPop localCase" id="localSearch" style="display:none;">
+			<aside>
+				<h1>都道府県</h1>
+				<button class="btnRefresh">初期化</button><!-- 2020-08-24 새로고침 버튼 -->
+				<button class="pClose">閉じる</button>
+				<div class="pDetail bgGray">
+					<table class="ptbls1">
+						<colgroup>
+							<col width="70"/>
+							<col width="100"/>
+							<col/>
+						</colgroup>
+						<thead>
+							<th>島嶼</th><th>地方<th>都道府県</th>
+						</thead>
+						<tbody>
+							<tr>
+								<th>北海道</th><td>北海道地方</td><td><a>北海道</a></td>
+							</tr>
+							<tr>
+								<th rowspan="5">本州</th><td>東北地方</td><td><a>青森県</a><a>岩手県</a><a>宮城県</a><a>秋田県</a><a>山形県</a><a>福島県</a></td>
+							</tr>
+							<tr>
+								<td>関東地方</td><td><a>茨城県</a><a>栃木県</a><a>群馬県</a><a>埼玉県</a><a>千葉県</a><a>東京都</a><a>神奈川県</a></td>
+							</tr>
+							<tr>
+								<td>中部地方</td><td><a>新潟県</a><a>富山県</a><a>石川県</a><a>福井県</a><a>山梨県</a><a>長野県</a><a>岐阜県</a><a>静岡県</a><a>愛知県</a></td>
+							</tr>
+							<tr>
+								<td>近畿地方</td><td><a>三重県</a><a>滋賀県</a><a>京都府</a><a>大阪府</a><a>兵庫県</a><a>奈良県</a><a>和歌山県</a></td>
+							</tr>
+							<tr>
+								<td>中国地方</td><td><a>鳥取県</a><a>島根県</a><a>岡山県</a><a>広島県</a><a>山口県</a></td>
+							</tr>
+							<tr>
+								<th>四国</th><td>四国地方</td><td><a>徳島県</a><a>香川県</a><a>愛媛県</a><a>高知県</a></td>
+							</tr>
+							<tr>
+								<th>九州・沖縄</th><td>九州・沖縄地方</td><td><a>福岡県</a><a>佐賀県</a><a>長崎県</a><a>熊本県</a><a>大分県</a><a>宮崎県</a><a>鹿児島県</a><a>沖縄県</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 2020-10-22 은행-->
+		<div class="popBase searchPop zoneCase" id="bankSearch" style="display:none;">
+			<aside>
+				<h1>銀行検索</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail bgGray">
+					<h2>銀行選択</h2>
+					<div class="keypad bankCase">
+						<button>みずほ銀行</button>
+						<button>三菱UFJ銀行</button>
+						<button>三井住友銀行</button>
+						<button>りそな銀行</button>
+						<button>埼玉りそな銀行</button>
+						<button>ゆうちょ銀行</button>
+						<button>ｼﾞｬﾊﾟﾝﾈｯﾄ銀行</button>
+						<button>セブン銀行</button>
+						<button>ソニー銀行</button>
+						<button>楽天銀行</button>
+						<button>住信SBIネット銀行</button>
+					</div>
+					<h2>金融機関の頭文字をクリックしてください。</h2>
+					<div class="keypad">
+						<button>あ</button>
+						<button>か</button>
+						<button>さ</button>
+						<button>た</button>
+						<button>な</button>
+						<button>は</button>
+						<button>ま</button>
+						<button>や</button>
+						<button>ら</button>
+						<button>わ</button>
+						<button>い</button>
+						<button>き</button>
+						<button>し</button>
+						<button>ち</button>
+						<button>に</button>
+						<button>ひ</button>
+						<button>み</button>
+						<span></span>
+						<button>り</button>
+						<span></span>
+						<button>う</button>
+						<button>く</button>
+						<button>す</button>
+						<button>つ</button>
+						<button>ぬ</button>
+						<button>ふ</button>
+						<button>む</button>
+						<button>ゆ</button>
+						<button>る</button>
+						<span></span>
+						<button>え</button>
+						<button>け</button>
+						<button>せ</button>
+						<button>て</button>
+						<button>ね</button>
+						<button>へ</button>
+						<button>め</button>
+						<span></span>
+						<button>れ</button>
+						<span></span>
+						<button>お</button>
+						<button>こ</button>
+						<button>そ</button>
+						<button>と</button>
+						<button>の</button>
+						<button>ほ</button>
+						<button>も</button>
+						<button>よ</button>
+						<button>ろ</button>
+						<button>その他</button>
+					</div>
+				</div>
+				<div class="pDetail">
+					<div class="jqGridSet2">
+						<table id="bankList"><tr><td></td></tr></table>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 폼 발행 -->
+		<div class="popBase formIssuePop" style="display:none">
+			<aside>
+				<h1>フォーム発行</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="dlStyle cpInfo">
+						<dl>
+							<dt>企業コード</dt>
+							<dd>989999956</dd>
+						</dl>
+						<dl>
+							<dt>企業名</dt>
+							<dd>帝国テクノツール株式会社</dd>
+						</dl>
+					</div>
+					<div class="borderBox">
+						<p>本日フォームを発行します。</p>
+						<div class="dlStyle">
+							<dl>
+								<dt>回答期限<sup></sup></dt>
+								<dd class="inMust">
+									<input type="text" class="tC" placeholder="YYYY-MM-DD" value="2020-09-01"/>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<p class="errorMsg">すでに発行されたフォームがあります。</p>
+					<!-- <p class="errorMsg">回答期限は、30日以内に設定してください。</p> -->
+					<div class="pBtn">
+						<button class="btnBG">取消</button>
+						<button class="btnBG blue">発行</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 폼 발행 -->
+		<div class="popBase previewPop" style="display:none;">
+			<aside>
+				<h1>プレビュー（985711303、ヨタ自動車）</h1>
+				<span class="rightPo">
+					<button id="popTdbExcelDown" class="btnLN red">Excelダウンロード</button>
+					<button id="printBnt" class="btnLN red">印刷</button>
+				</span>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="pmEndBack">
+						<!----->
+						<div class="printWrap">
+						<h2 class="pt5">基本情報</h2>
+						<div class="pmEndLayout">
+							<!---->
+							<h3>基本情報</h3> <!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<div class="basicInfoLayout">
+									<div class="left">
+										<dl class="dlStyle">
+											<dt>商号（カナ）</dt>
+											<dd>ヨタジドウシャ</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>商号（漢字) </dt>
+											<dd>ヨタ自動車　株式会社</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>商号（英文) </dt>
+											<dd>TOYOTA MOTOR CORPORATION</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>URL</dt>
+											<dd>https://global.toyota/jp/</dd>
+										</dl>
+									</div>
+									<div class="right">
+										<dl class="dlStyle first">
+											<dt>資本金</dt>
+											<dd>1,100,000,000　円</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>事業所数</dt>
+											<dd>5 ヶ所</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>設立</dt>
+											<dd>2020 年 5 月</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>創業</dt>
+											<dd>2020 年 5 月</dd>
+										</dl>
+									</div>
+									<div class="clear">
+										<dl class="dlStyle">
+											<dt>電話番号（代表)</dt>
+											<dd>0565 - 28 - 2121</dd>
+										</dl>
+										<dl class="dlStyle inMust">
+											<dt class="topCase">企業住所 </dt>
+											<dd>〒999-9999　東京都港区南青山２－５－１０　ヨタ自動車ビル19階</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt class="short">(事業）目的</dt>
+											<dd>えええええ</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>従業員</dt>
+											<dd>999,999人　（2020年　5月時点）</dd>
+										</dl>
+										<dl class="dlStyle">
+											<dt>従業員 (内訳）</dt>
+											<dd class="employeeCase">
+												<span>正社員：999,999人</span>
+												<span>契約社員：999,999人</span>
+												<span>派遣：999,999人</span>
+												<span>アルバイト・パート： 999,999人</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>役員</h3> <!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="250"/>
+										<col width="400"/>
+										<col width="400"/>
+										<col width="600"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>役名</th>
+											<th>氏名</th>
+											<th>担当業務</th>
+											<th>備考</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>取締役社長（代表）</td>
+											<td>帝国　太郎</td>
+											<td>全般、海外業務</td>
+											<td>OOOO株式会社会長兼任</td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>取締役社長（代表）</td>
+											<td>帝国　太郎</td>
+											<td>全般、海外業務</td>
+											<td>OOOO株式会社会長兼任</td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>取締役社長（代表）</td>
+											<td>帝国　太郎</td>
+											<td>全般、海外業務</td>
+											<td>OOOO株式会社会長兼任</td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>取締役社長（代表）</td>
+											<td>帝国　太郎</td>
+											<td>全般、海外業務</td>
+											<td>OOOO株式会社会長兼任</td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>取締役社長（代表）</td>
+											<td>帝国　太郎</td>
+											<td>全般、海外業務</td>
+											<td>OOOO株式会社会長兼任</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>取引銀行</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<!----------------------------------------------------------------------------->
+								<!----------------------- 2020-10-22 거래은행 전채내용 변경 --------------------->
+								<div class="pmtableBack bankLayout">
+									<div class="pmtable">
+										<!-- 借入先 -->
+										<div class="bankTt">
+											<strong class="tt">借入先</strong>
+											<span class="right">2020 年 5 月現在、千円 (単位)</span>
+										</div>
+										<table class="tbvs1">
+											<colgroup>
+												<col width="48">
+												<col>
+												<col span="4" width="15%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th></th>
+													<th>借入先(支店名)</th>
+													<th>割引手形</th>
+													<th>短期借入金</th>
+													<th>長期借入金</th>
+													<th>定期預金</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="tC">1</td>
+													<td>みずほ銀行(東京支店)</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">2</td>
+													<td>みずほ銀行(東京支店)</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">3</td>
+													<td>みずほ銀行(東京支店)</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">4</td>
+													<td>みずほ銀行(東京支店)</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">5</td>
+													<td>みずほ銀行(東京支店)</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- //借入先 -->
+										<!-- 社債 -->
+										<div class="bankTt mt10">
+											<strong class="tt">社債</strong>
+											<span class="right">千円 (単位)</span>
+										</div>
+										<table class="tbvs1">
+											<colgroup>
+												<col width="48">
+												<col width="120">
+												<col width="100">
+												<col width="15%">
+												<col>
+												<col width="15%">
+												<col width="100">
+												<col width="12%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th></th>
+													<th>種類</th>
+													<th>発行年月</th>
+													<th>発行額</th>
+													<th>引受先</th>
+													<th>前期末残高</th>
+													<th>償還期限</th>
+													<th>担保・保証</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="tC">1</td>
+													<td class="tC">普通社債</td>
+													<td class="tC">2018年3月</td>
+													<td class="tright">999,999,999,999</td>
+													<td>三菱UFJ銀行</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tC">2024年3月</td>
+													<td>無保証</td>
+												</tr>
+												<tr>
+													<td class="tC">2</td>
+													<td class="tC">普通社債</td>
+													<td class="tC">2018年3月</td>
+													<td class="tright">999,999,999,999</td>
+													<td>三菱UFJ銀行</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tC">2024年3月</td>
+													<td>無保証</td>
+												</tr>
+												<tr>
+													<td class="tC">3</td>
+													<td class="tC">普通社債</td>
+													<td class="tC">2018年3月</td>
+													<td class="tright">999,999,999,999</td>
+													<td>三菱UFJ銀行</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tC">2024年3月</td>
+													<td>無保証</td>
+												</tr>
+												<tr>
+													<td class="tC">4</td>
+													<td class="tC">普通社債</td>
+													<td class="tC">2018年3月</td>
+													<td class="tright">999,999,999,999</td>
+													<td>三菱UFJ銀行</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tC">2024年3月</td>
+													<td>無保証</td>
+												</tr>
+												<tr>
+													<td class="tC">5</td>
+													<td class="tC">普通社債</td>
+													<td class="tC">2018年3月</td>
+													<td class="tright">999,999,999,999</td>
+													<td>三菱UFJ銀行</td>
+													<td class="tright">999,999,999,999</td>
+													<td class="tC">2024年3月</td>
+													<td>無保証</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- //社債 -->
+										<table class="tbws1">
+											<colgroup>
+												<col width="151"/>
+												<col />
+											</colgroup>
+											<tbody>
+											<tfoot>
+												<tr>
+													<th>借入合計金額</th>
+													<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+									<!-- 貸付先 -->
+									<div class="pmtable mt20">
+										<div class="bankTt">
+											<strong class="tt">貸付先</strong>
+											<span class="right">2020 年 5 月現在、千円 (単位)</span>
+										</div>
+										<table class="tbvs1">
+											<colgroup>
+												<col width="48">
+												<col>
+												<col width="140">
+											</colgroup>
+											<thead>
+												<tr>
+													<th></th>
+													<th>貸付先</th>
+													<th>貸付金額</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="tC">1</td>
+													<td>貸付先の企業名</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">2</td>
+													<td>貸付先の企業名</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">3</td>
+													<td>貸付先の企業名</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">4</td>
+													<td>貸付先の企業名</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+												<tr>
+													<td class="tC">5</td>
+													<td>貸付先の企業名</td>
+													<td class="tright">999,999,999,999</td>
+												</tr>
+											</tbody>
+										</table>
+										<table class="tbws1">
+											<colgroup>
+												<col width="151"/>
+												<col />
+											</colgroup>
+											<tbody>
+											<tfoot>
+												<tr>
+													<th>貸付合計金額</th>
+													<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+									<!-- 貸付先 -->
+								</div>
+									<!----------------------------------------------------------------------------->
+							</div>
+							<!--//-->
+							<!---->
+							<h3>許認可・免許番号</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="250"/>
+										<col width="300"/>
+										<col width="*"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>種類</th>
+											<th>免許番号</th>
+											<th>備考</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>ISO9001：2015</td>
+											<td>JSRQ1234</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>ISO9001：2015</td>
+											<td>JSRQ1234</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>ISO9001：2015</td>
+											<td>JSRQ1234</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>ISO9001：2015</td>
+											<td>JSRQ1234</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>ISO9001：2015</td>
+											<td>JSRQ1234</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!--2020-08-19 문의 사항-->
+							<div class="enquiryLayout">
+								<div class="subTit">
+									<h3>ご連絡事項</h3>
+									<p>※上記の情報に関して、帝国データバンクへのご連絡事項です。</p>
+								</div>
+								<div class="fullData cTabCon">
+									<div class="textBox">
+									</div>
+								</div>
+							</div>
+							<!--//2020-08-19 문의 사항-->
+						</div>
+						</div>
+						<!----->
+						<div class="printWrap">
+						<h2>株主・関係会社</h2>
+						<div class="pmEndLayout">
+							<!---->
+							<h3>株主</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="400"/><!-- 2020-08-18 다음 col 삭제 -->
+										<col width="700"/>
+										<col width="150"/>
+										<col width="150"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>株主名</th><!-- 2020-08-18 다음 th 삭제 -->
+											<th>所在地</th>
+											<th>持株数</th>
+											<th>持分比率</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>取締役社長（代表）</td><!-- 2020-08-18 다음 td 삭제 -->
+											<td>東京都港区南青山</td>
+											<td class="tright">999,999,999,999</td>
+											<td class="tright">99.9%</td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>取締役社長（代表）</td><!-- 2020-08-18 다음 td 삭제 -->
+											<td>東京都港区南青山</td>
+											<td class="tright">999,999,999,999</td>
+											<td class="tright">99.9%</td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>取締役社長（代表）</td><!-- 2020-08-18 다음 td 삭제 -->
+											<td>東京都港区南青山</td>
+											<td class="tright">999,999,999,999</td>
+											<td class="tright">99.9%</td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>取締役社長（代表）</td><!-- 2020-08-18 다음 td 삭제 -->
+											<td>東京都港区南青山</td>
+											<td class="tright">999,999,999,999</td>
+											<td class="tright">99.9%</td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>取締役社長（代表）</td><!-- 2020-08-18 다음 td 삭제 -->
+											<td>東京都港区南青山</td>
+											<td class="tright">999,999,999,999</td>
+											<td class="tright">99.9%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>関連会社</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<div class="dlStyle groupLayout">
+									<div class="pmtable">
+										グループ系列（企業グループに属している場合、その頂点企業）
+										<div>：なし</div>
+										<div>：<strong>[企業名]</strong>　ABDC株式会社 ／ <strong>[所在地]</strong>　東京都港区南青山</div>
+									</div>
+								</div>
+								<div class="pmtable">
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<strong class="tt">御社が出資をうけている企業</strong>
+											<table class="tbvs1">
+												<colgroup>
+													<col width="60" />
+													<col width="310"/>
+													<col width="310"/>
+													<col width="130"/>
+												</colgroup>
+												<thead>
+													<tr>
+														<th></th>
+														<th>企業名</th>
+														<th>所在地</th>
+														<th class="txt11">御社への出資比率</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="tC">1</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">2</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">3</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">4</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">5</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="gridItem">
+											<strong class="tt">御社が出資している企業</strong>
+											<table class="tbvs1">
+												<colgroup>
+													<col width="60" />
+													<col width="300"/>
+													<col width="300"/>
+													<col width="150"/>
+												</colgroup>
+												<thead>
+													<tr>
+														<th></th>
+														<th>企業名</th>
+														<th>所在地</th>
+														<th class="txt11">御社が出資する比率</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="tC">1</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">2</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">3</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">4</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+													<tr>
+														<td class="tC">5</td>
+														<td>OOO株式会社</td>
+														<td>東京都港区南青山</td>
+														<td class="tright">99.9%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--//-->
+							<!--2020-08-19 문의 사항-->
+							<div class="enquiryLayout">
+								<div class="subTit">
+									<h3>ご連絡事項</h3>
+									<p>※上記の情報に関して、帝国データバンクへのご連絡事項です。</p>
+								</div>
+								<div class="fullData cTabCon">
+									<div class="textBox">
+									</div>
+								</div>
+							</div>
+							<!--//2020-08-19 문의 사항-->
+						</div>
+						</div>
+						<!----->
+						<div class="printWrap">
+						<h2>設備概要</h2>
+						<div class="pmEndLayout">
+							<!---->
+							<h3>主要事業所(主な拠点)</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="480"/>
+										<col width="*"/>
+									</colgroup>
+									<thead>
+										<tr>
+											<th></th>
+											<th>名称</th>
+											<th>所在地</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>仙台営業部</td>
+											<td>東京都港区南青山</td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>仙台営業部</td>
+											<td>東京都港区南青山</td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>仙台営業部</td>
+											<td>東京都港区南青山</td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>仙台営業部</td>
+											<td>東京都港区南青山</td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>仙台営業部</td>
+											<td>東京都港区南青山</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>主要設備・車</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<div class="gridSet grid2 equipmentLayout">
+									<div class="gridItem">
+										<div class="pmtable">
+											<strong class="tt">主要設備</strong>
+											<table class="tbvs1">
+												<colgroup>
+													<col width="182"/>
+													<col width="154"/>
+												</colgroup>
+												<thead>
+													<tr>
+														<th>主要設備 (本店以外)</th>
+														<th class="tright">（単位：数）</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>営業所</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>工場</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>店舗</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>その他</th>
+														<td class="tright"></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>合計</th>
+														<td class="tright">
+															<strong>0</strong>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<div class="gridItem">
+										<div class="pmtable">
+											<strong class="tt">車</strong>
+											<table class="tbvs1">
+												<colgroup>
+													<col width="110"/>
+													<col width="154"/>
+												</colgroup>
+												<thead>
+													<tr>
+														<th>所有区分</th>
+														<th class="tright">（単位：数）</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>自己所有</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>リース</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>その他</th>
+														<td class="tright"></td>
+													</tr>
+												</tbody>
+											</table>
+											<table class="tbvs1">
+												<colgroup>
+													<col width="140"/>
+													<col width="154"/>
+												</colgroup>
+												<thead>
+													<tr>
+														<th>車両の種類</th>
+														<th class="tright">（単位：数）</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>乗用車</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>小型トラック</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>中型トラック</th>
+														<td class="tright"></td>
+													</tr>
+													<tr>
+														<th>大型トラック</th>
+														<td class="tright"></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>その他機械等設備</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<div class="textBox">
+									車両以外の設備について、名称、規模や台数、生産能力、積載能力などをご入力ください。
+								</div>
+							</div>
+							<!--//-->
+							<!--2020-08-19 문의 사항-->
+							<div class="enquiryLayout">
+								<div class="subTit">
+									<h3>ご連絡事項</h3>
+									<p>※上記の情報に関して、帝国データバンクへのご連絡事項です。</p>
+								</div>
+								<div class="fullData cTabCon">
+									<div class="textBox">
+									</div>
+								</div>
+							</div>
+							<!--//2020-08-19 문의 사항-->
+						</div>
+						</div>
+						<!----->
+						<div class="printWrap">
+						<h2>業績</h2>
+						<div class="pmEndLayout">
+							<!---->
+							<div class="fullData cTabCon pt0">
+								<div class="pmtable">
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<strong class="tt">決算書をPDFファイルにてご提供いただく場合</strong>
+											<table class="tbvs1 pdfCase">
+												<colgroup>
+													<col width="60" />
+													<col />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>1</th>
+														<td><a href="" download>最新業績_1.pdf</a></td>
+													</tr>
+													<tr>
+														<th>2</th>
+														<td><a href="" download>最新業績_2.pdf</a></td>
+													</tr>
+													<tr>
+														<th>3</th>
+														<td><a href="" download>最新業績_3.pdf</a></td>
+													</tr>
+													<tr>
+														<th>4</th>
+														<td><a href="" download>最新業績_4.pdf</a></td>
+													</tr>
+													<tr>
+														<th>5</th>
+														<td><a href="" download>最新業績_5.pdf</a></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="gridItem">
+										</div>
+									</div>
+								</div>
+								<div class="pmtable performanceLayout">
+									<div class="gridSet grid2 case1">
+										<div class="gridItem">
+											<strong class="tt">損益計算書</strong>
+											<div class="dateBackLine">
+												<div class="date dateTt">
+													<span class="wGrid">最新業績</span>
+													<span class="wGrid">前回業績</span>
+												</div>
+												<div class="date">
+													<span class="wGrid">
+														2018 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2019 年 01 月 <em>期</em>
+													</span>
+												</div>
+											</div>
+											<table class="tbws1">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="230" />
+													<col width="230" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<tbody>
+													<tr class="redRow">
+														<th>売上高</th>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 売上原価</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>売上総利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 販売管理費</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>営業利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 営業外収益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 営業外費用</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>経常利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 特別利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 特別損失</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>税引前当期純利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="redRowBF">
+														<th>法人税等</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="redRow">
+														<th>税引後当期利益</th>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="gridItem">
+											<strong class="tt">貸借対照表</strong>
+											<div class="dateBackLine">
+												<div class="date dateTt">
+													<span class="wGrid">最新業績</span>
+													<span class="wGrid">前回業績</span>
+												</div>
+												<div class="date">
+													<span class="wGrid">
+														2018 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2019 年 01 月 <em>期</em>
+													</span>
+												</div>
+											</div>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="230" />
+													<col width="230" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="2">資産の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>流動資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 有形固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 無形固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 投資その他の資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>繰延資産</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>資産合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="230" />
+													<col width="230" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="2">負債の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>流動負債合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>固定負債合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>負債合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="230" />
+													<col width="230" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="2">純資産の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>株主資本合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>その他</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>純資産合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+													<tr>
+														<th>負債純資産合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 green">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="230" />
+													<col width="230" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<tfoot>
+													<tr>
+														<th>自己資本比率</th>
+														<td>
+															<strong>1,250</strong><em class="priceUnit">％</em>
+														</td>
+														<td>
+															<strong>1,250</strong><em class="priceUnit">％</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<div class="gridSet grid2 case2">
+										<div class="gridItem">
+											<strong class="tt">損益計算書</strong>
+											<div class="dateBackLine">
+												<div class="date dateTt">
+													<span class="wGrid">最新業績</span>
+													<span class="wGrid">前回業績</span>
+													<span class="wGrid">前々回業績</span>
+												</div>
+												<div class="date">
+													<span class="wGrid">
+														2018 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2019 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2020 年 01 月 <em>期</em>
+													</span>
+												</div>
+											</div>
+											<table class="tbws1">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="369" />
+													<col width="369" />
+													<col width="369" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<tbody>
+													<tr class="redRow">
+														<th>売上高</th>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 売上原価</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>売上総利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 販売管理費</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>営業利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 営業外収益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 営業外費用</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>経常利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 特別利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 特別損失</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>税引前当期純利益</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="redRowBF">
+														<th>法人税等</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="redRow">
+														<th>税引後当期利益</th>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+														<td class="tright"><strong>999,999,999,000</strong><em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="gridItem">
+											<strong class="tt">貸借対照表</strong>
+											<div class="dateBackLine">
+												<div class="date dateTt">
+													<span class="wGrid">最新業績</span>
+													<span class="wGrid">前回業績</span>
+													<span class="wGrid">前々回業績</span>
+												</div>
+												<div class="date">
+													<span class="wGrid">
+														2018 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2019 年 01 月 <em>期</em>
+													</span>
+													<span class="wGrid">
+														2020 年 01 月 <em>期</em>
+													</span>
+												</div>
+											</div>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="369" />
+													<col width="369" />
+													<col width="369" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="3">資産の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>流動資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 有形固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 無形固定資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr class="subRow">
+														<th>└ 投資その他の資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>繰延資産</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>資産合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="369" />
+													<col width="369" />
+													<col width="369" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="3">負債の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>流動負債合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>固定負債合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>負債合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 noTopLine">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="369" />
+													<col width="369" />
+													<col width="369" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<thead>
+													<tr>
+														<th class="noTh"></th>
+														<th colspan="3">純資産の部</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>株主資本合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>その他</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+													<tr>
+														<th>純資産合計</th>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+														<td class="tright">9,999,999,999,000<em class="priceUnit">千円</em></td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<th>負債純資産合計</th>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+														<td>
+															<strong>999,999,999,000</strong><em class="priceUnit">千円</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+											<table class="tbws1 green">
+												<colgroup>
+													<col width="180" />
+													<!-- 2020-08-31 col -->
+													<col width="369" />
+													<col width="369" />
+													<col width="369" />
+													<!-- //2020-08-31 col -->
+												</colgroup>
+												<tfoot>
+													<tr>
+														<th>自己資本比率</th>
+														<td>
+															<strong>1,250</strong><em class="priceUnit">％</em>
+														</td>
+														<td>
+															<strong>1,250</strong><em class="priceUnit">％</em>
+														</td>
+														<td>
+															<strong>1,250</strong><em class="priceUnit">％</em>
+														</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- 2020-10-07 위치 이동 -->
+									<h3>今期売上高見込み</h3>
+									<div class="pmtable thisTerm">
+										<strong class="tt">今期売上高見込み :
+											<span>999,999,999 千円</span>
+										</strong>
+									</div>
+									<!-- //2020-10-07 위치 이동 -->
+								</div>
+							</div>
+							<!--//-->
+							<!--2020-08-19 문의 사항-->
+							<div class="enquiryLayout">
+								<div class="subTit">
+									<h3>ご連絡事項</h3>
+									<p>※上記の情報に関して、帝国データバンクへのご連絡事項です。</p>
+								</div>
+								<div class="fullData cTabCon">
+									<div class="textBox">
+									</div>
+								</div>
+							</div>
+							<!--//2020-08-19 문의 사항-->
+						</div>
+						</div>
+						<!----->
+						<div class="printWrap">
+						<h2>ビジネスモデル</h2>
+						<div class="pmEndLayout">
+							<!---->
+							<h3>仕入先</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<!-- 2020-08-18 넓이조절 -->
+									<colgroup>
+										<col width="60">
+										<col width="450">
+										<col width="400">
+										<col width="400">
+										<col width="200">
+										<col width="200">
+									</colgroup>
+									<!-- //2020-08-18 넓이조절 -->
+									<thead>
+										<tr>
+											<th></th>
+											<th>企業名</th>
+											<th>所在地</th>
+											<th>品目</th>
+											<th>各品目内での<br/>シェア</th><!-- 2020-08-18 글자변경 -->
+											<th>大口取引先の場合</th><!-- 2020-08-18 글자변경 -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv1" disabled/><label for="rv1"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv2" checked disabled><label for="rv2"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv3" checked disabled><label for="rv3"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv4" checked disabled><label for="rv4"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv5" checked disabled><label for="rv5"><i></i></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>得意先</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<table class="tbvs1">
+									<!-- 2020-08-18 넓이조절 -->
+									<colgroup>
+										<col width="60">
+										<col width="450">
+										<col width="400">
+										<col width="400">
+										<col width="200">
+										<col width="200">
+									</colgroup>
+									<!-- //2020-08-18 넓이조절 -->
+									<thead>
+										<tr>
+											<th></th>
+											<th>企業名</th>
+											<th>所在地</th>
+											<th>品目</th>
+											<th>各品目内での<br/>シェア</th><!-- 2020-08-18 글자변경 -->
+											<th>大口取引先の場合</th><!-- 2020-08-18 글자변경 -->
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="tC">1</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv6" disabled><label for="rv6"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">2</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv7" checked disabled><label for="rv7"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">3</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv8" checked disabled><label for="rv8"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">4</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv9" checked disabled><label for="rv9"><i></i></label></span></td>
+										</tr>
+										<tr>
+											<td class="tC">5</td>
+											<td>OOO株式会社</td>
+											<td>東京都港区南青山</td>
+											<td></td>
+											<td class="tright">99.9%</td>
+											<td class="tC"><span class="checkSet"><input type="checkbox" id="rv10" checked disabled><label for="rv10"><i></i></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!--//-->
+							<!---->
+							<h3>事業構成</h3><!-- 2020-10-22 숫자삭제 -->
+							<div class="fullData cTabCon">
+								<div class="gridSet grid2">
+									<div class="gridItem">
+										<table class="tbvs1">
+											<colgroup>
+												<col width="60" />
+												<col/>
+												<col width="180"/>
+											</colgroup>
+											<thead>
+												<tr>
+													<th></th>
+													<th>カテゴリ名</th>
+													<th>割合</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td class="tC">1</td>
+													<td>ゲーム、映画、音楽</td>
+													<td class="tright">99.9%</td>
+												</tr>
+												<tr>
+													<td class="tC">2</td>
+													<td>ゲーム、映画、音楽</td>
+													<td class="tright">99.9%</td>
+												</tr>
+												<tr>
+													<td class="tC">3</td>
+													<td>ゲーム、映画、音楽</td>
+													<td class="tright">99.9%</td>
+												</tr>
+												<tr>
+													<td class="tC">4</td>
+													<td>ゲーム、映画、音楽</td>
+													<td class="tright">99.9%</td>
+												</tr>
+												<tr>
+													<td class="tC">5</td>
+													<td>ゲーム、映画、音楽</td>
+													<td class="tright">99.9%</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="gridItem"></div>
+								</div>
+							</div>
+							<!--//-->
+							<!--2020-08-19 문의 사항-->
+							<div class="enquiryLayout">
+								<div class="subTit">
+									<h3>ご連絡事項</h3>
+									<p>※上記の情報に関して、帝国データバンクへのご連絡事項です。</p>
+								</div>
+								<div class="fullData cTabCon">
+									<div class="textBox">
+									</div>
+								</div>
+							</div>
+							<!--//2020-08-19 문의 사항-->
+						</div>
+						</div>
+						<!----->
+						<!-- 2020-08-19 <h2>ご連絡事項 <span>※上記の情報に関して、帝国データバンクへのご連絡事項です。</span></h2>
+						<div class="pmEndLayout">
+							<div class="fullData cTabCon">
+							</div>
+						</div>--->
+						<!----->
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!------------------------ alert 용 ------------------------>
+		<div class="popAlert" id="alert1" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>選択した件がありません。<br/>削除する件(行)を選択してください。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">OK</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert3" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>発送予定日が削除されます。<br/>選択された件の発送指示を取消しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert4" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>本日の日付で発送予定日が設定されます。<br/>全取材件に関して発送指示をしますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert5" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>ログアウトしますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert6" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>全ての入力欄を空欄にしますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert7" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>発行を取消し、フォームを削除しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert10" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p><strong>選択削除</strong>削除すると復旧できません。<br/>選択した件を削除しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG">いいえ</button>
+					<button class="btnBG blue">はい</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert11" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p class="tleft" style="padding-left:70px;">ログイン情報発行した後は<br>フォームが更新できません。<br>ログイン情報発行しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert12" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p class="tleft" style="padding-left:50px;">ログイン情報発行ボタンを押した後で<br/>確認できます。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">OK</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert13" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p class="tleft" style="padding-left:70px;">データをもう一度読み込みますか？</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert14" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>削除するデータを選択してください。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG">いいえ</button>
+					<button class="btnBG blue">はい</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!---->
+		<div class="popAlert" id="alert15" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p class="tleft" style="padding-left:70px;">削除したデータは復元できません。<br>削除しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!------------------------ //alert 용 ------------------------>
+		<!---->
+		<div class="tostAlert" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>保存しました。</p>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<div class="dimPop" style="display:none"></div>
+		<!-- //PopUp -->
+	</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+						</span>
+						<h1><img src="images/img_tit_12_02.png" alt="1:1 문의" /></h1>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 1:1문의 -->
+						<div class="qnaLayout">
+							<div class="headBox">
+								<!---->
+								<div class="selectArea">
+									<span class="iSet">
+										<span class="iLine">
+											<span class="selectSet">
+												<select>
+													<option>문의상태</option>
+												</select>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="qnaCInfo">
+									<span class="qnaCircle"></span> 접수확인 중 <span class="qnaCircle rGray"></span> 답변 대기 중 <span class="qnaCircle rGreen"></span> 답변완료 <!--  ● : 재 문의 답변 대기 중-->
+								</div>
+								<!--
+								<div class="txtArea">
+									<span class="iSet">
+										<span class="iLine"><input type="text" /></span>
+									</span>
+								</div>
+								<div class="btnArea"><button class="btnColor3">검색</button></div> -->
+							</div>
+							<!-- list -->
+							<div class="gridList">
+								<!-- 리스트 타이틀 / 태블릿에서만 노출 -->
+								<div class="listHead">
+									<div class="qkind">문의상태</div>
+									<div class="qWkind">문의 종류</div>
+									<div>내용</div>
+									<div class="gDate">문의날짜</div>
+									<div class="qhistory">이력확인</div>
+								</div>
+								<!-- //리스트 타이틀-->
+								<ul>
+									<!-- Loop -->
+									<li>
+										<a>
+											<div class="qkind"><span class="qnaCircle"></span></div>
+											<div class="qWkind">앱 다운로드</div>
+											<div class="qWkind2">앱 다운로드 링크</div>
+											<div class="tleft">01077109862</div>
+											<div class="gDate">2020-04-14 23:43</div>
+											<div class="qhistory"><button class="btnColor gray" onclick="historyConfirm(314)">이력확인</button></div>
+										</a>
+									</li>
+									<!-- //Loop -->
+									<li>
+										<a>
+											<div class="qkind"><span class="qnaCircle rGreen"></span></div>
+											<div class="qWkind">앱 다운로드</div>
+											<div class="qWkind2">앱 다운로드 링크</div>
+											<div class="tleft">01077109862</div>
+											<div class="gDate">2020-04-14 23:43</div>
+											<div class="qhistory"><button class="btnColor gray" onclick="historyConfirm(314)">이력확인</button></div>
+										</a>
+									</li>
+									<li>
+										<a>
+											<div class="qkind"><span class="qnaCircle rGray"></span></div>
+											<div class="qWkind">앱 다운로드</div>
+											<div class="qWkind2">앱 다운로드 링크</div>
+											<div class="tleft">01077109862</div>
+											<div class="gDate">2020-04-14 23:43</div>
+											<div class="qhistory"><button class="btnColor gray" onclick="historyConfirm(314)">이력확인</button></div>
+										</a>
+									</li>
+								</ul>
+								<!--//<div class="noList"><span>표시할 항목이 없습니다.</span></div>--><!--//목록 없을 시-->
+							</div>
+							<!-- //list -->
+							<div class="btnCircle">
+								<a href="qna_write.html">
+									<img src="images/img_circle_03.png" alt="추가" />
+								</a>
+							</div>
+							<!---->
+						</div>
+						<!--// 1:1문의 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		</script>
+	</body>
+</html>

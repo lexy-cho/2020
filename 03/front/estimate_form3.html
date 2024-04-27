@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+			$( document ).ready( function() {
+				$(".popOpen2").bind('tap click', function(){
+					$(".customer-pop").toggle();
+					$("body").addClass('modalOpen');
+					$("#blind_wrap").toggle();
+				}); //고객찾기
+				$(".popOpen5").bind('tap click', function(){
+					$(".carChoice-pop").toggle();
+					$("body").addClass('modalOpen');
+					$("#blind_wrap").toggle();
+				}); //차종선택
+				$(".popOpen6").bind('tap click', function(){
+					$(".colorChoice-pop").toggle();
+					$("body").addClass('modalOpen');
+					$("#blind_wrap").toggle();
+				}); //색상
+				$(".pclose, .popBtn a").bind('tap click', function(){
+					$(".normalPop").hide();
+					$("body").removeClass('modalOpen');
+					$("#blind_wrap").hide();
+				}); //팝업닫기
+
+				var textAreaResize = function() {
+					$('.contractLayout .lineBox textarea').on( 'keyup', function (e){
+						if(e.keyCode == 13){
+							var newheight = $(this)[0].scrollHeight;
+							$(this).height(newheight);
+						}
+					});
+				};
+				textAreaResize();
+				// 161207 textarea 높이 자동 조절 추가 (계약서 내 특약사항과 동일)
+				// 본 사항은 샘플로 구성한 것임. 개발쪽에서 스크립트 수정을 해야 함.
+				// 현재사항 - Enter 했을 경우 길이가 길어짐 / Enter 없앴을 때 높이가 작아지지 않음
+				// 수정사항 - 높이 조절은 제일 하단에서 Enter를 했을 경우 / 높이가 원복이 되어야 함 / 기존 입력한 글이 있을 경우, 높이 맞도록 조정
+			});
+		</script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!--/////////////////////////////////////////////////////-->
+			<!--/////////////////////////////////////////////////////-->
+			<!-- 차종선택 팝업 -->
+			<div class="normalPop carChoice-pop" style="display:none">
+				<div class="popTit"><h1>차종선택</h1></div>
+				<div class="popBack">
+					<div class="popData">
+						<!---->
+						<div class="gridSet grid2">
+							<div class="gridItem">
+								<div class="iSet">
+									<span class="iLine">
+										<span class="selectSet">
+											<select>
+												<option>기어 타입</option>
+												<option>A/T</option>
+												<option>M/T</option>
+												<option>C-tech</option>
+											</select>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="gridItem">
+								<div class="iSet">
+									<div class="searchCase"><input type="button" value="검색" class="btnColor gray" /><span class="iLine"><input type="text" placeholder="차량명 입력 (예: 트랙스)" /></span></div>
+								</div>
+							</div>
+						</div>
+						<div class="gridSet grid2-3">
+							<div class="gridItem first">
+								<div class="basic">
+									<strong class="tt">대표차량</strong>
+									<div class="popList">
+										<ul>
+											<li><span>스파크</span></li>
+											<li><span>ALL NEW 말리부</span></li>
+											<li class="selected"><span>아베요</span></li>
+											<li><span>트랙스</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+										</ul>
+									</div>
+								</div>
+								<div class="iSet">
+									<label>대표차량</label>
+									<span class="iLine">
+										<span class="selectSet">
+											<select>
+												<option>선택</option>
+											</select>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="gridItem last">
+								<strong class="tt">차량상품</strong>
+								<div class="popList">
+									<ul>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li class="selected"><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+									</ul>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+									<!--//-->
+								</div>
+							</div>
+						</div>
+						<div class="iSet editArea">
+							<span class="iLine"><textarea placeholder="차량상품 선택시 이곳에 표기되며 수정하실수 있습니다."></textarea></span>
+							<p>※ 계약서의 올바른 표기를 위하여 선택하신 차량상품명을 38자 이내로 수정해 주세요.</p>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet">취소</a>
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<!--//-->
+			<!-- 차종선택 팝업 -->
+			<div class="normalPop carChoice-pop" style="display:none">
+				<div class="popTit"><h1>차종선택</h1></div>
+				<div class="popBack">
+					<div class="popData">
+						<div class="gridSet grid2-3">
+							<div class="gridItem first">
+								<div class="basic">
+									<strong class="tt">대표차량</strong>
+									<div class="popList">
+										<ul>
+											<li><span>스파크</span></li>
+											<li><span>ALL NEW 말리부</span></li>
+											<li class="selected"><span>아베요</span></li>
+											<li><span>트랙스</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+											<li><span>대표차량명입니다</span></li>
+										</ul>
+									</div>
+								</div>
+								<div class="iSet">
+									<label>대표차량</label>
+									<span class="iLine">
+										<span class="selectSet">
+											<select>
+												<option>선택</option>
+											</select>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="gridItem last">
+								<strong class="tt">차량상품</strong>
+								<div class="popList">
+									<ul>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li class="selected"><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+									</ul>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+									<!--//-->
+								</div>
+							</div>
+						</div>
+						<div class="iSet editArea">
+							<span class="iLine"><textarea placeholder="차량상품 선택시 이곳에 표기되며 수정하실수 있습니다."></textarea></span>
+							<p>※ 계약서의 올바른 표기를 위하여 선택하신 차량상품명을 38자 이내로 수정해 주세요.</p>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet">취소</a>
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<!--//-->
+			<!-- 색상 팝업 -->
+			<div class="normalPop colorChoice-pop" style="display:none">
+				<div class="popTit"><h1>색상선택</h1></div>
+				<div class="popBack">
+					<div class="popData">
+						<div class="first">
+							<div class="iSet">
+								<label>대표차량</label>
+								<span class="iLine">
+									<span class="selectSet">
+										<select>
+											<option>선택</option>
+											<option>스파크</option>
+											<option>ALL NEW 말리부</option>
+											<option>아베요</option>
+											<option>트랙스</option>
+											<option>대표차량명입니다</option>
+										</select>
+									</span>
+								</span>
+							</div>
+							<div class="iSet mcase">
+								<label>차량상품</label>
+								<span class="iLine">
+									<span class="selectSet">
+										<select>
+											<option>선택</option>
+										</select>
+									</span>
+								</span>
+							</div>
+						</div>
+						<div class="gridSet grid2-1">
+							<div class="gridItem second">
+								<div class="basic">
+									<strong class="tt">차량상품</strong>
+									<div class="popList">
+										<ul>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li class="selected"><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+											<li><span>[상품성 강화] 2016년형 스파크스파크스파크스파크스파크</span></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="gridItem last">
+								<strong class="tt">색상명</strong>
+								<div class="popList">
+									<ul>
+										<li><span>펄화이트</span></li>
+										<li><span>메탈그린</span></li>
+										<li class="selected"><span>실버라이트</span></li>
+										<li><span>스카이블루</span></li>
+										<li><span>스카이블루</span></li>
+										<li><span>딥블랙</span></li>
+										<li><span>펄화이트</span></li>
+										<li><span>메탈그린</span></li>
+										<li><span>실버라이트</span></li>
+										<li><span>스카이블루</span></li>
+										<li><span>딥블랙</span></li>
+									</ul>
+									<!--2016-12-06 색상선택은 페이징 없음-->
+								</div>
+							</div>
+						</div>
+						<div class="iSet editArea">
+							<span class="iLine"><input type="text" /></span>
+							<p>※ 계약서의 올바른 표기를 위하여 선택하신 색상명을 9자 이내로 수정해 주세요.</p>
+						</div>
+					</div>
+				</div>
+				<!---->
+				<div class="popBtn">
+					<div class="back">
+						<a class="btnpSet">취소</a>
+						<a class="btnpSet darkGray">확인</a>
+					</div>
+				</div>
+				<!---->
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<!--//-->
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<!--/////////////////////////////////////////////////////-->
+			<!--/////////////////////////////////////////////////////-->
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="estimate_introduction.html">Back</a></span>
+						</span>
+						<h1><img src="images/img_tit_04.png" alt="견적서" /></h1>
+						<span class="right">
+							<span class="hbtnReset"><a href="#">새로고침</a></span><!--2016-12-03 변경 -->
+							<span class="hbtnStore"><a href="#">임시저장</a></span>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 계약서 & 견적서 공통 -->
+						<div class="contractLayout esCase">
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide"><a href="estimate_form.html">판매가격 및 결제조건</a></span>
+										<span class="swiper-slide"><a href="estimate_form2.html">부대비용 및 등록비용</a></span>
+										<span class="swiper-slide on"><a href="estimate_form3.html">고객정보 및 메모</a></span>
+										<span class="swiper-slide"><a href="../form/form_estimate.html">미리보기</a></span>
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+							</article>
+							<!-- 20161130 위치 이동 & 스크립트 삭제 -->
+							<article>
+								<div class="ctTop">
+									<div class="cNback">
+										<div class="carName">
+											<div>[상품성강화] 2017년형 ALL NEW 말리부 1.5터보 가솔린 LTZ 퍼팩트 블랙휠</div>
+											<input type="button" value="차종선택" class="carReName popOpen5" /><!-- 161206 팝업용 class 추가 -->
+										</div>
+									</div>
+									<div class="cCback"><div class="carColor popOpen6"><!-- 161206 팝업용 class 추가 -->색상은여덟글자임</div></div>
+								</div>
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">고객정보 및 메모</h2>
+								<div class="ctDetail">
+									<!-- 고객정보 -->
+									<div class="lineBox">
+										<h3 class="formatTit"><strong>고객정보</strong></h3>
+										<div class="box">
+											<div class="iSet">
+												<label class="key">고객명 <sup>필수항목</sup></label>
+												<div class="findCase">
+													<input type="button" value="고객조회" class="btnColor gray popOpen2" /><!-- 161206 팝업용 class 추가 -->
+													<span class="iLine"><input type="text" placeholder="성명을 입력해 주세요" /></span>
+												</div>
+											</div>
+											<!---->
+											<div class="iSet emailSet"><!--2016-12-08 class 추가 -->
+												<label>E-Mail</label>
+												<div class="emailCase">
+													<span class="iLine first"><input type="text" /></span>
+													<strong>@</strong>
+													<span class="iLine"><input type="text" placeholder="직접 입력하세요" /></span>
+													<span class="iLine last">
+														<span class="selectSet">
+															<select>
+																<option>선택</option>
+																<option>직접입력 </option>
+																<option>naver.com</option>
+																<option>nate.com</option>
+																<option>hanmail.net</option>
+																<option>gmail.com</option>
+																<option>hotmail.com</option>
+																<option>yahoo.co.kr</option>
+																<option>yahoo.com</option>
+																<option>gm.com </option>
+															</select>
+														</span>
+													</span>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>휴대전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>자택전화</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<div class="gridSet grid2">
+												<div class="gridItem">
+													<div class="iSet">
+														<label>팩스번호</label>
+														<span class="iLine"><input type="number" placeholder="숫자 입력" /></span>
+													</div>
+												</div>
+												<div class="gridItem">
+													<div class="iSet">
+														<label>카카오톡 ID</label>
+														<span class="iLine"><input type="text" /></span>
+													</div>
+												</div>
+											</div>
+											<!---->
+											<p class="ptb8"><strong>개인정보 수집•이용•제공 동의서를 확인 하였으며, 동의 하였습니다.</strong></p>
+											<div class="ptb8 tCenter">
+												<input type="button" value="개인정보 수집 • 이용 • 제공 동의서 확인" class="btnColor2 bRed" />
+											</div>
+										</div>
+									</div>
+									<!-- 메모 -->
+									<div class="lineBox mt13">
+										<h3 class="formatTit"><strong>메모 ( 0 / 1000자 이내 )</strong></h3>
+										<div class="box">
+											<div class="iSet">
+												<span class="iLine"><textarea class="h100" placeholder="메모사항을 입력해 주세요"></textarea></span>
+											</div>
+										</div>
+									</div>
+									<!--//-->
+								</div>
+							</article>
+							<!-- 20161125 추가 -->
+							<div class="sendBtnSet">
+								<ul>
+									<li class="sBCacao"><a><strong>카카오톡 전송</strong></a></li>
+									<li class="sBEmail"><a><strong>이메일 전송</strong></a></li>
+									<li class="sBSms"><a><strong>SMS 전송</strong></a></li>
+									<li class="sBFax"><a><strong>팩스 전송</strong></a></li>
+									<li class="sBContract"><a><strong>계약서 전송</strong></a></li> <!-- 161207 추가 -->
+								</ul>
+								<span class="btnSendToggle openCase"><a><strong>전송 하기</strong></a></span>
+								<span class="btnSendToggle closeCase"><a><strong>닫기</strong></a></span> <!-- 161207 txt 수정 -->
+							</div>
+							<!-- //20161125 추가 -->
+							<!-- 161208 가격정보 추가 -->
+							<div class="botInfoBox">
+								<span class="btnInfoToggle"><input type="button" value="toggle" /></span>
+								<div class="infoArea">
+									<!-- 차량구입 총 비용 -->
+									<div class="halfBox">
+										<h4>
+											<strong>차량구입 총비용</strong>
+											<span>(부대비용, 등록비용 포함)</span>
+										</h4>
+										<!---->
+										<div class="iPay"><strong>22,260,000</strong> 원</div>
+									</div>
+									<!-- 월별 할부납입 금액 -->
+									<div class="halfBox">
+										<h4>
+											<strong>월별 할부납입 금액</strong>
+											<span>(이자 포함)</span>
+										</h4>
+										<!---->
+										<div class="iPay">
+											<strong>22,260,000</strong> 원
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //가격정보 -->
+						</div>
+						<!-- //contract -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		/**
+		* Push left instantiation and action.
+		*/
+		var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		});
+
+		var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		});
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+		swiper.slideTo(2); //시작은 0이며 현재 3번째
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>帝国データバンク DM管理システム</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="css/ui.jqgrid.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="shortcut icon" href="image/favicons.png">
+		<link rel="icon" href="image/favicons.png">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#section" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<div id="wrapBack">
+				<!-- header -->
+				<head>
+					<div id="header">
+						<div class="back">
+							<h1><span>社内用</span>DM管理<br/>システム</h1>
+							<div class="userLogout">
+								<div>
+									<span>abcde1234 <em>鈴木 太郎</em></span>
+									<a id="logoutBtn">Logout</a>
+								</div>
+							</div>
+							<nav>
+								<div class="gnb">
+									<div class="scrl">
+										<ul>
+											<li class="mn1"><a href="#dmMgt" class="add-tab" id="dmMgtBTN">DM出力管理</a></li>
+											<li class="mn2"><a href="#progressMgt" class="add-tab" id="progressMgtBTN">進捗管理</a></li>
+											<li class="mn3"><a href="#fileMgt" class="add-tab">マスタ更新管理</a></li>
+											<li class="mn4"><a href="#codeMgt" class="add-tab">コード管理</a></li>
+										</ul>
+									</div>
+								</div>
+							</nav>
+							<div class="footer"><p>Copyright TEIKOKU DATABANK, LTD. <br/>All Rights Reserved.</p></div>
+						</div>
+					</div>
+				</head>
+				<!-- //header -->
+
+				<hr/>
+				<!-- container -->
+				<section>
+					<div id="section">
+						<div id="nav-tabs" class="container">
+							<!---->
+							<div class="contentsFix">
+								<div class="contentsFixBack">
+									<button class="hHandle"><span>ボタン転換</span></button>
+									<h1>(社内用) DM管理システム</h1>
+									<div class="tabMenu">
+										<nav>
+											<ul class="nav-tab-menu">
+												<li>
+													<span><a href="#tabs-1">main List</a></span>
+													<input type='button' value='x' class='ui-icon ui-icon-close' />
+												</li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<!---->
+							<article>
+							<div class="contentsP">
+								<div class="contents">
+
+									<div class="pd30">
+										<br/><br/><br/><br/>
+
+										<input type="text" placeholder="placeholder" value="" /> 
+										<input type="text" readonly="readonly" value="Readonly Case" /> 
+										<input type="text" disabled="disabled" value="Disabled Case" />
+
+										<br><br>
+
+										<dl>
+											<dt>必須項目 <sup>必須</sup></dt>
+											<dd class="inMust">
+												<input type="text" />
+												<span class="selectSet">
+													<select>
+														<option disabled="">選択</option>
+														<option>全体</option>
+														<option>選択 1</option>
+														<option>選択 2</option>
+													</select>
+												</span>
+											</dd>
+										</dl><br>
+										<dl>
+											<dt>エラー項目</dt>
+											<dd class="inError">
+												<input type="text" />
+												<span class="selectSet">
+													<select>
+														<option disabled="">選択</option>
+														<option>全体</option>
+														<option>選択 1</option>
+														<option>選択 2</option>
+													</select>
+												</span>
+											</dd>
+										</dl>
+
+										<br><br>
+
+										<br><br>
+
+										<span class="radioSet"><input type="radio" id="a1" name="a" checked=""><label for="a1"><i></i>選択 1</label></span>
+										<span class="radioSet"><input type="radio" id="a2" name="a"><label for="a2"><i></i>選択 2</label></span>
+
+										<br><br>
+
+										<span class="checkSet"><input type="checkbox" id="b1"><label for="b1"><i></i>選択 1</label></span>
+										<span class="checkSet"><input type="checkbox" id="b2"><label for="b2"><i></i>選択 2</label></span>
+
+										<br><br>
+
+										<span class="selectSet"> <!-- .selectSet 넓이 조절 시 하단의 select의 넓이가 자동조절 됨 -->
+											<select>
+												<option disabled="">選択</option>
+												<option>全体</option>
+												<option>選択</option>
+												<option>選択</option>
+											</select>
+										</span>
+										
+										<br><br>
+										
+										<span class="unit">
+											<input type="text" /><em>円</em>
+										</span>
+										
+										<br><br>
+										
+										<button class="btnFilePop">新規アップロード</button> <!--신규업로드:팝업에서찾는형식:구름모양버전-->
+
+										<br/><br/>
+
+										<span class="fileSet">
+											<span class="fileFind">
+												<input type="file" id="file1" />
+												<label for="file1">ファイル選択</label>
+											</span> <!--파일선택:버튼만있는형식:초록색버전-->
+											<span class="loadIng">アップロード中</span> <!--파일업로드중-->
+											<strong class="loadEnd">
+												<em>サンプルデータ.csv</em>
+												<button>元に戻す</button>
+											</strong> <!--파일선택완료-->
+											<span class="loadFail">アップロード失敗</span> <!--파일업로드실패-->
+										</span>
+
+										<br/><br/>
+
+										<span class="fileSet">
+											<span class="fileFind">
+												<input type="file" id="file2" />
+												<label for="file2">パンチ更新</label>
+											</span> <!--파일선택:버튼만있는형식:초록색버전-->
+											<span class="loadIng">アップロード中</span> <!--파일업로드중-->
+											<strong class="loadEnd">
+												<em>サンプルデータ.csv</em>
+												<button>元に戻す</button>
+											</strong> <!--파일선택완료-->
+											<span class="loadFail">アップロード失敗</span> <!--파일업로드실패-->
+										</span>
+
+										<br/><br/>
+
+										<span class="fileSet">
+											<span class="fileFind">
+												<input type="file" id="file3" />
+												<label id="file3">ファイル選択</label>
+											</span>
+											<input type="text" />
+										</span> <!--파일선택:파일명있는형식:검정색버전-->
+
+										<br/><br/>
+
+										<span class="fileSet">
+											<span class="fileFind">
+												<input type="file" id="file4" />
+												<label for="file4">原本確認</label>
+											</span> <!--파일선택:버튼만있는형식:초록색버전-->
+											<span class="loadIng">アップロード中</span> <!--파일업로드중-->
+											<strong class="loadEnd">
+												<em>サンプルデータ.csv</em>
+												<button>元に戻す</button>
+											</strong> <!--파일선택완료-->
+											<span class="loadFail">アップロード失敗</span> <!--파일업로드실패-->
+										</span>
+
+										<br/><br/>
+
+										<a href="" download class="btnInDownload">ﾀﾞｳﾝﾛｰﾄﾞ (0)</a> 
+										<a href="" download class="btnInDownload orange">ﾀﾞｳﾝﾛｰﾄﾞ (1)</a> 
+										<a href="" download class="btnInDownload red">ﾀﾞｳﾝﾛｰﾄﾞ (N)</a> <!--다운로드-->
+										<br/></br>
+										<a href="" download class="btnBDownload">全件ダウンロード</a> <!--전건다운로드-->
+										<a href="" download class="btnBDownload">アンマッチデータのダウンロード</a> <!--언매치데이터의 다운로드-->
+										<a href="" download class="btnBDownload2">取材データのダウンロード</a> <!--취재데이터의 다운로드-->
+
+										<br/><br/>
+
+										<button class="btnLN">目録へ</button>
+										<button class="btnLN red sm">選択削除</button> <!--삭제버튼-->
+										<button class="btnLN blue">選択件の発送指示を実行</button> <!--선택건의 발송지시실행버튼-->
+										<button class="btnLN red">選択件の発送指示を取消</button> <!--선택건의 발송지시취소버튼-->
+										<button class="btnLN blue">コードマスタ取込み</button> <!--코드마스터 적용-->
+										<button class="btnLN blue delete">データクリア</button>
+
+										<br/><br/>
+
+										<button class="btnLN red ssm">選択削除</button>
+										<button class="btnLN blue ssm">コードマスタ取込み</button>
+										<button class="btnLN green ssm">コードマスタ取込み</button>
+
+										<br/><br/>
+										<button class="btnOrder">全件発送指示</button> <!--전건발송지시-->
+										<button class="btnOrder green">確定・ログイン情報発行</button>
+
+										<br/><br/>
+										<button class="btnBG">取消</button> <!--취소-->
+										<button class="btnBG blue">保存</button> <!--저장-->
+										<button class="btnBG" disabled>保存</button> <!--비활성화-->
+										<button class="btnBG psearch">検索</button> <!--팝업 내 검색-->
+										<button class="btnBG orange">選択</button> <!--팝업 내 선택-->
+										<button class="btnBG green sm">原本確認</button>
+										<button class="btnBG total">一括処理</button> <!--일괄적용-->
+										<button class="btnBG upload">パンチ更新</button> <!---->
+										<button class="btnBG blue save">保存</button>
+										<button class="btnBG green save">プレビュー</button>
+										<button class="btnBG red cancel">発行取消</button>
+
+										<br/><br/>
+										<a class="btnPdf">原本</a> <!---->
+										<button class="btnInt on">コメント</button> <!--취재처문의 있음-->
+										<button class="btnInt">コメント</button> <!--취재처문의 없음-->
+
+										<br/><br/>
+										<button class="updown upC">トップ</button> <!-- 그리드 위로-->
+										<button class="updown downC">下段に</button> <!-- 그리드 아래로-->
+										<button class="updown upC" disabled >トップ</button> <!-- 그리드 위로-->
+										<button class="updown downC" disabled >下段に</button> <!-- 그리드 아래로-->
+
+										<br/><br/>
+										<span class="sts" title="スペース">スペース</span>
+										<span class="sts end" title="返送済">返送済</span>
+										<span class="sts temp" title="仮保存">仮保存</span>
+										<span class="sts check" title="内容チェック指示">内容チェック指示</span>
+										<span class="sts change" title="取材切替">取材切替</span>
+										<span class="sts updt" title="取材完了(パンチ更新)">取材完了(パンチ更新)</span>
+
+										<br/><br/>
+										<button class="btnBG btn1">업종</button> 
+										<button class="btnBG btn2">출신학교</button> 
+										<button class="btnBG btn3">출신지역</button> 
+										<button class="btnBG btn4">은행</button> 
+										<button class="btnBG btn5">일괄처리</button> 
+										<button class="btnBG btn6">DM업로드</button> 
+										<button class="btnBG btn10">취재처 문의</button> 
+										<button class="btnBG btn7">alert 1</button> 
+										<button class="btnBG btn8">alert 2</button> 
+										<button class="btnBG btn9">alert 3</button> 
+										<br/><br/><br/><br/>
+										<script type="text/javascript">
+										$(document).ready(function(){
+											$(".btn1").click(function () {
+												$(".industryCase").show();
+												$(".dimPop").show();
+											});
+											$(".btn2").click(function () {
+												$("#schoolSearch").show();
+												$(".dimPop").show();
+											});
+											$(".btn3").click(function () {
+												$("#localSearch").show();
+												$(".dimPop").show();
+											});
+											$(".btn4").click(function () {
+												$("#bankSearch").show();
+												$(".dimPop").show();
+											});
+											$(".btn5").click(function () {
+												$(".batchPop").show();
+												$(".dimPop").show();
+											});
+											$(".btn6").click(function () {
+												$(".uploadPop").show();
+												$(".dimPop").show();
+											});
+											$(".btn7").click(function () {
+												$("#alert1").show();
+												$(".dimPop").show();
+											});
+											$(".btn8").click(function () {
+												$("#alert2").show();
+												$(".dimPop").show();
+											});
+											$(".btn9").click(function () {
+												$("#alert3").show();
+												$(".dimPop").show();
+											});
+											$(".btn10").click(function () {
+												$(".commentPop").show();
+												$(".dimPop").show();
+											});
+											$(".popBase .pClose, .popAlert .pBtn *").click(function () {
+												$(".popBase").hide();
+												$(".popAlert").hide();
+												$(".dimPop").hide();
+											});
+											$(".popBase .keypad *").click(function () {
+												$(".keypad *").removeClass('on');
+												$(this).addClass('on');
+											});
+											$(".commentTab button").click(function () {
+												$(".commentTab button").removeClass("on");
+												$(this).addClass("on");
+												var activeTab = $(this).attr("data-role");
+												 $(".cmtData").hide();
+												 $(activeTab).show();
+											});
+											$(".commentPop .zipcodeList dl dt input").click(function () {
+												if ( $(this).is(":checked") == true){
+													$(this).parents('dl').addClass('rep');
+												} else {
+													$(this).parents('dl').removeClass('rep');
+												}
+											});
+										});
+										</script>
+									</div>
+
+								</div>
+							</div>
+							</article>
+							<!---->
+						</div>
+					</div>
+				</section>
+				<!-- //container -->
+			</div>
+		</div>
+		<!-- //wrap -->
+<script type="text/javascript">
+//<![CDATA[
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+
+	$(document).ready(function () {
+		'use strict';
+		var lastsel;
+		var cmtData = [ 
+				{no:'<button class="btnLN blue sm">追加</button>', date:'', writeId:'', needs:'', convers:'<em>← 新規登録の場合、＜追加＞ボタンを押下してください。</em>'},
+				{no:'<button class="btnLN red sm">削除s</button>', date:'自動登録', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'<div class="cmtTxt"><textarea>株式会社帝国データバ</textarea><button class="btnBG blue sm">保存</button></div>'},
+				{no:'09', date:'2019‐08‐19', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'08', date:'2019‐08‐18', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'07', date:'2019‐08‐17', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'06', date:'2019‐08‐16', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'05', date:'2019‐08‐15', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'04', date:'2019‐08‐14', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'03', date:'2019‐08‐13', writeId:'999999999', needs:'<button class="btnAttention">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'02', date:'2019‐08‐12', writeId:'999999999', needs:'<button class="btnAttention on">要注意フラグ</button>', convers:'株式会社帝国データバ'},
+				{no:'01', date:'2019‐08‐11', writeId:'999999999', needs:'<button class="btnAttention on">要注意フラグ</button>', convers:'株式会社帝国データバ'}
+			];
+		$("#cmtList").jqGrid({
+			datatype: 'local',
+			data: cmtData,
+			colNames: ['No', '問合せ日時', '担当者コード・担当者名', '要注意フラグ', '問合せ内容'],
+			colModel: [
+				{name: 'no', index: 'no', width: 40, align: 'center'},
+				{name: 'date', index: 'date', width: 90, align: 'center'},
+				{name: 'writeId', index: 'writeId', width: 90, align: 'center'},
+				{name: 'needs', index: 'needs', width: 90, align: 'center'},
+				{name: 'convers', index: 'convers', width: 250, align: 'left'}
+			],
+			autowidth: true,
+			gridview: true,
+			viewrecords: true,
+			sortorder: 'no',
+			height: '553px',
+			/*onSelectRow: function(id){
+				if(id == 1){
+					$('#cmtList').jqGrid('restoreRow',lastsel);
+					$('#cmtList').jqGrid('editRow',false);
+				} else if(id && id!==lastsel){
+					$('#cmtList').jqGrid('restoreRow',lastsel);
+					$('#cmtList').jqGrid('editRow',id,true);
+					lastsel=id;
+				}
+			}*/
+		});
+		$(".btnAttention").click(function () {
+			$(this).toggleClass("on");
+		});
+	});
+
+//]]>
+</script>
+		<!-- 주소찾기 -->
+		<div class="etcPopBack" style="display:none">
+			<div class="popBase addressPop">
+				<aside>
+					<h1>住所選択</h1>
+					<button class="pClose">閉じる</button>
+					<div class="pDetail">
+						<p>郵便番号で該当する住所が複数あります。<br/>当たる住所を選択してください。</p>
+						<span class="selectSet">
+							<select>
+								<option>東京都千代田区猿楽町 1</option>
+								<option>東京都千代田区猿楽町 2</option>
+								<option>東京都千代田区猿楽町 3</option>
+								<option>東京都千代田区猿楽町 4</option>
+							</select>
+						</span>
+					</div>
+				</aside>
+			</div>
+		</div>
+		<!--//-->
+		<!-- 취재처문의 -->
+		<div class="popBase commentPop" style="display:none">
+			<aside>
+				<h1>株式会社ABC-MART</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<!---->
+					<div class="commentTab">
+						<button data-role="#cmtD1" class="on">お問合せ</button>
+						<button data-role="#cmtD2">宛名先変更</button>
+					</div>
+					<!---->
+					<div class="commentCon">
+						<!---->
+						<div class="cmtData cmtDetail" id="cmtD1">
+							<div class="jqGridSet">
+								<table id="cmtList"><tr><td></td></tr></table>
+							</div>
+						</div>
+						<!---->
+						<div class="cmtData zipcodeCase" id="cmtD2" style="display:none;">
+							<button class="btnLN blue">宛名先追加</button>
+							<div class="zipcodeList">
+								<dl>
+									<dt>
+										<span class="checkSet"><input type="checkbox" id="listC01"><label for="listC01"><i></i>下記の住所に宛名先を変更する</label></span>
+										<span class="right">
+											<button class="btnBG green sm">保存</button>
+											<button class="btnBG orange sm">削除</button>
+										</span>
+									</dt>
+									<dd>
+										<ol>
+											<li>
+												<strong>登録日</strong>
+												<div>2019-10-02　23:03:56</div>
+											</li>
+											<li>
+												<strong>郵便番号</strong>
+												<div>
+													<input type="text" class="w100" /><button class="btnPmSearch">住所検索</button><em>※郵便番号の入力した後、＜住所検索＞ボタンを押下してください。</em>
+												</div>
+											</li>
+											<li>
+												<strong>所在地（漢字）</strong>
+												<div class="addDetail">
+													<input type="text" />
+													<input type="text" />
+												</div>
+											</li>
+										</ol>
+									</dd>
+								</dl>
+								<!--Loop-->
+								<dl class="rep">
+									<dt>
+										<span class="checkSet"><input type="checkbox" id="listC0" checked><label for="listC0"><i></i>下記の住所に宛名先を変更する</label></span>
+										<em>(適用日：2019-10-02　23:03:56)</em>
+										<span class="right">
+											<button class="btnBG green sm">保存</button>
+											<button class="btnBG orange sm">削除</button>
+										</span>
+									</dt>
+									<dd>
+										<ol>
+											<li>
+												<strong>登録日</strong>
+												<div>2019-10-02　23:03:56</div>
+											</li>
+											<li>
+												<strong>郵便番号</strong>
+												<div>
+													<input type="text" class="w100" />
+												</div>
+											</li>
+											<li>
+												<strong>所在地（漢字）</strong>
+												<div class="addDetail">
+													<input type="text" />
+													<input type="text" />
+												</div>
+											</li>
+										</ol>
+									</dd>
+								</dl>
+								<!--//Loop-->
+								<dl>
+									<dt>
+										<span class="checkSet"><input type="checkbox" id="listC03"><label for="listC03"><i></i>下記の住所に宛名先を変更する</label></span>
+										<span class="right">
+											<button class="btnBG orange sm">削除</button>
+										</span>
+									</dt>
+									<dd>
+										<ol>
+											<li>
+												<strong>登録日</strong>
+												<div>2019-10-02　23:03:56</div>
+											</li>
+											<li>
+												<strong>郵便番号</strong>
+												<div>
+													<input type="text" class="w100" />
+												</div>
+											</li>
+											<li>
+												<strong>所在地（漢字）</strong>
+												<div class="addDetail">
+													<input type="text" />
+													<input type="text" />
+												</div>
+											</li>
+										</ol>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+										<span class="checkSet"><input type="checkbox" id="listC04"><label for="listC04"><i></i>下記の住所に宛名先を変更する</label></span>
+										<span class="right">
+											<button class="btnBG orange sm">削除</button>
+										</span>
+									</dt>
+									<dd>
+										<ol>
+											<li>
+												<strong>登録日</strong>
+												<div>2019-10-02　23:03:56</div>
+											</li>
+											<li>
+												<strong>郵便番号</strong>
+												<div>
+													<input type="text" class="w100" />
+												</div>
+											</li>
+											<li>
+												<strong>所在地（漢字）</strong>
+												<div class="addDetail">
+													<input type="text" />
+													<input type="text" />
+												</div>
+											</li>
+										</ol>
+									</dd>
+								</dl>
+							</div>
+						</div>
+						<!---->
+					</div>
+					<!---->
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 업종 -->
+		<div class="popBase searchPop industryCase" style="display:none;">
+			<aside>
+				<h1>業種</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<h2>キーワード検索</h2>
+					<form>
+						<fieldset>
+							<input type="text" class="in" />
+							<input type="submit" value="検索" class="btnBG psearch" />
+						</fieldset>
+					</form>
+					<div class="indPos">
+						<div><span>業種</span><span>学術研究，専門・技術サービス業</span><span>技術サービス業（他に分類されないもの）</span><span>機械設計業</span></div>
+					</div>
+					<span class="revised"><!--(平成25年[2013年]10月改定)--></span>
+					<div class="popScroll">
+						<table class="ptbls1">
+							<colgroup>
+								<col width="84" />
+								<col />
+								<col width="95" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>分類コード</th>
+									<th>項目名</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="tC">A</td>
+									<td><a>農業，林業（2）</a></td>
+									<td><button class="btnBG orange">「選択」</button></td>
+								</tr>
+								<tr>
+									<td class="tC">B</td>
+									<td><a>漁業（2）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">C</td>
+									<td><a>鉱業，採石業，砂利採取業（1）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">D</td>
+									<td><a>建設業（3）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">E</td>
+									<td><a>製造業（24）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC"ss>F</td>
+									<td><a>電気・ガス・熱供給・水道業（4）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">G</td>
+									<td><a>情報通信業（5）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">H</td>
+									<td><a>運輸業，郵便業（8）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">I</td>
+									<td><a>卸売業，小売業（12）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">J</td>
+									<td><a>金融業，保険業（6）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">K</td>
+									<td><a>不動産業，物品賃貸業（3）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">L</td>
+									<td><a>学術研究，専門・技術サービス業（4）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">M</td>
+									<td><a>宿泊業，飲食サービス業（3）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">N</td>
+									<td><a>生活関連サービス業，娯楽業（3）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">O</td>
+									<td><a>教育，学習支援業（2）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">P</td>
+									<td><a>医療，福祉（3）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">Q</td>
+									<td><a>複合サービス事業（2）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">R</td>
+									<td><a>サービス業（他に分類されないもの）（9）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">S</td>
+									<td><a>公務（他に分類されるものを除く）（2）</a></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td class="tC">T</td>
+									<td><a>分類不能の産業（1）</a></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 출신학교 -->
+		<div class="popBase searchPop zoneCase" id="schoolSearch" style="display:none;">
+			<aside>
+				<h1>出身校（大学）</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail bgGray">
+					<h2>キーワード検索・直接入力</h2>
+					<form>
+						<fieldset>
+							<span class="selectSet">
+								<select>
+									<option>キーワード検索</option>
+									<option>直接入力</option>
+								</select>
+							</span>
+							<input type="text" class="in" />
+							<input type="submit" value="検索" class="btnBG psearch" />
+						</fieldset>
+					</form>
+					<h2>頭文字をクリックしてください。</h2>
+					<div class="keypad">
+						<button>あ</button>
+						<button>か</button>
+						<button>さ</button>
+						<button>た</button>
+						<button>な</button>
+						<button>は</button>
+						<button>ま</button>
+						<button>や</button>
+						<button>ら</button>
+						<button>わ</button>
+						<button>い</button>
+						<button>き</button>
+						<button>し</button>
+						<button>ち</button>
+						<button>に</button>
+						<button>ひ</button>
+						<button>み</button>
+						<span></span>
+						<button>り</button>
+						<span></span>
+						<button>う</button>
+						<button>く</button>
+						<button>す</button>
+						<button>つ</button>
+						<button>ぬ</button>
+						<button>ふ</button>
+						<button>む</button>
+						<button>ゆ</button>
+						<button>る</button>
+						<span></span>
+						<button>え</button>
+						<button>け</button>
+						<button>せ</button>
+						<button>て</button>
+						<button>ね</button>
+						<button>へ</button>
+						<button>め</button>
+						<span></span>
+						<button>れ</button>
+						<span></span>
+						<button>お</button>
+						<button>こ</button>
+						<button>そ</button>
+						<button>と</button>
+						<button>の</button>
+						<button>ほ</button>
+						<button>も</button>
+						<button>よ</button>
+						<button>ろ</button>
+						<span></span>
+						<button>その他</button>
+					</div>
+				</div>
+				<div class="pDetail">
+					<div>
+						<table class="ptbls1">
+							<colgroup>
+								<col width="54" />
+								<col width="94" />
+								<col />
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>学校コード</th>
+									<th>学校名</th>
+									<th>フリガナ</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="tC">1</td>
+									<td class="tC">123456789</td>
+									<td>学校名</td>
+									<td>ガッコウメイ</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!-- 출신지역 -->
+		<div class="popBase searchPop zoneCase" id="localSearch" style="display:none;">
+			<aside>
+				<h1>出身地</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail bgGray">
+					<h2>キーワード検索・直接入力</h2>
+					<form>
+						<fieldset>
+							<span class="selectSet">
+								<select>
+									<option>キーワード検索</option>
+									<option>直接入力</option>
+								</select>
+							</span>
+							<input type="text" class="in" />
+							<input type="submit" value="検索" class="btnBG psearch" />
+						</fieldset>
+					</form>
+					<h2>頭文字をクリックしてください。</h2>
+					<div class="keypad">
+						<button>あ</button>
+						<button>か</button>
+						<button>さ</button>
+						<button>た</button>
+						<button>な</button>
+						<button>は</button>
+						<button>ま</button>
+						<button>や</button>
+						<button>ら</button>
+						<button>わ</button>
+						<button>い</button>
+						<button>き</button>
+						<button>し</button>
+						<button>ち</button>
+						<button>に</button>
+						<button>ひ</button>
+						<button>み</button>
+						<span></span>
+						<button>り</button>
+						<span></span>
+						<button>う</button>
+						<button>く</button>
+						<button>す</button>
+						<button>つ</button>
+						<button>ぬ</button>
+						<button>ふ</button>
+						<button>む</button>
+						<button>ゆ</button>
+						<button>る</button>
+						<span></span>
+						<button>え</button>
+						<button>け</button>
+						<button>せ</button>
+						<button>て</button>
+						<button>ね</button>
+						<button>へ</button>
+						<button>め</button>
+						<span></span>
+						<button>れ</button>
+						<span></span>
+						<button>お</button>
+						<button>こ</button>
+						<button>そ</button>
+						<button>と</button>
+						<button>の</button>
+						<button>ほ</button>
+						<button>も</button>
+						<button>よ</button>
+						<button>ろ</button>
+						<span></span>
+						<button>その他</button>
+					</div>
+				</div>
+				<div class="pDetail">
+					<div>
+						<table class="ptbls1">
+							<colgroup>
+								<col width="54" />
+								<col width="94" />
+								<col />
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>地域コード</th>
+									<th>地域名</th>
+									<th>フリガナ</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="tC">1</td>
+									<td class="tC">123456789</td>
+									<td>地域名</td>
+									<td>チイキメイ</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!--은행-->
+		<div class="popBase searchPop zoneCase" id="bankSearch" style="display:none;">
+			<aside>
+				<h1>銀行検索</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail bgGray">
+					<h2>銀行選択</h2>
+					<div class="keypad bankCase">
+						<button>みずほ銀行</button>
+						<button>三菱UFJ銀行</button>
+						<button>三井住友銀行</button>
+						<button>りそな銀行</button>
+						<button>埼玉りそな銀行</button>
+						<button>ゆうちょ銀行</button>
+						<button>ｼﾞｬﾊﾟﾝﾈｯﾄ銀行</button>
+						<button>セブン銀行</button>
+						<button>ソニー銀行</button>
+						<button>楽天銀行</button>
+						<button>住信SBIネット銀行</button>
+					</div>
+					<!-- <div class="keypad bankCase">
+						<strong>住信SBIネット銀行</strong>
+					</div> -->
+					<h2>金融機関の頭文字をクリックしてください。</h2>
+					<div class="keypad">
+						<button>あ</button>
+						<button>か</button>
+						<button>さ</button>
+						<button>た</button>
+						<button>な</button>
+						<button>は</button>
+						<button>ま</button>
+						<button>や</button>
+						<button>ら</button>
+						<button>わ</button>
+						<button>い</button>
+						<button>き</button>
+						<button>し</button>
+						<button>ち</button>
+						<button>に</button>
+						<button>ひ</button>
+						<button>み</button>
+						<span></span>
+						<button>り</button>
+						<span></span>
+						<button>う</button>
+						<button>く</button>
+						<button>す</button>
+						<button>つ</button>
+						<button>ぬ</button>
+						<button>ふ</button>
+						<button>む</button>
+						<button>ゆ</button>
+						<button>る</button>
+						<span></span>
+						<button>え</button>
+						<button>け</button>
+						<button>せ</button>
+						<button>て</button>
+						<button>ね</button>
+						<button>へ</button>
+						<button>め</button>
+						<span></span>
+						<button>れ</button>
+						<span></span>
+						<button>お</button>
+						<button>こ</button>
+						<button>そ</button>
+						<button>と</button>
+						<button>の</button>
+						<button>ほ</button>
+						<button>も</button>
+						<button>よ</button>
+						<button>ろ</button>
+						<span></span>
+						<button>その他</button>
+					</div>
+				</div>
+				<div class="pDetail">
+					<div>
+						<table class="ptbls1">
+							<colgroup>
+								<col width="54" />
+								<col width="94" />
+								<col />
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>金融機関コード</th>
+									<th>金融機関名</th>
+									<th>フリガナ</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="tC">A</td>
+									<td class="tC">1206</td>
+									<td>アイオー信用金庫</td>
+									<td>ｱｲｵ-ｼﾝｷﾝ</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!--일괄처리-->
+		<div class="popBase batchPop" style="display:none;">
+			<aside>
+				<h1>一括処理 <span>非正常の場合、</span></h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<div class="batchStatus">
+						<span class="on">バーコードリーダとの連結が正常の場合</span>
+						<span>非正常の場合、</span>
+					</div>
+					<div class="statusChange">
+						＊「確認」ボタンを押下すると以下の選択した件を
+						<span class="selectSet">
+							<select>
+								<option disabled selected>選択してください</option>
+								<option>返送済</option>
+								<option>取材完了(未着)</option>
+								<option>取材完了(取得拒否)</option>
+							</select>
+						</span>
+						状態に変換する
+						<button class="btnBG green">確認</button>
+						<p>（バーコードリーダとの連結を確認し、一件づつにスキャンして追加してください）</p>
+					</div>
+					<div class="batchBtn"><button class="btnLN red">選択削除</button></div>
+					<div class="popScrollBack">
+						<div class="popScrollTop">
+							<table class="ptbls1">
+								<colgroup>
+									<col width="53" />
+									<col width="79" />
+									<col width="281" />
+									<col width="297" />
+								</colgroup>
+								<thead>
+									<tr>
+										<th></th>
+										<th>No</th>
+										<th>（バーコードの）取材番号</th>
+										<th>変換結果</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div class="popScroll">
+							<table class="ptbls1">
+								<colgroup>
+									<col width="54" />
+									<col width="80" />
+									<col width="288" />
+									<col width="288" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td class="tC"></td>
+										<td class="tC"></td>
+										<td><input type="text" class="full" /></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath1"><label for="bath1"><i></i></label></span></td>
+										<td class="tC">197</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+									</tr>
+									<tr class="error">
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath2"><label for="bath2"><i></i></label></span></td>
+										<td class="tC">196</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath3"><label for="bath3"><i></i></label></span></td>
+										<td class="tC">195</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath4"><label for="bath4"><i></i></label></span></td>
+										<td class="tC">194</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath5"><label for="bath5"><i></i></label></span></td>
+										<td class="tC">193</td>
+										<td>20件表示</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath6"><label for="bath6"><i></i></label></span></td>
+										<td class="tC">192</td>
+										<td>企業コード(9)</td>
+										<td>企業コード(9)＋取材発生日(8)</td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath7"><label for="bath7"><i></i></label></span></td>
+										<td class="tC">191</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath8"><label for="bath8"><i></i></label></span></td>
+										<td class="tC">190</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath9"><label for="bath9"><i></i></label></span></td>
+										<td class="tC">189</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath10"><label for="bath10"><i></i></label></span></td>
+										<td class="tC">188</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath11"><label for="bath11"><i></i></label></span></td>
+										<td class="tC">187</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath12"><label for="bath12"><i></i></label></span></td>
+										<td class="tC">186</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td class="tC"><span class="checkSet"><input type="checkbox" id="bath13"><label for="bath13"><i></i></label></span></td>
+										<td class="tC">185</td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<!--DM업로드-->
+		<div class="popBase uploadPop" style="display:none;">
+			<aside>
+				<h1><span>CUSTOM商品レイアウトA</span>新規アップロード</h1>
+				<button class="pClose">閉じる</button>
+				<div class="pDetail">
+					<dl class="line1">
+						<dt>返送期限 <sup>必須</sup></dt>
+						<dd class="inMust">
+							<input type="text" /><span>例）20190101<br/>&nbsp;&nbsp;&nbsp;（8桁の数字のみに入力して下さい。）</span>
+						</dd>
+					</dl>
+					<dl class="line2">
+						<dt>CUSTOM商品レイアウトA  <sup>必須</sup></dt>
+						<dd>
+							<span class="fileSet">
+								<span class="fileFind">
+									<input type="file" id="file1" />
+									<label for="file1">ファイル選択</label>
+								</span> <!--파일선택:버튼만있는형식:초록색버전-->
+								<!--<span class="loadIng">アップロード中</span>
+								<strong class="loadEnd">
+									<em>サンプルデータ.csv</em>
+									<button>元に戻す</button>
+								</strong>
+								<span class="loadFail">アップロード失敗</span> 파일업로드실패-->
+							</span>
+						</dd>
+					</dl>
+					<dl class="line3">
+						<dt>メモ</dt>
+						<dd><textarea></textarea></dd>
+					</dl>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG">取消</button>
+					<button class="btnBG blue" disabled>保存</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert1" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>選択した件がありません。<br/>削除する件(行)を選択してください。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">OK</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert2" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>選択された件に関して発送指示をしますか。<br/>(発送指示日：YYYY-MM-DD)</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!---->
+		<div class="popAlert" id="alert3" style="display:none;">
+			<aside>
+				<div class="pDetail">
+					<div>
+						<p>取消すると、<br/>更新情報を消して初期化になります。<br/>選択された件の発送指示を取消しますか。</p>
+					</div>
+				</div>
+				<div class="pBtn">
+					<button class="btnBG blue">はい</button>
+					<button class="btnBG">いいえ</button>
+				</div>
+			</aside>
+		</div>
+		<!--//-->
+		<div class="dimPop" style="display:none;"></div>
+		<!-- //PopUp -->
+	</body>
+</html>

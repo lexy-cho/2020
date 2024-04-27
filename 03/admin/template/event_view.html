@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="event_list.html">이벤트 관리</a></span></li>
+							<li><span><a href="event_status.html">참여 현황</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">이벤트 관리</a></span>
+							<span>이벤트 관리</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<h3 class="tRight"><span>최종 수정자 : 홍길동 / 최종 수정일 : YYYY-MM-DD 00:00:00</span></h3>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="150" />
+										<col />
+										<col width="100" />
+										<col width="300" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>이벤트 제목</th>
+											<td><input type="text" value="[슈퍼 세이프티 시즌3] 지금이 기회다!" class="wFull"/></td>
+											<th>배차날짜</th>
+											<td>2016-12-31</td>
+										</tr>
+										<tr>
+											<th>이벤트 기간</th>
+											<td>
+												<input type="text" value="2016-12-31" class="cal" /> ~
+												<input type="text" value="2016-12-31" class="cal" />
+											</td>
+											<th>오픈 날짜</th>
+											<td>
+												<input type="text" value="2016-12-31" class="cal" />
+												<select>
+													<option selected >01</option>
+													<option>02</option>
+													<option>03</option>
+													<option>04</option>
+													<option>05</option>
+													<option>06</option>
+													<option>07</option>
+													<option>08</option>
+													<option>09</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+													<option>13</option>
+													<option>14</option>
+													<option>...</option>
+													<option>24</option>
+												</select> 시
+												<select>
+													<option selected >01</option>
+													<option>02</option>
+													<option>03</option>
+													<option>04</option>
+													<option>05</option>
+													<option>06</option>
+													<option>07</option>
+													<option>08</option>
+													<option>09</option>
+													<option>10</option>
+													<option>11</option>
+													<option>12</option>
+													<option>13</option>
+													<option>14</option>
+													<option>...</option>
+													<option>24</option>
+												</select> 분
+											</td>
+										</tr>
+										<tr>
+											<th>이벤트 상태</th>
+											<td>
+												<select>
+													<option>오픈대기</option>
+													<option selected >진행 중</option>
+													<option>취소</option>
+													<option>마감</option>
+												</select>
+											</td>
+											<th>참여자 수</th>
+											<td><a href="event_status.html" class="blueLine">300</a></td>
+										</tr>
+										<tr>
+											<th>응모정보</th>
+											<td colspan="3">
+												<div class="eventFormExample">
+													<!-- /////////////////////////////////////////////////// -->
+													<div class="gridSet grid2">
+														<div class="gridItem">
+															<div class="iSet">
+																<label>응모자 성명</label>
+																<span class="iLine"><input type="text" placeholder="성명을 입력해 주세요" /></span>
+															</div>
+														</div>
+														<div class="gridItem">
+															<div class="iSet">
+																<label>생년월일</label>
+																<span class="iLine"><input type="date" /></span>
+															</div>
+														</div>
+													</div>
+													<!---->
+													<div class="gridSet grid2">
+														<div class="gridItem">
+															<div class="iSet">
+																<label>자택전화</label>
+																<span class="iLine"><input type="number" placeholder="숫자로 입력해주세요." /></span>
+															</div>
+														</div>
+														<div class="gridItem">
+															<div class="iSet">
+																<label>휴대번호</label>
+																<div class="searchCase"><span class="iLine"><input type="number" placeholder="숫자로 입력해주세요." /></span> <input type="button" value="간편인증" class="btnColor gray" /></div>
+															</div>
+														</div>
+													</div>
+													<!---->
+													<div class="gridSet grid1">
+														<div class="gridItem">
+															<div class="iSet emailSet">
+																<label>E-Mail</label>
+																<div class="emailCase">
+																	<span class="iLine first"><input type="text" /></span>
+																	<strong>@</strong>
+																	<span class="iLine"><input type="text" placeholder="직접 입력하세요" /></span>
+																	<span class="iLine last">
+																		<span class="selectSet">
+																			<select>
+																				<option>선택</option>
+																				<option>직접입력 </option>
+																				<option>naver.com</option>
+																				<option>nate.com</option>
+																				<option>hanmail.net</option>
+																				<option>gmail.com</option>
+																				<option>hotmail.com</option>
+																				<option>yahoo.co.kr</option>
+																				<option>yahoo.com</option>
+																				<option>gm.com </option>
+																			</select>
+																		</span>
+																	</span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!---->
+													<div class="gridSet grid1">
+														<div class="gridItem">
+															<div class="iSet addCase">
+																<label>응모자 주소</label>
+																<div class="findCase"><input type="button" value="주소찾기" class="btnColor gray" onClick="location.href='contract_form_popup01.html'"/><span class="iLine"><input type="text" placeholder="주소 찾기로 입력" /></span></div>
+																<span class="iLine"><input type="text" placeholder="나머지 주소 입력" /></span>
+															</div>
+														</div>
+													</div>
+													<!-- /////////////////////////////////////////////////// -->
+													<div class="iSet">
+														<label class="iCell">성별</label>
+														<span class="iCell">
+															<span class="radioSet">
+																<input type="radio" name="radio1" id="r_01" />
+																<label for="r_01">남자</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio1" id="r_02" />
+																<label for="r_02">여자</label>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet">
+														<label class="iCell">나이</label>
+														<span class="iCell">
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_03" />
+																<label for="r_03">10대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_04" />
+																<label for="r_04">20대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_05" />
+																<label for="r_05">30대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_06" />
+																<label for="r_06">40대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_07" />
+																<label for="r_07">50대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_08" />
+																<label for="r_08">60대</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="radio2" id="r_09" />
+																<label for="r_09">70대</label>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet">
+														<label class="iCell">방문시간</label>
+														<div class="iCell selectForm">
+															<div class="gridSet grid2-3">
+																<div class="gridItem">
+																	<span class="iLine"><input type="date" /></span>
+																</div>
+																<div class="gridItem">
+																	<span class="selectSet w70">
+																		<select>
+																			<option>00</option>
+																		</select>
+																	</span>
+																	<span class="lh40">시</span>
+																	<span class="selectSet w70">
+																		<select>
+																			<option>00</option>
+																		</select>
+																	</span>
+																	<span class="lh40">분</span>
+																	<button class="btnColor gray ml10">현재 시각</button>
+																</div>
+															</div>
+														</div>
+													</div>
+													<!---->
+													<div class="iSet selectForm">
+														<label class="iCell">관심차종</label>
+														<span class="iCell">
+															<span class="selectSet">
+																<select>
+																	<option>차종 선택 1</option>
+																</select>
+															</span>
+															<!---->
+															<span class="selectSet">
+																<select disabled>
+																	<option>차종 선택 2</option>
+																</select>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet">
+														<label class="iCell">방문사유</label>
+														<span class="iCell">
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_01" />
+																<label for="c_01">계약상담</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_02" />
+																<label for="c_02">제품문의</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_03" />
+																<label for="c_03">신차전시</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_04" />
+																<label for="c_04">카달로그/가격표 수령</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_05" />
+																<label for="c_05">이벤트 문의/응모/상품수령</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check1" id="c_06" />
+																<label for="c_06">기타</label>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet">
+														<label class="iCell">방문경로</label>
+														<span class="iCell">
+															<span class="checkSet">
+																<input type="checkbox" name="check2" id="c_08" />
+																<label for="c_08">매체광고</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check2" id="c_09" />
+																<label for="c_09">인터넷</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check2" id="c_10" />
+																<label for="c_10">판촉전단</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check2" id="c_11" />
+																<label for="c_11">지인소개</label>
+															</span>
+															<span class="checkSet">
+																<input type="checkbox" name="check2" id="c_12" />
+																<label for="c_12">기타</label>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet">
+														<label class="iCell">방문경로</label>
+														<span class="iCell">
+															<span class="taSet">
+																<textarea>123</textarea>
+															</span>
+														</span>
+													</div>
+													<!---->
+													<div class="iSet selectForm">
+														<label class="iCell">구입예정시기</label>
+														<span class="iCell">
+															<span class="selectSet">
+																<select>
+																	<option>선택해주세요</option>
+																</select>
+															</span>
+														</span>
+													</div>
+													<!-- /////////////////////////////////////////////////// -->
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!---->
+							<div class="databox-line mt10">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="150" />
+										<col />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>목록 썸네일 이미지</th>
+											<td>
+												<div class="fileex_back mr5">
+													<input type="file" class="fileex">
+													<span class="btnSet imgup"><label>File Search</label></span>
+												</div>
+												<div class="imgselected mr5"><span>imgSrc.png<input type="button" value="삭제" class="imgdelete"></span></div>
+												<span class="btnSet preview"><a href="#">미리보기</a></span>
+											</td>
+										</tr>
+										<tr>
+											<th>이벤트 상세</th>
+											<td>
+												<div class="fileex_back mr5">
+													<input type="file" class="fileex">
+													<span class="btnSet imgup"><label>File Search</label></span>
+												</div>
+												<div class="imgselected mr5"><span>imgSrc.png<input type="button" value="삭제" class="imgdelete"></span></div>
+												<span class="btnSet preview"><a href="#">미리보기</a></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!---->
+							<div class="databox-line mt10">
+								<h3 class="tLeft">개인정보수집 및 이용에 관한 동의 설정</h3>
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="150" />
+										<col width="150" />
+										<col />
+									</colgroup>
+									<tbody>
+										<tr>
+											<td>
+												<div class="eventUp">
+													<span class="positionSet">
+														<span class="lineUp">위로</span>
+														<span class="lineDown">아래로</span>
+														<span class="lineDelete">삭제</span>
+													</span>
+													<select>
+														<option>필수</option>
+														<option>마케팅 선택</option>
+														<option>고지문구</option>
+													</select>
+													<div class="htmlCase">
+														<div class="fileex_back mr5">
+															<input type="file" class="fileex">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</div>
+														<div class="imgselected mr5"><span><a href="">thmlSrc.html</a><input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="okCase">
+															<input type="text" class="w300" placeholder="ex) 위와 같은 개인정보의 수집 및 이용에 동의하십니까?" />
+															<span class="ocase txtcase"><input type="checkbox" id="f2" /><label for="f2">동의여부 사용</label></span>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="eventUp">
+													<span class="positionSet">
+														<span class="lineUp">위로</span>
+														<span class="lineDown">아래로</span>
+														<span class="lineDelete">삭제</span>
+													</span>
+													<select>
+														<option>필수</option>
+														<option selected>마케팅 선택</option>
+														<option>고지문구</option>
+													</select>
+													<div class="htmlCase">
+														<div class="fileex_back mr5">
+															<input type="file" class="fileex">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</div>
+														<div class="imgselected mr5"><span><a href="">thmlSrcThmlSrc.html</a><input type="button" value="삭제" class="imgdelete"></span></div>
+														<div class="okCase">
+															<input type="text" class="w300" placeholder="ex) 위와 같은 개인정보의 수집 및 이용에 동의하십니까?" />
+															<span class="ocase txtcase"><input type="checkbox" id="f2" /><label for="f2">동의여부 사용</label></span>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="eventUp">
+													<span class="positionSet">
+														<span class="lineUp">위로</span>
+														<span class="lineDown">아래로</span>
+														<span class="lineDelete">삭제</span>
+													</span>
+													<select>
+														<option>필수</option>
+														<option>마케팅 선택</option>
+														<option selected>고지문구</option>
+													</select>
+													<div class="htmlCase">
+														<div class="fileex_back mr5">
+															<input type="file" class="fileex">
+															<span class="btnSet imgup"><label>File Search</label></span>
+														</div>
+														<div class="imgselected mr5"><span><a href="">thmlSrcThmlSrc.html</a><input type="button" value="삭제" class="imgdelete"></span></div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox tCenter">
+									<input type="button" class="btnColor bGray" value="항목 추가" />
+									<input type="button" class="btnColor bPink" value="초기화" />
+								</div>
+							</div>
+							<!---->
+							<div class="btnLayout">
+								<div class="right">
+									<span class="btnSet preview"><input type="button" value="미리보기"></span>
+									<span class="btnSet cancel"><a href="contract_list.html">취소</a></span>
+									<span class="btnSet modify"><input type="button" value="수정"></span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

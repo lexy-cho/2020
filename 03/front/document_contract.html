@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body>
+
+		<!-- 2017-02-17 :: 퀵가이드 -->
+		<div class="quickGuide">
+			<div class="qGuideBack">
+				<div class="qGBtn">
+					<input type="button" value="SKIP" class="qBtnSkip" />
+					<input type="button" value="CLOSE" class="qBtnClose" style="display:none;" />
+				</div>
+				<div class="quickGuideSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 증빙서류 PART1</h6>
+								<p>
+								리스트에서 증빙서류 제출할 계약서 선택 후 <br/>증빙서류 촬영을 누릅니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_04_01.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>1. 증빙서류 PART2</h6>
+								<p>
+									촬영을 원하는 증명서 종류를 선택하고 <br/>필요에 따라 증명서 명을 기입할 수 있습니다. <br/>기타 서류 선택 시 증명서 명은 반드시 입력해야 합니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_04_02.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>2. 촬영하기 PART1</h6>
+								<p>
+									촬영모드에서는 서류가 잘 보이도록 평평한곳에 놓고 <br/>해당 가이드에 맞추어 촬영을 진행합니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_04_03.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="qGTxt">
+								<h6>2. 촬영하기 PART2</h6>
+								<p>
+									촬영 후 확대축소 아이콘을 클릭해 서류를 수정하거나 펜, 지우개 툴을 이용하여 중요 정보를 삭제 또는 필요한 메모를 삽입 할 수 있습니다. 수정 작업 완료 후 확인버튼을 클릭하여 수정을 완료합니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_04_04.png" alt="" /></div>
+						</div>
+						<div class="swiper-slide last">
+							<div class="qGTxt">
+								<h6>3. 증빙서류목록</h6>
+								<p>
+								증빙서류 목록에서 촬영된 서류 목록을 <br/>확인하고 제출할 수 있습니다.
+								</p>
+							</div>
+							<div class="qGimg"><img src="images/img_quickGuide_04_051.png" alt="" /></div>
+							<div class="qGimg2">
+								<a class="qGstart"><img src="images/img_quickGuide_02_062.png" alt="" /></a>
+								<!-- 2017-04-25 삭제 -->
+							</div>
+						</div>
+					</div>
+					<div class="quickChoiceBTn">
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<div class="quickPagination"></div>
+					<!-- 2017-04-25 -->
+					<div class="qNotBore">
+						<span class="checkSet">
+							<input type="checkbox" id="c_00" />
+							<label for="c_00">시작 시 퀵가이드를 다시보지 않습니다.</label>
+						</span>
+					</div>
+					<!-- //2017-04-25 -->
+				</div>
+				<script>
+					$( document ).ready( function() {
+						$(".qBtnSkip, .qBtnClose, .qGstart").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").removeClass('modalOpen');
+						});
+						$(".quickOpen").bind('tap click', function(){
+							$(".quickGuide").toggle();
+							$("body").addClass('modalOpen');
+						});
+					});
+
+					var swiperQuick = new Swiper('.quickGuideSwiper', {
+						spaceBetween: 20,
+						pagination: '.quickPagination',
+						paginationClickable: true,
+						nextButton: '.quickChoiceBTn .swiper-button-next',
+						prevButton: '.quickChoiceBTn .swiper-button-prev',
+					});
+				</script>
+			</div>
+		</div>
+		<!-- //2017-02-17 :: 퀵가이드 -->
+
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="#">Back</a></span>
+						</span>
+						<h1>
+							<img src="images/img_tit_03.png" alt="증빙서류" />
+							<!-- <img src="images/btn_quick_open.png" alt="" class="quickOpen" /> -->
+						</h1>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 증빙서류 -->
+						<div class="document">
+							<!-- 조회기간 -->
+							<div class="lookupTerm">
+								조회기간 :
+								<span>2016-05-10</span> ~
+								<span>2016-11-11</span>
+							</div>
+							<!-- //조회기간 -->
+							<!-- list -->
+							<div class="gridList"> <!-- 161205 .docList -> .gridList 수정 -->
+								<div class="listHead">
+									<div class="dName">매수인/서식번호</div> <!-- 161207 <br /> 삭제 -->
+									<div class="dSend">발송상태</div>
+									<div class="dAttach">첨부여부</div>
+									<div class="dMD">
+										<div class="dModify">제출여부</div> <!-- 161208 txt 수정여부 -> 제출여부 수정 -->
+										<div class="dDate">계약일자</div>
+									</div>
+								</div>
+								<!---->
+								<ul>
+									<!-- Loop -->
+									<li>
+										<a href="document_list.html">
+											<div class="dName"><!-- 매수인 / 서식번호 -->
+												<div>홍길동</div>
+												<span>E55002010</span>
+											</div>
+											<div class="dSend">DMS로 전송중</div> <!-- 발송상태 -->
+											<div class="dAttach">첨부</div> <!-- 첨부여부 -->
+											<div class="dMD"> <!-- 계약일자 -->
+												<div class="dModify">
+													<span class="radiusColor rGreen">제출가능</span>
+													<!-- <span class="brRed">제출불가</span> -->
+												</div>
+												<div class="dDate">2016-11-17</div>
+											</div>
+										</a>
+									</li>
+									<!-- //Loop -->
+									<li>
+										<a href="document_list.html">
+											<div class="dName">
+												<div>홍길동홍길동</div>
+												<span>E55002010</span>
+											</div>
+											<div class="dSend">DMS로 전송중</div>
+											<div class="dAttach">-</div>
+											<div class="dMD">
+												<div class="dModify">
+													<span class="radiusColor rRed">제출불가</span>
+												</div>
+												<div class="dDate">2016-11-17</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="document_list.html">
+											<div class="dName">
+												<div>홍길동</div>
+												<span>E55002010</span>
+											</div>
+											<div class="dSend">DMS로 전송완료</div>
+											<div class="dAttach">첨부</div>
+											<div class="dMD">
+												<div class="dModify">
+													<span class="radiusColor rGreen">제출가능</span>
+												</div>
+												<div class="dDate">2016-11-17</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="document_list.html">
+											<div class="dName">
+												<div>홍길동</div>
+												<span>E55002010</span>
+											</div>
+											<div class="dSend">DMS로 전송완료</div>
+											<div class="dAttach">-</div>
+											<div class="dMD">
+												<div class="dModify">
+													<span class="radiusColor rRed">제출불가</span>
+												</div>
+												<div class="dDate">2016-11-17</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<!--//<div class="noList"><span>표시할 항목이 없습니다.</span></div>--><!--//목록 없을 시-->
+							</div>
+							<!-- //list -->
+						</div>
+						<!-- //증빙서류 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		  /**
+		   * Push left instantiation and action.
+		   */
+		  var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		  });
+
+		  var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		  pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		  });
+
+		</script>
+	</body>
+</html>

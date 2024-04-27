@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.listControlBox .bRed, .tbls1 .bGreen').click(function(){
+					$('.permissionPop').show();
+					$('#blind_wrap').show();
+					$('html').css('overflow','hiden');
+
+					var ulWidth = $(".carChoice span").width();
+					var length = $(".carChoice li").length;
+					$(".carChoice ul").css('width', ((ulWidth+5)*length + 5) + "px");
+
+					var availableTags = [
+					  "ActionScript",
+					  "AppleScript",
+					  "Asp",
+					  "BASIC",
+					  "C",
+					  "C++",
+					  "Clojure",
+					  "COBOL",
+					  "ColdFusion",
+					  "Erlang",
+					  "Fortran",
+					  "Groovy",
+					  "Haskell",
+					  "Java",
+					  "JavaScript",
+					  "Lisp",
+					  "Perl",
+					  "PHP",
+					  "Python",
+					  "Ruby",
+					  "Scala",
+					  "Scheme"
+					];
+					$( "#tags" ).autocomplete({
+					  source: availableTags
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 차량 별 계약권한 관리 -->
+		<div class="pop permissionPop" style="display:none">
+			<h1>차량 별 계약권한 관리</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<div class="databox-line">
+					<h3 class="headBox">차량별</h3>
+					<div class="carChoice">
+						<ul>
+							<li><span><input type="radio" name="car" /><label>BOLT EV</label></span></li>
+							<li><span><input type="radio" name="car" /><label>VOLT</label></span></li>
+							<li><span><input type="radio" name="car" /><label>THE NEW SPARK</label></span></li>
+							<li><span><input type="radio" name="car" /><label>ALL NEW MALIBU</label></span></li>
+							<li><span><input type="radio" name="car" /><label>ALL NEW CRUZE</label></span></li>
+							<li><span><input type="radio" name="car" /><label>ALL NEW CAMARO SS</label></span></li>
+							<li><span><input type="radio" name="car" /><label>THE NEW TRAX</label></span></li>
+							<li><span><input type="radio" name="car" /><label>THE NEW TRAX</label></span></li>
+							<li><span><input type="radio" name="car" /><label>THE NEW TRAX</label></span></li>
+						</ul>
+					</div>
+					<div class="gridSet">
+						<div class="col">
+							<h3 class="headBox">본부별</h3>
+							<div class="areaChoice">
+								<ol>
+									<li><span><input type="checkbox" /><label>ALL</label></span></li>
+									<li><span><input type="checkbox" /><label>제 1본부</label></span></li>
+									<li><span><input type="checkbox" /><label>제 2본부</label></span></li>
+									<li><span><input type="checkbox" /><label>제 3본부</label></span></li>
+								</ol>
+							</div>
+						</div>
+						<div class="col">
+							<h3 class="headBox">지역별</h3>
+							<div class="areaChoice">
+								<ol>
+									<li><span><input type="checkbox" /><label>ALL</label></span></li>
+									<li><span><input type="checkbox" /><label>경기동남</label></span></li>
+									<li><span><input type="checkbox" /><label>경기동북</label></span></li>
+									<li><span><input type="checkbox" /><label>경기서남</label></span></li>
+									<li><span><input type="checkbox" /><label>경기서북</label></span></li>
+									<li><span><input type="checkbox" /><label>경기중부</label></span></li>
+									<li><span><input type="checkbox" /><label>광주전남</label></span></li>
+									<li><span><input type="checkbox" /><label>대전충남</label></span></li>
+									<li><span><input type="checkbox" /><label>전북서해</label></span></li>
+									<li><span><input type="checkbox" /><label>충북천안</label></span></li>
+								</ol>
+							</div>
+						</div>
+						<div class="col">
+							<h3 class="headBox">대리점별</h3>
+							<div class="officeChoice">
+								<em><input type="tex" id="tags" /></em>
+								<div>
+									<ol>
+										<li><button>광주용봉</button></li>
+										<li><button>광산중앙</button></li>
+										<li><button>금호</button></li>
+									</ol>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="dateChoice">
+						<em>시작일</em>
+						<span>
+							<input type="text" readonly="" class="cal" />
+							<select>
+								<option value="00">00시
+								<option value="01">01시
+							</select>
+						</span>
+						<em>종료일</em>
+						<span>
+							<input type="text" readonly="" class="cal" />
+							<select>
+								<option value="00">00시
+								<option value="01">01시
+							</select>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="pbtn">
+				<input type="button" value="취소" class="btnColor bGray" />
+				<input type="button" value="선택 완료" class="btnColor bPurple w100" />
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li class="on"><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="contract_manage_list.html">계약현황</a></span></li>
+							<li><span><a href="contract_wait_list.html">전송대기 계약서</a></span></li>
+							<li><span><a href="contract_permission.html">권한관리</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">권한관리</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<input id="initBtn" type="button" value="초기화" class="btnColor bBlack"/>
+									<select class="mr5">
+										<option>전체</option>
+										<option>차량선택</option>
+									</select>
+									<select class="mr5">
+										<option>전체</option>
+										<option>권역선택</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<!-- <col width="50" /> -->
+									</colgroup>
+									<thead>
+										<tr>
+											<th>No</th>
+											<th></th>
+											<th>구분</th>
+											<th>권한 보유 기간</th>
+											<th>차량</th>
+											<th>본부</th>
+											<th>지역(대리점)</th>
+											<th>메뉴</th>
+											<th>최종 수정 일시</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>예정</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>3본부</td>
+											<td>경남제주, 대구, 경북, 강원</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>예정</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>3본부</td>
+											<td>경남제주, 대구, 경북, 강원</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr>
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>예정</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>3본부</td>
+											<td>경남제주, 대구, 경북, 강원</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="ing">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>진행중</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>ALL</td>
+											<td>ALL</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="ing">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>진행중</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>ALL</td>
+											<td>ALL</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="ing">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>진행중</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>ALL</td>
+											<td>ALL</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="ing">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>진행중</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>ALL</td>
+											<td>ALL</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="ing">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>진행중</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>ALL</td>
+											<td>ALL</td>
+											<td><button class="btnColor bGreen">수정</button></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="off">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>만료</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>1본부</td>
+											<td>인천, 서울 서부</td>
+											<td></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="off">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>만료</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>1본부</td>
+											<td>인천, 서울 서부</td>
+											<td></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="off">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>만료</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>1본부</td>
+											<td>인천, 서울 서부</td>
+											<td></td>
+											<td>2019.01.11</td>
+										</tr>
+										<tr class="off">
+											<td>100</td>
+											<td><input type="checkbox"/></td>
+											<td>만료</td>
+											<td>2019.01.11 00:00 ~ 2019.01.12 23:59</td>
+											<td>볼트 EV</td>
+											<td>1본부</td>
+											<td>인천, 서울 서부</td>
+											<td></td>
+											<td>2019.01.11</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left">
+										<span class="mr5">선택 항목</span>
+										<button class="btnColor bBlue">삭제</button>
+									</div>
+									<!---->
+									<span class="btnBox">
+										<button class="btnColor bRed">신규 관리</button>
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+								<!---->
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

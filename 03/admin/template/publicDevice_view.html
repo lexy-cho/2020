@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			 $('.pubSel').change(
+			function() {
+				confirm('대리점 : 가락 \n사번 : K0000000 대표자 : 홍길동 \n공용기기 수를 수정 하시겠습니까?'); //공용기기 수 변경
+			})
+			/* $('.pubSel').change(
+			function() {
+				alert('대리점 : 가락 \n사번 : K0000000 대표자 : 홍길동 \n기존의 공용기기 사용여부를 먼저 해제 후 수정 진행을 해주세요 ');
+			}) */ //기기 수 감소 기기해제
+			$('.ocase input[type="checkbox"]:checked').click(
+			function() {
+				confirm('대리점 : 가락 \n사번 : K0000000 대표자 : 홍길동 \n기기명 : 영업2\n기기 사용 해제를 하시겠습니까?'); //기기 사용 해제
+			})
+			$('#public_using_Stop').click(
+			function() {
+				confirm('선택된 대리점의 기기사용이 제한됩니다.\n사용중지 하시겠습니까?'); // 사용 중지
+			})
+			$('#public_using_NoStop').click(
+			function() {
+				confirm('선택된 대리점의 기기사용 제한이 해제됩니다.\n제한 해제를 하시겠습니까?'); // 중지 해제
+			})
+		});
+	</script>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li class="on"><a href="publicDevice_list.html">공용기기 관리</a></li> <!-- 2017-07-31 -->
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="publicDevice_list.html">공용기기 관리</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="publicDevice_list.html">공용기기 관리</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="50" />
+										<col width="100" />
+										<col width="50"/>
+										<col width="100" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>대표자명</th>
+											<td>홍길동</td>
+										</tr>
+										<tr>
+											<th>대리점 명</th>
+											<td>가락대리점</td>
+											<th>대표사번</th>
+											<td>K0000000</td>
+										</tr>
+										<tr>
+											<th>대표자 휴대폰</th>
+											<td>010-0000-0000</td>
+											<th>대리점 번호</th>
+											<td>02-000-0000</td>
+										</tr>
+										<tr>
+											<th>공용기기</th>
+											<td>
+												<select class="pubSel w100 mr5">
+													<option>1</option>
+													<option>2</option>
+													<option selected >3</option>
+													<option>4</option>
+													<option>5</option>
+													<option>6</option>
+													<option>7</option>
+													<option>8</option>
+													<option>9</option>
+													<option>10</option>
+												</select>
+											</td>
+											<th>통제 여부</th>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox tCenter">
+									<a href="publicDevice_list.html" class="mr5 btnColor bPurple">취소</a>
+									<input type="button" class="mr5 btnColor bBrown" value="수정" />
+									<input type="button" id="public_using_Stop" class="btnColor bBlack" value="사용중지" />
+									<!-- <input type="button" id="public_using_NoStop" class="saleControl btnColor bBlue" value="중지 해제"/> -->
+								</div>
+							</div>
+							<!-- tab -->
+							<div class="tab2 mt10">
+								<span class="on"><input type="button" value="공용기기 현황" data-name="tabCon1"></span>
+								<span><input type="button" value="변경 이력" data-name="tabCon2" onclick=""></span>
+								<span><input type="button" value="사용 사원" data-name="tabCon3"></span>
+							</div>
+							<!-- 공용기기 현황 -->
+							<div class="tabCon tabCon1 databox-line mt10">
+								<!-- <div class="headBox tRight">
+									<span class="btnBox">
+										<input type="button" class="btnColor bPink" value="초기화" onclick="historyClean()"/>
+									</span>
+									<select id="historySelectDate" class="w80 mr5" onchange="dateSearch.historySelect(this.value)">
+										<option value="1">1개월</option>
+										<option value="3">3개월</option>
+										<option value="5">5개월</option>
+										<option value="8">8개월</option>
+										<option value="12">1년</option>
+										<option value="No" selected>직접입력</option>
+									</select>
+									<span class="mr5">
+										<input id="historyStartDate1" type="text" readonly="readonly" class="cal historySD" onchange="dateSearch.historyChange()"/> ~
+										<input id="historyEndDate1" type="text" readonly="readonly" class="cal historyED" onchange="dateSearch.historyChange()"/>
+									</span>
+									<select id="deviceType1" class="mr5 deviceType">
+										<option value="">종류 전체</option>
+										<option value="ios">iOS</option>
+										<option value="android">android</option>
+									</select>
+									<select id="diviceKinds1" class="mr5 diviceKinds">
+										<option value="">모델 전체</option>
+										<option value="Phone">Phone</option>
+										<option value="Pad">Pad</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..." id="historySearch1"/><input type="submit" class="search-icon" value="historySearch" onclick="historySearch(1)"/>
+									</span>
+								</div> -->
+								<!---->
+								<table class="tbls1">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>등록 날짜</th>
+											<th>기기명</th>
+											<th>기기종류 &#47; 모델</th>
+											<th>사용여부</th>
+										</tr>
+									</thead>
+									<tbody id="deviceList">
+										<tr>
+											<td>1</td>
+											<td>2017.07.31</td>
+											<td>영업3</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>2017.05.29</td>
+											<td>영업2</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>2017.05.10</td>
+											<td>영업1</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" ><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 변경 이력 -->
+							<div class="tabCon tabCon2 databox-line mt10">
+								<div class="headBox tRight">
+									<span class="btnBox">
+										<input type="button" class="btnColor bPink" value="초기화" onclick="historyClean()"/>
+									</span>
+									<select id="historySelectDate" class="w80 mr5" onchange="dateSearch.historySelect(this.value)">
+										<option value="1">1개월</option>
+										<option value="3">3개월</option>
+										<option value="5">5개월</option>
+										<option value="8">8개월</option>
+										<option value="12">1년</option>
+										<option value="No" selected>직접입력</option>
+									</select>
+									<span class="mr5">
+										<input id="historyStartDate2" type="text" readonly="readonly" class="cal historySD" onchange="dateSearch.historyChange()"/> ~
+										<input id="historyEndDate2" type="text" readonly="readonly" class="cal historyED" onchange="dateSearch.historyChange()"/>
+									</span>
+									<!-- <select id="deviceType2" class="mr5 deviceType">
+										<option value="">종류 전체</option>
+										<option value="ios">ios</option>
+										<option value="android">android</option>
+									</select>
+									<select id="diviceKinds2" class="mr5 diviceKinds">
+										<option value="">모델 전체</option>
+										<option value="Phone">Phone</option>
+										<option value="Pad">Pad</option>
+									</select> -->
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..." id="historySearch2"/><input type="submit" class="search-icon" value="historySearch" onclick="historySearch(1)"/>
+									</span>
+								</div>
+								<!---->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>등록 날짜</th>
+											<th>기기명</th>
+											<th>기기종류 &#47; 모델</th>
+											<th>사용여부</th>
+										</tr>
+									</thead>
+									<tbody id="deviceList">
+										<tr>
+											<td>1</td>
+											<td>2017.07.31</td>
+											<td>영업3</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>2017.05.29</td>
+											<td>영업2</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>2017.05.10</td>
+											<td>영업1</td>
+											<td>iOS &#47; iPhone 6s</td>
+											<td><span class="ocase"><input type="checkbox" checked ><label><!-- check --></label></span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 사용 사원 -->
+							<div class="tabCon tabCon3 databox-line mt10">
+								<div class="headBox tRight">
+									<span><input type="button" class="btnColor bPink" value="초기화" onclick="logoClean()"></span>
+									<select id="selectSearchDate" class="w80 mr5" onchange="dateSearch.select(this.value)">
+										<option value="1">1개월</option>
+										<option value="3">3개월</option>
+										<option value="5">5개월</option>
+										<option value="8">8개월</option>
+										<option value="12">1년</option>
+										<option value="No" selected>직접입력</option>
+									</select>
+									<span class="mr5">
+										<input id="startDate" type="text" class="cal loginLogSD" readonly onchange="dateSearch.change()"/> ~
+										<input id="endDate" type="text" class="cal loginLogED" readonly onchange="dateSearch.change()"/>
+									</span>
+									<!-- <select id="deviceType3" class="mr5 deviceType" onchange="diviceListShow(this.value)">
+										<option value="">종류 전체</option>
+										<option value="ios">ios</option>
+										<option value="android">android</option>
+									</select>
+									<select id="diviceKinds3" class="mr5 diviceKinds">
+										<option value="" class="optionFirst">모델 전체</option>
+										<option>Phone</option>
+										<option>Pad</option>
+									</select> -->
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..." id="loginLogSearch"/><input type="submit" class="search-icon" value="search" onclick="loginLogSearch(1)"/>
+									</span>
+								</div>
+								<!---->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>사번</th>
+											<th>이름</th>
+											<th>기기명</th>
+											<th>접속날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>1</td>
+											<td>K0000000</td>
+											<td>홍길동</td>
+											<td>영업3</td>
+											<td>2017.05.02 17:00</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>2</td>
+											<td>K0000000</td>
+											<td>홍길동</td>
+											<td>영업3</td>
+											<td>2017.05.02 17:00</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>3</td>
+											<td>K0000000</td>
+											<td>홍길동</td>
+											<td>영업3</td>
+											<td>2017.05.02 17:00</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

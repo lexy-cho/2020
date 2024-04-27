@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css"> <!-- 161205 추가 -->
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script> <!-- 161205 추가 -->
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".tabMenu a").click(function(){
+					$(this).parents("span").siblings().removeClass("on");
+					$(this).parents("span").addClass("on");
+					$(".iframeCaseView").hide();
+					var activeTab = $(this).attr('data-name');
+					$('#' + activeTab).show();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+				
+				<!-- header -->
+				<div id="header">
+					<div class="tabMenu firstFix swiper-container-horizontal">
+						<div class="swiper-wrapper">
+							<span class="swiper-slide on swiper-slide-active"><a href="#" data-name="contractTab1">계약서</a></span>
+							<span class="swiper-slide swiper-slide-next"><a href="#" data-name="contractTab2">고객약관</a></span>
+						</div>
+					</div>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 계약서 -->
+						<div id="contractTab1" class="iframeCaseView">
+							<iframe src="http://112.175.149.37/v/iGoSQfwIkU2" frameborder="0"></iframe>
+						</div>
+						<!-- //계약서 -->
+						<!-- 고객약관 -->
+						<div id="contractTab2" class="iframeCaseView" style="display:none;">
+							<iframe src="http://112.175.149.37/v/iGoSQfwIkU2" frameborder="0"></iframe>
+						</div>
+						<!-- //계약서 -->
+					</section>
+				</div>
+				<!-- //contents -->
+
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+	</body>
+</html>

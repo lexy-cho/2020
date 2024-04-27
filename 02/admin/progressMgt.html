@@ -1,0 +1,138 @@
+<script type="text/javascript">
+//<![CDATA[
+	/*global $ */
+	/*jslint browser: true, nomen: true */
+	$.jgrid.no_legacy_api = true;
+	$.jgrid.useJSON = true;
+
+	$(document).ready(function () {
+		'use strict';
+		var lastsel;
+		var mydata2 = [
+				{issueDate:'2020-12-01',charge:'鈴木　太郎1',ccode:'999999999',cname:'ヨタ自動車株式会社',cId:'',pw:'',reply:'2020-12-31',progress:'<em class="stsTxt">ﾛｸﾞｲﾝ前</em><span class="sts">ﾛｸﾞｲﾝ前</span>',submitDate:'-'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎1',ccode:'999999999',cname:'株式会社ABC-MART',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">ﾛｸﾞｲﾝ前</em><span class="sts">ﾛｸﾞｲﾝ前</span>',submitDate:'-'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎1',ccode:'999999999',cname:'JAPAN-COM株式会社',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">仮保存中</em><span class="sts temp">仮保存中</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎２',ccode:'999999999',cname:'株式会社田中商事',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">仮保存中</em><span class="sts temp">仮保存中</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎２',ccode:'999999999',cname:'株式会社ABC-MART',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">仮保存中</em><span class="sts temp">仮保存中</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎２',ccode:'999999999',cname:'JAPAN-COM株式会社',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">提出完了</em><span class="sts end">提出完了</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎3',ccode:'999999999',cname:'株式会社ABC-MART',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">提出完了</em><span class="sts endPrint">提出完了</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎3',ccode:'999999999',cname:'株式会社田中商事',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">提出完了</em><span class="sts endPrint">提出完了</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎3',ccode:'999999999',cname:'JAPAN-COM株式会社',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">期限切れ</em><span class="sts warning">提出完了</span>',submitDate:'YYYY-MM-DD'},
+				{issueDate:'2020-12-01',charge:'鈴木　太郎3',ccode:'999999999',cname:'株式会社田中商事',cId:'ABC123',pw:'abc123',reply:'2020-12-31',progress:'<em class="stsTxt">期限切れ</em><span class="sts warning">提出完了</span>',submitDate:'YYYY-MM-DD'}
+			];
+		$("#list2").jqGrid({
+			datatype: 'local',
+			data: mydata2,
+			colNames: ['フォーム発行日時','担当調査員','企業コード','企業名','ID','パスワード','回答期限','進捗状況','日付'],
+			colModel: [
+				{name: 'issueDate', index: 'issueDate', width: 25, align: 'center'},
+				{name: 'charge', index: 'charge', width: 24, align: 'center'},
+				{name: 'ccode', index: 'ccode', width: 22, align: 'center'},
+				{name: 'cname', index: 'cname', width: 70, align: 'left'},
+				{name: 'cId', index: 'cId', width: 23, align: 'center', sortable:false},
+				{name: 'pw', index: 'pw', width: 23, align: 'center', sortable:false},
+				{name: 'reply', index: 'reply', width: 25, align: 'center'},
+				{name: 'progress', index: 'progress', width: 28, align: 'center', sortable:false},
+				{name: 'submitDate', index: 'submitDate', width: 25, align: 'center', sortable:false}
+			], // 2020-09-01 colModel width 전체 수정, charge 주석처리
+			rowNum: 20,
+			rowList: [20, 50, 100, 200],
+			pager: '#pager2',
+			gridview: true,
+			//sortname: 'id',
+			viewrecords: true,
+			sortorder: "desc",
+			multiselect: true,
+			autowidth: true,
+			height: 'auto',
+			loadComplete: function(rowid) {
+				$("#list2 tr td:first-child input:checkbox").attr("disabled", true);
+				$("#list2 tr#1 td:first-child input:checkbox").attr("disabled", false);
+				$("#list2 tr#2 td:first-child input:checkbox").attr("disabled", false);
+            },
+			onSelectRow: function(rowid,iRow,iCol,e) {
+				if (rowid == "1"){
+					console.log(rowid);
+					createTab('調査進捗管理2', '#progressMgt_case2');
+				}
+			}, //2020-09-01 onSelectRow case1, case2 이동
+			ondblClickRow: function(rowid,iRow,iCol,e) {
+				createTab('985711303', '#progressMgtDetail');
+				/*if (rowid == "1"){
+					console.log(rowid);
+					createTab('999999929', '#progressMgtDetail999999929');
+				} else if (rowid == "2"){
+					createTab('999999928', '#progressMgtDetail999999928');
+				} else if (rowid == "3"){
+					createTab('999999927', '#progressMgtDetail999999927');
+				} else if (rowid == "4"){
+					createTab('999999926', '#progressMgtDetail999999926');
+				} else if (rowid == "5"){
+					createTab('999999925', '#progressMgtDetail999999925');
+				} else {
+					createTab('985711303', '#progressMgtDetail');
+				}*/
+			}
+		});
+		/**/
+		$(".search .opener").click(function(){
+			$(this).toggleClass('on');
+			$(".search .last").toggle();
+		});
+		/**/
+		$(".btnWideToggle").click(function () {
+			$(this).toggleClass('on');
+		});
+		/**/
+		$("#progressDeleteBtn").click(function () {
+			$("#alert10").show();
+			$(".dimPop").show();
+		});
+	});
+
+//]]>
+</script>
+<div class="detail">
+	<!---->
+	<div>
+		<div class="search">
+			<div>
+				<span>
+					<span class="selectLine">
+						<select>
+							<!-- 2020-08-21 option 변경 -->
+							<option>全体</option>
+							<option>ﾛｸﾞｲﾝ前</option>
+							<option>仮保存中</option>
+							<option>提出完了</option>
+							<option>提出完了＋ﾀﾞｳﾝﾛｰﾄﾞ</option>
+							<option>期限切れ</option>
+							<!-- //2020-08-21 option 변경 -->
+						</select>
+					</span>
+					<!-- 2020-08-21 -->
+					<span class="inputLine">
+						<input type="text" placeholder="企業コード、企業名" />
+						<p>※企業コードや企業名だけでも照会できます。</p>
+					</span>
+					<!-- //2020-08-21 -->
+					<input type="text" placeholder="所在地" />
+				</span>
+				<input type="submit" value="照会" class="searchBtn" />
+			</div>
+			<!-- 2020-08-21 p 삭제 -->
+		</div>
+	</div>
+	<!---->
+	<div class="jqGridSet wideRs mt20">
+		<table id="list2"><tr><td></td></tr></table>
+		<div id="pager2"></div>
+	</div>
+	<!---->
+	<div class="btnLine bottomline">
+		<span class="left">
+			<button class="btnLN red" id="progressDeleteBtn">選択削除</button>
+		</span>
+	</div>
+
+</div>

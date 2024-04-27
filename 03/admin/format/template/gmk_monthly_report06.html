@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>GMK S-Work 월간 보고서</title>
+		<link rel="stylesheet" type="text/css" href="../css/format.css">
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="https://code.highcharts.com/highcharts.src.js"></script>
+		<script type="text/javascript" src="https://code.highcharts.com/highcharts-3d.js"></script>
+	</head>
+	<body style="/*background: url('../images/bg/bg_monthlyReport_5.png') no-repeat;*/background-size:1024px auto;">
+		<div id="wrap" class="a4Size gmkMonthlyReport">
+			<header>
+				<div id="header">
+					<div>
+						<dl>
+							<dt>문서번호</dt>
+							<dd>GM_M201906</dd>
+							<dt>제목</dt>
+							<dd>GMK S-Work 월간 보고서(6월)</dd>
+						</dl>
+						<dl>
+							<dt>작성일</dt>
+							<dd>2019.07.01</dd>
+							<dt>작성자</dt>
+							<dd>오유진</dd>
+						</dl>
+						<dl>
+							<dt>제출일</dt>
+							<dd>2019.07.01</dd>
+							<dt>제출처</dt>
+							<dd>GM Korea</dd>
+						</dl>
+					</div>
+					<span><strong>대외비</strong></span>
+				</div>
+			</header>
+			<section>
+				<div id="container">
+					<!--//-->
+					<article>
+						<div class="contents">
+							<!------>
+							<div class="monthlyReport05">
+								<!------>
+								<div class="conTit">
+									<h2>Ⅴ. 개발 진행사항</h2>
+								</div>
+								<div class="squareList case2">
+									<ul>
+										<li>
+											<dl>
+												<dt>접수 기간</dt>
+												<dd>2019년 5월 1일 ~ 5월 31일</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt>총 접수 건수</dt>
+												<dd>6건</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt>개선 대응 건수</dt>
+												<dd>5건</dd>
+											</dl>
+										</li>
+										<li>
+											<dl>
+												<dt>개선 미 대응 건수</dt>
+												<dd>0건</dd>
+											</dl>
+											<div class="reason">
+												<strong>>미 대응 사유 :</strong>
+												<ul>
+													<li>12341231</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<span class="ftRed">* 19년 7월 일정진행에 있어 변경사항 발생할 수 있음</span>
+								<div class="graphBox">
+									<div class="graphImage" id="graphImage1">
+										<script>
+										Highcharts.chart('graphImage1', {
+											chart: {
+												backgroundColor: '#fff',
+												height: 440,
+										        type: 'pie',
+										        options3d: {
+										            enabled: true,
+										            alpha: 60
+										        }
+										    },
+										    title: {
+										        text: '개선요청사항',
+											    y: 40
+										    },
+											legend:{
+											    align: 'center',
+											    verticalAlign: 'top',
+												y: 30,
+												itemStyle: {
+													fontWeight: 'normal',
+													fontSize: '16px'
+										        }
+											},
+											accessibility: {
+										        point: {
+										            valueSuffix: '%'
+										        }
+										    },
+											tooltip: {
+										        pointFormat: '{point.name}: <b>{point.percentage}%</b>'
+										    },
+										    plotOptions: {
+										        pie: {
+										            allowPointSelect: true,
+										            cursor: 'pointer',
+										            depth: 35,
+													size: 400,
+										            dataLabels: {
+										                format: '{point.name}<br>{point.percentage:.0f}%',
+														distance: 2,
+														style: {
+															fontWeight: 'normal',
+															fontSize: '15px'
+														}
+										            }
+										        }
+										    },
+											series: [{
+										        type: 'pie',
+										        name: '요청사항 상태',
+												showInLegend: true,
+										        data: [{
+													name: '완료',
+												    color: '#e7cf6f',
+													y: 5
+												}, {
+													name: '작업 중',
+												    color: '#c7cfd6',
+													y: 1
+												}]
+										    }]
+										});
+										</script>
+									</div>
+								</div>
+								<!------>
+							</div>
+							<!------>
+						</div>
+					</article>
+				</div>
+			</section>
+			<footer>
+				<div id="footer">
+					<div><span class="pageNum">6</span></div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

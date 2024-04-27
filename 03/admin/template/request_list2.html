@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/request.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li class="on"><a href="request_list.html">요청사항</a></li>
+						</ul>
+					</div>
+					<span class="topLogout"><a href="login.html">Logout</a></span>
+				</div>
+			</div>
+			<!-- //header -->
+			
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="request_list.html">&bull;요청사항</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+
+						<div class="contents">
+							<div class="request_layout">
+								<div class="list-line">
+									<div class="titleArea">
+										<h4 id="totBox">
+											전체 게시글 수 <span>12</span> 
+										</h4>
+										<!-- 모바일적용 검색박스 -->
+										<div class="searchBox" style="display:none">
+										<!-- 2017-05-30 검색박스 열고 닫기 -->
+										<script>
+											$( document ).ready( function() {
+												$(".list-search input.search-icon").bind('tap click', function(){
+													$(".searchBox").show();
+													return false;
+												}); //검색박스 열기
+												$(".request_layout .closeButton a").bind('tap click', function(){
+													$(".searchBox").hide();
+													return false;
+												}); //검색박스 닫기
+											});
+										</script>
+										<!--// 2017-05-30 검색박스 열고 닫기 -->
+										<!-- //2017-05-03 검색박스 -->
+											<div class="selectBox">
+												<select id="schStat2" name="schStat" class="schStat mr5">
+													<option>구분</option>
+													<option>긴급</option>
+													<option>ASAP</option>
+													<option>수정요청</option>
+												</select>
+												<select id="sch2" name="sch" class="category mr5">
+													<option value="">카테고리</option>
+													<option>계약서</option>
+													<option>증빙서류</option>
+													<option>하이패스</option>
+													<option>판매조건</option>
+													<option>카탈로그</option>
+													<option>가이드북</option>
+													<option>포인트북</option>
+													<option>견적서</option>
+													<option>가이드</option>
+													<option>이벤트</option>
+													<option>선포인트 신청</option>
+													<option>전차종 가격</option>
+													<option>CMS 게시판</option>
+													<option>기타</option>
+												</select>
+											</div>
+											<div class="field"><input type="text" name="searchField" id="searchField" placeholder="검색어를 입력해주세요." class="search" /></div>
+											<span class="searchButton"><a href="#">검색</a></span>
+											<span class="closeButton"><a href="#">닫기</a></span>
+										</div>
+										<!--// 모바일 전용 검색박스 -->
+										<div class="headBox tRight">
+											<select id="schStat" name="schStat" class="mr5">
+												<option>구분</option>
+												<option>긴급</option>
+												<option>ASAP</option>
+												<option>수정요청</option>
+											</select>
+											<select id="sch" name="sch" class="mr5">
+												<option value="">카테고리</option>
+												<option>계약서</option>
+												<option>증빙서류</option>
+												<option>하이패스</option>
+												<option>판매조건</option>
+												<option>카탈로그</option>
+												<option>가이드북</option>
+												<option>포인트북</option>
+												<option>견적서</option>
+												<option>가이드</option>
+												<option>이벤트</option>
+												<option>선포인트 신청</option>
+												<option>전차종 가격</option>
+												<option>CMS 게시판</option>
+												<option>기타</option>
+											</select>
+											<span class="list-search mr5">
+												<input type="text" class="title" placeholder="제목"/><input type="submit" class="search-icon" value="search" />
+											</span>
+											<select class="w80 mr5">
+												<option>20개</option>
+												<option>50개</option>
+												<option>100개</option>
+											</select>
+											<span class="btnBoxList"><input type="button" id="getExcelBtn1" class="btngreenBg" onclick="location.href='request_write.html'" value="새글등록" /></span>
+										</div><!-- //headBox -->
+									</div><!-- //titleArea -->
+									<ul class="reqList">
+										<li class="newOn">
+											<a href="request_view.html">
+												<span class="new"></span>
+												<span class="title">
+													<span class="division"> 긴급 / CSM게시판 </span>
+													<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. <span class="replayList">[10]</span></strong>
+												</span>
+												<span class="state blueColor">작업 중</span>
+											</a>
+											<span class="infoBg"><span class="ml10">위버</span><span class="infoR">씽크트리 &#124; <b>2017.05.24</b></span></span>
+										</li>
+										<li class="newOn">
+											<a href="request_view.html">
+											<span class="new"></span>
+												<span class="title">
+													<span class="division"> ASAP / 계약서 </span>
+													<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. <span class="replayList">[10]</span></strong>
+												</span>
+												<span class="state greenColor">작업완료</span>
+											</a>
+											<span class="infoBg"><span class="ml10">위즈빌</span><span class="infoR">마케팅팀 &#124; <b>2017.05.24</b></span></span>
+										</li>
+										<li>
+											<a href="request_view.html">
+												<span class="title">
+													<span class="division">긴급 / CMS게시판</span>
+													<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. <span class="replayList">[5]</span></strong>
+												</span>
+												<span class="state redColor">작업보류</span>
+											</a>
+											<span class="infoBg"><span class="ml10">씽크트리</span><span class="infoR">마케팅팀 &#124; <b>2017.05.24</b></span></span>
+										</li>
+										<li>
+											<a href="request_view.html">
+												<span class="title">
+													<span class="division">긴급 / CMS게시판</span>
+													<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. <span class="replayList">[2]</span></strong>
+												</span>
+												<span class="state greenColor">작업완료</span>												
+											</a>
+											<span class="infoBg"><span class="ml10">위버 &sdot; 씽크트리</span><span class="infoR">씽크트리 &#124; <b>2017.05.24</b></span></span>
+										</li>
+										<li>
+											<a href="request_view.html">
+												<span class="title">
+													<span class="division">ASAP / 계약서</span>
+													<strong>요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. 요청사항 타이틀이 보입니다. <span class="replayList">[6]</span></strong>
+												</span>
+												<span class="state greenColor">작업완료</span>
+											</a>
+											<span class="infoBg"><span class="ml10">씽크트리</span><span class="infoR">마케팅팀 &#124; <b>2017.05.24</b></span></span>
+										</li>
+									</ul>								
+								</div><!-- //list-line -->
+							</div><!-- //request_layout -->
+						</div><!-- //contents -->
+						<div class="listControlBox">
+							<div class="paginate">
+								<a class="first">처음</a>
+								<a class="prev">이전</a>
+								<span>
+									<strong>1</strong>
+									<a>2</a>
+									<a>3</a>
+									<a>4</a>
+									<a>5</a>
+								</span>
+								<a class="next">다음</a>
+								<a class="last">마지막</a>
+							</div>
+							<span class="btnBox">
+								<span class="btnBoxList"><input type="button" id="getExcelBtn1" class="btngreenBg" onclick="location.href='request_write.html'" value="새글등록" /></span>
+							</span>
+						</div><!-- //listControlBox -->
+						<!-- //footer -->
+					</div><!-- //com-layout -->
+				</div><!-- //back -->
+			</div><!-- //container -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<script>
+				$(".pagetop").on("click",function(){
+					$('html, body').animate({'scrollTop' : 0});
+				// 	$('html, body').scrollTop(0);
+				})
+				
+			</script>
+		</div><!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/se2/js/HuskyEZCreator.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li class="on"><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="device.html">디바이스 관리</a></span></li>
+							<li><span><a href="carmanager_list.html">카매니저</a></span></li>
+							<li><span><a href="login_info.html">로그인 정보</a></span></li>
+							<li><span><a href="question_list.html">1:1 문의</a></span></li>
+							<!-- <li><span><a href="newjoin_list.html">신규등록 현황</a></span></li> -->
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="carmanager_list.html">카매니저 관리</a></span>
+							<span>1:1 문의</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div>
+								<div class="databox-line">
+									<h3>문의 접수 내용
+									     <span class="right">
+							                <span class="btnSet list"><a href="/admin/employeeMgmt/question/list">목록</a></span>
+							                <span class="btnSet save"><input type="button" value="저장"></span>
+						                 </span>
+						            </h3>
+						            <table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+										<colgroup>
+											<col width="150" />
+											<col />
+											<col width="150" />
+											<col width="400" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>제목</th>
+												<td colspan="3">가격표는모바일전송이안되나요?</td>
+											</tr>
+											<tr>
+												<th>문의상태</th>
+												<td>
+													<select name="qstStatus">
+														<option value="AR" >
+																접수확인 중</option>
+														<option value="AW" >
+																답변 대기 중</option>
+														<option value="AS" selected>
+																답변완료</option>
+														</select>
+												</td>
+												<th>문의 날짜</th>
+												<td>2017-05-11 09:52:51</td>
+											</tr>
+											<tr>
+												<th>구분</th>
+												<td>S-WORK</td>
+												<th>문의 종류</th>
+												<td>기타</td>
+											</tr>
+											<tr>
+												<th>카테고리</th>
+												<td colspan="3">전차종가격</td><!-- 견적서 > 신규 견적서 -->
+											</tr>
+											<tr>
+												<th>사원번호</th>
+												<td>K9161527</td>
+												<th>이름</th>
+												<td>류청열</td>
+											</tr>
+											<tr>
+												<th>지점명</th>
+												<td>창원서부</td>
+												<th>디바이스</th>
+												<td><strong>[ANDROID] Pad/SM-P585N0(2.0)</strong></td>
+											</tr>
+											<tr>
+												<th>e-mail</th>
+												<td>k4100362@gmdnet.co.kr</td>
+												<th>연락처</th>
+												<td>010-3180-9393</td>
+
+											</tr>
+											<tr>
+												<th>질문내용</th>
+												<td colspan="3">가격표는모바일전송이안되나요?</td>
+											</tr>
+											<tr>
+												<th>첨부파일</th>
+												<td colspan="3">
+													</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="databox-line mt10">
+									<h3>
+										답변 내용
+										<input type="button" class="btnColor bRed right" value="매크로 답변" />
+									</h3>
+									<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+										<colgroup>
+											<col width="150" />
+											<col />
+											<col width="150" />
+											<col />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th>관리자 명</th>
+												<td>조현권</td>
+												<th>답변대기 중</th>
+												<td>YYYY-MM-DD 00:00:00</td>
+											</tr>
+											<tr>
+												<th>관리자 명</th>
+												<td>조현권</td>
+												<th>답변완료</th>
+												<td>YYYY-MM-DD 00:00:00</td>
+											</tr>
+											<tr>
+												<th>답변 제목</th>
+												<td colspan="3"><input type="text" class="wFull" /></td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="editorBox_back">
+									<div class="editorBox">
+										<textarea name="ir1" id="ir1" rows="10" cols="100" style="width:1024px; min-height:412px; display:none;"></textarea>
+										<script type="text/javascript">
+											var oEditors = [];
+											nhn.husky.EZCreator.createInIFrame({
+												oAppRef: oEditors,
+												elPlaceHolder: "ir1",
+												sSkinURI: "js/se2/SmartEditor2Skin.html",
+												fCreator: "createSEditor2"
+											});
+										</script>
+									</div>
+									</div>
+								</div>
+							</div>
+							<!---->
+							<div class="btnLayout">
+								<div class="right">
+									<span class="btnSet list"><a href="notice_list.html">목록</a></span>
+									<span class="btnSet save"><input type="button" value="저장"></span>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

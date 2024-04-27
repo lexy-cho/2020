@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/se2/js/HuskyEZCreator.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 매크로 답변 -->
+		<div class="pop mcrPop" style="display:none">
+			<h1>매크로 답변</h1>
+			<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+			<div class="popdata">
+				<!---->
+				<div class="databox-line left">
+					<div class="headBox tRight">
+						<span class="list-search mr5">
+							<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+						</span>
+					</div>
+					<!-- list -->
+					<div class="mcrList">
+						<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+							<colgroup>
+								<col width="40" />
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>답변제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- Loop -->
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<!-- //Loop -->
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요? 입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+								<tr>
+									<td><input type="checkbox"/></td>
+									<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!---->
+					<div class="listControlBox">
+						<span class="left">
+							선택한 항목
+							<input type="button" class="btnColor bGreen" value="삭제" />
+						</span>
+						<input type="button" class="btnColor bRed right" value="매크로 답변" />
+					</div>
+					<!---->
+				</div>
+				<!---->
+				<div class="databox-line right">
+					<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+						<colgroup>
+							<col width="150" />
+							<col />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>답변 제목</th>
+								<td><input type="text" class="wFull" /></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="editorBox_back">
+					<div class="editorBox2">
+						<textarea name="ir2" id="ir2" rows="10" cols="100" style="width:600px; min-height:412px; display:none;"></textarea>
+						<script type="text/javascript">
+							var oEditors = [];
+							nhn.husky.EZCreator.createInIFrame({
+								oAppRef: oEditors,
+								elPlaceHolder: "ir2",
+								sSkinURI: "js/se2/SmartEditor2Skin.html",
+								fCreator: "createSEditor2"
+							});
+						</script>
+					</div>
+					</div>
+					<!---->
+					<div class="listControlBox">
+						<input type="button" class="btnColor bRed left" value="답변적용" />
+						<span class="right">
+							<input type="button" class="btnColor bBlue" value="취소" />
+							<input type="button" class="btnColor bBlue " value="저장" />
+						</span>
+					</div>
+					<!---->
+				</div>
+				<!---->
+			</div>
+		</div>
+		<!---->
+		<div id="blind_wrap" style="display:none"></div>
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li class="on"><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="device.html">디바이스 관리</a></span></li>
+							<li><span><a href="carmanager_list.html">카매니저</a></span></li>
+							<li><span><a href="login_info.html">로그인 정보</a></span></li>
+							<li><span><a href="question_list.html">1:1 문의</a></span></li>
+							<!-- <li><span><a href="newjoin_list.html">신규등록 현황</a></span></li> -->
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="carmanager_list.html">카매니저 관리</a></span>
+							<span>1:1 문의</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight sortCase">
+									<input type="radio" id="sf0" name="sortFilter" data-filter="" checked/><label for="sf0">전체</label>
+									<input type="radio" id="sf1" name="sortFilter" data-filter="QST_STATUS|AR"/><label for="sf1">접수확인중</label>
+									<input type="radio" id="sf2" name="sortFilter" data-filter="QST_STATUS|AW"/><label for="sf2">답변대기중</label>
+									<input type="radio" id="sf3" name="sortFilter" data-filter="QST_STATUS|AS"/><label for="sf3">답변완료</label>
+								</div>
+								<div class="headBox tRight">
+									<input id="initBtn" type="button" value="초기화" class="btnColor bBlack left"/>
+									<select class="mr5">
+										<option value="">전체</option>
+										<option value="">사원번호</option>
+										<option value="">사원이름</option>
+										<option value="">제목</option>
+									</select>
+									<select class="mr5">
+										<option value="">전체</option>
+										<option value="">S-work</option>
+										<option value="">CMS</option>
+									</select>
+									<select class="mr5">
+										<option value="">전체</option>
+										<option value="">오류</option>
+										<option value="">사용방법</option>
+										<option value="">계약문의</option>
+										<option value="">견적문의</option>
+										<option value="">기타</option>
+									</select>
+									<select class="mr5">
+										<option value="">전체</option>
+										<option value="">접수확인중</option>
+										<option value="">답변대기중</option>
+										<option value="">답변완료</option>
+									</select>
+									<span class="mr5 lh27">
+										<input type="text" readonly="" class="cal" /> ~
+										<input type="text" readonly="" class="cal" />
+									</span>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>20개</option>
+										<option>50개</option>
+										<option>100개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="80" />
+										<col width="100" />
+										<col width="110" />
+										<col width="120" />
+										<col width="120" />
+										<col />
+										<col width="120" />
+										<col width="150" />
+										<col width="90" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>번호 <input type="button" value="up" class="sort sup" /></th>
+											<th>구분 <input type="button" value="up" class="sort sup" /></th>
+											<th>문의종류 <input type="button" value="up" class="sort sup" /></th>
+											<th>사원번호 <input type="button" value="up" class="sort sup" /></th>
+											<th>사원이름 <input type="button" value="up" class="sort sup" /></th>
+											<th>문의제목 <input type="button" value="up" class="sort sup" /></th>
+											<th>문의상태 <input type="button" value="up" class="sort sup" /></th>
+											<th>문의날짜 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>오류</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong class="ftRed">접수확인중</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>사용방법</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong>답변대기중</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>계약문의</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong class="ftGreen">답변완료</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>견적문의</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject reQ" style="padding-left:15px;"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong class="ftRed">접수확인중</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>견적문의</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject reQ" style="padding-left:30px;"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong class="ftOrange">접수확인중</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td>S-work</td>
+											<td>기타</td>
+											<td>K9165302</td>
+											<td>김길동</td>
+											<td class="subject"><a href="question_view.html">입력중이던견적서가어디에있나요?</a></td>
+											<td><strong class="ftRed">접수확인중</strong></td>
+											<td>2017-02-16 00:00:00</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<input type="button" class="btnColor bGreen" value="엑셀 다운로드" />
+									</div>
+									<!---->
+									<span class="btnBox">
+										<input type="button" class="btnColor bRed" value="매크로 답변" />
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

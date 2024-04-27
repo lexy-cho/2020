@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/css/ui.jqgrid.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/i18n/grid.locale-en.js"></script>
+		<script type="text/javascript" src="https://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.4.1/js/jquery.jqGrid.src.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script>
+			$.jgrid.no_legacy_api = true;
+			$.jgrid.useJSON = true;
+			var lastsel1;
+			var lastsel2;
+			var lastsel3;
+			$(document).ready(function(){
+				$(".btnGetData").click(function(){
+					$(".cTabWrap").show();
+					$(".btnPdfMade, .btnPreviewPdf, .btnIssue").show();
+				});
+				$(".btnPdfMade").click(function(){
+					$(".btnMailSend").show();
+				});
+				$('.btnPreviewPdf').click(function() {
+					$('#blind_wrap').show();
+					$('.previewPdfPop').show();
+				}); // pdf 미리보기 팝업
+				$('.btnMailSend').click(function() {
+					$('#blind_wrap').show();
+					$('.mailSendPop').show();
+					$('.mailSendPop .pbtn button:last').click(function(){
+						$(".tabNav li:last").show();
+						$(".tabNav li").removeClass("on");
+					    $(".tabNav li:last").addClass("on");
+						$('.tabData').hide();
+					    $('.tData2').show();
+					});
+				}); // 메일 발송 팝업
+				$('.btnMailView').click(function() {
+					$('#blind_wrap').show();
+					$('.mailViewPop').show();
+					$('.mailViewPop .pbtn button:last').click(function(){
+						$('#blind_wrap').show();
+						$('.mailSendPop').show();
+						$('.mailSendPop .pbtn button:last').click(function(){
+							var clone = $('.tData2 table tbody tr:first').clone();
+							$('.tData2 table tbody').append(clone);
+						})
+					});
+				}); // 메일 보기 팝업
+				$('.pop .pbtn button').click(function() {
+					$('.pop').hide();
+					$('#blind_wrap').hide();
+				}); // 팝업 닫기
+				$(".tabNav li button").click(function () {
+				    $(".tabNav li").removeClass("on");
+				    $(this).parent("li").addClass("on");
+				    var activeTab = $(this).attr("data-name");
+				    $('.tabData').hide();
+				    $('.tData' + activeTab).show();
+				});
+				$('#openTab').click(function(){
+					$('.cTabWrap').show();
+					reSize(); //
+				});
+				/**/
+				function reSize() {
+					$('.jqGridSet table.ui-jqgrid-btable').each(function(){
+						//console.log($(this).jqGrid('setGridWidth', 0, false));
+						$(this).jqGrid('setGridWidth', 0, false);
+						$(this).jqGrid('setGridWidth', $(".left").width() - 0, true);
+					});
+				}
+				$(window).bind('resize', function() {
+					reSize();
+				});
+				/**/
+				function autocomplete_element(value, options) {
+					var $ac = $('<input type="text" class="w100P">');
+				    $ac.val(value);
+				    $ac.autocomplete(
+						{
+							source: ["Glibc #1", "Glibc #2", "Glibc #3", "Glibc #4"]
+					    }
+				    );
+				    return $ac.get(0);
+			    }
+			    function autocomplete_value(elem, op, v) {
+			 	    if (op == 'set') {
+			 		    $(elem).val(v);
+			 	    }
+				  return $(elem).val();
+			    }
+				'use strict';
+				jQuery("#rowed1").jqGrid({
+					datatype: "local",
+					caption: "DONE (17W, 2020.04.20 ~ 2020.04.24)",
+					rowNum: 20,
+					rowList: [10, 20, 30],
+					autowidth: true,
+					height: '300',
+					pager: '#pager1',
+					gridview: true,
+					multiselectWidth: 40,
+					viewrecords: true,
+					colNames:['Task','Date', ''],
+					colModel:[
+						{name:'task',index:'task', editable: true,edittype:"textarea", editoptions:{rows:"3"}},
+						{name:'date',index:'date', width:'50', align: 'center', editable: true},
+						{name:'myac',index:'myac', width:'50', sortable : false, align: 'center', formatter:'actions', formatoptions:{editbutton:false,delbutton:true}}
+					],
+					onSelectRow: function(id){
+						if(id && id!==lastsel1){
+							jQuery('#rowed1').jqGrid('restoreRow',lastsel1);
+							jQuery('#rowed1').jqGrid('editRow',id,true);
+							lastsel1=id;
+						}
+					}
+				});
+				var mydata1 = [
+					{date:"04-21",task:"빠른문의, Push, FAQ 업데이트\n - 기능 업데이트 및 앱 업데이트\n - 메뉴얼 작성 및 공유", complete:"Y"},
+					{date:"04-22",task:"트레일블레이저 카탈로그, 가격표 업데이트", complete:"Y"}
+				];
+				for(var i=0;i < mydata1.length;i++)
+				jQuery("#rowed1").jqGrid('addRowData',mydata1[i].id,mydata1[i]);
+				// tab1
+				jQuery("#rowed2").jqGrid({
+					datatype: "local",
+					caption: "TODO (18W, 2020.04.27 ~ 2020.04.29)",
+					rowNum: 20,
+					rowList: [10, 20, 30],
+					autowidth: true,
+					height: '300',
+					pager: '#pager2',
+					gridview: true,
+					multiselectWidth: 40,
+					viewrecords: true,
+					colNames:['Task','Date', ''],
+					colModel:[
+						{name:'task',index:'task', editable: true,edittype:"textarea", editoptions:{rows:"2"}},
+						{name:'date',index:'date', width:'50', align: 'center', editable: true},
+						{name:'myac',index:'myac', width:'50', sortable : false, align: 'center', formatter:'actions', formatoptions:{editbutton:false,delbutton:true}}
+					],
+					onSelectRow: function(id){
+						if(id && id!==lastsel2){
+							jQuery('#rowed2').jqGrid('restoreRow',lastsel2);
+							jQuery('#rowed2').jqGrid('editRow',id,true);
+							lastsel2=id;
+						}
+					}
+				});
+				var mydata2 = [
+					{date:"~06.30\n(진행 일정 결정 필요)",task:"CPI data Encryption", complete:"Y"}
+				];
+				for(var i=0;i < mydata2.length;i++)
+				jQuery("#rowed2").jqGrid('addRowData',mydata2[i].id,mydata2[i]);
+				// tab2
+				jQuery("#rowed3").jqGrid({
+					datatype: "local",
+					autowidth: true,
+					height: "auto",
+					gridview: true,
+					viewrecords: true,
+					colNames:['','5/11(월)','5/12(화)', '5/13(수)', '5/14(목)', '5/15(금)', '5/16(토)', '5/17(일)'],
+					colModel:[
+						{name:'numCase',index:'numCase', width:180, align: 'center', editable: false, sortable:false},
+						{name:'Mon',index:'Mon', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Tue',index:'Tue', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Wed',index:'Wed', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Thu',index:'Thu', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Fri',index:'Fri', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Sat',index:'Sat', width:100, align: 'center', sorttype:"int", editable: true},
+						{name:'Sun',index:'Sun', width:100, align: 'center', sorttype:"int", editable: true},
+					],
+					onSelectRow: function(id){
+						if(id && id!==lastsel3){
+							jQuery('#rowed3').jqGrid('restoreRow',lastsel3);
+							jQuery('#rowed3').jqGrid('editRow',id,true);
+							lastsel2=id;
+						}
+					}
+				});
+				var mydata3 = [
+					{numCase:"계약서 인도 건수",Mon:"236", Tue:"186", Wed:"48",Thu:"237",Fri:"217",Sat:"85", Sun:"19"},
+					{numCase:"타임스탬프 건수",Mon:"225", Tue:"176", Wed:"46",Thu:"222",Fri:"209",Sat:"82", Sun:"18"}
+				];
+				for(var i=0;i < mydata3.length;i++)
+				jQuery("#rowed3").jqGrid('addRowData',mydata3[i].id,mydata3[i]);
+				// tab3
+				$("#rowed1").jqGrid('navGrid',"#pager1",{edit:false,add:true,del:false,search:false,refresh:false});
+				$("#rowed2").jqGrid('navGrid',"#pager2",{edit:false,add:true,del:false,search:false,refresh:false});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li class="on"><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="report_monthly_list.html">월간 보고서</a></span></li>
+							<li><span><a href="report_weekly_list.html">주간 보고서</a></span></li>
+							<li><span><a href="report_development_request_list.html">개발 요청 이력 보고서</a></span></li>
+							<li><span><a href="report_development_list.html">개발 이력</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">보고서 관리</a></span>
+							<span>주간 보고서</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+									<colgroup>
+										<col width="60" />
+										<col width="60" />
+										<col width="333" />
+										<col width="60" />
+										<col width="333" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>주차정보</th>
+											<td colspan="2">
+												<select>
+													<option>년 선택</option>
+													<option>2019년</option>
+													<option>2020년</option>
+													<option>2021년</option>
+												</select>
+												<select>
+													<option>월 선택</option>
+													<option>1월</option>
+													<option>2월</option>
+													<option>3월</option>
+													<option>4월</option>
+													<option>5월</option>
+												</select>
+												<input class="w50 mr5" type="text" placeholder="주차"/>
+												<button class="btnColor bGray">중복확인</button>
+											</td>
+											<th>작성일</th>
+											<td>
+												<input type="text" readonly="" class="cal" />
+											</td>
+										</tr>
+										<tr>
+											<th>TASK DATE</th>
+											<th>DONE</th>
+											<td>
+												<input class="w50" type="text" placeholder="주차"/>
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</td>
+											<th>TODO</th>
+											<td>
+												<input class="w50" type="text" placeholder="주차"/>
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</td>
+										</tr>
+										<tr>
+											<th>TIMESTAMP DATE</th>
+											<td colspan="4">
+												<input class="w50" type="text" placeholder="주차"/>
+												<input type="text" readonly="" class="cal" /> ~
+												<input type="text" readonly="" class="cal" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="listControlBox tCenter">
+									<button class="btnColor bGray btnGetData" id="openTab">데이터 가져오기</button>
+									<button class="btnColor bGray btnPdfMade" style="display:none;">PDF 생성</button>
+									<button class="btnColor bGray btnPreviewPdf" style="display:none;">PDF 미리보기</button>
+									<button class="btnColor bGray btnMailSend" style="display:none;">메일 발송</button>
+								</div>
+							</div>
+							<!---->
+							<!-- tab-wrap -->
+							<div class="cTabWrap" style="display:none;">
+								<!-- tab -->
+								<div class="tabBack mt10">
+									<div class="tabNav">
+										<nav>
+											<ul>
+												<li class="on"><button data-name="0">TASK LIST</button></li>
+												<li><button data-name="1">TIMESTAMP</button></li>
+												<li style="display:none;"><button data-name="2">메일 이력</button></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<!--// tab -->
+								<div class="tabLayout">
+									<div class="tabData tData0" style="display:block;">
+										<div class="halfLayout">
+											<div class="left">
+												<div class="jqGridSet">
+													<table id="rowed1"></table>
+													<div id="pager1"></div>
+												</div>
+											</div>
+											<div class="right">
+												<div class="jqGridSet">
+													<table id="rowed2"></table>
+													<div id="pager2"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="tabData tData1">
+										<div class="jqGridSet">
+											<table id="rowed3"></table>
+										</div>
+									</div>
+									<div class="tabData tData2">
+										<div class="databox-line">
+											<div class="headBox tRight">
+												<span class="btnSet onlytxt" id="dateReset"><input class="btnSet" type="button" value="초기화" /></span>
+												<select class="mr5">
+													<option>작성자</option>
+												</select>
+												<span class="list-search mr5">
+													<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+												</span>
+												<select class="w80 mr5">
+													<option>10개</option>
+													<option>20개</option>
+													<option>30개</option>
+												</select>
+											</div>
+											<!-- list -->
+											<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+												<colgroup>
+													<col width="60" />
+													<col width="70" />
+													<col width="100" />
+													<col width="100" />
+													<col width="100" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th>작성자</th>
+														<th>수신자</th>
+														<th>작성일자</th>
+														<th>발송일자</th>
+														<th>미리보기</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- Loop -->
+													<tr>
+														<td>오유진</td>
+														<td>홍길동</td>
+														<td>2020-02-06</td>
+														<td>2020-05-14</td>
+														<td>
+															<button class="btnMailView">메일 보기</button>
+															<button class="btnPreviewPdf">PDF 보기</button>
+														</td>
+													</tr>
+													<!-- //Loop -->
+												</tbody>
+											</table>
+											<!---->
+											<div class="listControlBox">
+												<!---->
+												<div class="paginate">
+													<a class="first">처음</a>
+													<a class="prev">이전</a>
+													<span>
+														<strong>1</strong>
+														<a>2</a>
+														<a>3</a>
+														<a>4</a>
+														<a>5</a>
+														<a>6</a>
+														<a>7</a>
+														<a>8</a>
+														<a>9</a>
+														<a>10</a>
+													</span>
+													<a class="next">다음</a>
+													<a class="last">마지막</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="btnBox tCenter">
+								<button class="btnColor bSky">저장</button>
+								<button class="btnColor bGray" onclick="location.href='report_weekly_list.html'">취소</button>
+								<button class="btnColor bGray" onclick="location.href='report_weekly_list.html'">목록</button>
+							</div>
+							<!-- //tab-wrap -->
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!-- pdf 미리보기 팝업  -->
+			<div class="pop previewPdfPop" style="display:none;">
+				<h1>Pdf 미리보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img src="format/images/bg/bg_weeklyReport01.png" alt="주간보고서 1page"/>
+					<img src="format/images/bg/bg_weeklyReport02.png" alt="주간보고서 2page"/>
+					<img src="format/images/bg/bg_weeklyReport03.png" alt="주간보고서 3page"/>
+					<img src="format/images/bg/bg_weeklyReport04.png" alt="주간보고서 4page"/>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+				</div>
+			</div>
+			<!---->
+			<!-- 메일 발송 -->
+			<div class="pop mailSendPop" style="display:none;">
+				<h1>메일 발송</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<div class="databox-line">
+						<table cellpadding="0" cellspacing="0" border="0" class="tbvs1">
+							<colgroup>
+								<col width="120" />
+								<col/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>수신자</th>
+									<td class="tLeft">
+										<input type="text" class="wFull"/>
+										<div class="recipientBox">
+											<strong class="recipient"><span>홍길동 (hongildong@gmail.com)</span><button>삭제</button></strong><strong class="recipient"><span>홍길도 (hongildo@gmail.com)</span><button>삭제</button></strong>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>참조자</th>
+									<td class="tLeft">
+										<input type="text" class="wFull"/>
+										<div class="recipientBox">
+											<strong class="recipient"><span>홍길똥 (hongilddong@gmail.com)</span><button>삭제</button></strong>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>제목</th>
+									<td><input type="text" class="wFull" value="2020년 12W-13W 주간보고 공유건"/></td>
+								</tr>
+								<tr>
+									<th>내용</th>
+									<td><textarea class="wFull" rows="14">안녕하세요. 씽크트리 오유진입니다. 20년 12W (2020.03.16~2020.03.20) 주간보고를 공유드립니다. 아래 첨부파일 확인 부탁드립니다. 이상입니다.오유진 드림 -</textarea></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">취소</button>
+					<button class="btnColor bSky">발송하기</button>
+				</div>
+			</div>
+			<!---->
+			<!-- 메일 보기 -->
+			<div class="pop mailViewPop" style="display:none;">
+				<h1>메일 보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img class="wFull" src="format/images/email_weekly_report.png" alt="메일">
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+					<button class="btnColor bPurple">재발송</button>
+				</div>
+			</div>
+			<!---->
+			<div id="blind_wrap" style="display:none;"></div>
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

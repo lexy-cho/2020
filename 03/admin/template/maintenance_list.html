@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li class="on"><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">유지보수</a></span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+							    <h4 id="totBox">전체 리스트 수 : <span id="totListNum"></span>
+						            <span class="right">
+						                <input type="button" id="getExcelBtn" class="btnColor bGreen" value="엑셀 다운로드" />
+						            </span>
+					        	</h4>
+								<div class="headBox tRight">
+									<span><input id="initBtn" type="button" value="초기화" class="btnColor bBlue"/></span>
+									<select id="selectSearchDate" class="w80 mr5">
+						                <option value="3">3개월</option>
+						                <option value="6">6개월</option>
+						                <option value="12">1년</option>
+						                <option value="24">2년</option>
+						                <option value="No" selected>직접입력</option>
+						            </select>
+									<span class="mr5 lh27">
+										<input type="text" readonly="" class="cal" /> ~
+										<input type="text" readonly="" class="cal" />
+									</span>
+									<select id="schJob" name="schJob" class="mr5">
+										<option value="">작업구분</option>
+										<option value="ECM">계약서 수정</option>
+										<option value="ECW">계약서 작성</option>
+										<option value="CT">증빙서류</option>
+										<option value="HP">하이패스</option>
+										<option value="SC">판매조건</option>
+										<option value="CD">카탈로그</option>
+										<option value="GB">가이드북</option>
+										<option value="PT">포인트북</option>
+										<option value="EQ">견적서</option>
+										<option value="GD">가이드</option>
+										<option value="EV">이벤트</option>
+										<option value="SP">선포인트 신청</option>
+										<option value="AC">전차종 가격</option>
+										<option value="ETC">기타</option>
+									</select>
+									<select id="jobStatus" name="jobStatus" class="mr5">
+						                <option value="">상태</option>
+						                <option value="A">접수 완료</option>
+										<option value="I">문의 확인 중</option>
+										<option value="C">처리완료</option>
+									</select>
+									<select id="workStatus" name="workStatus" class="mr5">
+						                <option value="">업무상태</option>
+						                <option value="A">대기중</option>
+										<option value="I">작업중</option>
+										<option value="C">작업 완료</option>
+										<option value="F">작업 보류</option>
+										<option value="P">작업 취소</option>
+									</select>
+									 <select id="schCondition" name="schCondition" class="mr5">
+						                <option value="SALE_MAN_CD">사번</option>
+						                <option value="job_number">작업번호</option>
+						                <option value="title">제목</option>
+						            </select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>20개</option>
+										<option>50개</option>
+										<option>100개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="40" />
+										<col width="70" />
+										<col width="110" />
+										<col width="120" />
+										<col />
+										<col width="100" />
+										<col width="100" />
+										<col width="80" />
+										<col width="80" />
+										<col width="80" />
+										<col width="80" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th><input type="checkbox" /></th>
+											<th>번호 <input type="button" value="up" class="sort sup" /></th>
+											<th>작업번호 <input type="button" value="up" class="sort sup" /></th>
+											<th>작업구분 <input type="button" value="up" class="sort sup" /></th>
+											<th>제목 <input type="button" value="up" class="sort sup" /></th>
+											<th>응대일자 <input type="button" value="up" class="sort sup" /></th>
+											<th>완료일자 <input type="button" value="up" class="sort sup" /></th>
+											<th>기기 <input type="button" value="up" class="sort sup" /></th>
+											<th>요청자 <input type="button" value="up" class="sort sup" /></th>
+											<th>연락 <input type="button" value="up" class="sort sup" /></th>
+											<th>상태 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>10</td>
+											<td>201503-C13</td>
+											<td>이벤트</td>
+											<td class="subject"><a href="maintenance_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+											<td>2015-03-16</td>
+											<td>2015-04-01</td>
+											<td>공통</td>
+											<td>GM</td>
+											<td>전화</td>
+											<td>진행중</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>10</td>
+											<td>201503-C13</td>
+											<td>계약서 작성</td>
+											<td class="subject"><a href="maintenance_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+											<td>2015-03-16</td>
+											<td>2015-04-01</td>
+											<td>Android</td>
+											<td>카매니저</td>
+											<td>이메일</td>
+											<td>추가개발</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>10</td>
+											<td>201503-C13</td>
+											<td>계약서 작성</td>
+											<td class="subject"><a href="maintenance_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+											<td>2015-03-16</td>
+											<td>2015-04-01</td>
+											<td>Android</td>
+											<td>카매니저</td>
+											<td>이메일</td>
+											<td>진행불가</td>
+										</tr>
+										<tr>
+											<td><input type="checkbox" /></td>
+											<td>10</td>
+											<td>201503-C13</td>
+											<td>계약서 작성</td>
+											<td class="subject"><a href="maintenance_view.html">이벤트 개인정보 활용 동의서 수정</a></td>
+											<td>2015-03-16</td>
+											<td>2015-04-01</td>
+											<td>Android</td>
+											<td>카매니저</td>
+											<td>이메일</td>
+											<td>완료</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left mt5">
+										<input type="button" class="btnColor bGreen" value="엑셀 다운로드" />
+									</div>
+									<!---->
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li class="on"><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<!-- 2017-03-09 -->
+							<li><a href="help_list.html">유지보수</a></li>
+							<!-- //2017-03-09 -->
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<li><a href="">GMK 요청사항</a></li>
+							<li><a href="report_monthly_list.html">보고서 관리</a></li>
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="device.html">디바이스 관리</a></span></li>
+							<li><span><a href="carmanager_list.html">카매니저</a></span></li>
+							<li><span><a href="login_info.html">로그인 정보</a></span></li>
+							<li><span><a href="question_list.html">1:1 문의</a></span></li>
+							<!-- <li><span><a href="newjoin_list.html">신규등록 현황</a></span></li> -->
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">카매니저 관리</a></span>
+							<span>로그인 정보</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<h4 id="totBox">
+								   총 리스트 수 : <span id="totListSize"></span>
+								   <span class="right">
+							            <input type="radio" name="listObject" value="A" checked="checked"> 로그인 로그 정보
+							            <input type="radio" name="listObject" value="B"> 접속자 리스트
+							       </span>
+								</h4>
+								<div class="headBox tRight">
+									<span>
+										<input type="button" class="btnColor bPink" value="초기화" onclick="loginLogListCont.logClean()"/>
+									</span>
+									<select id="selectSearchDate" class="w80 mr5" onchange="dateSearch.select(this.value)">
+										<option value="1">1개월</option>
+										<option value="3">3개월</option>
+										<option value="5">5개월</option>
+										<option value="8">8개월</option>
+										<option value="12">1년</option>
+										<option value="No" selected>직접입력</option>
+									</select>
+									<span class="mr5 lh27">
+										<input type="text" readonly="" class="cal" /> ~
+										<input type="text" readonly="" class="cal" />
+									</span>
+									<select class="mr5">
+										<option value="">종류 전체</option>
+										<option value="ios">ios</option>
+										<option value="android">android</option>
+									</select>
+									<select class="mr5">
+										<option value="">모델 전체</option>
+										<option value="Phone">Phone</option>
+										<option value="Pad">Pad</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>20개</option>
+										<option>50개</option>
+										<option>100개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="80" />
+										<col width="180" />
+										<col />
+										<col width="130" />
+										<col width="130" />
+										<col width="130" />
+										<col width="130" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>No <input type="button" value="up" class="sort sup" /></th>
+											<th>접속 날짜 <input type="button" value="up" class="sort sup" /></th>
+											<th>사원성명 <input type="button" value="up" class="sort sup" /></th>
+											<th>사원번호 <input type="button" value="up" class="sort sup" /></th>
+											<th>영업소명 <input type="button" value="up" class="sort sup" /></th>
+											<th>기기 종류 <input type="button" value="up" class="sort sup" /></th>
+											<th>구분 <input type="button" value="up" class="sort sup" /></th>
+											<th>기기 모델명 <input type="button" value="up" class="sort sup" /></th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>100</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>99</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>98</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>97</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>96</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>95</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>94</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>93</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>92</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>91</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>90</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>89</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>88</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>87</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>86</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>85</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>84</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>83</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+										<tr>
+											<td>82</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>김포</td>
+											<td>IOS</td>
+											<td>타블렛</td>
+											<td>Ipad</td>
+										</tr>
+										<tr>
+											<td>81</td>
+											<td>2016-12-31 00:00:00</td>
+											<td><strong>홍길동</strong></td>
+											<td>K9165302</td>
+											<td>대구서부</td>
+											<td>Android</td>
+											<td>모바일</td>
+											<td>갤럭시s7</td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+
+			<hr/>
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

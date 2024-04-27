@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>GMK</title>
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="../js/basic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.btnPreviewPdf').click(function(){
+					$('.previewPdfPop').show();
+					$('#blind_wrap').show();
+				});
+				$('.pop .pbtn button').click(function() {
+					$('.pop').hide();
+					$('#blind_wrap').hide();
+				}); // 팝업 닫기
+			})
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!--
+			 class="snbright-style"
+			 class="center-style"
+			 class="side-hidden"
+			-->
+
+			<!-- header -->
+			<div id="header">
+				<div class="back">
+					<h1><img src="../images/logo.png" alt="logo"></h1>
+					<div class="hdata">
+						<ul class="gnb">
+							<li><a href="notice_list.html">컨텐츠 관리</a></li>
+							<li><a href="carmanager_list.html">카매니저 관리</a></li>
+							<li><a href="contract_manage_list.html">계약 관리</a></li>
+							<li><a onclick="alert('퍼블리싱 현행화 필요');return false;">차량 관리</a></li>
+							<li><a href="help_list.html">유지보수</a></li>
+							<li><a href="car_list.html">프로모션 관리</a></li>
+							<li><a href="manager_list.html">관리자 관리</a></li>
+							<!-- <li><a href="request_list.html">GMK 요청사항</a></li> -->
+							<li class="on"><a href="report_monthly_list.html">보고서 관리</a></li>
+							<li><a href="infra_server_list.html">인프라 관리</a></li><!-- 2020-06-08 -->
+							<li><a href="account_list.html">개인정보 보호</a></li><!-- 2020-07-09 -->
+						</ul>
+						<div class="right pd10">
+							<span class="btnSet onlytxt"><input type="button" value="basic style" class="lsbasic" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="right style" class="lsright" /></span>
+							<span class="btnSet onlytxt"><input type="button" value="center style" class="lscenter" /></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //header -->
+
+			<hr/>
+			<!-- container -->
+			<div id="container">
+				<div class="back">
+					<!-- snb -->
+					<div class="snb">
+						<strong>MENU</strong>
+						<ul>
+							<li><span><a href="report_monthly_list.html">월간 보고서</a></span></li>
+							<li><span><a href="report_weekly_list.html">주간 보고서</a></span></li>
+							<li><span><a href="report_daily_list.html">일일 보고서</a></span></li>
+							<li><span><a href="report_development_request_list.html">개발 요청 이력 보고서</a></span></li>
+							<li><span><a href="report_development_list.html">개발 이력</a></span></li>
+						</ul>
+						<strong>USER INFORMATION</strong>
+						<ul>
+							<li class="notlink user-date">3:00 PM | 12 May 2015</li>
+							<li class="user-push"><span><a href="#none">Push Messege</a></span></li>
+							<li class="user-setting"><span><a href="#none">Setting</a></span></li>
+							<li class="user-logout"><span><a href="#">Logout</a></span></li>
+						</ul>
+					</div>
+					<!---->
+
+					<hr/>
+					<div class="com-layout">
+						<h2>
+							<span><a href="main.html">보고서 관리</a></span>
+							<span>일일 보고서</span>
+							<input type="button" value="<" class="side-button" />
+						</h2>
+						<!-- contents -->
+						<div class="contents">
+							<div class="databox-line">
+								<div class="headBox tRight">
+									<span class="btnSet onlytxt" id="dateReset"><input class="btnSet" type="button" value="초기화" /></span>
+									<span class="mr5 lh27">
+										<input type="text" readonly="" class="cal" /> ~
+										<input type="text" readonly="" class="cal" />
+									</span>
+									<select class="mr5">
+										<option>작성자</option>
+									</select>
+									<span class="list-search mr5">
+										<input type="text" placeholder="Search..."/><input type="submit" class="search-icon" value="search" />
+									</span>
+									<select class="w80 mr5">
+										<option>10개</option>
+										<option>20개</option>
+										<option>30개</option>
+									</select>
+								</div>
+								<!-- list -->
+								<table cellpadding="0" cellspacing="0" border="0" class="tbls1">
+									<colgroup>
+										<col width="60" />
+										<col width="70" />
+										<col width="100" />
+										<col width="100" />
+										<col width="150" />
+									</colgroup>
+									<thead>
+										<tr>
+											<th>
+												<input type="checkbox"><label></label></span>
+											</th>
+											<th>보고일자</th>
+											<th>작성자</th>
+											<th>작성일시</th>
+											<th>미리보기</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-05</a></td>
+											<td>오유진</td>
+											<td>2020-02-05 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+										<tr>
+											<td>
+												<input type="checkbox"><label></label></span>
+											</td>
+											<td class="subject tCenter"><a href="report_daily_write.html">2020-02-06</a></td>
+											<td>오유진</td>
+											<td>2020-02-06 00:00</td>
+											<td><button class="btnPreviewPdf">미리보기</button></td>
+										</tr>
+									</tbody>
+								</table>
+								<!---->
+								<div class="listControlBox">
+									<div class="controlBox left">
+										<button class="btnColor bGreen">선택삭제</button>
+									</div>
+									<span class="btnBox">
+										<a href="report_daily_write.html" class="btnColor bRed">신규등록</a>
+									</span>
+									<!---->
+									<div class="paginate">
+										<a class="first">처음</a>
+										<a class="prev">이전</a>
+										<span>
+											<strong>1</strong>
+											<a>2</a>
+											<a>3</a>
+											<a>4</a>
+											<a>5</a>
+											<a>6</a>
+											<a>7</a>
+											<a>8</a>
+											<a>9</a>
+											<a>10</a>
+										</span>
+										<a class="next">다음</a>
+										<a class="last">마지막</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- //contents -->
+					</div>
+				</div>
+			</div>
+			<!-- //container -->
+			<!-- pdf 미리보기 팝업  -->
+			<div class="pop previewPdfPop" style="display:none;">
+				<h1>Pdf 미리보기</h1>
+				<img src="../images/btn_pclose.png" alt="Close" class="pclose">
+				<div class="popdata">
+					<img src="format/images/bg/bg_weeklyReport01.png" alt="주간보고서 1page"/>
+					<img src="format/images/bg/bg_weeklyReport02.png" alt="주간보고서 2page"/>
+					<img src="format/images/bg/bg_weeklyReport03.png" alt="주간보고서 3page"/>
+					<img src="format/images/bg/bg_weeklyReport04.png" alt="주간보고서 4page"/>
+				</div>
+				<div class="pbtn">
+					<button class="btnColor bGray">닫기</button>
+				</div>
+			</div>
+			<!---->
+			<div id="blind_wrap" style="display:none;"></div><hr/>
+
+			<!-- footer -->
+			<div id="footer">
+				<div class="back">
+					<p>Copyright 2005. THINK TREE.All Rights Reserved.</p>
+					<div>
+						<span class="btnSet pagetop"><a>TOP</a></span>
+					</div>
+				</div>
+			</div>
+			<!-- //footer -->
+
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

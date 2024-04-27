@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<title>CHEVROLET Smart work</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<!-- js libs -->
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.0.min.js"></script>
+		<script type="text/javascript" src="js/swiper.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+
+	<body>
+		<!-- wrap_back -->
+		<div id="wrap_back">
+
+			<!-- 2017-03-07 견적서 팝업 -->
+			<div class="esChoice-pop" style="display:none">
+				<div class="popBack">
+					<a href="estimate_introduction.html"><img src="images/btn_estimate_case1.png" alt="Smart Work 견적서" /></a>
+					<a href="https://m.gmdnet.co.kr/est.do?mode=frm_Estimate_new" target="_blank"><img src="images/btn_estimate_case2.png" alt="CMS 견적서" /></a> <!-- jy-seo 수정 -->
+				</div>
+				<input type="button" value="팝업닫기" class="pclose" />
+			</div>
+			<div id="blind_wrap" style="display:none"></div><!-- //팝업용 -->
+			<script>
+				$( document ).ready( function() {
+					$(".goEstimate, .snb1").bind('tap click', function(){
+						$(".esChoice-pop").toggle();
+						$("body").addClass('modalOpen');
+						$("#blind_wrap").toggle();
+					}); //견적서선택
+					$(".pclose").bind('tap click', function(){
+						$(".esChoice-pop").hide();
+						$("body").removeClass('modalOpen');
+						$("#blind_wrap").hide();
+					}); //팝업닫기
+				});
+			</script>
+			<!-- //2017-03-07 견적서 팝업 -->
+
+
+			<!-- 2017-10-17 snb -->
+			<nav id="c-menu--push-left" class="c-menu c-menu--push-left snbArea">
+				<input type="button" value="snb close" class="c-menu__close" /><!-- 2020-02-17 위치이동 -->
+				<div class="snbBack">
+					<div class="snbMain">
+						<div class="snbTop">
+							<span><a href="main.html">홈으로</a></span>
+							<div><h3><em>'김르노'</em> 님 안녕하세요</h3></div><!-- 2020-01-10 수정 -->
+							<a href="setting.html" class="btnSetting">설정</a><!-- 2020-02-17 추가 -->
+						</div>
+						<div class="listBox">
+							<ul>
+								<li class="snb1"><a href=""><img src="images/btn_snbmain1.png" alt="견적서"/></a></li>
+								<li class="snb2"><a href="contract_privacy.html"><img src="images/btn_snbmain2.png" alt="신규 계약서" /></a></li>
+								<li class="snb3"><a href="contract_list.html"><img src="images/btn_snbmain3.png" alt="진행중인 계약" /></a></li>
+								<li class="snb4"><a href="document_contract.html"><img src="images/btn_snbmain4.png" alt="증빙서류" /></a></li>
+								<li class="snb5"><a href="point_list.html"><img src="images/btn_snbmain5.png" alt="선포인트" /></a></li>
+								<li class="snb6"><a href="hipass_list.html"><img src="images/btn_snbmain6.png" alt="하이패스" /></a></li>
+								<li><a href="agreement_list.html"><img src="images/btn_snbmain20.png" alt="쉐보레플러스 케어 약정서"></a></li>
+							</ul>
+						</div>
+					</div>
+					<!---->
+					<div class="snbSide">
+						<div>
+							<ul>
+								<li><a href="interact_catalog.html"><img src="images/btn_snbmain18.png" alt="인터렉티브 카달로그"/></a></li>
+								<li><a href=""><img src="images/btn_snbmain19.png" alt="인사이트 리포트"/></a></li>
+								<li class="snb8"><a href="car_list.html"><img src="images/btn_snbmain8.png" alt="전차종가격" /></a></li>
+								<li class="snb7"><a href="benefit.html"><img src="images/btn_snbmain7.png" alt="판매조건" /></a></li>
+								<li class="snb9"><a href="event.html"><img src="images/btn_snbmain9.png" alt="이벤트" /></a></li>
+								<li class="snb10"><a href=""><img src="images/btn_snbmain17.png" alt="공지사항"/></a></li>
+								<li class="snb12"><a href="faq_index.html"><img src="images/btn_snbmain12.png" alt="FAQ" /></a></li>
+								<li class="snb13"><a href=""><img src="images/btn_snbmain13.png" alt="디지털 쇼룸" /></a></li>
+								<li class="snb14"><a href=""><img src="images/btn_snbmain14.png" alt="Build My Car" /></a></li>
+								<li class="snb15"><a href=""><img src="images/btn_snbmain15.png" alt="차량 비교" /></a></li>
+								<li class="snb16"><a href=""><img src="images/btn_snbmain16.png" alt="디지털 캠페인" /></a></li>
+								<li class="snb17"><a href=""><img src="images/btn_snbmain21.png" alt="영업 교육" /></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="snbBox">
+						<ul>
+							<li class="notice new"><a href="notice.html">공지사항</a></li>
+							<li class="logout"><a href="login.html">로그아웃</a></li>
+						</ul>
+					</div>
+					<div class="snbInfo">
+						<!-- 2020-01-08 수정 -->
+						<p><strong>S-Work 운영사무국</strong><span>070-5088-5099</span></p>
+						<p><strong>CMS / DMS / 견적서 운영사무국</strong><span>02-850-0029</span></p>
+						<p><strong>디지털 쇼룸/빌드 마이카/디지털캠페인/차랑비교</strong><span>070-4757-2070</span></p>
+						<p><strong>영업교육(쉐보레아카데미)</strong><span>032-363-7267, 7484</span></p>
+						<p><a href="mAdmin_main.html">Mobile Admin 바로가기</a></p>
+						<!-- //2020-01-08 수정 -->
+					</div>
+				</div>
+			</nav>
+			<!-- //snb -->
+			<div id="c-mask" class="c-mask"></div><!-- /c-mask -->
+			<!-- wrap -->
+			<div id="wrap" class="o-wrapper">
+
+				<!-- header -->
+				<div id="header">
+					<header class="topGnb">
+						<span class="left">
+							<span id="c-button--push-left" class="c-button hbtnSnb"><a>SNB Go</a></span>
+							<span class="hbtnBack"><a href="point_introduction.html">Back</a></span>
+						</span>
+						<h1><img src="images/img_tit_06_02.png" alt="삼성카드" /></h1>
+						<span class="right">
+							<button type="button" class="btnColor2 bRed">팩스 전송</button>
+						</span>
+					</header>
+				</div>
+				<!-- //header -->
+
+				<hr/>
+				<!-- contents -->
+				<div id="contents">
+					<section>
+						<!-- 선포인트 -->
+						<div class="pointLayout">
+							<!---->
+							<article>
+								<!-- 2016-12-03 Swiper로 변경 -->
+								<div class="tabMenu">
+									<div class="swiper-wrapper">
+										<span class="swiper-slide"><a href="point_ss_form.html">약정서</a></span>
+										<span class="swiper-slide on checkon"><a href="point_ss_privacy.html">개인정보 활용동의</a></span>
+										<span class="swiper-slide"><a href="point_ss_terms.html">이용약관</a></span>
+										<span class="swiper-slide"><a>미리보기</a></span>
+									</div>
+								</div>
+								<!-- //2016-12-03 -->
+							</article>
+							<!---->
+							<article>
+								<h2 class="hiddenTitle">개인(신용)정보 필수 동의서</h2>
+								<div class="privacyDetail pointCase">
+									<h1 class="agreement">1. 개인(신용)정보 필수 수집·이용 동의서</h1><!-- 2019-04-23 gugu 추가 -->
+									<p class="agreeIntro">선지급포인트서비스(선포인트서비스) 이용계약(이하, “계약” 또는 “이 계약”이라 합니다)과 관련하여 귀사가 본인의 개인(신용)정보를 수집·이용하고자 하는 경우에는 「개인정보보호법」 제15조 및 제22조, 제24조, 「신용정보의 이용 및 보호에 관한 법률」 제32조, 제33조 및 제34조에 따라 동의를 얻어야 합니다. 이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 수집·이용하는 데 동의합니다.</p> <!-- 2019-04-23 gugu 수정 -->
+									<div class="agreeDetail">
+										<!-- <h3>1. 수집•이용에 관한 사항</h3> 2019-04-24 gugu 주석 -->
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+											<!-- 2019-04-23 gugu 수정 -->
+												<ul class="agreementIndent20">
+													<li><strong>ㆍ 개인(신용)정보의 수집·이용 목적 :</strong> 계약의 체결·유지·이행·관리·개선, 선포인트서비스 제공, 전화상담, 민원처리, 본인 여부 확인, 분쟁처리, 법령상 의무이행, 비용정산</li>
+													<li><strong>ㆍ 수집·이용할 개인(신용)정보의 내용</strong>
+														<ul>
+															<li>- 개인식별정보 : 성명, 전화번호(직장, 자택, 휴대전화), 신분증정보(주민등록증 발급일자, 운전면허번호, 여권번호, 공무원증번호, 군인신분증번호)</li>
+															<li>- 거래정보 : 구매 차량정보, 카드번호, 선지급포인트, 승인일자, 승인번호, 이용금액</li>
+															<li>- 기타 선포인트서비스의 체결·유지·이행·관리·개선 등과 관련하여 본인이 제공한 정보</li>
+														</ul>
+													</li>
+													<li><strong>ㆍ 개인(신용)정보의 보유 및 이용기간 : 거래 종료(회원 탈회 또는 채권·채무 분쟁 종료)일로부터 5년까지(관련 법령에 별도 규정이 명시되어 있는 경우 그 기간을 따름)</strong></li>
+												</ul>
+											<!-- // 2019-04-23 gugu 수정 -->
+											</div>
+											<dl>
+												<dt class="hiddenTitle">신청인</dt>
+												<dd>
+													<strong>본인은 귀사가 위의 수집 이용을 위하여 다음과 같은 본인의 고유식별정보를 처리하는것에 동의합니다.</strong> <!-- 170103 txt 수정 -->
+													<div>
+														<span class="radioSet"> <!-- 161129 check -> radio 수정 -->
+															<input type="radio" name="radio1" id="c_01" checked />
+															<label for="c_01">동의함</label>
+														</span>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_02" />
+															<label for="c_02">동의 안함</label>
+														</span>
+													</div>
+												</dd>
+											</dl>
+											<p class="pt10 fb f85">- 고유식별정보 : 운전면허번호, 여권번호</p><!--19-04-24  gugu 수정 -->
+										</div>
+										<!---->
+									</div>
+									<!---->
+									<!-- 2019-04-24 gugu 추가 -->
+									<div class="agreeDetail">
+										<!---->
+										<div class="lineBox">
+											<div class="agreeData">
+												<ul class="agreementIndent12">
+													<li>ㆍ위의 내용이 변동되는 경우 홈페이지 게시 등을 통해 그 내용을 안내해 드리며, 본 동의서는 이 계약이 성립되지 않는 경우 그 시점으로부터 효력을 상실합니다.</li>
+													<li>ㆍ귀하는 동의를 거부할 권리가 있으나, 위 동의사항은 상거래관계의 설정, 유지에 필수적이거나, 상거래관계에 따라 귀하에게 제공되는 서비스와 직접적으로 관련되어 있는 것으로서 위 사항에 동의하지 않으실 경우 거래관계의 설정 또는 유지가 불가능할 수 있음을 알려 드립니다.</li>
+													<li>ㆍ이 계약이 종료된 후에도 관련 법령 및 내부지침에 의거하여 개인(신용)정보는 일정기간 보존됩니다.</li>
+												</ul>
+											</div>
+											<dl>
+												<dt class="hiddenTitle">신청인</dt>
+												<dd>
+													<strong>본인은 본 동의서 내용을 이해하고 동의하며, 개인(신용)정보 제공/활용에 관련한 고객권리에 대하여 자세한 설명을 들었습니다.</strong>
+													<div>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_03" checked />
+															<label for="c_03">동의함</label>
+														</span>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_04" />
+															<label for="c_04">동의 안함</label>
+														</span>
+													</div>
+												</dd>
+											</dl>
+										</div>
+										<!---->
+									</div>
+									<!-- // 2019-04-24 gugu 추가 -->
+									<div class="agreeSign"> <!-- 170103 서명란 추가 -->
+										<p>본인은 본 동의서 내용을 이해하고 동의합니다.</p>
+										<div class="gridSet grid3">
+											<div class="gridItem">
+												<div class="iSet">
+													<label>동의 날짜</label>
+													<span class="iLine"><input type="date" /></span>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>신청자</label>
+													<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>성명을 입력해 주세요</div></div>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>서명</label>
+													<div class="signCase" onClick="location.href='contract_form_popup03.html'"><div>서명을 입력해 주세요</div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!---->
+									<div class="agreeDetail"> <!-- 170103 동의 라디오 삭제 -->
+										<h3>2. 개인(신용)정보 필수 제공 동의서(상품 서비스 제공)</h3>
+										<!-- 2019-04-24  gugu 추가 -->
+										<p class="agreeIntro">아래의 사항은 선지급포인트서비스(이하 “선포인트서비스”) 신청・제공을 위해 반드시 동의하셔야 합니다. 이 계약과 관련하여 귀사가 본인의 개인(신용)정보를 제3자에게 제공할 경우 「개인정보보호법」 제17조 및 제22조, 「신용정보의 이용 및 보호에 관한 법률」제32조에 따라 동의를 얻어야 합니다. 이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 제공하는 데 동의합니다. <br/>ㆍ고객님이 신청하신 서비스 종류에 따라 아래 제휴사로 고객님의 정보가 제공됩니다.</p>
+										<!--// 2019-04-24 gugu 추가  -->
+										<!---->
+										<!--2019-04-24 gugu 수정-->
+										<div class="lineBox">
+											<div class="agreeData">
+												<table>
+													<colgroup>
+														<col width="18%"/>
+														<col width="18%"/>
+														<col width="34%"/>
+														<col width="34%"/>
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>제공 목적</th>
+															<th>제공 제휴사</th>
+															<th class="blackColor normal">제공 항목</th>
+															<th>보유 및 이용기간</th>
+														</tr>
+														<tr>
+															<td>선포인트서비스<br/>신청・제공,<br/> 비용 정산</td>
+															<td>한국지엠<br/>주식회사</td>
+															<td class="blackColor normal">카드번호, 선포인트서비스<br/>이용금액, 승인일자, 승인번호</td><!-- 2020-01-08 수정 -->
+															<td>거래 종료(회원 탈회 또는 채권·채무 분쟁 종료)일로부터 5년까지(관련 법령에 별도 규정이 명시되어 있는 경우 그 기간을 따름)</td>
+														</tr>
+													</tbody>
+												</table>
+												<ul class="agreementIndent20">
+													<li>ㆍ위의 내용이 변동되는 경우 홈페이지 게시 등을 통해 그 내용을 안내해 드리며, 본 동의서는 이 계약이 성립되지 않는 경우 그 시점으로부터 효력을 상실합니다.</li>
+													<li>ㆍ귀하는 동의를 거부할 권리가 있으나, 위 동의사항은 상거래관계의 설정, 유지에 필수적이거나, 상거래관계에 따라 귀하에게 제공되는 서비스와 직접적으로 관련되어 있는 것으로서 위 사항에 동의하지 않으실 경우 거래관계의 설정 또는 유지가 불가능할 수 있음을 알려 드립니다.</li>
+													<li>ㆍ이 계약이 종료된 후에도 관련 법령 및 내부지침에 의거하여 개인(신용)정보는 일정기간 보존됩니다.</li>
+												</ul>
+											</div>
+											<dl>
+												<dt class="hiddenTitle">신청인</dt>
+												<dd>
+													<strong>본인은 본 동의서 내용을 이해하고 동의하며, 개인(신용)정보 제공/활용에 관련한 고객권리에 대하여 자세한 설명을 들었습니다.</strong>
+													<div>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_05" checked />
+															<label for="c_05">동의함</label>
+														</span>
+														<span class="radioSet">
+															<input type="radio" name="radio1" id="c_06" />
+															<label for="c_06">동의 안함</label>
+														</span>
+													</div>
+												</dd>
+											</dl>
+										</div>
+										<!--// 2019-04-24 gugu 수정 -->
+									</div>
+									<!---->
+									<div class="agreeSign">
+										<p>본인은 본 동의서 내용을 이해하고 동의합니다.</p>
+										<div class="gridSet grid3">
+											<div class="gridItem">
+												<div class="iSet">
+													<label>동의 날짜</label>
+													<span class="iLine"><input type="date" /></span>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>신청자</label>
+													<div class="signCase" onClick="location.href='contract_form_popup04.html'"><div>성명을 입력해 주세요</div></div>
+												</div>
+											</div>
+											<div class="gridItem">
+												<div class="iSet">
+													<label>서명</label>
+													<div class="signCase" onClick="location.href='contract_form_popup03.html'"><div>서명을 입력해 주세요</div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--//-->
+								</div>
+							</article>
+						</div>
+						<!-- //선포인트 -->
+					</section>
+				</div>
+				<!-- //contents -->
+			</div>
+			<!-- //wrap -->
+		</div>
+		<!-- //wrap_back -->
+		<script src="js/menu.js"></script>
+		<script>
+
+		/**
+		* Push left instantiation and action.
+		*/
+		var pushLeft = new Menu({
+			wrapper: '#wrap',
+			type: 'push-left',
+			menuOpenerClass: '.c-button',
+			maskId: '#c-mask'
+		});
+
+		var pushLeftBtn = document.querySelector('#c-button--push-left');
+
+		pushLeftBtn.addEventListener('click', function(e) {
+			e.preventDefault;
+			pushLeft.open();
+		});
+
+		var swiper = new Swiper('.tabMenu', {
+			pagination: null,
+			slidesPerView: 'auto',
+			paginationClickable: true,
+			spaceBetween: 0
+		});
+		swiper.slideTo(1); //시작은 0이며 현재 2번째
+
+		</script>
+	</body>
+</html>
